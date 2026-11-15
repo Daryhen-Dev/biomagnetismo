@@ -62,6 +62,7 @@ services:
     volumes:
       - ./source/domains/centrodoctorgoiz.cl/public_html:/var/www/html
       - ./docker/php-local.ini:/usr/local/etc/php/conf.d/zz-local.ini:ro
+      - ./scripts:/scripts:ro
     entrypoint: ["wp"]
     user: "33:33"
 

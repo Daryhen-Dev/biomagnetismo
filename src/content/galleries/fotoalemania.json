@@ -1,0 +1,165 @@
+{
+  "title": "FotoAlemania",
+  "cover": "/src/assets/media/2020/11/1.webp",
+  "intro": "![Alemania 300x180](/src/assets/media/2020/11/Alemania.webp \"Alemania\")\n\n### Alemania\n\n**Curso: Ottenberg y Ulm**",
+  "galleries": [
+    {
+      "slug": "alemania-2",
+      "title": "Alemania",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/11/1.webp",
+          "alt": "FotoAlemania: Alemania (foto 1 de 19)",
+          "altPending": true,
+          "caption": "1",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/11/2.webp",
+          "alt": "FotoAlemania: Alemania (foto 2 de 19)",
+          "altPending": true,
+          "caption": "2",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/11/3.webp",
+          "alt": "FotoAlemania: Alemania (foto 3 de 19)",
+          "altPending": true,
+          "caption": "3",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/4.webp",
+          "alt": "FotoAlemania: Alemania (foto 4 de 19)",
+          "altPending": true,
+          "caption": "4",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/5.webp",
+          "alt": "FotoAlemania: Alemania (foto 5 de 19)",
+          "altPending": true,
+          "caption": "5",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/6.webp",
+          "alt": "FotoAlemania: Alemania (foto 6 de 19)",
+          "altPending": true,
+          "caption": "6",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/7.webp",
+          "alt": "FotoAlemania: Alemania (foto 7 de 19)",
+          "altPending": true,
+          "caption": "7",
+          "width": 1024,
+          "height": 736
+        },
+        {
+          "src": "/src/assets/media/2020/11/8.webp",
+          "alt": "FotoAlemania: Alemania (foto 8 de 19)",
+          "altPending": true,
+          "caption": "8",
+          "width": 1024,
+          "height": 801
+        },
+        {
+          "src": "/src/assets/media/2020/11/9.webp",
+          "alt": "FotoAlemania: Alemania (foto 9 de 19)",
+          "altPending": true,
+          "caption": "9",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/10.webp",
+          "alt": "FotoAlemania: Alemania (foto 10 de 19)",
+          "altPending": true,
+          "caption": "10",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06-1.webp",
+          "alt": "FotoAlemania: Alemania (foto 11 de 19)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 19.55.06 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06-2.webp",
+          "alt": "FotoAlemania: Alemania (foto 12 de 19)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 19.55.06 (2)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06.webp",
+          "alt": "FotoAlemania: Alemania (foto 13 de 19)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 19.55.06",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.59.31-2.webp",
+          "alt": "FotoAlemania: Alemania (foto 14 de 19)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 19.59.31 (2)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.59.31.webp",
+          "alt": "FotoAlemania: Alemania (foto 15 de 19)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 19.59.31",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/11/y.1.webp",
+          "alt": "FotoAlemania: Alemania (foto 16 de 19)",
+          "altPending": true,
+          "caption": "y.1",
+          "width": 1024,
+          "height": 861
+        },
+        {
+          "src": "/src/assets/media/2020/11/y.2.webp",
+          "alt": "FotoAlemania: Alemania (foto 17 de 19)",
+          "altPending": true,
+          "caption": "y.2",
+          "width": 708,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/z.1.webp",
+          "alt": "FotoAlemania: Alemania (foto 18 de 19)",
+          "altPending": true,
+          "caption": "z.1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/z.2.webp",
+          "alt": "FotoAlemania: Alemania (foto 19 de 19)",
+          "altPending": true,
+          "caption": "z.2",
+          "width": 1024,
+          "height": 576
+        }
+      ]
+    }
+  ]
+}

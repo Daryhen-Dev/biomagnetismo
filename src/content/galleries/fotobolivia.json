@@ -1,0 +1,451 @@
+{
+  "title": "FotoBolivia",
+  "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-1-1.webp",
+  "intro": "![Bolivia 300x205](/src/assets/media/2020/11/Bolivia.webp \"Bolivia\")\n\n### Bolivia\n\n**Atención niños de Bolivia**\n\n**Clínica del Dr. Efrain Coteja**\n\n**Curso la Paz**\n\n**Curso en Toledo**\n\n**Hospital San Juan de Dios Oruro: Programa piloto con biomagnetismo, en 4 días se dio de alta a 128 pacientes hospitalizados. Se trató todo tipo de patologías.**\n\n**Universidad Oruro**",
+  "galleries": [
+    {
+      "slug": "bolivia-atencion-ninos",
+      "title": "Bolivia - Atencion Ninos",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 1 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.55.58 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-2-1.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 2 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.55.58 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-3.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 3 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.55.58",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.59-1.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 4 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.55.59",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.59.36-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 5 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.59.36 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.59.36-2.webp",
+          "alt": "FotoBolivia: Bolivia - Atencion Ninos (foto 6 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.59.36",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "clinica-del-dr-efrain-coteja",
+      "title": "Clínica del Dr. Efraín Coteja",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.07-1.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 1 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.10.07 (1)",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.07.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 2 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.10.07",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.08-3.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 3 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.10.08 (3)",
+          "width": 960,
+          "height": 539
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.08.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 4 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.10.08",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-7.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 5 de 6)",
+          "altPending": true,
+          "caption": "z",
+          "width": 960,
+          "height": 640
+        },
+        {
+          "src": "/src/assets/media/2020/10/zz-3.webp",
+          "alt": "FotoBolivia: Clínica del Dr. Efraín Coteja (foto 6 de 6)",
+          "altPending": true,
+          "caption": "zz",
+          "width": 960,
+          "height": 640
+        }
+      ]
+    },
+    {
+      "slug": "bolivia-curso-la-paz-2",
+      "title": "Bolivia - Curso la Paz",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.26.00-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso la Paz (foto 1 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.26.00 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.07.38-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso la Paz (foto 2 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.07.38 (1)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.07.38-2.webp",
+          "alt": "FotoBolivia: Bolivia - Curso la Paz (foto 3 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.07.38",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-8.webp",
+          "alt": "FotoBolivia: Bolivia - Curso la Paz (foto 4 de 4)",
+          "altPending": true,
+          "caption": "z",
+          "width": 1024,
+          "height": 576
+        }
+      ]
+    },
+    {
+      "slug": "bolivia-curso-toledo-2",
+      "title": "Bolivia - Curso Toledo",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1-7.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 1 de 20)",
+          "altPending": true,
+          "caption": "1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-9.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 2 de 20)",
+          "altPending": true,
+          "caption": "2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-9.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 3 de 20)",
+          "altPending": true,
+          "caption": "3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-8.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 4 de 20)",
+          "altPending": true,
+          "caption": "4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 5 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-5-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 6 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (5)",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-6-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 7 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (6)",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-7-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 8 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (7)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.12.41-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 9 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.12.41 (1)",
+          "width": 534,
+          "height": 949
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 10 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-2-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 11 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-3-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 12 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-4.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 13 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.21.10",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.35.53-1-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 14 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.35.53 (1)",
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.35.53-2-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 15 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.35.53 (2)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.32.06-1.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 16 de 20)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.32.06",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-9.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 17 de 20)",
+          "altPending": true,
+          "caption": "z",
+          "width": 720,
+          "height": 712
+        },
+        {
+          "src": "/src/assets/media/2020/10/zz-4.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 18 de 20)",
+          "altPending": true,
+          "caption": "zz",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/zzz-2.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 19 de 20)",
+          "altPending": true,
+          "caption": "zzz",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/zzzz-2.webp",
+          "alt": "FotoBolivia: Bolivia - Curso Toledo (foto 20 de 20)",
+          "altPending": true,
+          "caption": "zzzz",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "bolivia-hospital-san-juan-de-dios-oruro-2",
+      "title": "Bolivia - Hospital San Juan de Dios Oruro",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-2-1.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 1 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 15.51.54 (2)",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-3-1.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 2 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 15.51.54 (3)",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-1.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 3 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 15.51.54",
+          "width": 960,
+          "height": 720
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-1.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 4 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (1)",
+          "width": 960,
+          "height": 638
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-2.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 5 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (2)",
+          "width": 720,
+          "height": 478
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-3.webp",
+          "alt": "FotoBolivia: Bolivia - Hospital San Juan de Dios Oruro (foto 6 de 6)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (3)",
+          "width": 960,
+          "height": 818
+        }
+      ]
+    },
+    {
+      "slug": "bolivia-universidad-oruro-2",
+      "title": "Bolivia - Universidad Oruro",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1-8.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 1 de 9)",
+          "altPending": true,
+          "caption": "1",
+          "width": 575,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-10.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 2 de 9)",
+          "altPending": true,
+          "caption": "2",
+          "width": 472,
+          "height": 668
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-10.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 3 de 9)",
+          "altPending": true,
+          "caption": "3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-9.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 4 de 9)",
+          "altPending": true,
+          "caption": "4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/5-6.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 5 de 9)",
+          "altPending": true,
+          "caption": "5",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/6-4.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 6 de 9)",
+          "altPending": true,
+          "caption": "6",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-21-at-18.50.38-1.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 7 de 9)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-21 at 18.50.38",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/zzz-3.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 8 de 9)",
+          "altPending": true,
+          "caption": "zzz",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/zzzz-3.webp",
+          "alt": "FotoBolivia: Bolivia - Universidad Oruro (foto 9 de 9)",
+          "altPending": true,
+          "caption": "zzzz",
+          "width": 720,
+          "height": 960
+        }
+      ]
+    }
+  ]
+}

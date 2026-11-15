@@ -1,0 +1,637 @@
+{
+  "title": "FotoChile",
+  "cover": "/src/assets/media/2020/10/1-3.webp",
+  "intro": "![Chile 300x200](/src/assets/media/2020/11/Chile.webp \"Chile\")\n\n### Chile\n\n**Curso realizado en la Nación Mapuche**\n\n**Curso primera y segunda promoción de no videntes.\nDr. Francisco Mena, creador del método de enseñanza para no videntes.**\n\n**Cursos en el Centro Dr. Goiz Durán, Santiago de Chile.**\n\n**Cursos UDLA**\n\n**Curso realizado en la Temuco**",
+  "galleries": [
+    {
+      "slug": "chile-curso-mapuche",
+      "title": "Chile - Curso Mapuche",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 1 de 21)",
+          "altPending": true,
+          "caption": "1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 2 de 21)",
+          "altPending": true,
+          "caption": "2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 3 de 21)",
+          "altPending": true,
+          "caption": "3",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 4 de 21)",
+          "altPending": true,
+          "caption": "4",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/5-2.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 5 de 21)",
+          "altPending": true,
+          "caption": "5",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/6-2.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 6 de 21)",
+          "altPending": true,
+          "caption": "6",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-1.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 7 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-2.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 8 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 9 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-6.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 10 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (6)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-7.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 11 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (7)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-8.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 12 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (8)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 13 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.34.06",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-1.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 14 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (1)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 15 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (3)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-5.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 16 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (5)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-6.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 17 de 21)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (6)",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/y-1.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 18 de 21)",
+          "altPending": true,
+          "caption": "y",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/yy.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 19 de 21)",
+          "altPending": true,
+          "caption": "yy",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-3.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 20 de 21)",
+          "altPending": true,
+          "caption": "z",
+          "width": 750,
+          "height": 778
+        },
+        {
+          "src": "/src/assets/media/2020/10/zz-2.webp",
+          "alt": "FotoChile: Chile - Curso Mapuche (foto 21 de 21)",
+          "altPending": true,
+          "caption": "zz",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "chile-curso-no-videntes-udla",
+      "title": "Chile - Curso no videntes UDLA",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1.1.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 1 de 7)",
+          "altPending": true,
+          "caption": "1.1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/1.2.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 2 de 7)",
+          "altPending": true,
+          "caption": "1.2",
+          "width": 750,
+          "height": 671
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-4.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 3 de 7)",
+          "altPending": true,
+          "caption": "2",
+          "width": 749,
+          "height": 743
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-4.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 4 de 7)",
+          "altPending": true,
+          "caption": "3",
+          "width": 720,
+          "height": 511
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-4.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 5 de 7)",
+          "altPending": true,
+          "caption": "4",
+          "width": 607,
+          "height": 819
+        },
+        {
+          "src": "/src/assets/media/2020/10/5-3.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 6 de 7)",
+          "altPending": true,
+          "caption": "5",
+          "width": 750,
+          "height": 845
+        },
+        {
+          "src": "/src/assets/media/2020/10/6-3.webp",
+          "alt": "FotoChile: Chile - Curso no videntes UDLA (foto 7 de 7)",
+          "altPending": true,
+          "caption": "6",
+          "width": 923,
+          "height": 750
+        }
+      ]
+    },
+    {
+      "slug": "chile-santiago-de-chile",
+      "title": "Chile - Santiago de Chile",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1.1-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 1 de 16)",
+          "altPending": true,
+          "caption": "1.1",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/1.2-2.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 2 de 16)",
+          "altPending": true,
+          "caption": "1.2",
+          "width": 550,
+          "height": 369
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-8.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 3 de 16)",
+          "altPending": true,
+          "caption": "2",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-8.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 4 de 16)",
+          "altPending": true,
+          "caption": "3",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-7.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 5 de 16)",
+          "altPending": true,
+          "caption": "4",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/5-5.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 6 de 16)",
+          "altPending": true,
+          "caption": "5",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-1-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 7 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (1)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-2-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 8 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (2)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-3-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 9 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (3)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-4.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 10 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 20.52.45",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.11.32-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 11 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.11.32 (1)",
+          "width": 550,
+          "height": 413
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.11.32-2.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 12 de 16)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.11.32 (2)",
+          "width": 750,
+          "height": 392
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-6.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 13 de 16)",
+          "altPending": true,
+          "caption": "z",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z2-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 14 de 16)",
+          "altPending": true,
+          "caption": "z2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z3-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 15 de 16)",
+          "altPending": true,
+          "caption": "z3",
+          "width": 765,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z4-1.webp",
+          "alt": "FotoChile: Chile - Santiago de Chile (foto 16 de 16)",
+          "altPending": true,
+          "caption": "z4",
+          "width": 765,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "slug": "chile-udla",
+      "title": "Chile - UDLA",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1-5.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 1 de 22)",
+          "altPending": true,
+          "caption": "1",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2020/10/2.1.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 2 de 22)",
+          "altPending": true,
+          "caption": "2.1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-6.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 3 de 22)",
+          "altPending": true,
+          "caption": "2",
+          "width": 720,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-6.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 4 de 22)",
+          "altPending": true,
+          "caption": "3",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/4-6.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 5 de 22)",
+          "altPending": true,
+          "caption": "4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/5.1.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 6 de 22)",
+          "altPending": true,
+          "caption": "5.1",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/5.2.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 7 de 22)",
+          "altPending": true,
+          "caption": "5.2",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/src/assets/media/2020/10/5.3.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 8 de 22)",
+          "altPending": true,
+          "caption": "5.3",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/6.1.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 9 de 22)",
+          "altPending": true,
+          "caption": "6.1",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/6.2.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 10 de 22)",
+          "altPending": true,
+          "caption": "6.2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.26.11-1.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 11 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.26.11 (1)",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z2.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 12 de 22)",
+          "altPending": true,
+          "caption": "z2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z3.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 13 de 22)",
+          "altPending": true,
+          "caption": "z3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z4.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 14 de 22)",
+          "altPending": true,
+          "caption": "z4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z5.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 15 de 22)",
+          "altPending": true,
+          "caption": "z5",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z6.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 16 de 22)",
+          "altPending": true,
+          "caption": "z6",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z7.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 17 de 22)",
+          "altPending": true,
+          "caption": "z7",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z8.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 18 de 22)",
+          "altPending": true,
+          "caption": "z8",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z9.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 19 de 22)",
+          "altPending": true,
+          "caption": "z9",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z10.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 20 de 22)",
+          "altPending": true,
+          "caption": "z10",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z11.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 21 de 22)",
+          "altPending": true,
+          "caption": "z11",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/z12.webp",
+          "alt": "FotoChile: Chile - UDLA (foto 22 de 22)",
+          "altPending": true,
+          "caption": "z12",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "temuco",
+      "title": "Temuco",
+      "images": [
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.11.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.08.11",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.26.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.08.26",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.45.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.08.45",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.09.29.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.09.29",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.09.53.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.09.53",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.16.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.10.16",
+          "altPending": false,
+          "caption": "",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.39.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.10.39",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.49.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.10.49",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.11.45.webp",
+          "alt": "whatsapp image 2026 02 02 at 09.11.45",
+          "altPending": false,
+          "caption": "",
+          "width": 1280,
+          "height": 960
+        }
+      ]
+    }
+  ]
+}

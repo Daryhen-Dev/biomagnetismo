@@ -1,0 +1,69 @@
+{
+  "title": "FotoBrasil",
+  "cover": "/src/assets/media/2020/11/WhatsApp-Image-2019-10-03-at-11.25.30-2.webp",
+  "intro": "![Brasil 300x210](/src/assets/media/2020/11/Brasil.webp \"Brasil\")\n\n### Brasil\n\n**Curso realizado en Brasil**",
+  "galleries": [
+    {
+      "slug": "brasil-curso",
+      "title": "Brasil-Curso",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-10-03-at-11.25.30-2.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 1 de 7)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 11.25.30 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-1.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 2 de 7)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (1)",
+          "width": 800,
+          "height": 450
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-2.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 3 de 7)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (2)",
+          "width": 667,
+          "height": 500
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-3.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 4 de 7)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (3)",
+          "width": 800,
+          "height": 450
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 5 de 7)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-29 at 14.05.30",
+          "width": 667,
+          "height": 500
+        },
+        {
+          "src": "/src/assets/media/2020/11/y.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 6 de 7)",
+          "altPending": true,
+          "caption": "y",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/z.webp",
+          "alt": "FotoBrasil: Brasil-Curso (foto 7 de 7)",
+          "altPending": true,
+          "caption": "z",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    }
+  ]
+}

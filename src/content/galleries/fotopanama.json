@@ -1,0 +1,53 @@
+{
+  "title": "FotoPanama",
+  "cover": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.19.webp",
+  "intro": "![Panama 300x200](/src/assets/media/2020/11/Panama.webp \"Panama\")\n\n### Panamá\n\n**Indígenas de Panamá**",
+  "galleries": [
+    {
+      "slug": "panama",
+      "title": "Panama",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.19.webp",
+          "alt": "FotoPanama: Panama (foto 1 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.36.19",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.20-3.webp",
+          "alt": "FotoPanama: Panama (foto 2 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.36.20 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.21.webp",
+          "alt": "FotoPanama: Panama (foto 3 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.36.21",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.33.49-2.webp",
+          "alt": "FotoPanama: Panama (foto 4 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.33.49 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.33.49-3.webp",
+          "alt": "FotoPanama: Panama (foto 5 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.33.49 (3)",
+          "width": 768,
+          "height": 1024
+        }
+      ]
+    }
+  ]
+}

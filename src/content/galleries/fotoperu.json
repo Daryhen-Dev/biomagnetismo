@@ -1,0 +1,273 @@
+{
+  "title": "FotoPeru",
+  "cover": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.28-1.webp",
+  "intro": "![Peru 300x200](/src/assets/media/2020/11/Peru.webp \"Peru\")\n\n### Perú\n\n**Atención a pacientes en Lima Peru octubre 2020**\n\n**Curso en Taray y atención a pacientes.**\n\n**Curso en Lima**",
+  "galleries": [
+    {
+      "slug": "peru-lima-pacientes",
+      "title": "Peru-Lima-Pacientes",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.28-1.webp",
+          "alt": "FotoPeru: Peru-Lima-Pacientes (foto 1 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-11-18 at 16.50.28 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.28-2.webp",
+          "alt": "FotoPeru: Peru-Lima-Pacientes (foto 2 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-11-18 at 16.50.28 (2)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.28.webp",
+          "alt": "FotoPeru: Peru-Lima-Pacientes (foto 3 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-11-18 at 16.50.28",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.29-1.webp",
+          "alt": "FotoPeru: Peru-Lima-Pacientes (foto 4 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-11-18 at 16.50.29 (1)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.50.29.webp",
+          "alt": "FotoPeru: Peru-Lima-Pacientes (foto 5 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-11-18 at 16.50.29",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "peru-taray",
+      "title": "Peru - Taray",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/1.2-1.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 1 de 22)",
+          "altPending": true,
+          "caption": "1.2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/1.3.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 2 de 22)",
+          "altPending": true,
+          "caption": "1.3",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/1.4.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 3 de 22)",
+          "altPending": true,
+          "caption": "1.4",
+          "width": 539,
+          "height": 960
+        },
+        {
+          "src": "/src/assets/media/2020/10/1.5.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 4 de 22)",
+          "altPending": true,
+          "caption": "1.5",
+          "width": 960,
+          "height": 539
+        },
+        {
+          "src": "/src/assets/media/2020/10/1-6.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 5 de 22)",
+          "altPending": true,
+          "caption": "1",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/2-7.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 6 de 22)",
+          "altPending": true,
+          "caption": "2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/3-7.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 7 de 22)",
+          "altPending": true,
+          "caption": "3",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.04.41-1.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 8 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.04.41 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.04.41-3.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 9 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.04.41 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.04.41.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 10 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.04.41",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.23-1.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 11 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.23 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.23.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 12 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.23",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.24-1.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 13 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.24 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.24-3.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 14 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.24 (3)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.24-4.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 15 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.24 (4)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.24-5.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 16 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.24 (5)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.07.24-6.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 17 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-09-21 at 21.07.24 (6)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.15.04-2.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 18 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.15.04 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.15.04.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 19 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 14.15.04",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.29.35-2.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 20 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.29.35 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.29.35.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 21 de 22)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.29.35",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/z-5.webp",
+          "alt": "FotoPeru: Peru - Taray (foto 22 de 22)",
+          "altPending": true,
+          "caption": "z",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    },
+    {
+      "slug": "peru-curso-lima",
+      "title": "Peru - Curso Lima",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-11.28.45.webp",
+          "alt": "FotoPeru: Peru - Curso Lima (foto 1 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 11.28.45",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-11.28.46.webp",
+          "alt": "FotoPeru: Peru - Curso Lima (foto 2 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2019-10-03 at 11.28.46",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.14.56.webp",
+          "alt": "FotoPeru: Peru - Curso Lima (foto 3 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.14.56",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.14.57.webp",
+          "alt": "FotoPeru: Peru - Curso Lima (foto 4 de 4)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 22.14.57",
+          "width": 768,
+          "height": 1024
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "FotoEcuador",
+  "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-1.webp",
+  "intro": "![Ecuador 300x200](/src/assets/media/2020/11/Ecuador.webp \"Ecuador\")\n\n### Ecuador\n\n**Atención niños en Peguche**",
+  "galleries": [
+    {
+      "slug": "ecuador-peguche",
+      "title": "Ecuador - Peguche",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-1.webp",
+          "alt": "FotoEcuador: Ecuador - Peguche (foto 1 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (1)",
+          "width": 1024,
+          "height": 767
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-2.webp",
+          "alt": "FotoEcuador: Ecuador - Peguche (foto 2 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-3.webp",
+          "alt": "FotoEcuador: Ecuador - Peguche (foto 3 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-4.webp",
+          "alt": "FotoEcuador: Ecuador - Peguche (foto 4 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (4)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08.webp",
+          "alt": "FotoEcuador: Ecuador - Peguche (foto 5 de 5)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.49.08",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    }
+  ]
+}

@@ -42,6 +42,27 @@ en `DESIGN.md`, el público y los objetivos en `PRODUCT.md`.
 **S6 — Destino de despliegue.** Vercel o Netlify (se decide en el cierre).
 > "Vercel o Netlify"
 
+**S7 — Trazabilidad del código y de las páginas.** Cualquier persona que abra el proyecto debe entender
+cómo está estructurado y saber por dónde empezar para cambiar algo.
+> "debes tener presente la trazabilidad en astro para cuando yo vea el codigo o las paginas yo pueda
+> entenderlo como esta estructurado y si tengo que cambiar algo saber por donde empezar"
+
+Consecuencias: estructura de carpetas explícita, un mapa de "dónde toco qué" en `README.md`, nombres
+de archivo iguales a las URLs, comentarios que expliquen el porqué y no el qué, y frontmatter
+autoexplicativo (`wpId` como procedencia).
+
+**S8 — Toda pregunta al usuario llega con opciones y una recomendada.**
+> "siempre que me preguntes algo debes darme las opciones con tu opcion recomendada siempre"
+
+Aplica a cualquier decisión: opciones enumeradas, cada una con su consecuencia, y una marcada como
+recomendada con el motivo. Los consentimientos del proveedor de review conservan su formato propio.
+
+**S9 — Mobile first, sin excepciones.** El sitio se ve bien primero en móvil y después escala a desktop.
+> "todo va hacer movil first es decir siempre debe verse bien desde un movil y despues a desktop"
+
+Consecuencias: el diseño se compone desde el viewport angosto, los breakpoints son adiciones y no
+correcciones, y la verificación visual en T18 incluye capturas a 390 px antes que a 1440 px.
+
 ## Tasks
 
 | ID | Tarea | Specs | Ruta | Commit |
@@ -141,3 +162,14 @@ no existen en Pi: el detector se invoca explícitamente. Docker 28.3.2 y Compose
 
 Efecto sobre el alcance: de 26 páginas quedan **21** para portar, más los redirects de las 5 inglesas y de
 las 2 entradas. T14 y T15 quedan descartadas y se abre el trabajo de consolidación dentro de T17.
+
+**L7** (requisitos permanentes añadidos antes de construir las páginas):
+> ya que vas a implementar todo debes tener presente la trazabilidad en astro para cuando yo vea el codigo o las paginas yo pueda entenderlo como esta estructurado y si tengo que cambiar algo saber por donde empezar. Tambien siempre que me preguntes algo debes darme las opciones con tu opcion recomendada siempre. Otra cosa es que todo va hacer movil first es decir siempre debe verse bien desde un movil y despues a desktop.
+
+Se registran como S7 (trazabilidad), S8 (opciones con recomendación) y S9 (mobile first).
+
+**Evidencia E8** — port de contenido ejecutado (T8-T9): 10 páginas en `src/content/pages/`, 11 archivos de
+galería con 30 galerías Modula y 254 imágenes, 287 WebP en `src/assets/media/` (30,1 MB → 19,9 MB, EXIF/ICC/XMP
+eliminado por privacidad), y `src/data/redirects.json` con los 7 redirects 301. `pnpm run check` y `pnpm run
+build` pasan. Las 89 imágenes de 11 galerías huérfanas (que ninguna página embebe) quedaron fuera a propósito.
+`galeria.md` conserva una referencia a un placeholder de Elementor que la fase de diseño debe reemplazar.

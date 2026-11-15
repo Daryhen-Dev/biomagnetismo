@@ -1,0 +1,125 @@
+{
+  "title": "FotoParaguay",
+  "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08-1.webp",
+  "intro": "![Paraguay 300x165](/src/assets/media/2020/11/Paraguay.webp \"Paraguay\")\n\n### Paraguay\n\n**Curso Asunción**",
+  "galleries": [
+    {
+      "slug": "paraguay-curso-asuncion",
+      "title": "Paraguay - Curso Asuncion",
+      "images": [
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08-1.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 1 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.25.08 (1)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 2 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.25.08",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09-1.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 3 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.25.09 (1)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09-2.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 4 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.25.09 (2)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 5 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 18.25.09",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-1.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 6 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (1)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-2.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 7 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (2)",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-3.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 8 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (3)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-4.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 9 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (4)",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 10 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.38.31",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.39.31.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 11 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.39.31",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.39.32.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 12 de 14)",
+          "altPending": true,
+          "caption": "WhatsApp Image 2020-10-22 at 21.39.32",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "src": "/src/assets/media/2020/10/y2.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 13 de 14)",
+          "altPending": true,
+          "caption": "y2",
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "src": "/src/assets/media/2020/10/y3.webp",
+          "alt": "FotoParaguay: Paraguay - Curso Asuncion (foto 14 de 14)",
+          "altPending": true,
+          "caption": "y3",
+          "width": 1024,
+          "height": 768
+        }
+      ]
+    }
+  ]
+}

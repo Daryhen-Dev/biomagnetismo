@@ -1,0 +1,38 @@
+---
+/**
+ * Ruta de las páginas institucionales.
+ *
+ * Una sola plantilla sirve las 10 páginas porque todas comparten estructura: el
+ * contenido vive en `src/content/pages/<slug>.md` y el nombre del archivo ES la
+ * URL (salvo `home`, que se publica en `/`).
+ *
+ * Para cambiar un texto: editá el .md de la página en src/content/pages/.
+ * Para cambiar cómo se ven TODAS las páginas: layouts/BaseLayout.astro.
+ *
+ * Esta plantilla es deliberadamente mínima: el diseño real entra en T12/T13.
+ */
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+
+  return pages.map((page) => ({
+    // `home` es la portada del sitio, no /home/
+    params: { slug: page.id === "home" ? undefined : page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <main class="mx-auto max-w-3xl px-5 py-10">
+    <article class="prose">
+      <h1 class="text-3xl font-semibold tracking-tight">{page.data.title}</h1>
+      <Content />
+    </article>
+  </main>
+</BaseLayout>
