@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/about-us/",
+      "destination": "/francisco-mena/",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contactos/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial/",
+      "destination": "/testimonios/",
+      "permanent": true
+    },
+    {
+      "source": "/customer-cabinet/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/saludo/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/foto1/",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
