@@ -1,0 +1,26 @@
+# Source material — never committed (backups are huge and contain patient-adjacent data)
+source/
+*.tar.gz
+*.sql.gz
+*.wpress
+*.sql
+
+# Local WordPress runtime
+wordpress/
+docker-data/
+
+# Node / Astro
+node_modules/
+dist/
+.astro/
+.output/
+.vercel/
+.netlify/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+
+# Local verification artifacts
+.local/
