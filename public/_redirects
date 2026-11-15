@@ -1,5 +1,6 @@
 # Generado por scripts/emit-redirects.mjs desde src/data/redirects.json
 # No editar a mano: los cambios se hacen en redirects.json
+# Funciona en Netlify y en Cloudflare Pages (mismo formato de _redirects)
 /about-us/  /francisco-mena/  301
 /services/  /servicios/  301
 /contact-us/  /contactos/  301

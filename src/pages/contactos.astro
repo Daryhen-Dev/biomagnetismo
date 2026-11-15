@@ -3,31 +3,46 @@
  * CONTACTOS — /contactos/
  *
  * Qué renderiza: los canales reales del centro (tres WhatsApp, dos correos,
- * dirección y horario) y un aviso que explica por qué todavía no hay
- * formulario. No hay formulario a propósito: no existe un destino que reciba
- * los mensajes y un formulario que los descarta en silencio es peor que no
- * tener ninguno (ver T16 en el plan).
+ * dirección y horario), el formulario opcional (Formspree) y el aviso de
+ * privacidad.
+ *
+ * El formulario es opcional a propósito: solo se publica cuando
+ * `formEndpoint` tiene un destino cargado en `src/data/contact.ts`. Mientras
+ * esté vacío, la página se comporta como siempre: WhatsApp y correo, más el
+ * aviso de que el formulario está pendiente. Un formulario que descarta los
+ * mensajes en silencio es peor que no tener formulario (ver T16 en el plan).
+ *
+ * El aviso de privacidad se muestra en los dos estados porque también cubre
+ * WhatsApp y correo.
  *
  * De dónde sale: `src/data/contact.ts`, una sola fuente para todo el sitio.
  *
  * Por qué esta página no usa `src/content/pages/contactos.md`: ese archivo
  * contiene el formulario del sitio original (etiquetas de campos, botón
- * "Enviar") y publicarlo sería publicar un formulario que no envía nada. El
- * título se lee de ahí para no duplicar el nombre de la página.
+ * "Enviar") con su maquetación heredada y publicarlo tal cual sería publicar
+ * un formulario que no envía nada. El título se lee de ahí para no duplicar el
+ * nombre de la página.
  *
  * Qué tocar:
  * - números, correos y horarios → `src/data/contact.ts`
- * - el aviso del formulario → el bloque `<aside class="notice">` de abajo
- * - la disposición en dos columnas → `.contact-columns` en
- *   `src/styles/global.css`
+ * - activar o desactivar el formulario → `formEndpoint` en `src/data/contact.ts`
+ * - los campos y el envío → `src/components/ContactForm.astro`
+ * - el aviso de privacidad → `src/components/PrivacyNotice.astro`
+ * - el aviso de "formulario pendiente" → el bloque `<aside class="notice">`
+ * - la disposición en dos columnas → `.contact-columns` y `.contact-followup`
+ *   en `src/styles/global.css`
  */
 import { getEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WhatsAppAction from "../components/WhatsAppAction.astro";
-import { contact, whatsappUrl } from "../data/contact";
+import ContactForm from "../components/ContactForm.astro";
+import PrivacyNotice from "../components/PrivacyNotice.astro";
+import { contact, contactFormEnabled, whatsappUrl } from "../data/contact";
 
 const entry = await getEntry("pages", "contactos");
 const title = entry?.data.title ?? "Contactos";
+
+const hasContactForm = contactFormEnabled;
 ---
 
 <BaseLayout
@@ -66,84 +81,95 @@ const title = entry?.data.title ?? "Contactos";
   </section>
 
   <section class="band band--paper">
-    <div class="shell contact-columns">
-      <div>
-        <div class="contact-block">
-          <p class="contact-block__title">WhatsApp</p>
-          <div class="channel-list">
-            {
-              contact.whatsapps.map((channel) => (
-                <a
-                  class="channel"
-                  href={whatsappUrl(channel, "Hola, escribo desde el sitio web del Centro de Biomagnetismo Médico. Quisiera pedir una cita.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="channel__label">{channel.role}</span>
-                  <span class="channel__value">{channel.label}</span>
-                </a>
-              ))
-            }
+    <div class="shell">
+      <div class="contact-columns">
+        <div>
+          <div class="contact-block">
+            <p class="contact-block__title">WhatsApp</p>
+            <div class="channel-list">
+              {
+                contact.whatsapps.map((channel) => (
+                  <a
+                    class="channel"
+                    href={whatsappUrl(channel, "Hola, escribo desde el sitio web del Centro de Biomagnetismo Médico. Quisiera pedir una cita.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="channel__label">{channel.role}</span>
+                    <span class="channel__value">{channel.label}</span>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-block__title">Correo</p>
+            <div class="channel-list">
+              {
+                contact.emails.map((email) => (
+                  <a class="channel" href={`mailto:${email}`}>
+                    <span class="channel__value">{email}</span>
+                  </a>
+                ))
+              }
+            </div>
           </div>
         </div>
 
-        <div class="contact-block">
-          <p class="contact-block__title">Correo</p>
-          <div class="channel-list">
-            {
-              contact.emails.map((email) => (
-                <a class="channel" href={`mailto:${email}`}>
-                  <span class="channel__value">{email}</span>
-                </a>
-              ))
-            }
+        <div>
+          <div class="contact-block">
+            <p class="contact-block__title">Dónde</p>
+            <address class="contact-address">
+              {contact.address.street}<br />
+              {contact.address.city} · {contact.address.country}
+            </address>
+            <p class="contact-block__action">
+              <a
+                class="link-quiet"
+                href={contact.address.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver la dirección en el mapa
+              </a>
+            </p>
           </div>
+
+          <div class="contact-block">
+            <p class="contact-block__title">Cuándo</p>
+            <div class="hours">
+              {
+                contact.hours.map((row) => (
+                  <div class="hours__row">
+                    <span class="hours__days">{row.days}</span>
+                    <span>{row.times}</span>
+                  </div>
+                ))
+              }
+            </div>
+            <p class="contact-address">{contact.visitNote}.</p>
+          </div>
+
+          {
+            !hasContactForm && (
+              <aside class="notice">
+                <p class="notice__title">El formulario todavía no está publicado</p>
+                <p class="notice__body">
+                  El sitio anterior tenía un formulario de contacto. No se publica acá porque todavía
+                  no tiene un destino que reciba los mensajes: enviar datos de salud a un formulario
+                  que los descarta es peor que no tener formulario. Mientras tanto, escribinos por
+                  WhatsApp o por correo. El formulario vuelve cuando exista el canal que lo recibe.
+                </p>
+              </aside>
+            )
+          }
         </div>
       </div>
 
-      <div>
-        <div class="contact-block">
-          <p class="contact-block__title">Dónde</p>
-          <address class="contact-address">
-            {contact.address.street}<br />
-            {contact.address.city} · {contact.address.country}
-          </address>
-          <p class="contact-block__action">
-            <a
-              class="link-quiet"
-              href={contact.address.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver la dirección en el mapa
-            </a>
-          </p>
-        </div>
-
-        <div class="contact-block">
-          <p class="contact-block__title">Cuándo</p>
-          <div class="hours">
-            {
-              contact.hours.map((row) => (
-                <div class="hours__row">
-                  <span class="hours__days">{row.days}</span>
-                  <span>{row.times}</span>
-                </div>
-              ))
-            }
-          </div>
-          <p class="contact-address">{contact.visitNote}.</p>
-        </div>
-
-        <aside class="notice">
-          <p class="notice__title">El formulario todavía no está publicado</p>
-          <p class="notice__body">
-            El sitio anterior tenía un formulario de contacto. No se publica acá porque todavía no
-            tiene un destino que reciba los mensajes: enviar datos de salud a un formulario que los
-            descarta es peor que no tener formulario. Mientras tanto, escribinos por WhatsApp o por
-            correo. El formulario vuelve cuando exista el canal que lo recibe.
-          </p>
-        </aside>
+      <div class:list={["contact-followup", !hasContactForm && "contact-followup--solo"]}>
+        <ContactForm />
+        <PrivacyNotice />
       </div>
     </div>
   </section>

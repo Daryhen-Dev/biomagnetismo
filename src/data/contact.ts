@@ -94,6 +94,32 @@ export function whatsappUrl(
 }
 
 /**
+ * Destino del formulario de contacto (Formspree).
+ *
+ * Vacío = **el formulario no se publica**. Mientras esté vacío, `/contactos/`
+ * muestra solo WhatsApp y correo, más el aviso de que el formulario está
+ * pendiente. Un formulario sin destino que reciba los mensajes no se publica:
+ * descartarlos en silencio es peor que no tener formulario.
+ *
+ * Para activarlo, pegar acá la URL del endpoint, exactamente con esta forma:
+ *
+ *   "https://formspree.io/f/<id>"
+ *
+ * El `<id>` lo da Formspree al crear el formulario. Después, reconstruir el
+ * sitio (`pnpm build` o `pnpm serve`). No inventar un endpoint: si no existe el
+ * formulario en Formspree, el valor queda en `""`.
+ */
+export const formEndpoint = "";
+
+/**
+ * Derivado de `formEndpoint`: hay formulario solo cuando hay un endpoint
+ * cargado. Lo usan `ContactForm.astro` (para no renderizarse) y
+ * `src/pages/contactos.astro` (para no mostrar el aviso de "formulario
+ * pendiente" cuando ya hay uno).
+ */
+export const contactFormEnabled = formEndpoint.trim().length > 0;
+
+/**
  * Retrato del director. Lo usan la portada, la placa de credenciales y la
  * imagen de Open Graph del layout.
  */

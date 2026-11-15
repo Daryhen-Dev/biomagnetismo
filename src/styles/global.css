@@ -1535,6 +1535,219 @@
   }
 
   /* ---------------------------------------------------------------------------
+     Formulario de contacto (Formspree) y aviso de privacidad.
+     El aviso se muestra siempre, con o sin formulario, porque también cubre
+     WhatsApp y correo. Todo esto vive sobre papel: es un trámite de lectura,
+     no una pieza del campo.
+     ------------------------------------------------------------------------ */
+  .contact-followup {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-section);
+    padding-top: var(--space-block);
+    border-top: 1px solid var(--rule-paper);
+  }
+
+  @media (min-width: 48rem) {
+    .contact-followup {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* Sin formulario, el aviso usa el ancho completo de la columna de lectura. */
+    .contact-followup--solo {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .contact-form__title {
+    font-size: var(--fs-h3);
+  }
+
+  .contact-form__lede {
+    margin-top: 0.6rem;
+    max-width: 46ch;
+    font-size: var(--fs-small);
+    line-height: 1.55;
+    color: var(--color-ink-600);
+  }
+
+  .form {
+    margin-top: 1.5rem;
+  }
+
+  .form-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 1.25rem;
+    }
+
+    .form-field--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .form-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .form-field__label {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* El asterisco es la marca visible; el `required` del campo es lo que
+     anuncia el lector de pantalla. */
+  .form-field__required {
+    color: var(--color-copper-700);
+    font-weight: 600;
+  }
+
+  .form-field__hint {
+    font-size: var(--fs-meta);
+    line-height: 1.5;
+    color: var(--color-ink-600);
+  }
+
+  /* Alto mínimo de 48 px: el objetivo táctil de todo el sitio. El borde no es
+     decorativo, es el límite del control: se mantiene por encima de 3:1. */
+  .form-control {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.65rem 0.8rem;
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.35;
+    color: var(--color-ink-900);
+    background-color: var(--color-paper-50);
+    border: 1px solid rgb(18 24 42 / 0.55);
+    border-radius: var(--radius-control);
+    transition:
+      border-color 180ms var(--ease-out),
+      box-shadow 180ms var(--ease-out);
+  }
+
+  .form-control:focus-visible {
+    outline: 2px solid var(--color-copper-500);
+    outline-offset: 2px;
+    border-color: var(--color-copper-700);
+  }
+
+  /* Error de validación del navegador. Se refuerza el borde en el color del
+     acento: el mensaje concreto lo sigue dando el navegador, sin JS. */
+  .form-control:user-invalid {
+    border-color: var(--color-copper-700);
+    box-shadow: inset 0 0 0 1px var(--color-copper-700);
+  }
+
+  textarea.form-control {
+    min-height: 9rem;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  .form-honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .form-actions {
+    margin-top: 1.25rem;
+  }
+
+  .form-help {
+    margin-top: 0.9rem;
+    max-width: 52ch;
+    font-size: var(--fs-meta);
+    line-height: 1.55;
+    color: var(--color-ink-600);
+  }
+
+  .form-help a {
+    color: var(--color-copper-700);
+  }
+
+  /* Confirmación de envío sin JavaScript: oculta por defecto y visible solo
+     cuando la URL trae `#gracias`, que es adonde vuelve Formspree (`_next`).
+     Al cargar la página ya está en su lugar, así que no empuja nada.
+     Si el formulario falla, Formspree no redirige y esta caja no aparece: al
+     lado quedan WhatsApp y el correo, que siempre funcionan. */
+  .form-status {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-copper-700);
+    border-radius: var(--radius-control);
+    background-color: var(--color-paper-50);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+    scroll-margin-top: 5.5rem;
+  }
+
+  .form-status:target {
+    display: block;
+  }
+
+  .form-status__title {
+    font-weight: 600;
+  }
+
+  .privacy {
+    max-width: 36rem;
+    font-size: var(--fs-small);
+    line-height: 1.6;
+  }
+
+  .privacy__title {
+    font-size: var(--fs-h3);
+  }
+
+  .privacy__list {
+    margin: 1.25rem 0 0;
+    border-top: 1px solid var(--rule-paper);
+  }
+
+  .privacy__item {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule-paper);
+  }
+
+  .privacy__term {
+    font-weight: 600;
+  }
+
+  .privacy__detail {
+    margin: 0.2rem 0 0;
+    color: var(--color-ink-600);
+  }
+
+  .privacy__detail a {
+    color: var(--color-copper-700);
+  }
+
+  .privacy__legal {
+    margin-top: 1rem;
+    font-size: var(--fs-meta);
+    line-height: 1.55;
+    color: var(--color-ink-600);
+  }
+
+  /* ---------------------------------------------------------------------------
      Galería: el índice y los álbumes.
      ------------------------------------------------------------------------ */
   .gallery-list {

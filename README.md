@@ -12,9 +12,14 @@ portó a este proyecto.
 ```bash
 pnpm install
 pnpm dev        # http://localhost:4321
+pnpm serve      # build + vista previa en http://127.0.0.1:4600
 pnpm build      # genera dist/
 pnpm check      # tipos y errores de Astro
 ```
+
+`pnpm serve` construye el sitio y lo sirve en `127.0.0.1:4600`: es la forma de
+ver exactamente lo que se publica (no el dev server) y de probar el formulario
+y los redirects.
 
 > Este proyecto usa **pnpm**, no npm. `package.json` fija la versión con
 > `packageManager`, así que corepack la respeta automáticamente.
@@ -38,9 +43,12 @@ Esta es la tabla que hay que mirar primero. Cada fila responde "quiero cambiar X
 | El menú y el mapa del sitio | `navGroups`, `primaryNav` y `footerNav` en `src/data/site.ts` |
 | Un teléfono, correo, dirección u horario | `src/data/contact.ts` — se actualiza en el pie, en contacto y en todos los botones |
 | El mensaje que llega precargado al WhatsApp | `whatsappMessages` en `src/data/contact.ts` |
+| Activar o desactivar el formulario de contacto | `formEndpoint` en `src/data/contact.ts` — vacío (`""`) lo oculta |
+| Los campos y el envío del formulario | `src/components/ContactForm.astro` |
+| El aviso de privacidad de la página de contacto | `src/components/PrivacyNotice.astro` |
 | Cómo se ve una página en particular | `src/pages/[...slug].astro` + su variante en `src/data/page-meta.ts` |
 | Cómo se ve el texto corrido de las páginas | Bloque `.prose` y variantes `.prose--*` en `src/styles/global.css` |
-| Los redirects de URLs viejas | `src/data/redirects.json` |
+| Los redirects de URLs viejas | `src/data/redirects.json` (genera `public/_redirects` para Netlify y Cloudflare Pages, y `vercel.json` para Vercel) |
 | Qué URLs existen | `src/pages/` — cada archivo es una ruta |
 
 **Regla de oro:** una página es un archivo `.md` con el mismo nombre que su URL.
@@ -59,7 +67,7 @@ src/
 ├── assets/media/         Fotos optimizadas a WebP, por año/mes
 ├── data/                 Datos del sitio, todos en TypeScript legible:
 │   ├── site.ts           Nombre, navegación y mapa del sitio
-│   ├── contact.ts        Teléfonos, correos, dirección, horario y mensajes de WhatsApp
+│   ├── contact.ts        Teléfonos, correos, dirección, horario, mensajes de WhatsApp y endpoint del formulario
 │   ├── page-meta.ts      Entrada y descripción SEO de cada página institucional
 │   ├── gallery-order.ts  Orden del archivo y conteo de álbumes/fotos
 │   ├── gallery-media.ts  Puente entre las rutas del JSON y `astro:assets`
@@ -71,7 +79,7 @@ src/
 ├── pages/                Rutas — cada archivo es una URL:
 │   ├── index.astro       Portada
 │   ├── [...slug].astro   Las 7 páginas institucionales
-│   ├── contactos.astro   Contacto (sin formulario, a propósito)
+│   ├── contactos.astro   Contacto: canales, formulario opcional y aviso de privacidad
 │   └── galeria/          Índice de galerías + una página por galería
 └── styles/
     ├── global.css        Todo el sistema visual: tokens, bandas, botones, texto, grillas
@@ -106,6 +114,8 @@ src/
 | `WhatsAppAction.astro` | Botón `wa.me` con mensaje precargado y número visible | Barra superior, portada, cierres, contacto |
 | `PageCta.astro` | Cierre de página con una sola acción | Portada y páginas institucionales |
 | `SectionHeading.astro` | Título de sección con entrada opcional | Portada, galería, contacto |
+| `ContactForm.astro` | Formulario de contacto (Formspree). No se renderiza hasta que haya endpoint | Contacto |
+| `PrivacyNotice.astro` | Aviso de privacidad en lenguaje llano: qué se recoge, quién lo recibe, cómo pedir borrado | Contacto |
 | `PairField.astro` | Dos polos y el campo entre ellos (SVG) | Portada |
 | `FieldRule.astro` | El par reducido a regla divisoria | Galerías |
 | `CredentialPlate.astro` | Retrato y títulos verificables del director | Portada |
@@ -140,6 +150,58 @@ contenido lee y qué tocar para cambiarlo. Lo mismo vale para las cuatro plantil
 
 ---
 
+## Formulario de contacto (Formspree)
+
+La página `/contactos/` muestra WhatsApp y correo siempre. El formulario es
+**opcional y apagado por defecto**: solo aparece cuando `formEndpoint` en
+`src/data/contact.ts` tiene un destino real. Un formulario sin destino que
+reciba los mensajes descarta datos de pacientes en silencio, así que no se
+publica hasta que exista el canal.
+
+### Cómo activarlo
+
+1. Crear el formulario en [formspree.io](https://formspree.io) con el correo del
+   centro (`centrodrgoiz@gmail.com`) como destinatario.
+2. Copiar la URL del endpoint que da Formspree. Tiene esta forma:
+   `https://formspree.io/f/<id>`.
+3. Pegarla en `formEndpoint`, en `src/data/contact.ts`. No inventar el valor: si
+   no existe el formulario, queda `""` y la página sigue como está.
+4. Reconstruir: `pnpm build` (o `pnpm serve` para verlo en `127.0.0.1:4600`).
+5. Probar un envío real y confirmar que llega a la bandeja del centro y que
+   vuelve a `/contactos/#gracias` con el mensaje de confirmación.
+
+Para volver atrás, se deja `formEndpoint = ""` y se reconstruye: el formulario
+desaparece y vuelve el aviso de “formulario pendiente”.
+
+### Cómo funciona (sin JavaScript)
+
+- `POST` directo a Formspree. No hay JS propio: si el JS no corre, el formulario
+  sigue enviando.
+- Éxito: Formspree redirige a `/contactos/#gracias` (campo `_next`), donde el
+  aviso se muestra solo con CSS (`:target`). La URL se arma con `site` en
+  `astro.config.mjs`; si cambia el dominio, se cambia ahí.
+- Error: la validación del navegador marca el campo (`required`, `type="email"`)
+  y, si el servicio falla, al lado del botón quedan WhatsApp y el correo.
+- Campos: nombres, apellidos, teléfono, correo y mensaje. El correo y el mensaje
+  son obligatorios. Hay un campo trampa para robots (`_gotcha`) y un `_subject`
+  que nombra el sitio en la bandeja del centro.
+
+### Aviso de privacidad
+
+El aviso (`src/components/PrivacyNotice.astro`) se muestra **siempre**, con o sin
+formulario, porque también cubre WhatsApp y correo. Dice qué datos se recogen y
+para qué, que Formspree procesa el formulario y que el destinatario es el correo
+del centro, y advierte explícitamente que no se manden diagnósticos ni resultados
+de exámenes por el formulario: para lo clínico, WhatsApp.
+
+A propósito **no** cita leyes (la aplicación de las normas de datos de Chile y
+Ecuador depende de la situación del responsable del sitio), no afirma ninguna
+certificación de cumplimiento y no inventa un plazo de retención. El propio
+texto avisa que debe revisarlo el asesor legal del centro antes de publicarlo.
+Si esa revisión cambia el texto, se cambia en ese componente.
+
+---
+
 ## El WordPress local (solo para consultar el original)
 
 El sitio original corre en Docker para poder comparar contenido y estructura
@@ -159,6 +221,21 @@ docker compose down       # apagar
 
 ---
 
+## Despliegue y redirects
+
+El hosting todavía no está decidido (Vercel, Netlify o Cloudflare Pages). La
+configuración de redirects no depende de esa decisión:
+
+- `public/_redirects` lo leen **Netlify y Cloudflare Pages** con el mismo
+  formato. El archivo lo genera `scripts/emit-redirects.mjs` desde
+  `src/data/redirects.json`, así que cambiar de hosting no toca los redirects.
+- `vercel.json` cubre Vercel; lo genera el mismo script desde el mismo JSON.
+
+Ninguno de los dos se edita a mano: se agrega la URL vieja en
+`src/data/redirects.json` y se reconstruye.
+
+---
+
 ## Estado
 
 Construido: la identidad visual y las 21 rutas (portada, 7 páginas institucionales,
@@ -167,9 +244,13 @@ el build genera 21 páginas estáticas en unos 5 segundos.
 
 Pendientes conocidos, visibles en el sitio cuando corresponde:
 
-- **Formulario de contacto**: no está publicado porque no existe un destino que reciba
-  los mensajes. La página `/contactos/` lo explica y ofrece WhatsApp y correo. Definirlo
-  es T16 del plan.
+- **Formulario de contacto**: implementado y **apagado** (`formEndpoint` vacío en
+  `src/data/contact.ts`). Mientras no haya endpoint de Formspree, `/contactos/`
+  muestra WhatsApp y correo y declara el formulario como pendiente. Activarlo está
+  documentado arriba, en «Formulario de contacto (Formspree)».
+- **Aviso de privacidad**: publicado y visible en `/contactos/`, pero pendiente de
+  revisión por el asesor legal del centro antes de salir a producción. No cita leyes
+  ni certificaciones, y no fija plazos de retención.
 - **Alt de las galerías**: 245 de las 254 fotos tienen texto alternativo generado
   (`altPending: true` en el JSON). Hay que revisarlo antes de publicar.
 - **`servicios.md`**: el texto del sitio original es *lorem ipsum*. La página lo dice;

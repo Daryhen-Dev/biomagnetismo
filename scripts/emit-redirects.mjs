@@ -2,7 +2,9 @@
  * Emite los archivos de redirects de los hostings a partir de una sola fuente.
  *
  * Fuente única: `src/data/redirects.json`. Este script escribe:
- *   - `public/_redirects`  → formato de Netlify
+ *   - `public/_redirects`  → formato de **Netlify y de Cloudflare Pages** (las
+ *                            dos leen el mismo archivo; elegir hosting no
+ *                            cambia esta configuración)
  *   - `vercel.json`        → formato de Vercel
  *   - `public/robots.txt`  → apunta al sitemap generado por @astrojs/sitemap
  *
@@ -20,14 +22,17 @@ const entries = Object.entries(redirects);
 
 await fs.mkdir(path.join(root, "public"), { recursive: true });
 
-// Netlify: una línea por regla, código 301.
-const netlify = [
+// Netlify y Cloudflare Pages: una línea por regla, código 301. Los dos hostings
+// leen `_redirects` con esta misma sintaxis, así que la decisión entre ellos no
+// toca este archivo.
+const hostingRedirects = [
   "# Generado por scripts/emit-redirects.mjs desde src/data/redirects.json",
   "# No editar a mano: los cambios se hacen en redirects.json",
+  "# Funciona en Netlify y en Cloudflare Pages (mismo formato de _redirects)",
   ...entries.map(([from, to]) => `${from}  ${to}  301`),
   "",
 ].join("\n");
-await fs.writeFile(path.join(root, "public/_redirects"), netlify, "utf8");
+await fs.writeFile(path.join(root, "public/_redirects"), hostingRedirects, "utf8");
 
 // Vercel: la misma información en su esquema JSON.
 const vercel = {

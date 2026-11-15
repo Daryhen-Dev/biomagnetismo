@@ -1,0 +1,175 @@
+---
+/**
+ * Formulario de contacto — Formspree.
+ *
+ * Qué renderiza: **nada** mientras `formEndpoint` esté vacío en
+ * `src/data/contact.ts`. Con un endpoint cargado, los cinco campos del
+ * formulario original del sitio en WordPress (nombres, apellidos, número de
+ * teléfono, correo y comentario) dentro de la página `/contactos/`.
+ *
+ * Por qué no hay JavaScript: un formulario que solo confirma el envío con JS
+ * miente cuando el JS no corre. Acá el POST va directo a Formspree y los tres
+ * estados se resuelven sin script:
+ *   - éxito: Formspree redirige a `_next` (`/contactos/#gracias`) y el aviso de
+ *     confirmación se muestra con `:target`, solo CSS;
+ *   - error de validación: lo muestra el navegador con `required` y `type`
+ *     correctos, y los campos inválidos se marcan con `:user-invalid`;
+ *   - error del servicio: queda a la vista el enlace de WhatsApp y el correo,
+ *     que es el camino que siempre funciona.
+ *
+ * El aviso de privacidad que acompaña al formulario vive en
+ * `PrivacyNotice.astro` y se muestra también cuando el formulario está oculto,
+ * porque cubre igual a WhatsApp y al correo.
+ *
+ * Qué tocar:
+ * - el destino → `formEndpoint` en `src/data/contact.ts`
+ * - los textos del formulario → este archivo
+ * - el aspecto → bloque "Formulario de contacto" en `src/styles/global.css`
+ */
+import {
+  contact,
+  contactFormEnabled,
+  formEndpoint,
+  whatsappMessages,
+  whatsappUrl,
+} from "../data/contact";
+
+const enabled = contactFormEnabled;
+
+// Formspree pide una URL absoluta en `_next`. Se arma con el `site` de
+// `astro.config.mjs`: si el dominio cambia, se cambia en un solo lugar (y el
+// sitemap y robots.txt ya dependen de ese mismo valor).
+const nextUrl = Astro.site ? new URL("/contactos/#gracias", Astro.site).href : undefined;
+
+// El asunto es lo que ve el centro en la bandeja de entrada. Nombra el sitio
+// para distinguir estos mensajes de cualquier otro correo.
+const subject = "Mensaje desde el sitio web del Centro de Biomagnetismo Médico";
+
+const email = contact.emails[0];
+---
+
+{
+  enabled && (
+    <section class="contact-form" aria-labelledby="formulario-contacto">
+      <h2 class="contact-form__title" id="formulario-contacto">Dejar un mensaje</h2>
+      <p class="contact-form__lede">
+        El mensaje llega al correo del centro. Los campos con{" "}
+        <span class="form-field__required">*</span> son obligatorios.
+      </p>
+
+      {/* Se muestra solo cuando se vuelve de Formspree con `#gracias` en la URL. */}
+      <p class="form-status" id="gracias">
+        <strong class="form-status__title">Mensaje enviado.</strong> Gracias por escribir. Te
+        respondemos al correo que dejaste, en horario de atención.
+      </p>
+
+      <form class="form" action={formEndpoint.trim()} method="POST">
+        <input type="hidden" name="_subject" value={subject} />
+        {nextUrl && <input type="hidden" name="_next" value={nextUrl} />}
+
+        {/* Trampa para robots de Formspree: fuera de la vista y del árbol de
+            accesibilidad, sin poder recibir foco. Una persona nunca lo llena. */}
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="contacto-gotcha">No completar este campo</label>
+          <input
+            id="contacto-gotcha"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-field__label" for="contacto-nombre">Nombres</label>
+            <input
+              class="form-control"
+              id="contacto-nombre"
+              name="nombre"
+              type="text"
+              autocomplete="given-name"
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="form-field__label" for="contacto-apellido">Apellidos</label>
+            <input
+              class="form-control"
+              id="contacto-apellido"
+              name="apellido"
+              type="text"
+              autocomplete="family-name"
+            />
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="form-field__label" for="contacto-telefono">Número de teléfono</label>
+            <input
+              class="form-control"
+              id="contacto-telefono"
+              name="telefono"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              aria-describedby="contacto-telefono-hint"
+            />
+            <p class="form-field__hint" id="contacto-telefono-hint">
+              Con código de país, por ejemplo +593 99 883 9196.
+            </p>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="form-field__label" for="contacto-email">
+              Correo electrónico{" "}
+              <span class="form-field__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form-control"
+              id="contacto-email"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-field form-field--full">
+            <label class="form-field__label" for="contacto-mensaje">
+              Comentario o mensaje{" "}
+              <span class="form-field__required" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              class="form-control"
+              id="contacto-mensaje"
+              name="mensaje"
+              rows="5"
+              required
+              aria-describedby="contacto-mensaje-hint"
+            ></textarea>
+            <p class="form-field__hint" id="contacto-mensaje-hint">
+              Para coordinar una cita o hacer una consulta general. Sin diagnósticos ni resultados
+              de exámenes: eso se habla por WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <p class="form-actions">
+          <button class="btn btn--copper btn--block" type="submit">Enviar mensaje</button>
+        </p>
+
+        <p class="form-help">
+          El envío lo procesa Formspree y llega a{" "}
+          <a href={`mailto:${email}`}>{email}</a>. Si el formulario falla, escribinos por{" "}
+          <a
+            href={whatsappUrl(undefined, whatsappMessages.cita)}
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a
+          >.
+        </p>
+      </form>
+    </section>
+  )
+}

@@ -1,0 +1,89 @@
+---
+/**
+ * Aviso de privacidad del contacto, en lenguaje llano.
+ *
+ * Qué renderiza: qué datos se recogen, para qué, quién los recibe y cómo pedir
+ * corrección o borrado. Se muestra **siempre** en `/contactos/`, con o sin
+ * formulario, porque también cubre WhatsApp y correo.
+ *
+ * Por qué está visible y no plegado: quien está por escribir datos de salud
+ * tiene que poder leer esto sin abrir nada.
+ *
+ * Qué NO hace, a propósito:
+ * - no cita leyes ni artículos: la aplicación de las normas de datos de Chile y
+ *   Ecuador depende de la situación del responsable del sitio, que el código no
+ *   puede verificar;
+ * - no afirma ninguna certificación de cumplimiento;
+ * - no inventa un plazo de retención. Dice lo que pasa: el mensaje queda en la
+ *   casilla del centro hasta que se pida borrarlo.
+ *
+ * Qué tocar:
+ * - el correo de contacto → `contact.emails` en `src/data/contact.ts`
+ * - los textos → este archivo
+ * - el aspecto → bloque "Formulario de contacto" en `src/styles/global.css`
+ */
+import { contact } from "../data/contact";
+import { contactFormEnabled } from "../data/contact";
+
+const email = contact.emails[0];
+---
+
+<aside class="privacy" aria-labelledby="aviso-privacidad">
+  <h2 class="privacy__title" id="aviso-privacidad">Qué hacemos con tus datos</h2>
+
+  <dl class="privacy__list">
+    <div class="privacy__item">
+      <dt class="privacy__term">Qué se guarda y para qué</dt>
+      <dd class="privacy__detail">
+        Si usás el formulario: tus nombres, apellidos, teléfono, correo y el mensaje. Si escribís
+        por WhatsApp o por correo: tu número o dirección y lo que decidas contarnos. En los tres
+        casos, esos datos se usan para responder tu consulta y coordinar una cita.
+      </dd>
+    </div>
+
+    <div class="privacy__item">
+      <dt class="privacy__term">Quién lo recibe</dt>
+      <dd class="privacy__detail">
+        {
+          contactFormEnabled ? (
+            <>
+              El formulario lo procesa <strong>Formspree</strong>, un servicio externo que recibe el
+              mensaje y lo reenvía al correo del centro: <a href={`mailto:${email}`}>{email}</a>. El
+              WhatsApp llega directo al teléfono del centro.
+            </>
+          ) : (
+            <>
+              Por ahora el sitio no tiene formulario: tu consulta llega sólo por WhatsApp, directo
+              al teléfono del centro, o por correo a <a href={`mailto:${email}`}>{email}</a>.
+            </>
+          )
+        }
+      </dd>
+    </div>
+
+    <div class="privacy__item">
+      <dt class="privacy__term">Lo que no va por el formulario</dt>
+      <dd class="privacy__detail">
+        <strong
+          >No escribas diagnósticos, resultados de exámenes ni detalles de tu salud en este
+          formulario.</strong
+        >{" "}No es un canal clínico: es una vía para coordinar. Para hablar de tu caso, usá
+        WhatsApp, donde te contesta una persona del centro.
+      </dd>
+    </div>
+
+    <div class="privacy__item">
+      <dt class="privacy__term">Corregir o borrar</dt>
+      <dd class="privacy__detail">
+        Escribí a <a href={`mailto:${email}`}>{email}</a> y pedí que corrijan o borren tus datos. El
+        mensaje queda en la casilla del centro; no hay un plazo de borrado definido, así que se
+        elimina cuando lo pedís.
+      </dd>
+    </div>
+  </dl>
+
+  <p class="privacy__legal">
+    Este aviso no cita leyes ni certificaciones de cumplimiento. Conviene que lo revise el asesor
+    legal del centro antes de publicarlo.
+  </p>
+</aside>
