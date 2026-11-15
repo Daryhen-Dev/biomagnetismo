@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens live here until Impeccable documents them in DESIGN.md.
+ * Values are intentionally placeholders: the visual identity is decided in T11.
+ */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}

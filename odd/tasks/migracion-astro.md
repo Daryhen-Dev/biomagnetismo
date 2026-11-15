@@ -14,11 +14,16 @@ debe correr localmente desde el backup, con su contenido y sus imágenes.
 > "vamos primero con levantar el sitio web local"
 > "lo que voy hacer es correrlo local y partimos de ahí"
 
-**S3 — Alcance del contenido: todo lo que existe hoy.**
+**S3 — Alcance del contenido: las páginas institucionales, consolidadas en español.**
 > "Solo institucional", "El blog", "Cursos y eventos"
+> "Consolidar a español + redirects"
+> "Sin sección de blog"
 
-Quedan dentro del sitio nuevo: las páginas institucionales, las entradas del blog con sus
-URLs, y las páginas de cursos y eventos. El sitio no puede quedar reducido a una landing.
+Se portan las páginas institucionales en español. Las 5 páginas en inglés (`about-us`, `services`,
+`contact-us`, `testimonial`, `customer-cabinet`) **no se portan**: se consolidan sobre sus equivalentes
+en español y se cubren con redirects 301. El sitio nuevo **no tiene sección de blog**; las 2 entradas
+de 2020 (`/saludo/`, `/foto1/`) se redirigen al inicio. Los CPTs de cursos y eventos no existen en la
+base actual (ver E7), así que no hay nada que portar por ese lado.
 
 **S4 — La fuente es la copia local entregada por el usuario.**
 > "en la carpeta te descargue todo los archivos de hostinger y la base de datos"
@@ -48,16 +53,16 @@ en `DESIGN.md`, el público y los objetivos en `PRODUCT.md`.
 | T5 | Verificar que el home y las páginas internas cargan en `localhost:8080` | S2 | inline | — |
 | T6 | Inventario con wp-cli: páginas, entradas, CPTs, medios, menús y mapa de URLs para redirects | S1,S3 | inline | — |
 | T7 | Scaffold Astro 5 + TypeScript + content collections | S1 | inline | — |
-| T8 | Convertir el contenido WordPress a Markdown/MDX en las collections | S1,S3 | por confirmar | — |
+| T8 | Convertir el contenido WordPress a Markdown/MDX en las collections (21 páginas) | S1,S3 | por confirmar | — |
 | T9 | Descargar y optimizar las imágenes originales desde `wp-content/uploads` | S1,S3 | por confirmar | — |
 | T10 | Impeccable: `context` + generar `PRODUCT.md` y `DESIGN.md` | S5 | inline | — |
 | T11 | Direcciones visuales con Impeccable y elección del usuario | S5 | inline | — |
 | T12 | Layout base y home | S5 | por confirmar | — |
-| T13 | Páginas institucionales (el doctor, terapias, contacto) | S3,S5 | por confirmar | — |
-| T14 | Blog: listado, paginación y detalle de entrada | S3 | por confirmar | — |
-| T15 | Cursos y eventos | S3 | por confirmar | — |
+| T13 | Páginas institucionales (el doctor, terapias, contacto, galerías por país) | S3,S5 | por confirmar | — |
+| T14 | ~~Blog: listado, paginación y detalle~~ — descartado por L6 | S3 | — | — |
+| T15 | ~~Cursos y eventos~~ — no existen como CPT en la base actual (E7) | S3 | — | — |
 | T16 | Formulario de contacto: redefine el destino y el aviso de privacidad (datos de salud) | S3 | por confirmar | — |
-| T17 | Redirects 301 del mapa de T6, sitemap y robots | S1,S6 | inline | — |
+| T17 | Redirects 301 de las páginas inglesas y las entradas, sitemap y robots | S1,S3,S6 | inline | — |
 | T18 | QA de paridad de copy contra el original + detector de Impeccable en 0 findings | S1,S5 | inline | — |
 | T19 | Despliegue en Vercel o Netlify y corte de DNS | S6 | por confirmar | — |
 
@@ -127,3 +132,12 @@ que hace fallar `tar` con exit 2. T1 lo excluye junto con `.famulus/` y un `.tar
 **Herramientas E4** — Impeccable ya está instalado en `.agents/skills/impeccable` (v4.8.0, binario
 `windows-x64` propio); no requiere `npx impeccable install`. Los hooks automáticos por `PostToolUse`
 no existen en Pi: el detector se invoca explícitamente. Docker 28.3.2 y Compose v2.38 disponibles.
+
+**L5** (duplicados en inglés):
+> Consolidar a español + redirects
+
+**L6** (blog):
+> Sin sección de blog
+
+Efecto sobre el alcance: de 26 páginas quedan **21** para portar, más los redirects de las 5 inglesas y de
+las 2 entradas. T14 y T15 quedan descartadas y se abre el trabajo de consolidación dentro de T17.
