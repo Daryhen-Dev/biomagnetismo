@@ -9,40 +9,40 @@
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.19.webp",
-          "alt": "FotoPanama: Panama (foto 1 de 5)",
-          "altPending": true,
+          "alt": "Interior de una vivienda de piso de tierra: una mujer sentada extiende las piernas hacia un hombre que le sostiene los pies",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-09-21 at 21.36.19",
           "width": 768,
           "height": 1024
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.20-3.webp",
-          "alt": "FotoPanama: Panama (foto 2 de 5)",
-          "altPending": true,
+          "alt": "Frente al mar, una mujer de blusa y falda tradicionales extiende las piernas hacia un hombre que le sostiene los pies",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-09-21 at 21.36.20 (3)",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.36.21.webp",
-          "alt": "FotoPanama: Panama (foto 3 de 5)",
-          "altPending": true,
+          "alt": "Mujer con pañuelo rojo sentada junto al mar; un hombre le sostiene los pies y otro observa de pie",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-09-21 at 21.36.21",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.33.49-2.webp",
-          "alt": "FotoPanama: Panama (foto 4 de 5)",
-          "altPending": true,
+          "alt": "Local de paredes de caña y carteles de cruceros: un joven sentado extiende las piernas hacia un hombre que le sostiene los pies",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-22 at 22.33.49 (2)",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.33.49-3.webp",
-          "alt": "FotoPanama: Panama (foto 5 de 5)",
-          "altPending": true,
+          "alt": "Calle de tierra ante una casa de techo de paja: dos hombres conversan con una mujer que lleva un manojo de hierbas",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-22 at 22.33.49 (3)",
           "width": 768,
           "height": 1024

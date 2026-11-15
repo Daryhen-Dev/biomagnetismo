@@ -9,56 +9,56 @@
       "images": [
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-10-03-at-11.25.30-2.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 1 de 7)",
-          "altPending": true,
+          "alt": "Sala de curso: un expositor de pie junto a un rotafolio con un esquema, una camilla al centro y asistentes en mesas",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-10-03 at 11.25.30 (2)",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-1.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 2 de 7)",
-          "altPending": true,
+          "alt": "Una mujer con hábito blanco reclinada en un sillón; un hombre de pie la atiende y una religiosa observa sentada",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (1)",
           "width": 800,
           "height": 450
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-2.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 3 de 7)",
-          "altPending": true,
+          "alt": "Una religiosa de hábito blanco en primer plano y dos hombres atendiendo a una mujer recostada en un sofá oscuro",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (2)",
           "width": 667,
           "height": 500
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30-3.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 4 de 7)",
-          "altPending": true,
+          "alt": "Una mujer recostada sobre una mesa con tela rosa; una religiosa de blanco y dos hombres de pie junto a un vitral",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-29 at 14.05.30 (3)",
           "width": 800,
           "height": 450
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-10-29-at-14.05.30.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 5 de 7)",
-          "altPending": true,
+          "alt": "Grupo de trece personas posando de pie junto a una camilla donde yace alguien cubierto con una manta rosa",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-10-29 at 14.05.30",
           "width": 667,
           "height": 500
         },
         {
           "src": "/src/assets/media/2020/11/y.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 6 de 7)",
-          "altPending": true,
+          "alt": "Un hombre y una mujer sostienen un diploma frente a un rotafolio con anotaciones manuscritas en una sala de curso",
+          "altPending": false,
           "caption": "y",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/11/z.webp",
-          "alt": "FotoBrasil: Brasil-Curso (foto 7 de 7)",
-          "altPending": true,
+          "alt": "Dos hombres posan en una escalera curva de barandilla blanca; al fondo, otras dos personas en el descansillo",
+          "altPending": false,
           "caption": "z",
           "width": 1024,
           "height": 768

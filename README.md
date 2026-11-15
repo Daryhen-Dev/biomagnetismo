@@ -251,8 +251,15 @@ Pendientes conocidos, visibles en el sitio cuando corresponde:
 - **Aviso de privacidad**: publicado y visible en `/contactos/`, pero pendiente de
   revisión por el asesor legal del centro antes de salir a producción. No cita leyes
   ni certificaciones, y no fija plazos de retención.
-- **Alt de las galerías**: 245 de las 254 fotos tienen texto alternativo generado
-  (`altPending: true` en el JSON). Hay que revisarlo antes de publicar.
+- **Alt de las galerías**: las 254 fotos tienen texto alternativo escrito a partir de
+  la imagen y `altPending: false`. El alt describe lo visible (cuántas personas, qué
+  hacen, qué lugar y qué objetos importan) sin inventar nombres, fechas ni diagnósticos.
+  Queda pendiente una revisión humana de la lista de abajo antes de publicar.
+- **Alt que conviene revisar a ojo**: los alts que dependen de leer texto pequeño o de
+  interpretar un documento: recortes de prensa y diapositivas de curso (`fotogoiz`,
+  `fotobolivia`), la página de libro de `fotoalemania`, el certificado de
+  `fotobolivia` (curso Toledo), la captura de pantalla de `fotochile` (curso no
+  videntes) y la placa grabada de `fotogoiz` (inauguración).
 - **`servicios.md`**: el texto del sitio original es *lorem ipsum*. La página lo dice;
   reescribirlo es una decisión editorial.
 - **Videos de testimonios**: no se conservaron en la migración. La página lo dice.

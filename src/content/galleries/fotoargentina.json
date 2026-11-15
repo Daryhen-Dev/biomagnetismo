@@ -9,64 +9,64 @@
       "images": [
         {
           "src": "/src/assets/media/2020/10/IMG_5321-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 1 de 8)",
-          "altPending": true,
+          "alt": "Una mujer recostada en una camilla blanca sonríe y levanta el pulgar; detrás, un televisor y un escritorio",
+          "altPending": false,
           "caption": "IMG_5321",
           "width": 585,
           "height": 1040
         },
         {
           "src": "/src/assets/media/2020/10/IMG_5323-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 2 de 8)",
-          "altPending": true,
+          "alt": "Un hombre de traje y una mujer de camisa estampada posan de pie frente a una pizarra con anotaciones manuscritas",
+          "altPending": false,
           "caption": "IMG_5323",
           "width": 585,
           "height": 1040
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.32.16-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 3 de 8)",
-          "altPending": true,
+          "alt": "Tres hombres alrededor de una persona recostada en una camilla; uno señala con el dedo y otro observa detrás",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-09-21 at 21.32.16",
           "width": 576,
           "height": 1024
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.32.17-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 4 de 8)",
-          "altPending": true,
+          "alt": "Una mujer con papeles en la mano y tres hombres alrededor de una persona recostada en una camilla; pizarra al fondo",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-09-21 at 21.32.17",
           "width": 1024,
           "height": 576
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-1-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 5 de 8)",
-          "altPending": true,
+          "alt": "Una mujer sentada sobre un escritorio con las manos en la cabeza, junto a dos hombres y una pizarra blanca",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (1)",
           "width": 576,
           "height": 1024
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-2-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 6 de 8)",
-          "altPending": true,
+          "alt": "Cuatro personas alrededor de alguien recostado en una camilla; una le sostiene el zapato y otra se apoya en la mesa",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (2)",
           "width": 1024,
           "height": 576
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-3-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 7 de 8)",
-          "altPending": true,
+          "alt": "Una mujer sentada sobre una mesa con las manos en la cara; un hombre con un frasco y otro que le sostiene el pie",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (3)",
           "width": 576,
           "height": 1024
         },
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.15-1.webp",
-          "alt": "FotoArgentina: Argentina - Mendoza (foto 8 de 8)",
-          "altPending": true,
+          "alt": "Una persona recostada en una camilla con una almohada; dos hombres a su lado y una mujer de pie con papeles",
+          "altPending": false,
           "caption": "WhatsApp Image 2019-10-03 at 14.32.15",
           "width": 1024,
           "height": 576

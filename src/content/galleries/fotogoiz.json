@@ -9,96 +9,96 @@
       "images": [
         {
           "src": "/src/assets/media/2020/10/2003.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 1 de 12)",
-          "altPending": true,
+          "alt": "Recorte de periódico con el titular «Está en Chile el Señor de los imanes» y una fotografía de dos hombres conversando",
+          "altPending": false,
           "caption": "2003",
           "width": 750,
           "height": 641
         },
         {
           "src": "/src/assets/media/2020/12/2006.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 2 de 12)",
-          "altPending": true,
+          "alt": "Recorte de periódico con cuatro personas posando; al pie, una leyenda menciona al doctor Isaac Goiz y un taller en Quito",
+          "altPending": false,
           "caption": "2006",
           "width": 690,
           "height": 670
         },
         {
           "src": "/src/assets/media/2020/12/20091.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 3 de 12)",
-          "altPending": true,
+          "alt": "Cinco personas de pie frente a una pizarra: dos hombres y tres mujeres con atuendo tradicional y tocados",
+          "altPending": false,
           "caption": "20091",
           "width": 570,
           "height": 250
         },
         {
           "src": "/src/assets/media/2020/10/20092.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 4 de 12)",
-          "altPending": true,
+          "alt": "Tres hombres posan en una terraza; al fondo, una ciudad con una basílica neogótica y cerros",
+          "altPending": false,
           "caption": "20092",
           "width": 768,
           "height": 1024
         },
         {
           "src": "/src/assets/media/2020/10/20093.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 5 de 12)",
-          "altPending": true,
+          "alt": "Tres hombres de pie en una terraza con una basílica neogótica y la ciudad al fondo",
+          "altPending": false,
           "caption": "20093",
           "width": 1024,
           "height": 722
         },
         {
           "src": "/src/assets/media/2020/10/20094.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 6 de 12)",
-          "altPending": true,
+          "alt": "Diapositiva de un curso en Chillán: dos hombres posan frente a una pizarra y una cortina azul, bajo el título del curso",
+          "altPending": false,
           "caption": "20094",
           "width": 1024,
           "height": 576
         },
         {
           "src": "/src/assets/media/2020/10/20095.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 7 de 12)",
-          "altPending": true,
+          "alt": "Una persona recostada en una camilla azul mientras tres hombres la rodean; uno de ellos la graba con una cámara",
+          "altPending": false,
           "caption": "20095",
           "width": 1024,
           "height": 576
         },
         {
           "src": "/src/assets/media/2020/10/20151.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 8 de 12)",
-          "altPending": true,
+          "alt": "Dos hombres que miran a cámara, en blanco y negro, con una ciudad y cerros al fondo",
+          "altPending": false,
           "caption": "20151",
           "width": 1024,
           "height": 767
         },
         {
           "src": "/src/assets/media/2020/10/20152.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 9 de 12)",
-          "altPending": true,
+          "alt": "Tres hombres posan en una sala de conferencias con una pantalla de proyección al fondo y asistentes detrás",
+          "altPending": false,
           "caption": "20152",
           "width": 1024,
           "height": 761
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.53.11.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 10 de 12)",
-          "altPending": true,
+          "alt": "Dos hombres posan en una terraza con una basílica neogótica al fondo; detrás, una mesa atendida por otras personas",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-11-18 at 16.53.11",
           "width": 716,
           "height": 537
         },
         {
           "src": "/src/assets/media/2020/12/WhatsApp-Image-2020-11-18-at-16.54.23.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 11 de 12)",
-          "altPending": true,
+          "alt": "Cinco personas sentadas en sillas contra una pared con cuadros enmarcados, vistas desde el público",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-11-18 at 16.54.23",
           "width": 717,
           "height": 550
         },
         {
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.55.58.webp",
-          "alt": "FotoGoiz: Dr Goiz (foto 12 de 12)",
-          "altPending": true,
+          "alt": "Dos hombres en un pasillo, en blanco y negro; el mayor lleva bastón y el otro una carpeta",
+          "altPending": false,
           "caption": "WhatsApp Image 2020-11-18 at 16.55.58",
           "width": 960,
           "height": 959
@@ -111,32 +111,32 @@
       "images": [
         {
           "src": "/src/assets/media/2020/10/20104.webp",
-          "alt": "FotoGoiz: InauguracionCentroDoctorGoiz (foto 1 de 4)",
-          "altPending": true,
+          "alt": "Corte de cinta de noche: una mujer con chal magenta y un hombre de traje azul sostienen la cinta roja y azul",
+          "altPending": false,
           "caption": "20104",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/20103-rotated.webp",
-          "alt": "FotoGoiz: InauguracionCentroDoctorGoiz (foto 2 de 4)",
-          "altPending": true,
+          "alt": "Tras el corte de cinta, una mujer de chal magenta y dos hombres de traje ríen y aplauden junto a un vehículo",
+          "altPending": false,
           "caption": "20103",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/20102-rotated.webp",
-          "alt": "FotoGoiz: InauguracionCentroDoctorGoiz (foto 3 de 4)",
-          "altPending": true,
+          "alt": "Dos hombres de traje oscuro conversan de noche; uno de ellos sostiene unas tijeras tras el corte de cinta",
+          "altPending": false,
           "caption": "20102",
           "width": 1024,
           "height": 768
         },
         {
           "src": "/src/assets/media/2020/10/20101-rotated.webp",
-          "alt": "FotoGoiz: InauguracionCentroDoctorGoiz (foto 4 de 4)",
-          "altPending": true,
+          "alt": "Un hombre muestra una placa grabada del Centro de Biomagnetismo Médico del Ecuador en una mesa de gala",
+          "altPending": false,
           "caption": "20101",
           "width": 1024,
           "height": 768
