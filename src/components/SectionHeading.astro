@@ -1,0 +1,29 @@
+---
+/**
+ * Encabezado de sección: título + línea de entrada opcional.
+ *
+ * Qué renderiza: un `<h2>` (o `<h3>`) con el título y, si se pasa, un párrafo
+ * corto de entrada. No lleva etiqueta encima del título: el título solo
+ * sostiene la jerarquía.
+ *
+ * Lo usan: portada, página de contacto y la galería.
+ *
+ * Para cambiar los tamaños: `--fs-h2` y `.section-heading` en
+ * `src/styles/global.css`.
+ */
+interface Props {
+  title: string;
+  lede?: string;
+  id?: string;
+  level?: 2 | 3;
+  class?: string;
+}
+
+const { title, lede, id, level = 2, class: className } = Astro.props;
+const Tag = level === 3 ? "h3" : "h2";
+---
+
+<header class:list={["section-heading", className]}>
+  <Tag class="section-heading__title" id={id}>{title}</Tag>
+  {lede && <p class="section-heading__lede">{lede}</p>}
+</header>

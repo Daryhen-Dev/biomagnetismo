@@ -1,0 +1,24 @@
+---
+/**
+ * Encabezado dentro de contenido heredado.
+ *
+ * Qué renderiza: el encabezado de un `.md` con el nivel ya normalizado por
+ * `normalizeHeadingLevels` (ver `src/data/content-html.ts`), para que el
+ * esquema del documento no salte niveles y para no duplicar el `<h1>` de la
+ * página. El título del Markdown, que era `h1`, se marca con `highlight` y se
+ * ve del tamaño de un subtítulo grande.
+ *
+ * Lo usan: `src/components/EntryBody.astro`.
+ */
+interface Props {
+  level?: 2 | 3 | 4 | 5 | 6;
+  id?: string;
+  highlight?: boolean;
+}
+
+const { level = 2, id, highlight = false } = Astro.props;
+const Tag = `h${level}` as "h2" | "h3" | "h4" | "h5" | "h6";
+const html = await Astro.slots.render("default");
+---
+
+<Tag class:list={[highlight && "prose__high"]} id={id} set:html={html} />

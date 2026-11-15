@@ -1,0 +1,73 @@
+---
+/**
+ * Cuerpo de una página de contenido, renderizado por bloques.
+ *
+ * Qué renderiza: el HTML del `.md` de la página, con estos ajustes:
+ * - los encabezados no saltan niveles y el `<h1>` heredado pasa a `h2`
+ *   (`normalizeHeadingLevels` en `src/data/content-html.ts`);
+ * - `preguntas`: los párrafos que empiezan con "¿" se vuelven subtítulos;
+ * - `metodo`: los párrafos que empiezan entre comillas se vuelven citas;
+ * - los párrafos que vienen íntegramente en negrita se vuelven rótulos.
+ *
+ * Lo usan: `src/pages/[...slug].astro` y `src/pages/index.astro`.
+ * Si querés otro tratamiento por página, agregá un modo acá y su clase
+ * `.prose--*` en `src/styles/global.css`.
+ */
+import { normalizeHeadingLevels, renderEntryHtml, toBlocks } from "../data/content-html";
+import QuestionParagraph from "./QuestionParagraph.astro";
+import QuoteParagraph from "./QuoteParagraph.astro";
+import ContentHeading from "./ContentHeading.astro";
+
+interface Props {
+  Content: unknown;
+  mode?: "plain" | "preguntas" | "metodo";
+}
+
+const { Content, mode = "plain" } = Astro.props;
+
+// Párrafo que es solo negrita en el Markdown: en estas páginas funciona como
+// rótulo de sección ("TITULO OBTENIDO", "RECONOCIMIENTOS OBTENIDOS").
+const FULLY_STRONG = /^<strong>[\s\S]*<\/strong>$/;
+
+const html = await renderEntryHtml(Content as never);
+const blocks = normalizeHeadingLevels(toBlocks(html));
+---
+
+{
+  blocks.map((block) => {
+    if (block.kind === "heading") {
+      return (
+        <ContentHeading
+          level={block.level as 2 | 3 | 4 | 5 | 6}
+          id={block.id}
+          highlight={block.originalLevel === 1}
+        >
+          <Fragment set:html={block.inner} />
+        </ContentHeading>
+      );
+    }
+
+    if (block.kind === "paragraph") {
+      if (FULLY_STRONG.test(block.inner)) {
+        return <p class="prose__label" set:html={block.inner} />;
+      }
+      if (mode === "preguntas") {
+        return (
+          <QuestionParagraph>
+            <Fragment set:html={block.inner} />
+          </QuestionParagraph>
+        );
+      }
+      if (mode === "metodo") {
+        return (
+          <QuoteParagraph>
+            <Fragment set:html={block.inner} />
+          </QuoteParagraph>
+        );
+      }
+      return <p set:html={block.inner} />;
+    }
+
+    return <Fragment set:html={block.html} />;
+  })
+}

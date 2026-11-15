@@ -1,0 +1,102 @@
+---
+/**
+ * ÍNDICE DE GALERÍAS — /galeria/
+ *
+ * Qué renderiza: la lista de las once galerías (una por país o evento), con su
+ * portada, cuántos álbumes tiene y cuántas fotos. Cada fila lleva a
+ * `/galeria/<archivo>/`.
+ *
+ * De dónde sale: `src/content/galleries/*.json`. El nombre del archivo es la
+ * URL de la galería (`fotochile.json` → `/galeria/fotochile/`).
+ *
+ * Ojo: el cuerpo de `src/content/pages/galeria.md` es un placeholder de
+ * Elementor (imagen rota + "Lorem fistrum…"). No se renderiza acá a propósito;
+ * la página real es esta lista. Si el centro escribe una introducción propia,
+ * se reemplaza este párrafo por ese texto.
+ *
+ * Qué tocar:
+ * - el orden de las galerías → `FEATURED_ORDER` en `src/data/gallery-order.ts`
+ * - el texto de cada galería → su `.json` en `src/content/galleries/`
+ * - cómo se ve una fila → `.gallery-row` en `src/styles/global.css`
+ */
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageCta from "../../components/PageCta.astro";
+import { mediaImage } from "../../data/gallery-media";
+import { gallerySize, gallerySizeLabel, sortGalleries } from "../../data/gallery-order";
+
+const galleries = sortGalleries(await getCollection("galleries"));
+
+const totals = galleries.reduce(
+  (accumulator, gallery) => {
+    const size = gallerySize(gallery);
+    return {
+      albums: accumulator.albums + size.albums,
+      photos: accumulator.photos + size.photos,
+    };
+  },
+  { albums: 0, photos: 0 },
+);
+---
+
+<BaseLayout
+  title="Galería"
+  description="Archivo fotográfico del Centro de Biomagnetismo Médico: cursos, atención de pacientes, entrevistas y reconocimientos en Ecuador, Chile, Bolivia y más."
+>
+  <section class="page-intro band band--night">
+    <div class="shell">
+      <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Pruebas y archivo</span>
+        <span aria-hidden="true">/</span>
+        <span>Galería</span>
+      </nav>
+
+      <div class="page-intro__body">
+        <h1 class="page-intro__title">Galería</h1>
+        <div class="page-intro__aside">
+          <p class="page-intro__lede">
+            {totals.albums} álbumes y {totals.photos} fotos de cursos, atención de pacientes,
+            entrevistas y reconocimientos, entre 2019 y 2026. Están agrupadas por país y por evento,
+            con el título que tenían en el sitio original.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--paper">
+    <div class="shell">
+      <div class="gallery-list">
+        {
+          galleries.map((gallery) => (
+            <a class="gallery-row" href={`/galeria/${gallery.id}/`}>
+              <Image
+                class="gallery-row__cover"
+                src={mediaImage(gallery.data.cover)}
+                alt=""
+                widths={[160, 320]}
+                sizes="(min-width: 768px) 9rem, 5.5rem"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>
+                <span class="gallery-row__title">{gallery.data.title}</span>
+                <span class="gallery-row__meta">{gallerySizeLabel(gallery)}</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <PageCta
+    title="¿Buscás una foto en particular?"
+    body="Si necesitás una imagen de un curso, un congreso o un reconocimiento, escribinos y revisamos el archivo."
+    message="consulta"
+    secondary={{ label: "Volver al inicio", href: "/" }}
+  />
+</BaseLayout>

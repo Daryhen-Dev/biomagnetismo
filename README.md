@@ -29,12 +29,17 @@ Esta es la tabla que hay que mirar primero. Cada fila responde "quiero cambiar X
 | Quiero cambiar… | Voy a… |
 | --- | --- |
 | El texto de una página | `src/content/pages/<slug>.md` — el nombre del archivo es la URL |
-| El título o la descripción SEO de una página | El frontmatter de ese mismo `.md` |
+| La entrada y la descripción para buscadores de una página | `src/data/page-meta.ts` (el `.md` no trae descripción) |
 | Las fotos de un país o evento | El `.json` de esa galería en `src/content/galleries/` |
 | El orden de las imágenes | El array `images` de ese `.json` |
-| Los colores, tipografías y espaciados | `src/styles/global.css` (bloque `@theme`) y `DESIGN.md` |
-| El encabezado, pie y estructura común | `src/layouts/BaseLayout.astro` |
-| Cómo se ve una página en particular | `src/pages/[...slug].astro` o la ruta específica |
+| Qué galería aparece primero en el índice | `FEATURED_ORDER` en `src/data/gallery-order.ts` |
+| Los colores, tipografías y espaciados | `src/styles/global.css` (bloque `@theme` y `:root`) y `DESIGN.md` |
+| El encabezado, pie y estructura común | `src/layouts/BaseLayout.astro` (+ `SiteHeader.astro` / `SiteFooter.astro`) |
+| El menú y el mapa del sitio | `navGroups`, `primaryNav` y `footerNav` en `src/data/site.ts` |
+| Un teléfono, correo, dirección u horario | `src/data/contact.ts` — se actualiza en el pie, en contacto y en todos los botones |
+| El mensaje que llega precargado al WhatsApp | `whatsappMessages` en `src/data/contact.ts` |
+| Cómo se ve una página en particular | `src/pages/[...slug].astro` + su variante en `src/data/page-meta.ts` |
+| Cómo se ve el texto corrido de las páginas | Bloque `.prose` y variantes `.prose--*` en `src/styles/global.css` |
 | Los redirects de URLs viejas | `src/data/redirects.json` |
 | Qué URLs existen | `src/pages/` — cada archivo es una ruta |
 
@@ -49,26 +54,86 @@ CMS: lo que está en el repositorio es lo que se publica.
 ```
 src/
 ├── content/pages/        10 páginas institucionales en Markdown (una por URL)
-├── content/galleries/    11 galerías (30 galerías Modula, 254 fotos)
+├── content/galleries/    11 galerías (29 álbumes, 254 fotos)
 ├── content.config.ts     Esquema: qué campos admite cada tipo de contenido
-├── data/redirects.json   301 de las URLs del WordPress viejo
 ├── assets/media/         Fotos optimizadas a WebP, por año/mes
-├── layouts/BaseLayout    <head>, SEO, estructura de documento
-├── pages/                Rutas. [...slug].astro sirve las páginas
-└── styles/global.css     Tailwind 4 + tokens de diseño en @theme
+├── data/                 Datos del sitio, todos en TypeScript legible:
+│   ├── site.ts           Nombre, navegación y mapa del sitio
+│   ├── contact.ts        Teléfonos, correos, dirección, horario y mensajes de WhatsApp
+│   ├── page-meta.ts      Entrada y descripción SEO de cada página institucional
+│   ├── gallery-order.ts  Orden del archivo y conteo de álbumes/fotos
+│   ├── gallery-media.ts  Puente entre las rutas del JSON y `astro:assets`
+│   ├── gallery-intro.ts  Intérprete del Markdown guardado dentro del JSON de galerías
+│   ├── content-html.ts   Render por bloques del cuerpo de cada `.md`
+│   └── redirects.json    301 de las URLs del WordPress viejo
+├── layouts/BaseLayout    <head>, SEO, datos estructurados, header y footer
+├── components/           Piezas de interfaz (ver tabla más abajo)
+├── pages/                Rutas — cada archivo es una URL:
+│   ├── index.astro       Portada
+│   ├── [...slug].astro   Las 7 páginas institucionales
+│   ├── contactos.astro   Contacto (sin formulario, a propósito)
+│   └── galeria/          Índice de galerías + una página por galería
+└── styles/
+    ├── global.css        Todo el sistema visual: tokens, bandas, botones, texto, grillas
+    └── fonts/            Spectral y Archivo autohospedadas (woff2, subconjunto latin)
 ```
+
+---
+
+## Sistema visual: de qué está hecha cada página
+
+`DESIGN.md` explica el porqué; acá está el mapa para tocar. Todas las reglas viven en
+`src/styles/global.css`, en el mismo orden que esta tabla.
+
+| Token / regla | Qué controla | Páginas donde se nota |
+| --- | --- | --- |
+| `--color-night-*` | Los índigos: suelo del sitio, bandas de portada, cierres y pie | Todas |
+| `--color-paper-*` y `--color-ink-*` | El papel de lectura y el color del texto | Método, preguntas, doctor, testimonios, entrevistas, colaboradores, servicios, galerías |
+| `--color-copper-*` | El acento: polos del par, reglas, enlaces y botón principal | Todas |
+| `--font-display` / `--font-sans` | Spectral (títulos) y Archivo (texto y controles) | Todas |
+| `--fs-*` | La escala tipográfica: 17 px de cuerpo en móvil, 19 px en escritorio | Todas |
+| `--space-section`, `--gutter`, `--shell`, `--measure` | Aire vertical, márgenes, ancho máximo y ancho de lectura | Todas |
+| `--ease-out` + bloque de movimiento | El dibujo del campo al cargar la portada | Portada |
+| `.band--night` / `.band--paper` | La alternancia entre «el campo» y «el documento» | Todas |
+| `.prose--*` | El tratamiento del texto según la página | Ver `DESIGN.md`, sección 8 |
+
+### Componentes y dónde se usan
+
+| Componente | Qué hace | Aparece en |
+| --- | --- | --- |
+| `SiteHeader.astro` | Marca, navegación de escritorio y menú `<details>` en móvil | Todas |
+| `SiteFooter.astro` | Mapa del sitio y contacto real | Todas |
+| `WhatsAppAction.astro` | Botón `wa.me` con mensaje precargado y número visible | Barra superior, portada, cierres, contacto |
+| `PageCta.astro` | Cierre de página con una sola acción | Portada y páginas institucionales |
+| `SectionHeading.astro` | Título de sección con entrada opcional | Portada, galería, contacto |
+| `PairField.astro` | Dos polos y el campo entre ellos (SVG) | Portada |
+| `FieldRule.astro` | El par reducido a regla divisoria | Galerías |
+| `CredentialPlate.astro` | Retrato y títulos verificables del director | Portada |
+| `GalleryGrid.astro` | Grilla de fotos de un álbum con `<Image>` | Las 11 galerías |
+| `EntryBody.astro` | Cuerpo del `.md` por bloques, con el tratamiento de su página | Portada y páginas institucionales |
+| `ContentHeading.astro` | Encabezado heredado con el nivel corregido | Vía `EntryBody` |
+| `QuestionParagraph.astro` | Párrafo que empieza con «¿» se vuelve subtítulo | Preguntas |
+| `QuoteParagraph.astro` | Párrafo entre comillas se vuelve cita | Par biomagnético |
+
+Cada archivo de `src/components/` abre con un comentario que dice qué renderiza, qué
+contenido lee y qué tocar para cambiarlo. Lo mismo vale para las cuatro plantillas de
+`src/pages/` y para `src/layouts/BaseLayout.astro`.
 
 ### Convenciones
 
 - **Mobile first.** Todo se compone primero para 390 px y después escala. Los
-  breakpoints son adiciones (`md:`, `lg:`), nunca correcciones de un layout que
-  ya se rompió en móvil.
-- **Trazabilidad.** Los nombres de archivo son las URLs. Los comentarios
-  explican el *porqué*, no el *qué*. El frontmatter lleva `wpId` para poder
-  rastrear cada página hasta su origen en WordPress.
+  breakpoints son adiciones (`48rem`, `60rem`, `64rem`), nunca correcciones de un
+  layout que ya se rompió en móvil.
+- **Una clase, una pieza.** El diseño no se arma con utilidades sueltas en el HTML:
+  cada pieza tiene su regla con nombre en `src/styles/global.css` (`.band`,
+  `.btn`, `.prose`, `.gallery-grid`…), así el sistema se cambia en un lugar.
+- **Trazabilidad.** Los nombres de archivo son las URLs. Cada plantilla y cada
+  componente abre con un comentario que dice qué renderiza, de dónde lee y qué
+  tocar. El frontmatter lleva `wpId` para rastrear cada página hasta su origen en
+  WordPress.
 - **El contenido es literal.** Es información médica: los textos se portaron
   sin reescribir, resumir ni "mejorar". Si un texto debe cambiar, es una decisión
-  editorial explícita.
+  editorial explícita. La presentación sí se diseña; el texto no.
 - **Las imágenes no llevan metadatos.** El pipeline de migración eliminó
   EXIF/ICC/XMP: son fotos de pacientes y documentos, no pueden viajar con GPS ni
   datos de cámara.
@@ -96,6 +161,24 @@ docker compose down       # apagar
 
 ## Estado
 
+Construido: la identidad visual y las 21 rutas (portada, 7 páginas institucionales,
+contacto, índice de galerías y 11 galerías). `pnpm run check` y `pnpm run build` pasan;
+el build genera 21 páginas estáticas en unos 5 segundos.
+
+Pendientes conocidos, visibles en el sitio cuando corresponde:
+
+- **Formulario de contacto**: no está publicado porque no existe un destino que reciba
+  los mensajes. La página `/contactos/` lo explica y ofrece WhatsApp y correo. Definirlo
+  es T16 del plan.
+- **Alt de las galerías**: 245 de las 254 fotos tienen texto alternativo generado
+  (`altPending: true` en el JSON). Hay que revisarlo antes de publicar.
+- **`servicios.md`**: el texto del sitio original es *lorem ipsum*. La página lo dice;
+  reescribirlo es una decisión editorial.
+- **Videos de testimonios**: no se conservaron en la migración. La página lo dice.
+- **Galerías huérfanas**: 89 fotos de 11 galerías Modula que ninguna página embebía
+  quedaron fuera del port (ver E8 en el plan).
+
 El plan completo, las decisiones y la evidencia de cada paso están en
 [`odd/tasks/migracion-astro.md`](odd/tasks/migracion-astro.md). Ese archivo es la
-bitácora: si algo no se entiende del código, la respuesta suele estar ahí.
+bitácora: si algo no se entiende del código, la respuesta suele estar ahí. Las
+decisiones visuales están en [`DESIGN.md`](DESIGN.md).

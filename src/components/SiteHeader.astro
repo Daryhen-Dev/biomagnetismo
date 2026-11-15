@@ -1,0 +1,114 @@
+---
+/**
+ * Barra superior del sitio.
+ *
+ * Qué renderiza: la marca (polo + nombre, que enlaza al inicio), la navegación
+ * de escritorio, el botón de WhatsApp y —en móvil— un menú desplegable hecho
+ * con `<details>`/`<summary>`, que funciona sin JavaScript y responde al
+ * teclado.
+ *
+ * Por qué no hay submenús que se abran al pasar el mouse: el sitio se usa
+ * sobre todo en móvil, donde el hover no existe. El menú móvil lista las diez
+ * páginas agrupadas; en escritorio el encabezado muestra solo las cinco
+ * principales y el pie tiene el mapa completo.
+ *
+ * Lo usan: `src/layouts/BaseLayout.astro`.
+ * Para cambiar los enlaces: `navGroups` y `primaryNav` en `src/data/site.ts`.
+ * Para cambiar los colores o el alto de la barra: `.site-header` en
+ * `src/styles/global.css`.
+ */
+import { navGroups, primaryNav, currentLink, siteShortName, siteName } from "../data/site";
+import { contact } from "../data/contact";
+import WhatsAppAction from "./WhatsAppAction.astro";
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="shell site-header__row">
+    <a class="wordmark" href="/" aria-label={`${siteName} — inicio`}>
+      <span class="wordmark__mark" aria-hidden="true"></span>
+      <span class="wordmark__text">
+        <span class="wordmark__top">Centro de</span>
+        <span class="wordmark__name">{siteShortName}</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Secciones principales">
+      {
+        primaryNav.map((item) => (
+          <a class="site-nav__link" href={item.href} aria-current={currentLink(pathname, item.href)}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <WhatsAppAction
+      class="site-header__action site-header__action--full"
+      message="cita"
+      label="Pedir cita"
+      showNumber
+      variant="copper"
+    />
+    <WhatsAppAction
+      class="site-header__action site-header__action--compact"
+      message="cita"
+      label="Pedir una cita por WhatsApp"
+      variant="copper"
+      compact
+    />
+
+    <details class="site-menu" data-site-menu>
+      <summary class="site-menu__toggle">
+        <span class="site-menu__icon" aria-hidden="true"></span>
+        <span>Menú</span>
+      </summary>
+      <div class="site-menu__panel">
+        {
+          navGroups.map((group) => (
+            <div class="site-menu__group">
+              <p class="site-menu__group-title">{group.title}</p>
+              {group.items.map((item) => (
+                <a
+                  class="site-menu__link"
+                  href={item.href}
+                  aria-current={currentLink(pathname, item.href)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          ))
+        }
+        <div class="site-menu__foot">
+          <WhatsAppAction message="cita" label="Pedir una cita" showNumber block />
+          <p class="site-menu__address">
+            {contact.address.street} · {contact.address.city}<br />
+            {contact.visitNote}
+          </p>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  // El menú móvil se cierra al elegir una página y con Escape. `<details>` ya
+  // funciona sin esto; el script solo evita que quede abierto tapando el
+  // contenido después de navegar.
+  const menu = document.querySelector<HTMLDetailsElement>("[data-site-menu]");
+  if (menu) {
+    const summary = menu.querySelector("summary");
+    menu.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      if (target.closest("a")) menu.open = false;
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        summary?.focus();
+      }
+    });
+  }
+</script>

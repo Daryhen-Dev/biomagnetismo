@@ -1,13 +1,93 @@
 ---
+/**
+ * Estructura común de todas las páginas.
+ *
+ * Qué renderiza: el documento entero — `<head>` con SEO, enlace para saltar al
+ * contenido, barra superior, `<main>` con el contenido de la página y pie.
+ *
+ * De dónde sale cada cosa:
+ * - Nombre del sitio, descripción y navegación: `src/data/site.ts`
+ * - Contacto real: `src/data/contact.ts`
+ * - Colores, tipografías y espaciados: `src/styles/global.css` + `DESIGN.md`
+ *
+ * Qué tocar para…
+ * - cambiar el título o la descripción de UNA página → el frontmatter de su
+ *   `.md` en `src/content/pages/`, o el `<BaseLayout>` de su ruta
+ * - cambiar el menú → `src/data/site.ts`
+ * - cambiar el pie → `src/components/SiteFooter.astro`
+ * - cambiar la imagen que se comparte al pegar el enlace → `ogImage`
+ */
 import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { contact, directorPortrait } from "../data/contact";
+import { siteDescription, siteLocale, siteName } from "../data/site";
+
+import archivoFont from "../styles/fonts/archivo.woff2?url";
+import spectralFont from "../styles/fonts/spectral-600.woff2?url";
 
 interface Props {
+  /** Título de la página. El nombre del sitio se agrega solo. */
   title: string;
   description?: string;
+  /** Imagen para Open Graph. Por defecto, el retrato del director. */
+  ogImage?: ImageMetadata;
+  ogType?: "website" | "article";
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const {
+  title,
+  description = siteDescription,
+  ogImage = directorPortrait,
+  ogType = "website",
+  noindex = false,
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://centrodoctorgoiz.cl");
+const canonical = new URL(Astro.url.pathname, site).href;
+const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
+const ogImageUrl = new URL(ogImage.src, site).href;
+
+// Ficha del negocio para buscadores. Solo hechos verificables: dirección,
+// teléfono y horario reales. Sin valoraciones ni especialidades inventadas.
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  name: siteName,
+  description: siteDescription,
+  url: site.href,
+  telephone: contact.whatsapps[0].label,
+  email: contact.emails[0],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contact.address.street,
+    addressLocality: contact.address.city,
+    addressCountry: "EC",
+  },
+  // Dos franjas de lunes a viernes: el mediodía queda cerrado y no se puede
+  // declarar un horario continuo.
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:30",
+      closes: "13:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "14:30",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "09:30",
+      closes: "13:00",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -15,11 +95,45 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#090e19" />
+
+    <link rel="preload" href={spectralFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={archivoFont} as="font" type="font/woff2" crossorigin />
+
+    <!-- Marca del sitio como favicon: dos polos y su campo, sin archivo aparte. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23090e19'/%3E%3Crect x='6' y='14' width='5' height='5' fill='%23bd7440'/%3E%3Crect x='21' y='14' width='5' height='5' fill='%23bd7440'/%3E%3Cpath d='M11 16.5h10' stroke='%23e8e6e0' stroke-opacity='.6'/%3E%3C/svg%3E"
+    />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={siteLocale} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(ogImage.width)} />
+    <meta property="og:image:height" content={String(ogImage.height)} />
+    <meta property="og:image:alt" content="Francisco Mena Flores, director del centro" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
+
   <body>
-    <slot />
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <SiteHeader />
+    <main id="contenido">
+      <slot />
+    </main>
+    <SiteFooter />
   </body>
 </html>

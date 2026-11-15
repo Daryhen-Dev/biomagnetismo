@@ -1,0 +1,40 @@
+---
+/**
+ * Grilla de fotos de un álbum.
+ *
+ * Qué renderiza: las imágenes de un álbum en columnas (2 en móvil, 3–4 en
+ * escritorio), con `<Image>` de `astro:assets`: WebP redimensionado, `srcset`
+ * por ancho y carga diferida. Las fotos conservan su proporción real: son
+ * fotografía documental, recortarlas a un cuadrado fijo cortaría gente.
+ *
+ * Lo usan: `src/pages/galeria/[slug].astro`.
+ * Las rutas vienen del JSON de la galería y se resuelven en
+ * `src/data/gallery-media.ts`. El texto alternativo viene del contenido: 245 de
+ * las 254 fotos llevan `altPending: true` y deben revisarse antes de publicar.
+ */
+import { Image } from "astro:assets";
+import { mediaImage } from "../data/gallery-media";
+
+interface Props {
+  images: { src: string; alt: string }[];
+  /** Cuántas imágenes cargar de inmediato (las primeras del álbum). */
+  eagerCount?: number;
+}
+
+const { images, eagerCount = 0 } = Astro.props;
+---
+
+<div class="gallery-grid">
+  {
+    images.map((photo, index) => (
+      <Image
+        src={mediaImage(photo.src)}
+        alt={photo.alt}
+        widths={[360, 720]}
+        sizes="(min-width: 64rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+        loading={index < eagerCount ? "eager" : "lazy"}
+        decoding="async"
+      />
+    ))
+  }
+</div>

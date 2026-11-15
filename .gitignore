@@ -24,3 +24,6 @@ Thumbs.db
 
 # Local verification artifacts
 .local/
+
+# Impeccable local state
+.impeccable/config.local.json

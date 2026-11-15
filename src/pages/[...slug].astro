@@ -1,38 +1,127 @@
 ---
 /**
- * Ruta de las páginas institucionales.
+ * PLANTILLA DE LAS PÁGINAS INSTITUCIONALES
  *
- * Una sola plantilla sirve las 10 páginas porque todas comparten estructura: el
- * contenido vive en `src/content/pages/<slug>.md` y el nombre del archivo ES la
- * URL (salvo `home`, que se publica en `/`).
+ * Qué renderiza: una sola plantilla sirve las siete páginas de contenido
+ * (el método, el doctor, servicios, preguntas, testimonios, entrevistas y
+ * colaboradores). Tiene tres partes: portada de página (miga de pan, título,
+ * entrada), texto corrido y cierre con WhatsApp.
  *
- * Para cambiar un texto: editá el .md de la página en src/content/pages/.
- * Para cambiar cómo se ven TODAS las páginas: layouts/BaseLayout.astro.
+ * De dónde sale el contenido: `src/content/pages/<slug>.md`. El nombre del
+ * archivo es la URL, salvo que la página tenga su propia ruta (la portada, la
+ * galería y contactos no pasan por acá: ver `HANDLED_ELSEWHERE`).
  *
- * Esta plantilla es deliberadamente mínima: el diseño real entra en T12/T13.
+ * Qué tocar:
+ * - el texto de una página → su `.md` en `src/content/pages/`
+ * - la entrada, la descripción para buscadores y el tratamiento → `pageMeta`
+ *   en `src/data/page-meta.ts`
+ * - cómo se ve el texto corrido → bloque `.prose` en `src/styles/global.css`
+ * - el botón final → `src/components/PageCta.astro`
+ *
+ * Las imágenes del cuerpo las procesa `astro:assets` solo: el Markdown resuelve
+ * las rutas relativas y Astro emite WebP optimizado con ancho, alto y carga
+ * diferida (no hace falta un componente `<Image>` acá).
  */
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageCta from "../components/PageCta.astro";
+import EntryBody from "../components/EntryBody.astro";
+import { pageMeta } from "../data/page-meta";
+import { directorPortrait } from "../data/contact";
 
 export async function getStaticPaths() {
+  // Páginas con ruta propia: la portada (`index.astro`), el índice de galerías
+  // y contactos se sirven desde sus propios archivos.
+  const HANDLED_ELSEWHERE = new Set(["home", "galeria", "contactos"]);
   const pages = await getCollection("pages");
 
-  return pages.map((page) => ({
-    // `home` es la portada del sitio, no /home/
-    params: { slug: page.id === "home" ? undefined : page.id },
-    props: { page },
-  }));
+  return pages
+    .filter((page) => !HANDLED_ELSEWHERE.has(page.id))
+    .map((page) => ({
+      params: { slug: page.id },
+      props: { page },
+    }));
 }
 
 const { page } = Astro.props;
+const meta = pageMeta[page.id];
+
+if (!meta) {
+  throw new Error(
+    `La página "${page.id}" no tiene entrada en src/data/page-meta.ts. ` +
+      `Agregala ahí para definir su entrada visible y su descripción para buscadores.`,
+  );
+}
+
 const { Content } = await render(page);
+
+// Cada página puede cambiar cómo se lee el cuerpo: las preguntas se convierten
+// en subtítulos y las citas del método en blockquotes (ver `EntryBody.astro`).
+const bodyMode = meta.variant === "preguntas" || meta.variant === "metodo" ? meta.variant : "plain";
+
+const proseClass = meta.variant === "ninguno" ? "prose" : `prose prose--${meta.variant}`;
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
-  <main class="mx-auto max-w-3xl px-5 py-10">
-    <article class="prose">
-      <h1 class="text-3xl font-semibold tracking-tight">{page.data.title}</h1>
-      <Content />
-    </article>
-  </main>
+<BaseLayout
+  title={page.data.title}
+  description={meta.description}
+  ogImage={meta.portrait ? directorPortrait : undefined}
+>
+  <section class="page-intro band band--night">
+    <div class="shell">
+      <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>{meta.sectionLabel}</span>
+        <span aria-hidden="true">/</span>
+        <span>{page.data.title}</span>
+      </nav>
+
+      <div class="page-intro__body">
+        <h1 class="page-intro__title">{page.data.title}</h1>
+
+        {
+          meta.portrait && (
+            <figure class="page-intro__portrait">
+              <Image
+                src={directorPortrait}
+                alt="Retrato del Dr. Francisco Mena Flores."
+                widths={[240, 480]}
+                sizes="(min-width: 768px) 17rem, 70vw"
+              />
+            </figure>
+          )
+        }
+
+        <div class="page-intro__aside">
+          <p class="page-intro__lede">{meta.lede}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--paper">
+    <div class="shell">
+      <div class={proseClass}>
+        <EntryBody Content={Content} mode={bodyMode} />
+      </div>
+
+      {
+        meta.notice && (
+          <aside class="notice">
+            <p class="notice__title">{meta.notice.title}</p>
+            <p class="notice__body">{meta.notice.body}</p>
+          </aside>
+        )
+      }
+    </div>
+  </section>
+
+  <PageCta
+    title={meta.cta.title}
+    body={meta.cta.body}
+    message={meta.cta.message}
+    secondary={{ label: "Volver al inicio", href: "/" }}
+  />
 </BaseLayout>

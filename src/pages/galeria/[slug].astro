@@ -1,0 +1,177 @@
+---
+/**
+ * GALERÍA DE UN PAÍS O EVENTO — /galeria/<archivo>/
+ *
+ * Qué renderiza: la portada de la galería (imagen del país y las notas de
+ * archivo que traía el sitio original), el índice de sus álbumes y cada álbum
+ * con sus fotos.
+ *
+ * De dónde sale: `src/content/galleries/<archivo>.json`. Cada archivo del
+ * contenido produce una página; el nombre del archivo es la URL. Las fotos se
+ * resuelven con `astro:assets` desde `src/data/gallery-media.ts`, y el texto de
+ * la introducción se interpreta con `src/data/gallery-intro.ts` porque viene en
+ * Markdown dentro de JSON.
+ *
+ * Qué tocar:
+ * - agregar o quitar fotos → el `.json` de esa galería (campo `galleries`)
+ * - el texto de la introducción → campo `intro` del mismo `.json`
+ * - el orden de las galerías y el enlace "siguiente" → `src/data/gallery-order.ts`
+ * - la grilla → `.gallery-grid` en `src/styles/global.css`
+ *
+ * Pendiente conocido: 245 de las 254 fotos llevan texto alternativo generado
+ * (`altPending: true`). Antes de publicar hay que revisarlo; se cambia en el
+ * JSON de la galería.
+ */
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GalleryGrid from "../../components/GalleryGrid.astro";
+import FieldRule from "../../components/FieldRule.astro";
+import { mediaImage, mediaImageOrUndefined } from "../../data/gallery-media";
+import { parseGalleryIntro } from "../../data/gallery-intro";
+import { gallerySize, sortGalleries } from "../../data/gallery-order";
+
+export async function getStaticPaths() {
+  const galleries = await getCollection("galleries");
+
+  return galleries.map((gallery) => ({
+    params: { slug: gallery.id },
+    props: { gallery },
+  }));
+}
+
+const { gallery } = Astro.props;
+const intro = parseGalleryIntro(gallery.data.intro);
+const size = gallerySize(gallery);
+
+const sorted = sortGalleries(await getCollection("galleries"));
+const position = sorted.findIndex((entry) => entry.id === gallery.id);
+const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] : undefined;
+---
+
+<BaseLayout
+  title={gallery.data.title}
+  description={`Archivo fotográfico: ${gallery.data.title}. ${size.albums} ${
+    size.albums === 1 ? "álbum" : "álbumes"
+  } con ${size.photos} fotos del Centro de Biomagnetismo Médico.`}
+  ogImage={mediaImage(gallery.data.cover)}
+  ogType="article"
+>
+  <section class="page-intro band band--night">
+    <div class="shell">
+      <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <a href="/galeria/">Galería</a>
+        <span aria-hidden="true">/</span>
+        <span>{gallery.data.title}</span>
+      </nav>
+
+      <div class="page-intro__body">
+        <h1 class="page-intro__title">{gallery.data.title}</h1>
+        <div class="page-intro__aside">
+          <p class="page-intro__lede">
+            {size.albums}
+            {size.albums === 1 ? "álbum" : "álbumes"} · {size.photos} fotos
+          </p>
+        </div>
+      </div>
+
+      <!-- Texto de archivo: lo que el sitio original publicaba sobre esta
+           galería (dónde fue el curso, a quién se atendió). -->
+      {
+        intro.length > 0 && (
+          <div class="archive-intro">
+            {intro.map((block) => {
+              if (block.kind === "image") {
+                const image = mediaImageOrUndefined(block.src);
+                if (!image) return null;
+                return (
+                  <Image
+                    class="archive-intro__image"
+                    src={image}
+                    alt={block.alt}
+                    widths={[192, 384]}
+                    sizes="12rem"
+                    decoding="async"
+                  />
+                );
+              }
+              if (block.kind === "heading") {
+                return (
+                  <h2 class="archive-intro__heading">
+                    {block.inline.map((span) =>
+                      span.strong ? <strong>{span.text}</strong> : span.text,
+                    )}
+                  </h2>
+                );
+              }
+              return (
+                <p class:list={["archive-intro__note", !block.strong && "archive-intro__text"]}>
+                  {block.inline.map((span) =>
+                    span.strong ? <strong>{span.text}</strong> : span.text,
+                  )}
+                </p>
+              );
+            })}
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="band band--paper">
+    <div class="shell">
+      {
+        gallery.data.galleries.length > 1 && (
+          <nav class="album-index" aria-label="Álbumes de esta galería">
+            <p class="contact-block__title">Álbumes</p>
+            <div class="album-index__list">
+              {gallery.data.galleries.map((album) => (
+                <a class="album-index__link" href={`#${album.slug}`}>
+                  <span>{album.title}</span>
+                  <span class="album-index__count">{album.images.length} fotos</span>
+                </a>
+              ))}
+            </div>
+          </nav>
+        )
+      }
+
+      {
+        gallery.data.galleries.map((album) => (
+          <section class="album" id={album.slug}>
+            <div class="album__head">
+              <h2 class="album__title">{album.title}</h2>
+              <p class="album__count">
+                {album.images.length} {album.images.length === 1 ? "foto" : "fotos"}
+              </p>
+            </div>
+            <GalleryGrid images={album.images} />
+          </section>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="band band--night band--compact">
+    <div class="shell">
+      <FieldRule />
+      <nav class="album-index" aria-label="Seguir en el archivo">
+        <p class="contact-block__title">Seguir en el archivo</p>
+        <div class="album-index__list">
+          <a class="album-index__link" href="/galeria/">
+            <span>Volver al índice de galerías</span>
+          </a>
+          {
+            nextGallery && (
+              <a class="album-index__link" href={`/galeria/${nextGallery.id}/`}>
+                <span>Siguiente: {nextGallery.data.title}</span>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

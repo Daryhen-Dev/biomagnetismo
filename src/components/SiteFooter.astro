@@ -1,0 +1,87 @@
+---
+/**
+ * Pie del sitio.
+ *
+ * Qué renderiza: el mapa completo de páginas, los datos de contacto reales
+ * (dirección, horario, correos, WhatsApp) y la línea de cierre. Es la segunda
+ * vía de navegación: si alguien se pierde en una página larga, acá están todas
+ * las secciones.
+ *
+ * Lo usan: `src/layouts/BaseLayout.astro`.
+ * Los datos salen de `src/data/site.ts` (navegación) y `src/data/contact.ts`
+ * (contacto). No escribas un teléfono acá: cambialo en contact.ts.
+ */
+import { contact, whatsappUrl } from "../data/contact";
+import { footerNav, siteName, siteTagline } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__name">{siteName}</p>
+        <p class="site-footer__description">
+          {siteTagline}. Método descubierto por el Dr. Isaac Goiz Durán el 10 de octubre de 1988.
+        </p>
+      </div>
+
+      <nav aria-label="Mapa del sitio">
+        <p class="site-footer__title">Secciones</p>
+        <div class="site-footer__nav">
+          {footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </nav>
+
+      <div>
+        <p class="site-footer__title">Visitas</p>
+        <address class="site-footer__address">
+          {contact.address.street}<br />
+          {contact.address.city} · {contact.address.country}<br />
+          <a href={contact.address.mapsUrl} rel="noopener noreferrer" target="_blank">
+            Ver en el mapa
+          </a>
+        </address>
+        <div class="site-footer__hours">
+          {
+            contact.hours.map((row) => (
+              <p>
+                {row.days}: <span>{row.times}</span>
+              </p>
+            ))
+          }
+        </div>
+        <p class="site-footer__note">{contact.visitNote}</p>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Escribinos</p>
+        <div class="site-footer__contacts">
+          {
+            contact.whatsapps.map((channel) => (
+              <a
+                href={whatsappUrl(
+                  channel,
+                  "Hola, escribo desde el sitio web del Centro de Biomagnetismo Médico.",
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp {channel.label}
+              </a>
+            ))
+          }
+        </div>
+        <div class="site-footer__contacts site-footer__contacts--mail">
+          {contact.emails.map((email) => <a href={`mailto:${email}`}>{email}</a>)}
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {year} {siteName}</p>
+      <p>Sitio oficial · {contact.address.city}, {contact.address.country}</p>
+    </div>
+  </div>
+</footer>

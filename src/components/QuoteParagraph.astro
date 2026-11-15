@@ -1,0 +1,17 @@
+---
+/**
+ * Párrafo que se comporta como cita cuando el original empieza entre comillas.
+ *
+ * Qué renderiza: si el texto abre con comillas angulares (“) o rectas ("), lo
+ * envuelve en `<blockquote>` y lo pone en Spectral a mayor tamaño; si no, lo
+ * deja como párrafo. En la página del método la definición viene entre
+ * comillas, y aislarla ayuda a leerla como la definición que es.
+ *
+ * Lo usa: `src/pages/[...slug].astro`, solo cuando la página es
+ * `par-biomagnetico`.
+ */
+const html = await Astro.slots.render("default");
+const isQuote = /^\s*[“"]/.test(html);
+---
+
+{isQuote ? <blockquote set:html={html} /> : <p set:html={html} />}

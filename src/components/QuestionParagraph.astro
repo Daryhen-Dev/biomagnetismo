@@ -1,0 +1,19 @@
+---
+/**
+ * Párrafo de las páginas institucionales que se comporta distinto si es una
+ * pregunta.
+ *
+ * Qué renderiza: si el texto empieza con "¿", lo convierte en un subtítulo
+ * (`h3.prose__question`) para que la página de preguntas frecuentes se pueda
+ * barrer de un vistazo y para que cada pregunta sea navegable con lectores de
+ * pantalla. Si no, lo deja como párrafo normal.
+ *
+ * Lo usa: `src/pages/[...slug].astro`, solo cuando la página es `preguntas`.
+ * Se pasa a `<Content components={{ p: QuestionParagraph }} />`, así que el
+ * markup del Markdown se conserva y solo cambia el elemento contenedor.
+ */
+const html = await Astro.slots.render("default");
+const isQuestion = /^\s*¿/.test(html);
+---
+
+{isQuestion ? <h3 class="prose__question" set:html={html} /> : <p set:html={html} />}

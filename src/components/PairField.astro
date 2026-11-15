@@ -1,0 +1,104 @@
+---
+/**
+ * El motivo del sitio: el par.
+ *
+ * Qué renderiza: dos polos de cobre unidos por las líneas del campo entre
+ * ellos. Es geometría, no ilustración: dibuja la idea del par biomagnético
+ * —dos cargas de polaridad opuesta— sin representar ningún cuerpo ni prometer
+ * ningún resultado.
+ *
+ * Lo usan: la portada (`src/pages/index.astro`). Al ser la marca visual del
+ * sitio, también aparece como `FieldRule` en los bordes de sección.
+ *
+ * Para cambiar el trazo, los colores o el tamaño, tocá `PairField` en
+ * `src/styles/global.css`. Las proporciones se cambian acá, en el `viewBox`.
+ */
+interface Props {
+  class?: string;
+  /** Texto debajo de la figura. Si no hay, no se reserva espacio. */
+  caption?: string;
+  /** Descripción para lectores de pantalla. */
+  label?: string;
+}
+
+const {
+  class: className,
+  caption,
+  label = "Dos polos de carga opuesta y las líneas de campo entre ellos.",
+} = Astro.props;
+---
+
+<figure class:list={["pair-field", className]}>
+  <svg viewBox="0 0 440 200" role="img" aria-label={label} fill="none">
+    <path
+      class="pair-field__line"
+      pathLength="1"
+      d="M60 100Q220 22 380 100"
+      stroke="currentColor"
+      stroke-opacity="0.38"
+      stroke-width="1"
+    />
+    <path
+      class="pair-field__line"
+      pathLength="1"
+      d="M60 100Q220 58 380 100"
+      stroke="currentColor"
+      stroke-opacity="0.55"
+      stroke-width="1"
+    />
+    <line
+      class="pair-field__line"
+      pathLength="1"
+      x1="60"
+      y1="100"
+      x2="380"
+      y2="100"
+      stroke="currentColor"
+      stroke-opacity="0.72"
+      stroke-width="1"
+    />
+    <path
+      class="pair-field__line"
+      pathLength="1"
+      d="M60 100Q220 142 380 100"
+      stroke="currentColor"
+      stroke-opacity="0.55"
+      stroke-width="1"
+    />
+    <path
+      class="pair-field__line"
+      pathLength="1"
+      d="M60 100Q220 178 380 100"
+      stroke="currentColor"
+      stroke-opacity="0.38"
+      stroke-width="1"
+    />
+    <rect
+      class="pair-field__pole"
+      x="53"
+      y="93"
+      width="14"
+      height="14"
+      fill="var(--color-copper-500)"
+    />
+    <rect
+      class="pair-field__pole pair-field__pole--right"
+      x="373"
+      y="93"
+      width="14"
+      height="14"
+      fill="var(--color-copper-500)"
+    />
+    <g
+      fill="currentColor"
+      fill-opacity="0.7"
+      font-family="var(--font-sans)"
+      font-size="16"
+      text-anchor="middle"
+    >
+      <text x="60" y="76">+</text>
+      <text x="380" y="76">−</text>
+    </g>
+  </svg>
+  {caption && <figcaption class="pair-field__caption">{caption}</figcaption>}
+</figure>

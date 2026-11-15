@@ -1,0 +1,150 @@
+---
+/**
+ * CONTACTOS — /contactos/
+ *
+ * Qué renderiza: los canales reales del centro (tres WhatsApp, dos correos,
+ * dirección y horario) y un aviso que explica por qué todavía no hay
+ * formulario. No hay formulario a propósito: no existe un destino que reciba
+ * los mensajes y un formulario que los descarta en silencio es peor que no
+ * tener ninguno (ver T16 en el plan).
+ *
+ * De dónde sale: `src/data/contact.ts`, una sola fuente para todo el sitio.
+ *
+ * Por qué esta página no usa `src/content/pages/contactos.md`: ese archivo
+ * contiene el formulario del sitio original (etiquetas de campos, botón
+ * "Enviar") y publicarlo sería publicar un formulario que no envía nada. El
+ * título se lee de ahí para no duplicar el nombre de la página.
+ *
+ * Qué tocar:
+ * - números, correos y horarios → `src/data/contact.ts`
+ * - el aviso del formulario → el bloque `<aside class="notice">` de abajo
+ * - la disposición en dos columnas → `.contact-columns` en
+ *   `src/styles/global.css`
+ */
+import { getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppAction from "../components/WhatsAppAction.astro";
+import { contact, whatsappUrl } from "../data/contact";
+
+const entry = await getEntry("pages", "contactos");
+const title = entry?.data.title ?? "Contactos";
+---
+
+<BaseLayout
+  title={title}
+  description="WhatsApp, correo, dirección y horario del Centro de Biomagnetismo Médico en Quito: Pineda N11-121 y Guatemala, con cita previa."
+>
+  <section class="page-intro band band--night">
+    <div class="shell">
+      <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Contacto</span>
+        <span aria-hidden="true">/</span>
+        <span>{title}</span>
+      </nav>
+
+      <div class="page-intro__body">
+        <h1 class="page-intro__title">{title}</h1>
+        <div class="page-intro__aside">
+          <p class="page-intro__lede">
+            El WhatsApp es la vía más rápida: contesta una persona del centro en horario de atención.
+            El mensaje llega ya escrito, solo tenés que enviarlo.
+          </p>
+          <p class="page-intro__actions">
+            <WhatsAppAction
+              message="cita"
+              label="Pedir una cita por WhatsApp"
+              showNumber
+              variant="copper"
+              block
+            />
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--paper">
+    <div class="shell contact-columns">
+      <div>
+        <div class="contact-block">
+          <p class="contact-block__title">WhatsApp</p>
+          <div class="channel-list">
+            {
+              contact.whatsapps.map((channel) => (
+                <a
+                  class="channel"
+                  href={whatsappUrl(channel, "Hola, escribo desde el sitio web del Centro de Biomagnetismo Médico. Quisiera pedir una cita.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="channel__label">{channel.role}</span>
+                  <span class="channel__value">{channel.label}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-block__title">Correo</p>
+          <div class="channel-list">
+            {
+              contact.emails.map((email) => (
+                <a class="channel" href={`mailto:${email}`}>
+                  <span class="channel__value">{email}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-block">
+          <p class="contact-block__title">Dónde</p>
+          <address class="contact-address">
+            {contact.address.street}<br />
+            {contact.address.city} · {contact.address.country}
+          </address>
+          <p class="contact-block__action">
+            <a
+              class="link-quiet"
+              href={contact.address.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver la dirección en el mapa
+            </a>
+          </p>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-block__title">Cuándo</p>
+          <div class="hours">
+            {
+              contact.hours.map((row) => (
+                <div class="hours__row">
+                  <span class="hours__days">{row.days}</span>
+                  <span>{row.times}</span>
+                </div>
+              ))
+            }
+          </div>
+          <p class="contact-address">{contact.visitNote}.</p>
+        </div>
+
+        <aside class="notice">
+          <p class="notice__title">El formulario todavía no está publicado</p>
+          <p class="notice__body">
+            El sitio anterior tenía un formulario de contacto. No se publica acá porque todavía no
+            tiene un destino que reciba los mensajes: enviar datos de salud a un formulario que los
+            descarta es peor que no tener formulario. Mientras tanto, escribinos por WhatsApp o por
+            correo. El formulario vuelve cuando exista el canal que lo recibe.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

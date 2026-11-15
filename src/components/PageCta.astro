@@ -1,0 +1,37 @@
+---
+/**
+ * Cierre de página: el último bloque antes del pie.
+ *
+ * Qué renderiza: una pregunta corta, el botón de WhatsApp con el mensaje que
+ * corresponde a esa página y, si hace falta, un enlace secundario. Cada página
+ * termina en una acción concreta; no hay dos compitiendo.
+ *
+ * Lo usan: la portada y `src/pages/[...slug].astro`.
+ * Para cambiar el mensaje precargado: `whatsappMessages` en
+ * `src/data/contact.ts`.
+ */
+import type { WhatsAppMessageKey } from "../data/contact";
+import WhatsAppAction from "./WhatsAppAction.astro";
+
+interface Props {
+  title: string;
+  body?: string;
+  message: WhatsAppMessageKey;
+  secondary?: { label: string; href: string };
+}
+
+const { title, body, message, secondary } = Astro.props;
+---
+
+<section class="band band--night-raised cta">
+  <div class="shell cta__inner">
+    <div>
+      <h2 class="cta__title">{title}</h2>
+      {body && <p class="cta__body">{body}</p>}
+    </div>
+    <div class="cta__actions">
+      <WhatsAppAction message={message} label="Escribir por WhatsApp" showNumber block />
+      {secondary && <a class="link-quiet" href={secondary.href}>{secondary.label}</a>}
+    </div>
+  </div>
+</section>

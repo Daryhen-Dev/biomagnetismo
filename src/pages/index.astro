@@ -1,16 +1,196 @@
 ---
+/**
+ * PORTADA
+ *
+ * Qué renderiza, en orden: (1) el campo —qué es el par biomagnético, con el
+ * botón de cita; (2) el método en una pantalla —definición y datos concretos—;
+ * (3) quién atiende —credencial y foto documental—; (4) el contenido heredado
+ * de `home.md`; (5) el cierre con WhatsApp.
+ *
+ * De dónde sale el texto: el bloque (4) se renderiza tal cual desde
+ * `src/content/pages/home.md`. La definición del bloque (2) es la cita literal
+ * de `src/content/pages/par-biomagnetico.md`. El resto son datos verificables
+ * de `PRODUCT.md` y `src/data/contact.ts`, redactados para esta portada.
+ *
+ * Qué tocar:
+ * - textos de la portada heredados → `src/content/pages/home.md`
+ * - botón, número y mensaje de WhatsApp → `src/data/contact.ts`
+ * - foto documental → la ruta en `archivePhoto` (abajo) o el álbum completo en
+ *   `src/content/galleries/`
+ * - credenciales → `credentials` (abajo) y la página del doctor en el contenido
+ *
+ * Mobile first: todo está compuesto a 390 px. Los `md:`/`lg:` solo agregan
+ * columnas.
+ */
+import { getEntry, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PairField from "../components/PairField.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CredentialPlate from "../components/CredentialPlate.astro";
+import PageCta from "../components/PageCta.astro";
+import EntryBody from "../components/EntryBody.astro";
+import WhatsAppAction from "../components/WhatsAppAction.astro";
+import { contact, directorPortrait } from "../data/contact";
+import { mediaImage } from "../data/gallery-media";
+import { siteName } from "../data/site";
 
-// Placeholder shell. The real home is built after the visual direction is
-// chosen in T11; this exists so the scaffold compiles and deploys.
+const home = await getEntry("pages", "home");
+if (!home) {
+  throw new Error("Falta src/content/pages/home.md: la portada no tiene contenido que mostrar.");
+}
+const { Content } = await render(home);
+
+// Archivo documental del programa piloto en Oruro, tomado de la galería de
+// Bolivia. Si esta foto cambia de ruta, el build avisa.
+const archivePhoto = mediaImage(
+  "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-1.webp",
+);
+
+const credentials = [
+  {
+    label: "Doctor Honoris Causa en Ciencias de la Salud",
+    detail: "Health Sciences Awards · SISDET, Panamá, 2025",
+  },
+  {
+    label: "Master en Biomagnetismo",
+    detail: "SISDET y Universidad de Puebla, México, 2024",
+  },
+  {
+    label: "Tecnólogo Médico Radiólogo",
+    detail: "Universidad Central del Ecuador, 1986",
+  },
+];
 ---
 
-<BaseLayout
-  title="Centro de Biomagnetismo Médico"
-  description="Sistema terapéutico descubierto por el Dr. Isaac Goiz Durán el 10 de octubre de 1988."
->
-  <main>
-    <h1>Centro de Biomagnetismo Médico</h1>
-    <p>Scaffold en construcción. El diseño se define en la fase de dirección visual.</p>
-  </main>
+<BaseLayout title={siteName} description={home.data.description} ogImage={directorPortrait}>
+  <!-- (1) El campo: la tesis del sitio en la primera pantalla. -->
+  <section class="hero band band--night-deep">
+    <div class="shell hero__inner">
+      <h1 class="hero__title">El par biomagnético</h1>
+      <p class="hero__lede">
+        Dos cargas de polaridad opuesta que identifican una patología. Método descubierto por el
+        Dr. Isaac Goiz Durán el 10 de octubre de 1988; en Quito lo dirige el Dr. HC Francisco Mena
+        Flores.
+      </p>
+
+      <PairField
+        class="hero__field"
+        caption="El par: dos cargas de polaridad opuesta. Lo que se lee entre ellas es lo que se corrige."
+      />
+
+      <div class="hero__actions">
+        <WhatsAppAction
+          message="cita"
+          label="Pedir una cita"
+          showNumber
+          variant="copper"
+          block
+        />
+        <a class="link-quiet" href="#metodo">Cómo es una sesión</a>
+      </div>
+
+      <p class="hero__foot">
+        {contact.address.street} · {contact.address.city}<br />
+        {contact.hours.map((row) => (
+          <>
+            {row.days}: {row.times}
+            <br />
+          </>
+        ))}
+        {contact.visitNote}
+      </p>
+    </div>
+  </section>
+
+  <!-- (2) El método, en una pantalla. -->
+  <section id="metodo" class="band band--paper">
+    <div class="shell">
+      <SectionHeading
+        title="Qué es el par biomagnético"
+        lede="El método estudia, detecta y corrige las alteraciones del pH de los órganos vivos. Trabaja con pares: dos cargas de polaridad opuesta que se identifican entre sí."
+      />
+
+      <blockquote class="method-quote">
+        <p>
+          “El par Biomagnético es un conjunto de cargas que identifican una patología y que está
+          constituido por dos cargas principales de polaridad opuesta, que se forman a expensas de
+          la alteración fundamental del pH de los organismos que la soportan”.
+        </p>
+        <cite>
+          Definición del método · <a href="/par-biomagnetico/">Leer el método completo</a>
+        </cite>
+      </blockquote>
+
+      <dl class="method-facts">
+        <div>
+          <dt>Qué se busca</dt>
+          <dd>Las alteraciones del pH de los órganos internos, a través de los pies.</dd>
+        </div>
+        <div>
+          <dt>Con qué</dt>
+          <dd>Imanes de más de 1000 gauss, colocados en pares de carga opuesta.</dd>
+        </div>
+        <div>
+          <dt>Cuánto dura</dt>
+          <dd>La atención presencial es personalizada y de 30 minutos.</dd>
+        </div>
+        <div>
+          <dt>Dónde</dt>
+          <dd>{contact.address.street}, {contact.address.city}. {contact.visitNote}.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- (3) Quién atiende: la credencial y el archivo, antes que cualquier adjetivo. -->
+  <section class="band band--night">
+    <div class="shell">
+      <SectionHeading
+        title="Quién atiende"
+        lede="Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán. La credencial y el archivo fotográfico son verificables."
+      />
+
+      <CredentialPlate
+        photo={directorPortrait}
+        photoAlt="Retrato del Dr. Francisco Mena Flores, director del centro."
+        name="Dr. HC Francisco Mena Flores"
+        role="Director · instructor en biomagnetismo, bioenergética y constelaciones familiares"
+        credentials={credentials}
+        link={{ href: "/francisco-mena/", label: "Ver la trayectoria completa" }}
+      />
+
+      <figure class="archive-plate">
+        <Image
+          src={archivePhoto}
+          alt="El Dr. Francisco Mena, sentado junto a un paciente internado en el Hospital San Juan de Dios de Oruro, Bolivia."
+          widths={[480, 960, 1440]}
+          sizes="(min-width: 68rem) 64rem, 92vw"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          <span>Hospital San Juan de Dios, Oruro · Bolivia</span>
+          <a href="/galeria/fotobolivia/">Ver el archivo fotográfico</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- (4) El contenido heredado del sitio original, tal como se portó. -->
+  <section class="band band--paper">
+    <div class="shell">
+      <div class="prose prose--home">
+        <EntryBody Content={Content} />
+      </div>
+    </div>
+  </section>
+
+  <!-- (5) Cierre: una sola acción. -->
+  <PageCta
+    title="¿Querés pedir una cita?"
+    body="Escribinos por WhatsApp y te respondemos en horario de atención. También podés llamar o escribir a los correos del centro."
+    message="cita"
+    secondary={{ label: "Ver todos los contactos", href: "/contactos/" }}
+  />
 </BaseLayout>

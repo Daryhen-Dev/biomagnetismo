@@ -76,10 +76,10 @@ correcciones, y la verificación visual en T18 incluye capturas a 390 px antes q
 | T7 | Scaffold Astro 5 + TypeScript + content collections | S1 | inline | — |
 | T8 | Convertir el contenido WordPress a Markdown/MDX en las collections (21 páginas) | S1,S3 | por confirmar | — |
 | T9 | Descargar y optimizar las imágenes originales desde `wp-content/uploads` | S1,S3 | por confirmar | — |
-| T10 | Impeccable: `context` + generar `PRODUCT.md` y `DESIGN.md` | S5 | inline | — |
-| T11 | Direcciones visuales con Impeccable y elección del usuario | S5 | inline | — |
-| T12 | Layout base y home | S5 | por confirmar | — |
-| T13 | Páginas institucionales (el doctor, terapias, contacto, galerías por país) | S3,S5 | por confirmar | — |
+| T10 | Impeccable: `context` + generar `PRODUCT.md` y `DESIGN.md` | S5 | inline | hecho |
+| T11 | Direcciones visuales con Impeccable y elección del usuario | S5 | inline | hecho |
+| T12 | Layout base y home | S5 | worker | hecho |
+| T13 | Páginas institucionales (el doctor, terapias, contacto, galerías por país) | S3,S5 | worker | hecho |
 | T14 | ~~Blog: listado, paginación y detalle~~ — descartado por L6 | S3 | — | — |
 | T15 | ~~Cursos y eventos~~ — no existen como CPT en la base actual (E7) | S3 | — | — |
 | T16 | Formulario de contacto: redefine el destino y el aviso de privacidad (datos de salud) | S3 | por confirmar | — |
@@ -169,7 +169,34 @@ las 2 entradas. T14 y T15 quedan descartadas y se abre el trabajo de consolidaci
 Se registran como S7 (trazabilidad), S8 (opciones con recomendación) y S9 (mobile first).
 
 **Evidencia E8** — port de contenido ejecutado (T8-T9): 10 páginas en `src/content/pages/`, 11 archivos de
-galería con 30 galerías Modula y 254 imágenes, 287 WebP en `src/assets/media/` (30,1 MB → 19,9 MB, EXIF/ICC/XMP
+galería con 29 álbumes Modula y 254 imágenes, 287 WebP en `src/assets/media/` (30,1 MB → 19,9 MB, EXIF/ICC/XMP
 eliminado por privacidad), y `src/data/redirects.json` con los 7 redirects 301. `pnpm run check` y `pnpm run
 build` pasan. Las 89 imágenes de 11 galerías huérfanas (que ninguna página embebe) quedaron fuera a propósito.
 `galeria.md` conserva una referencia a un placeholder de Elementor que la fase de diseño debe reemplazar.
+
+**Evidencia E9** — identidad y plantillas construidas (T10-T13). Dirección elegida por el usuario: "Campo
+magnético: índigo + cobre", con pacientes como primer destinatario. Se escribió `PRODUCT.md` (schema 1) y
+`DESIGN.md`, y `.impeccable/config.json` registra `buildPath: code` según la elección del usuario.
+
+Resultado verificado por el padre, no solo reportado por el worker:
+- `pnpm run build`: **21 rutas** (1 home, 7 institucionales, 1 contacto, 1 hub de galería, 11 galerías), `dist` 33 MB.
+- Capturas reales a 390 px y 1440 px: home, contacto, galería y preguntas. Sin scroll horizontal en ninguna ruta
+  (scrollWidth = 390), sin imágenes rota, h1 correcto por página.
+- Detector de Impeccable sobre plantillas y estilos: `[]`, cero hallazgos.
+- Objetivos táctiles: los únicos elementos por debajo de 44 px son enlaces de texto en prosa y migas de pan,
+  exentos por WCAG 2.5.8. Los CTA principales (cita, WhatsApp, menú) cumplen.
+- Datos reales en toda la superficie: dirección de Quito, horarios, dos correos y los tres WhatsApp con
+  +593 99 883 9196 como principal. Sin formulario falso: la página declara el formulario como pendiente (T16).
+
+Deuda conocida y registrada:
+- 245 de 254 fotos llevan texto alternativo generado (`altPending`): revisión obligatoria antes de publicar.
+- Un hallazgo del detector sobre la URL `/par-biomagnetico/` ("straggler"): es la última línea de una cita textual
+  del contenido heredado. Corregirlo exige editar copy médico, no CSS.
+- Las portadas de álbum salen de la primera imagen real de la galería; en `fotochile` es la bandera del país.
+- Los cuerpos Markdown se renderizan con `experimental_AstroContainer` (receta documentada para RSS) para poder
+  normalizar encabezados y citas heredadas. Punto único de riesgo: `src/data/content-html.ts`.
+
+**Evidencia E10** — incidente de verificación: los servidores estáticos que dejó el worker ocupaban los puertos
+4399-4403 y una instancia en 4321 respondía con un sitio ajeno ("Where nature wrote its own rules"). Se mataron
+por PID y la verificación se repitió contra `astro preview` en 127.0.0.1:4600, que devolvió el título correcto.
+Sin esa limpieza, las capturas habrían validado el sitio equivocado.
