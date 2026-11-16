@@ -32,6 +32,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import GalleryGrid from "../../components/GalleryGrid.astro";
+import GalleryViewer from "../../components/GalleryViewer.astro";
 import FieldRule from "../../components/FieldRule.astro";
 import { mediaImage, mediaImageOrUndefined } from "../../data/gallery-media";
 import { parseGalleryIntro } from "../../data/gallery-intro";
@@ -156,6 +157,8 @@ const nextSize = nextGallery ? gallerySize(nextGallery) : undefined;
     </div>
   </section>
 
+  <GalleryViewer />
+
   <section class="band band--paper">
     <div class="shell">
       {
@@ -193,7 +196,12 @@ const nextSize = nextGallery ? gallerySize(nextGallery) : undefined;
                   {album.images.length} {album.images.length === 1 ? "foto" : "fotos"}
                 </p>
               </div>
-              <GalleryGrid images={album.images} album={album.title} eagerCount={album === gallery.data.galleries[0] ? 4 : 0} />
+              <GalleryGrid
+                images={album.images}
+                album={album.title}
+                albumKey={album.slug}
+                eagerCount={album === gallery.data.galleries[0] ? 4 : 0}
+              />
             </section>
           );
         })

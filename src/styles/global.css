@@ -3233,3 +3233,178 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ---------------------------------------------------------------------------
+ * Álbumes de pocas fotos
+ *
+ * Antes el rótulo del álbum se iba al costado de las fotos, compartiendo la fila
+ * de la grilla de cuatro columnas. Con una o tres fotos el título quedaba
+ * flotando a la derecha y el álbum no se leía como una sección. Ahora el rótulo
+ * va arriba, a todo el ancho, igual que en los álbumes grandes, y las fotos usan
+ * tres columnas: una sola foto queda a un tercio del ancho, no diminuta.
+ * ------------------------------------------------------------------------- */
+@media (min-width: 64rem) {
+  .album--few {
+    display: block;
+  }
+
+  .album--few > .album__head {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .album--few > .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .album--few .gallery-cell {
+    grid-row: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Visor de fotos
+ *
+ * Capa a pantalla completa sobre la página. La imagen se limita en alto y ancho
+ * para que nunca desborde; en móvil los controles van abajo, donde llega el
+ * pulgar, y en pantallas grandes a los costados.
+ * ------------------------------------------------------------------------- */
+.viewer {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: color-mix(in oklab, #05070d 96%, transparent);
+  color: #f4f2ec;
+}
+
+.viewer::backdrop {
+  background: rgb(3 5 10 / 0.86);
+  backdrop-filter: blur(3px);
+}
+
+.viewer[open] {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding: clamp(0.75rem, 2vw, 2rem);
+}
+
+.viewer__figure {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  margin: 0;
+  min-height: 0;
+  max-width: min(100%, 82rem);
+}
+
+.viewer__image {
+  max-width: 100%;
+  max-height: min(74vh, 100%);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-frame, 2px);
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.45);
+}
+
+.viewer__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.9rem;
+  max-width: 60ch;
+  text-align: center;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.viewer__album {
+  color: var(--color-copper-300);
+  letter-spacing: 0.04em;
+}
+
+.viewer__count {
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in oklab, #f4f2ec 62%, transparent);
+}
+
+.viewer__alt {
+  flex-basis: 100%;
+  color: color-mix(in oklab, #f4f2ec 74%, transparent);
+}
+
+.viewer__close,
+.viewer__nav {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in oklab, #f4f2ec 26%, transparent);
+  border-radius: 50%;
+  background: color-mix(in oklab, #0a1020 82%, transparent);
+  color: #f4f2ec;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+
+.viewer__close:hover,
+.viewer__nav:hover,
+.viewer__close:focus-visible,
+.viewer__nav:focus-visible {
+  background: var(--color-copper-500);
+  border-color: var(--color-copper-500);
+  color: var(--color-ink-900);
+}
+
+.viewer__nav:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.viewer__close {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+/* En móvil los laterales van abajo, al alcance del pulgar. */
+.viewer__nav {
+  bottom: 1.1rem;
+  top: auto;
+}
+
+.viewer__nav--prev {
+  left: 1.1rem;
+}
+
+.viewer__nav--next {
+  right: 1.1rem;
+}
+
+@media (min-width: 48rem) {
+  .viewer__nav {
+    top: 50%;
+    bottom: auto;
+    translate: 0 -50%;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .viewer__nav--prev {
+    left: 1.5rem;
+  }
+
+  .viewer__nav--next {
+    right: 1.5rem;
+  }
+}

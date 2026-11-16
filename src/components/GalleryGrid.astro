@@ -39,9 +39,11 @@ interface Props {
   eagerCount?: number;
   /** Nombre del álbum, para la etiqueta accesible del enlace. */
   album?: string;
+  /** Clave del álbum: el visor agrupa por esta clave. */
+  albumKey?: string;
 }
 
-const { images, eagerCount = 0, album } = Astro.props;
+const { images, eagerCount = 0, album, albumKey = "" } = Astro.props;
 const total = images.length;
 const width = String(total).length < 2 ? 2 : String(total).length;
 const ordinal = (value: number) => String(value).padStart(width, "0");
@@ -58,6 +60,11 @@ const ordinal = (value: number) => String(value).padStart(width, "0");
             href={asset.src}
             target="_blank"
             rel="noopener noreferrer"
+            data-viewer-item
+            data-album={albumKey}
+            data-album-title={album ?? ""}
+            data-full={asset.src}
+            data-alt={photo.alt}
           >
             <Image
               src={asset}

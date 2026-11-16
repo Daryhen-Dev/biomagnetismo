@@ -1,0 +1,120 @@
+---
+/**
+ * Visor de fotos.
+ *
+ * Qué hace: al tocar una foto del álbum, la abre en una capa sobre la página con
+ * las **fotos de ese mismo álbum**, no con todas las de la galería. Se recorre
+ * con las flechas o el teclado y se cierra con Escape o el botón de cerrar.
+ *
+ * Por qué existe: antes cada foto abría la imagen original en una pestaña nueva,
+ * así que al mirar un álbum la persona terminaba con siete pestañas abiertas y
+ * perdía el hilo. El visor mantiene el conjunto y el contexto.
+ *
+ * Sin JavaScript: los enlaces siguen apuntando a la imagen original, así que
+ * nada queda inaccesible; simplemente se abre en otra pestaña como antes.
+ *
+ * Se monta una sola vez por página de galería (`src/pages/galeria/[slug].astro`).
+ * Las fotos se descubren leyendo los `[data-viewer-item]` que emite
+ * `GalleryGrid.astro`, agrupados por `data-album`: no hay una segunda lista de
+ * datos que pueda desincronizarse.
+ */
+---
+
+<dialog class="viewer" data-viewer aria-label="Visor de fotos">
+  <button class="viewer__close" type="button" data-viewer-close aria-label="Cerrar el visor">
+    <span aria-hidden="true">×</span>
+  </button>
+
+  <button class="viewer__nav viewer__nav--prev" type="button" data-viewer-prev aria-label="Foto anterior">
+    <span aria-hidden="true">‹</span>
+  </button>
+
+  <figure class="viewer__figure">
+    <img class="viewer__image" data-viewer-image alt="" />
+    <figcaption class="viewer__caption">
+      <span class="viewer__album" data-viewer-album></span>
+      <span class="viewer__count" data-viewer-count></span>
+      <span class="viewer__alt" data-viewer-alt></span>
+    </figcaption>
+  </figure>
+
+  <button class="viewer__nav viewer__nav--next" type="button" data-viewer-next aria-label="Foto siguiente">
+    <span aria-hidden="true">›</span>
+  </button>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-viewer]");
+
+  if (dialog) {
+    const image = dialog.querySelector<HTMLImageElement>("[data-viewer-image]")!;
+    const albumLabel = dialog.querySelector<HTMLElement>("[data-viewer-album]")!;
+    const count = dialog.querySelector<HTMLElement>("[data-viewer-count]")!;
+    const altLabel = dialog.querySelector<HTMLElement>("[data-viewer-alt]")!;
+    const prev = dialog.querySelector<HTMLButtonElement>("[data-viewer-prev]")!;
+    const next = dialog.querySelector<HTMLButtonElement>("[data-viewer-next]")!;
+
+    let items: HTMLAnchorElement[] = [];
+    let index = 0;
+    let opener: HTMLElement | null = null;
+
+    const show = () => {
+      const item = items[index];
+      if (!item) return;
+      image.src = item.dataset.full ?? item.getAttribute("href") ?? "";
+      image.alt = item.dataset.alt ?? "";
+      albumLabel.textContent = item.dataset.albumTitle ?? "";
+      count.textContent = `${index + 1} / ${items.length}`;
+      altLabel.textContent = item.dataset.alt ?? "";
+      const single = items.length < 2;
+      prev.disabled = single;
+      next.disabled = single;
+    };
+
+    const step = (delta: number) => {
+      if (items.length < 2) return;
+      index = (index + delta + items.length) % items.length;
+      show();
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement | null;
+      const item = target?.closest?.("[data-viewer-item]") as HTMLAnchorElement | null;
+      if (!item) return;
+
+      const key = item.dataset.album ?? "";
+      items = [...document.querySelectorAll<HTMLAnchorElement>(`[data-viewer-item][data-album="${CSS.escape(key)}"]`)];
+      index = Math.max(0, items.indexOf(item));
+      opener = item;
+
+      event.preventDefault();
+      show();
+      dialog.showModal();
+    });
+
+    dialog.querySelector("[data-viewer-close]")?.addEventListener("click", () => dialog.close());
+    prev.addEventListener("click", () => step(-1));
+    next.addEventListener("click", () => step(1));
+
+    // Un clic en el fondo (fuera de la figura y de los controles) cierra.
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        step(-1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        step(1);
+      }
+    });
+
+    dialog.addEventListener("close", () => {
+      image.removeAttribute("src");
+      opener?.focus({ preventScroll: true });
+    });
+  }
+</script>
