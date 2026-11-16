@@ -74,6 +74,21 @@ Flores** y vence el **2030-06-06**. Para que los 301 funcionen, el sitio nuevo
 tiene que publicarse exactamente en ese dominio: los redirects existen solo si el
 hosting es el mismo que antes.
 
+### Antes de empezar: no hay nada que migrar
+
+Comprobado el 2026-11-16: la zona `centrodoctorgoiz.cl` **no responde**.
+`A`, `AAAA`, `CNAME`, `MX`, `TXT`, `NS` y `SOA` devuelven todos SERVFAIL desde
+resolvers públicos, porque el DNS vivía en el hosting cancelado.
+
+Consecuencias, todas a favor:
+
+- No hay correo propio que romper: el centro usa Gmail (dos cuentas `@gmail.com`).
+- No hay subdominios ni verificaciones de Google que preservar.
+- El dominio ya está inaccesible hoy, así que la mudanza no genera caída.
+
+Se puede apuntar el dominio a Cloudflare sin inventariar registros. Si alguna vez
+hubo correo con el dominio, hoy no existe.
+
 ### Paso 1 — mover el DNS a Cloudflare
 
 1. Cloudflare → **Add a site** → `centrodoctorgoiz.cl` → plan Free
