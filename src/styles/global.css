@@ -3404,3 +3404,33 @@
     right: 1.5rem;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Controles del visor: SVG, no glifos
+ *
+ * Los iconos eran caracteres de texto («×», «‹», «›») a 24 px. Un glifo de
+ * fuente se rasteriza al tamaño que se pide y a ese tamaño se ve dentado; un
+ * SVG con trazo definido se mantiene nítido en cualquier densidad de pantalla.
+ * ------------------------------------------------------------------------- */
+.viewer__close svg,
+.viewer__nav svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* El visor es una capa de solo lectura: no se selecciona texto ni se arrastra
+   la foto mientras está abierto. */
+.viewer,
+.viewer * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.viewer__image {
+  -webkit-user-drag: none;
+}

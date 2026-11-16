@@ -22,15 +22,19 @@
 
 <dialog class="viewer" data-viewer aria-label="Visor de fotos">
   <button class="viewer__close" type="button" data-viewer-close aria-label="Cerrar el visor">
-    <span aria-hidden="true">×</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
   </button>
 
   <button class="viewer__nav viewer__nav--prev" type="button" data-viewer-prev aria-label="Foto anterior">
-    <span aria-hidden="true">‹</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M15 5l-7 7 7 7" />
+    </svg>
   </button>
 
   <figure class="viewer__figure">
-    <img class="viewer__image" data-viewer-image alt="" />
+    <img class="viewer__image" data-viewer-image alt="" draggable="false" />
     <figcaption class="viewer__caption">
       <span class="viewer__album" data-viewer-album></span>
       <span class="viewer__count" data-viewer-count></span>
@@ -38,7 +42,9 @@
   </figure>
 
   <button class="viewer__nav viewer__nav--next" type="button" data-viewer-next aria-label="Foto siguiente">
-    <span aria-hidden="true">›</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M9 5l7 7-7 7" />
+    </svg>
   </button>
 </dialog>
 
