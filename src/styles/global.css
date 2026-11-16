@@ -3335,10 +3335,6 @@
   color: color-mix(in oklab, #f4f2ec 62%, transparent);
 }
 
-.viewer__alt {
-  flex-basis: 100%;
-  color: color-mix(in oklab, #f4f2ec 74%, transparent);
-}
 
 .viewer__close,
 .viewer__nav {

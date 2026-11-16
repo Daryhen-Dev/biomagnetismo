@@ -34,7 +34,6 @@
     <figcaption class="viewer__caption">
       <span class="viewer__album" data-viewer-album></span>
       <span class="viewer__count" data-viewer-count></span>
-      <span class="viewer__alt" data-viewer-alt></span>
     </figcaption>
   </figure>
 
@@ -50,7 +49,6 @@
     const image = dialog.querySelector<HTMLImageElement>("[data-viewer-image]")!;
     const albumLabel = dialog.querySelector<HTMLElement>("[data-viewer-album]")!;
     const count = dialog.querySelector<HTMLElement>("[data-viewer-count]")!;
-    const altLabel = dialog.querySelector<HTMLElement>("[data-viewer-alt]")!;
     const prev = dialog.querySelector<HTMLButtonElement>("[data-viewer-prev]")!;
     const next = dialog.querySelector<HTMLButtonElement>("[data-viewer-next]")!;
 
@@ -65,7 +63,6 @@
       image.alt = item.dataset.alt ?? "";
       albumLabel.textContent = item.dataset.albumTitle ?? "";
       count.textContent = `${index + 1} / ${items.length}`;
-      altLabel.textContent = item.dataset.alt ?? "";
       const single = items.length < 2;
       prev.disabled = single;
       next.disabled = single;
