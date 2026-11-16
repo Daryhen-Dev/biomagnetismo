@@ -12,7 +12,7 @@
  * (contacto). No escribas un teléfono acá: cambialo en contact.ts.
  */
 import { contact, whatsappUrl } from "../data/contact";
-import { footerNav, siteName, siteTagline } from "../data/site";
+import { navGroups, siteName, siteTagline } from "../data/site";
 import { Image } from "astro:assets";
 import logo from "../assets/brand/logo-biomagnetismo.png";
 
@@ -41,10 +41,21 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
+      <!-- El pie repite el menú del sitio, con sus mismos grupos: así la lista
+           no es una columna larga y la navegación coincide en los dos lugares. -->
       <nav aria-label="Mapa del sitio">
         <p class="site-footer__title">Secciones</p>
         <div class="site-footer__nav">
-          {footerNav.map((item) => <a href={item.href}>{item.label}</a>)}
+          {
+            navGroups.map((group) => (
+              <div class="site-footer__group">
+                <p class="site-footer__group-title">{group.title}</p>
+                {group.items.map((item) => (
+                  <a href={item.href}>{item.label}</a>
+                ))}
+              </div>
+            ))
+          }
         </div>
       </nav>
 

@@ -39,21 +39,14 @@ export const contact = {
   /** Condición real de la atención, no un eslogan. */
   visitNote: "Atención con cita previa",
   emails: ["centrodrgoiz@gmail.com", "mena.francisco2014@gmail.com"],
+  // Un único número oficial (Ecuador). Los dos números chilenos que circulaban
+  // en el sitio anterior ya no se publican: un paciente que escribe a un número
+  // sin respuesta es una cita perdida.
   whatsapps: [
     {
-      label: "+593 99 883 9196",
-      e164: "593998839196",
-      role: "Ecuador · canal principal",
-    },
-    {
-      label: "+56 9 7477 7455",
-      e164: "56974777455",
-      role: "Chile",
-    },
-    {
-      label: "+56 9 8295 7690",
-      e164: "56982957690",
-      role: "Chile",
+      label: "+593 99 864 9759",
+      e164: "593998649759",
+      role: "Ecuador",
     },
   ] satisfies WhatsAppChannel[],
 } as const;

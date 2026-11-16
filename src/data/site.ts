@@ -5,7 +5,7 @@
  * y `src/components/SiteFooter.astro`.
  *
  * Si agregás una página nueva, sumala acá: `navGroups` alimenta el menú del
- * móvil y `footerNav` el pie. Lo que no esté en estos arrays no se puede
+ * móvil y el mismo menú alimenta el pie. Lo que no esté en estos arrays no se puede
  * encontrar navegando, solo por URL directa.
  */
 export const siteName = "Centro de Biomagnetismo Médico";
@@ -26,7 +26,7 @@ export const primaryNav: NavItem[] = [
   { label: "Contactos", href: "/contactos/" },
 ];
 
-/** Navegación completa, agrupada. Se muestra en el menú del móvil. */
+/** Navegación completa, agrupada. Alimenta el menú del móvil y el pie. */
 export const navGroups: { title: string; items: NavItem[] }[] = [
   {
     title: "El método",
@@ -54,19 +54,6 @@ export const navGroups: { title: string; items: NavItem[] }[] = [
   },
 ];
 
-/** Mapa del sitio en el pie: todas las páginas publicadas. */
-export const footerNav: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "El par biomagnético", href: "/par-biomagnetico/" },
-  { label: "El doctor", href: "/francisco-mena/" },
-  { label: "Servicios", href: "/servicios/" },
-  { label: "Preguntas", href: "/preguntas/" },
-  { label: "Testimonios", href: "/testimonios/" },
-  { label: "Entrevistas", href: "/entrevistas/" },
-  { label: "Galería", href: "/galeria/" },
-  { label: "Colaboradores", href: "/colaboradores/" },
-  { label: "Contactos", href: "/contactos/" },
-];
 
 /**
  * Marca el enlace activo comparando la ruta actual con la del enlace, con y

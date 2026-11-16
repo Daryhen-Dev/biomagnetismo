@@ -3158,3 +3158,68 @@
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Navegación del pie
+ *
+ * Antes era una lista plana de diez enlaces en una sola columna. Ahora repite
+ * los grupos del menú: en móvil una columna de grupos cortos, y desde 64rem tres
+ * columnas, para que el pie no crezca en vertical ni parezca un índice suelto.
+ * ------------------------------------------------------------------------- */
+.site-footer__nav {
+  display: grid;
+  gap: 1.75rem 2rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 40rem) {
+  .site-footer__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .site-footer__nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.site-footer__group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.site-footer__group-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-copper-300) 78%, transparent);
+}
+
+.site-footer__group a {
+  min-height: 2.25rem;
+  line-height: 1.3;
+  padding-block: 0.35rem;
+}
+
+/* El menú del pie necesita más ancho que una columna de las de contacto: con
+   tres grupos adentro, una columna angosta los parte en tres tiras verticales.
+   En 64rem el pie pasa a dos columnas y la del menú es la más ancha. */
+.site-footer__grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 40rem) {
+  .site-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .site-footer__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    column-gap: 3.5rem;
+  }
+}
