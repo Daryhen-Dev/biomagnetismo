@@ -5,7 +5,7 @@ order: 2955
 wpId: 2955
 legacyUrls: []
 ---
-![Retrato de Isaac Goiz Durán, hombre de lentes con camisa celeste y corbata azul, frente a una pared de color claro](../../assets/media/2020/11/dr._isaac_goiz_duran.webp "dr._isaac_goiz_duran")
+![Retrato de Isaac Goiz Durán, hombre de lentes con camisa celeste y corbata azul, frente a una pared de color claro](../../assets/media/2020/11/dr._isaac_goiz_duran.webp)
 
 Dr. Isaac Goiz Durán.
 

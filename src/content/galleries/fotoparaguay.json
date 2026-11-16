@@ -1,17 +1,17 @@
 {
-  "title": "FotoParaguay",
+  "title": "Paraguay",
   "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08-1.webp",
-  "intro": "![Bandera de Paraguay](/src/assets/media/2020/11/Paraguay.webp \"Paraguay\")\n\n### Paraguay\n\n**Curso Asunción**",
+  "intro": "![Bandera de Paraguay](/src/assets/media/2020/11/Paraguay.webp)\n\n### Paraguay\n\n**Curso Asunción**",
   "galleries": [
     {
       "slug": "paraguay-curso-asuncion",
-      "title": "Paraguay - Curso Asuncion",
+      "title": "Paraguay — Curso en Asunción",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08-1.webp",
           "alt": "Un hombre sentado sostiene el pie de una mujer recostada en una camilla, ante el banner de la fundación fundei",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.25.08 (1)",
+          "caption": "Un hombre sentado sostiene el pie de una mujer recostada en una camilla, ante el banner de la fundación fundei",
           "width": 768,
           "height": 1024
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.08.webp",
           "alt": "Una mujer recostada sobre una camilla oscura y un hombre sentado que le sostiene el tobillo, junto a un ventanal",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.25.08",
+          "caption": "Una mujer recostada sobre una camilla oscura y un hombre sentado que le sostiene el tobillo, junto a un ventanal",
           "width": 768,
           "height": 1024
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09-1.webp",
           "alt": "Sala con dos camillas: una mujer recostada en cada una, mesas con carpetas y dos personas de pie junto a la pared",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.25.09 (1)",
+          "caption": "Sala con dos camillas: una mujer recostada en cada una, mesas con carpetas y dos personas de pie junto a la pared",
           "width": 768,
           "height": 1024
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09-2.webp",
           "alt": "Vista de la sala: dos personas recostadas en camillas, el banner de fundei y una mesa larga con carpetas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.25.09 (2)",
+          "caption": "Vista de la sala: dos personas recostadas en camillas, el banner de fundei y una mesa larga con carpetas",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.25.09.webp",
           "alt": "Dos mujeres recostadas en camillas y otras dos de pie junto a una pared lila, en una sala con mesas de trabajo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.25.09",
+          "caption": "Dos mujeres recostadas en camillas y otras dos de pie junto a una pared lila, en una sala con mesas de trabajo",
           "width": 1024,
           "height": 768
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-1.webp",
           "alt": "Cinco personas alrededor de alguien recostado en una camilla; una mujer le sostiene los zapatos junto al cartel de fundei",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (1)",
+          "caption": "Cinco personas alrededor de alguien recostado en una camilla; una mujer le sostiene los zapatos junto al cartel de fundei",
           "width": 1024,
           "height": 768
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-2.webp",
           "alt": "Tres personas rodean a alguien recostado en una camilla con almohada; una mujer le sostiene la cabeza",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (2)",
+          "caption": "Tres personas rodean a alguien recostado en una camilla con almohada; una mujer le sostiene la cabeza",
           "width": 768,
           "height": 1024
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-3.webp",
           "alt": "Seis personas de pie alrededor de alguien recostado en una camilla; una mujer le toca la cabeza junto a la bandera de fundei",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (3)",
+          "caption": "Seis personas de pie alrededor de alguien recostado en una camilla; una mujer le toca la cabeza junto a la bandera de fundei",
           "width": 1024,
           "height": 768
         },
@@ -75,7 +75,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31-4.webp",
           "alt": "Cuatro personas sentadas a una mesa larga con termeras, cuadernos y una orquídea; al fondo, una pizarra con una lista",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.38.31 (4)",
+          "caption": "Cuatro personas sentadas a una mesa larga con termeras, cuadernos y una orquídea; al fondo, una pizarra con una lista",
           "width": 1024,
           "height": 768
         },
@@ -83,7 +83,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.38.31.webp",
           "alt": "Cuatro personas junto a un atril de madera; una mujer de blanco sostiene un certificado ante el banner de fundei",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.38.31",
+          "caption": "Cuatro personas junto a un atril de madera; una mujer de blanco sostiene un certificado ante el banner de fundei",
           "width": 1024,
           "height": 768
         },
@@ -91,7 +91,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.39.31.webp",
           "alt": "Tres personas recostadas en camillas alineadas frente al banner y la bandera de fundei, en una sala blanca",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.39.31",
+          "caption": "Tres personas recostadas en camillas alineadas frente al banner y la bandera de fundei, en una sala blanca",
           "width": 1024,
           "height": 768
         },
@@ -99,7 +99,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.39.32.webp",
           "alt": "Un hombre de negro gesticula junto a una camilla donde yace una persona, ante otras cuatro personas de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.39.32",
+          "caption": "Un hombre de negro gesticula junto a una camilla donde yace una persona, ante otras cuatro personas de pie",
           "width": 768,
           "height": 1024
         },
@@ -107,7 +107,7 @@
           "src": "/src/assets/media/2020/10/y2.webp",
           "alt": "Dos mujeres sostienen un certificado junto a un atril; un hombre las observa frente a la bandera de fundei",
           "altPending": false,
-          "caption": "y2",
+          "caption": "Dos mujeres sostienen un certificado junto a un atril; un hombre las observa frente a la bandera de fundei",
           "width": 1024,
           "height": 768
         },
@@ -115,7 +115,7 @@
           "src": "/src/assets/media/2020/10/y3.webp",
           "alt": "Grupo de diez personas posando con certificados en la mano, dos de ellas arrodilladas, ante el banner de fundei",
           "altPending": false,
-          "caption": "y3",
+          "caption": "Grupo de diez personas posando con certificados en la mano, dos de ellas arrodilladas, ante el banner de fundei",
           "width": 1024,
           "height": 768
         }

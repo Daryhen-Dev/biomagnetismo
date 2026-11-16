@@ -3223,3 +3223,13 @@
     column-gap: 3.5rem;
   }
 }
+
+/* El pie de foto es la descripción real de la imagen. Para que un texto largo
+   no rompa la grilla, se recorta visualmente a dos líneas; el texto completo
+   sigue estando en el alt para lectores de pantalla. */
+.gallery-cell__caption {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

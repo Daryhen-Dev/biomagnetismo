@@ -1,17 +1,17 @@
 {
-  "title": "FotoBolivia",
+  "title": "Bolivia",
   "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-1-1.webp",
-  "intro": "![Bandera de Bolivia](/src/assets/media/2020/11/Bolivia.webp \"Bolivia\")\n\n### Bolivia\n\n**Atención niños de Bolivia**\n\n**Clínica del Dr. Efrain Coteja**\n\n**Curso la Paz**\n\n**Curso en Toledo**\n\n**Hospital San Juan de Dios Oruro: Programa piloto con biomagnetismo, en 4 días se dio de alta a 128 pacientes hospitalizados. Se trató todo tipo de patologías.**\n\n**Universidad Oruro**",
+  "intro": "![Bandera de Bolivia](/src/assets/media/2020/11/Bolivia.webp)\n\n### Bolivia\n\n**Atención niños de Bolivia**\n\n**Clínica del Dr. Efrain Coteja**\n\n**Curso la Paz**\n\n**Curso en Toledo**\n\n**Hospital San Juan de Dios Oruro: Programa piloto con biomagnetismo, en 4 días se dio de alta a 128 pacientes hospitalizados. Se trató todo tipo de patologías.**\n\n**Universidad Oruro**",
   "galleries": [
     {
       "slug": "bolivia-atencion-ninos",
-      "title": "Bolivia - Atencion Ninos",
+      "title": "Bolivia — Atención a niños",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-1-1.webp",
           "alt": "Un hombre sentado frente a tres niños en un banco de madera, en una sala con estantes llenos de libros",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.55.58 (1)",
+          "caption": "Un hombre sentado frente a tres niños en un banco de madera, en una sala con estantes llenos de libros",
           "width": 1024,
           "height": 768
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-2-1.webp",
           "alt": "Una niña sentada en un banco extiende las piernas hacia un hombre; una mujer de rosa la observa en una sala con libros",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.55.58 (2)",
+          "caption": "Una niña sentada en un banco extiende las piernas hacia un hombre; una mujer de rosa la observa en una sala con libros",
           "width": 1024,
           "height": 768
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.58-3.webp",
           "alt": "Un hombre sostiene los pies de una niña sentada en un banco, junto a cuatro niños que esperan su turno",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.55.58",
+          "caption": "Un hombre sostiene los pies de una niña sentada en un banco, junto a cuatro niños que esperan su turno",
           "width": 1024,
           "height": 768
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.55.59-1.webp",
           "alt": "Dos jóvenes de pie junto a un hombre sentado y tres niños en un banco, en una sala con libros apilados",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.55.59",
+          "caption": "Dos jóvenes de pie junto a un hombre sentado y tres niños en un banco, en una sala con libros apilados",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.59.36-1-1.webp",
           "alt": "Dos mujeres con niños pequeños en el regazo conversan con un hombre sentado, en una sala con colchonetas y pelotas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.59.36 (1)",
+          "caption": "Dos mujeres con niños pequeños en el regazo conversan con un hombre sentado, en una sala con colchonetas y pelotas",
           "width": 1024,
           "height": 768
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.59.36-2.webp",
           "alt": "Varias mujeres con niños en brazos alrededor de un hombre sentado que sostiene la pierna de un niño",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.59.36",
+          "caption": "Varias mujeres con niños en brazos alrededor de un hombre sentado que sostiene la pierna de un niño",
           "width": 1024,
           "height": 768
         }
@@ -65,7 +65,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.07-1.webp",
           "alt": "Un hombre de traje junto a una pantalla que proyecta el título «Curso de Biomagnetismo en Bolivia», con asistentes sentados",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.10.07 (1)",
+          "caption": "Un hombre de traje junto a una pantalla que proyecta el título «Curso de Biomagnetismo en Bolivia», con asistentes sentados",
           "width": 960,
           "height": 640
         },
@@ -73,7 +73,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.07.webp",
           "alt": "Un expositor de traje y corbata junto a una pizarra blanca y una proyección, ante asistentes en sillas plásticas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.10.07",
+          "caption": "Un expositor de traje y corbata junto a una pizarra blanca y una proyección, ante asistentes en sillas plásticas",
           "width": 960,
           "height": 640
         },
@@ -81,7 +81,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.08-3.webp",
           "alt": "Un hombre de traje habla con las manos abiertas ante un grupo sentado en una sala de paredes azules",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.10.08 (3)",
+          "caption": "Un hombre de traje habla con las manos abiertas ante un grupo sentado en una sala de paredes azules",
           "width": 960,
           "height": 539
         },
@@ -89,7 +89,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.10.08.webp",
           "alt": "Presentación en una sala azul: el expositor de traje y la pantalla con la diapositiva del curso, vista desde atrás",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.10.08",
+          "caption": "Presentación en una sala azul: el expositor de traje y la pantalla con la diapositiva del curso, vista desde atrás",
           "width": 960,
           "height": 640
         },
@@ -97,7 +97,7 @@
           "src": "/src/assets/media/2020/10/z-7.webp",
           "alt": "Ocho personas de pie alrededor de alguien recostado en una camilla azul, una de ellas grabando con el teléfono",
           "altPending": false,
-          "caption": "z",
+          "caption": "Ocho personas de pie alrededor de alguien recostado en una camilla azul, una de ellas grabando con el teléfono",
           "width": 960,
           "height": 640
         },
@@ -105,7 +105,7 @@
           "src": "/src/assets/media/2020/10/zz-3.webp",
           "alt": "Una persona recostada en una camilla azul y un hombre de traje que sostiene sus zapatos, ante varias personas",
           "altPending": false,
-          "caption": "zz",
+          "caption": "Una persona recostada en una camilla azul y un hombre de traje que sostiene sus zapatos, ante varias personas",
           "width": 960,
           "height": 640
         }
@@ -113,13 +113,13 @@
     },
     {
       "slug": "bolivia-curso-la-paz-2",
-      "title": "Bolivia - Curso la Paz",
+      "title": "Bolivia — Curso en La Paz",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.26.00-1-1.webp",
           "alt": "Una persona recostada boca abajo en una camilla azul, rodeada por cinco personas que observan con atención",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.26.00 (1)",
+          "caption": "Una persona recostada boca abajo en una camilla azul, rodeada por cinco personas que observan con atención",
           "width": 1024,
           "height": 768
         },
@@ -127,7 +127,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.07.38-1-1.webp",
           "alt": "Un hombre con gorro andino tejido recostado en una camilla blanca, con dos discos oscuros sobre la frente y el ojo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 22.07.38 (1)",
+          "caption": "Un hombre con gorro andino tejido recostado en una camilla blanca, con dos discos oscuros sobre la frente y el ojo",
           "width": 768,
           "height": 1024
         },
@@ -135,7 +135,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.07.38-2.webp",
           "alt": "Siete personas posan sonriendo ante una pizarra con anotaciones manuscritas, junto a una mesa con cuadernos",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 22.07.38",
+          "caption": "Siete personas posan sonriendo ante una pizarra con anotaciones manuscritas, junto a una mesa con cuadernos",
           "width": 1024,
           "height": 768
         },
@@ -143,7 +143,7 @@
           "src": "/src/assets/media/2020/10/z-8.webp",
           "alt": "Un grupo de once personas posa en una mesa larga de restaurante, con platos, tazas y un camarero al fondo",
           "altPending": false,
-          "caption": "z",
+          "caption": "Un grupo de once personas posa en una mesa larga de restaurante, con platos, tazas y un camarero al fondo",
           "width": 1024,
           "height": 576
         }
@@ -151,13 +151,13 @@
     },
     {
       "slug": "bolivia-curso-toledo-2",
-      "title": "Bolivia - Curso Toledo",
+      "title": "Bolivia — Curso en Toledo",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1-7.webp",
           "alt": "Un aula con cortinas rojas: dos expositores junto a una pizarra y asistentes con trajes tradicionales sentados en círculo",
           "altPending": false,
-          "caption": "1",
+          "caption": "Un aula con cortinas rojas: dos expositores junto a una pizarra y asistentes con trajes tradicionales sentados en círculo",
           "width": 1024,
           "height": 768
         },
@@ -165,7 +165,7 @@
           "src": "/src/assets/media/2020/10/2-9.webp",
           "alt": "Un hombre de abrigo oscuro habla con las manos abiertas ante mujeres con sombrero y mantas tejidas sentadas",
           "altPending": false,
-          "caption": "2",
+          "caption": "Un hombre de abrigo oscuro habla con las manos abiertas ante mujeres con sombrero y mantas tejidas sentadas",
           "width": 768,
           "height": 1024
         },
@@ -173,7 +173,7 @@
           "src": "/src/assets/media/2020/10/3-9.webp",
           "alt": "Una mujer con sombrero bombín y manta de colores sostiene un disco negro junto a una camilla, ante dos hombres",
           "altPending": false,
-          "caption": "3",
+          "caption": "Una mujer con sombrero bombín y manta de colores sostiene un disco negro junto a una camilla, ante dos hombres",
           "width": 768,
           "height": 1024
         },
@@ -181,7 +181,7 @@
           "src": "/src/assets/media/2020/10/4-8.webp",
           "alt": "Una mujer con manta de colores y sombrero se inclina sobre una persona recostada en una camilla, junto a otras dos",
           "altPending": false,
-          "caption": "4",
+          "caption": "Una mujer con manta de colores y sombrero se inclina sobre una persona recostada en una camilla, junto a otras dos",
           "width": 768,
           "height": 1024
         },
@@ -189,7 +189,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-1-1.webp",
           "alt": "Un hombre de traje y bufanda junto a una persona recostada en una camilla, ante mujeres sentadas con cuadernos",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (1)",
+          "caption": "Un hombre de traje y bufanda junto a una persona recostada en una camilla, ante mujeres sentadas con cuadernos",
           "width": 1024,
           "height": 768
         },
@@ -197,7 +197,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-5-1.webp",
           "alt": "Una persona recostada en una camilla de ruedas, dos mujeres con sombrero y manta a su lado y público sentado alrededor",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (5)",
+          "caption": "Una persona recostada en una camilla de ruedas, dos mujeres con sombrero y manta a su lado y público sentado alrededor",
           "width": 960,
           "height": 720
         },
@@ -205,7 +205,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-6-1.webp",
           "alt": "Un hombre sentado sostiene el zapato de una persona en una camilla, mientras dos mujeres con mantas tejidas la acompañan",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (6)",
+          "caption": "Un hombre sentado sostiene el zapato de una persona en una camilla, mientras dos mujeres con mantas tejidas la acompañan",
           "width": 960,
           "height": 720
         },
@@ -213,7 +213,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.10.46-7-1.webp",
           "alt": "Una mujer con manta tejida y sombrero revisa una hoja impresa, junto a otras personas con trajes tradicionales",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.10.46 (7)",
+          "caption": "Una mujer con manta tejida y sombrero revisa una hoja impresa, junto a otras personas con trajes tradicionales",
           "width": 768,
           "height": 1024
         },
@@ -221,7 +221,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.12.41-1-1.webp",
           "alt": "Un hombre de camisa blanca sentado sostiene un zapato, ante otro hombre de pie con poncho rojo y sombrero negro",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.12.41 (1)",
+          "caption": "Un hombre de camisa blanca sentado sostiene un zapato, ante otro hombre de pie con poncho rojo y sombrero negro",
           "width": 534,
           "height": 949
         },
@@ -229,7 +229,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-1-1.webp",
           "alt": "Una persona cubierta con una manta yace en una camilla, rodeada de mujeres con sombrero que leen papeles",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (1)",
+          "caption": "Una persona cubierta con una manta yace en una camilla, rodeada de mujeres con sombrero que leen papeles",
           "width": 1024,
           "height": 768
         },
@@ -237,7 +237,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-2-1.webp",
           "alt": "Varias personas rodean una camilla con alguien cubierto por una manta roja; una de ellas graba con el teléfono",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (2)",
+          "caption": "Varias personas rodean una camilla con alguien cubierto por una manta roja; una de ellas graba con el teléfono",
           "width": 1024,
           "height": 768
         },
@@ -245,7 +245,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-3-1.webp",
           "alt": "Sala con cortinas rojas: un grupo atiende a una persona en una camilla de ruedas mientras otros observan de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.21.10 (3)",
+          "caption": "Sala con cortinas rojas: un grupo atiende a una persona en una camilla de ruedas mientras otros observan de pie",
           "width": 1024,
           "height": 768
         },
@@ -253,7 +253,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.21.10-4.webp",
           "alt": "Una persona recostada en una camilla con una prenda roja, acompañada de un hombre sentado y una mujer con manta tejida",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.21.10",
+          "caption": "Una persona recostada en una camilla con una prenda roja, acompañada de un hombre sentado y una mujer con manta tejida",
           "width": 768,
           "height": 1024
         },
@@ -261,7 +261,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.35.53-1-1.webp",
           "alt": "Un hombre de traje y corbata roja habla junto a una persona recostada en una camilla cubierta con una manta bordada",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.35.53 (1)",
+          "caption": "Un hombre de traje y corbata roja habla junto a una persona recostada en una camilla cubierta con una manta bordada",
           "width": 1024,
           "height": 1024
         },
@@ -269,7 +269,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.35.53-2-1.webp",
           "alt": "Dos mujeres con sombrero y manta junto a una persona recostada en una camilla, y un hombre de camisa blanca con un imán rojo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.35.53 (2)",
+          "caption": "Dos mujeres con sombrero y manta junto a una persona recostada en una camilla, y un hombre de camisa blanca con un imán rojo",
           "width": 768,
           "height": 1024
         },
@@ -277,7 +277,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.32.06-1.webp",
           "alt": "Personas con sombreros y mantas alrededor de alguien recostado en una camilla, en una sala con paredes blancas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.32.06",
+          "caption": "Personas con sombreros y mantas alrededor de alguien recostado en una camilla, en una sala con paredes blancas",
           "width": 1024,
           "height": 768
         },
@@ -285,7 +285,7 @@
           "src": "/src/assets/media/2020/10/z-9.webp",
           "alt": "Una mujer con sombrero y manta de colores sostiene un certificado, junto a un hombre con toga roja y corbata",
           "altPending": false,
-          "caption": "z",
+          "caption": "Una mujer con sombrero y manta de colores sostiene un certificado, junto a un hombre con toga roja y corbata",
           "width": 720,
           "height": 712
         },
@@ -293,7 +293,7 @@
           "src": "/src/assets/media/2020/10/zz-4.webp",
           "alt": "Grupo de diez personas posando: cinco de pie y cinco mujeres arrodilladas con sombrero y manta, ante cortinas rojas",
           "altPending": false,
-          "caption": "zz",
+          "caption": "Grupo de diez personas posando: cinco de pie y cinco mujeres arrodilladas con sombrero y manta, ante cortinas rojas",
           "width": 1024,
           "height": 768
         },
@@ -301,7 +301,7 @@
           "src": "/src/assets/media/2020/10/zzz-2.webp",
           "alt": "Grupo de veinte personas posando ante cortinas rojas; varias mujeres sentadas visten trajes tradicionales con sombrero",
           "altPending": false,
-          "caption": "zzz",
+          "caption": "Grupo de veinte personas posando ante cortinas rojas; varias mujeres sentadas visten trajes tradicionales con sombrero",
           "width": 1024,
           "height": 768
         },
@@ -309,7 +309,7 @@
           "src": "/src/assets/media/2020/10/zzzz-2.webp",
           "alt": "Grupo de personas con trajes tradicionales posando al aire libre, con una ofrenda de hojas sobre un paño en el suelo",
           "altPending": false,
-          "caption": "zzzz",
+          "caption": "Grupo de personas con trajes tradicionales posando al aire libre, con una ofrenda de hojas sobre un paño en el suelo",
           "width": 1024,
           "height": 768
         }
@@ -317,13 +317,13 @@
     },
     {
       "slug": "bolivia-hospital-san-juan-de-dios-oruro-2",
-      "title": "Bolivia - Hospital San Juan de Dios Oruro",
+      "title": "Bolivia — Hospital San Juan de Dios, Oruro",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-2-1.webp",
           "alt": "En una sala de hospital, un niño en cama bajo una carpa de oxígeno; una mujer lo acompaña y un hombre observa",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 15.51.54 (2)",
+          "caption": "En una sala de hospital, un niño en cama bajo una carpa de oxígeno; una mujer lo acompaña y un hombre observa",
           "width": 960,
           "height": 720
         },
@@ -331,7 +331,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-3-1.webp",
           "alt": "Sala de diálisis: una persona en un sillón junto a la máquina, un médico de bata blanca y un hombre sentado en un banco",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 15.51.54 (3)",
+          "caption": "Sala de diálisis: una persona en un sillón junto a la máquina, un médico de bata blanca y un hombre sentado en un banco",
           "width": 960,
           "height": 720
         },
@@ -339,7 +339,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-15.51.54-1.webp",
           "alt": "Un niño sonríe desde la cama del hospital mientras conversa con un hombre sentado a su lado",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 15.51.54",
+          "caption": "Un niño sonríe desde la cama del hospital mientras conversa con un hombre sentado a su lado",
           "width": 960,
           "height": 720
         },
@@ -347,7 +347,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-1.webp",
           "alt": "Un hombre de abrigo azul se inclina sobre una persona en una camilla, rodeado de personal de hospital y un camarógrafo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (1)",
+          "caption": "Un hombre de abrigo azul se inclina sobre una persona en una camilla, rodeado de personal de hospital y un camarógrafo",
           "width": 960,
           "height": 638
         },
@@ -355,7 +355,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-2.webp",
           "alt": "Dos hombres se dan la mano en una sala con estantes y personas alrededor; alguien graba desde atrás",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (2)",
+          "caption": "Dos hombres se dan la mano en una sala con estantes y personas alrededor; alguien graba desde atrás",
           "width": 720,
           "height": 478
         },
@@ -363,7 +363,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.08.13-3.webp",
           "alt": "Una persona recostada en una camilla con sábana estampada, junto a un médico de bata blanca, en una sala con pósteres",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.08.13 (3)",
+          "caption": "Una persona recostada en una camilla con sábana estampada, junto a un médico de bata blanca, en una sala con pósteres",
           "width": 960,
           "height": 818
         }
@@ -371,13 +371,13 @@
     },
     {
       "slug": "bolivia-universidad-oruro-2",
-      "title": "Bolivia - Universidad Oruro",
+      "title": "Bolivia — Universidad de Oruro",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1-8.webp",
           "alt": "Tres hombres sentados tras una mesa con mantel verde, ante un cartel del Seguro Social Universitario de Oruro",
           "altPending": false,
-          "caption": "1",
+          "caption": "Tres hombres sentados tras una mesa con mantel verde, ante un cartel del Seguro Social Universitario de Oruro",
           "width": 575,
           "height": 1024
         },
@@ -385,7 +385,7 @@
           "src": "/src/assets/media/2020/10/2-10.webp",
           "alt": "Tres hombres de traje sentados tras una mesa verde bajo el cartel «Seguro Social Universitario Oruro»",
           "altPending": false,
-          "caption": "2",
+          "caption": "Tres hombres de traje sentados tras una mesa verde bajo el cartel «Seguro Social Universitario Oruro»",
           "width": 472,
           "height": 668
         },
@@ -393,7 +393,7 @@
           "src": "/src/assets/media/2020/10/3-10.webp",
           "alt": "Dos hombres se dan la mano frente a una mesa con mantel verde, ante un cartel institucional y una pizarra",
           "altPending": false,
-          "caption": "3",
+          "caption": "Dos hombres se dan la mano frente a una mesa con mantel verde, ante un cartel institucional y una pizarra",
           "width": 768,
           "height": 1024
         },
@@ -401,7 +401,7 @@
           "src": "/src/assets/media/2020/10/4-9.webp",
           "alt": "Varias personas alrededor de alguien recostado en una camilla cubierta con tela amarilla, una de ellas con el teléfono",
           "altPending": false,
-          "caption": "4",
+          "caption": "Varias personas alrededor de alguien recostado en una camilla cubierta con tela amarilla, una de ellas con el teléfono",
           "width": 768,
           "height": 1024
         },
@@ -409,7 +409,7 @@
           "src": "/src/assets/media/2020/10/5-6.webp",
           "alt": "Una persona recostada boca abajo en una camilla con tela amarilla, rodeada de un hombre de traje y varias personas de pie",
           "altPending": false,
-          "caption": "5",
+          "caption": "Una persona recostada boca abajo en una camilla con tela amarilla, rodeada de un hombre de traje y varias personas de pie",
           "width": 1024,
           "height": 768
         },
@@ -417,7 +417,7 @@
           "src": "/src/assets/media/2020/10/6-4.webp",
           "alt": "Un grupo de siete personas rodea a alguien recostado en una camilla, mientras un hombre de abrigo negro explica",
           "altPending": false,
-          "caption": "6",
+          "caption": "Un grupo de siete personas rodea a alguien recostado en una camilla, mientras un hombre de abrigo negro explica",
           "width": 768,
           "height": 1024
         },
@@ -425,7 +425,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-21-at-18.50.38-1.webp",
           "alt": "Un hombre sentado sostiene el zapato de un niño recostado en una mesa con tela amarilla, ante tres personas que observan",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-21 at 18.50.38",
+          "caption": "Un hombre sentado sostiene el zapato de un niño recostado en una mesa con tela amarilla, ante tres personas que observan",
           "width": 1024,
           "height": 768
         },
@@ -433,7 +433,7 @@
           "src": "/src/assets/media/2020/10/zzz-3.webp",
           "alt": "Grupo de veinte personas posando en un salón con el cartel del Seguro Social Universitario de Oruro al fondo",
           "altPending": false,
-          "caption": "zzz",
+          "caption": "Grupo de veinte personas posando en un salón con el cartel del Seguro Social Universitario de Oruro al fondo",
           "width": 1024,
           "height": 768
         },
@@ -441,7 +441,7 @@
           "src": "/src/assets/media/2020/10/zzzz-3.webp",
           "alt": "Un hombre de abrigo sostiene un reconocimiento abierto mientras una mujer de rosa lo acompaña, en un salón",
           "altPending": false,
-          "caption": "zzzz",
+          "caption": "Un hombre de abrigo sostiene un reconocimiento abierto mientras una mujer de rosa lo acompaña, en un salón",
           "width": 720,
           "height": 960
         }

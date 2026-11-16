@@ -1,17 +1,17 @@
 {
-  "title": "FotoEcuador",
+  "title": "Ecuador",
   "cover": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-1.webp",
-  "intro": "![Bandera de Ecuador](/src/assets/media/2020/11/Ecuador.webp \"Ecuador\")\n\n### Ecuador\n\n**Atención niños en Peguche**",
+  "intro": "![Bandera de Ecuador](/src/assets/media/2020/11/Ecuador.webp)\n\n### Ecuador\n\n**Atención niños en Peguche**",
   "galleries": [
     {
       "slug": "ecuador-peguche",
-      "title": "Ecuador - Peguche",
+      "title": "Ecuador — Peguche",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-1.webp",
           "alt": "Aula de paredes amarillas: un hombre sentado frente a una alumna con uniforme escolar, rodeados de otras estudiantes",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (1)",
+          "caption": "Aula de paredes amarillas: un hombre sentado frente a una alumna con uniforme escolar, rodeados de otras estudiantes",
           "width": 1024,
           "height": 767
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-2.webp",
           "alt": "Un hombre sentado en un banco rodeado por siete alumnas de uniforme azul marino que lo observan en un aula",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (2)",
+          "caption": "Un hombre sentado en un banco rodeado por siete alumnas de uniforme azul marino que lo observan en un aula",
           "width": 1024,
           "height": 768
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-3.webp",
           "alt": "Tres alumnas sentadas en bancos de madera; una extiende la pierna hacia un hombre sentado frente a ella",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (3)",
+          "caption": "Tres alumnas sentadas en bancos de madera; una extiende la pierna hacia un hombre sentado frente a ella",
           "width": 1024,
           "height": 768
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08-4.webp",
           "alt": "Dos alumnas de uniforme escolar sentadas; una extiende la pierna hacia un hombre de chaqueta acolchada",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.49.08 (4)",
+          "caption": "Dos alumnas de uniforme escolar sentadas; una extiende la pierna hacia un hombre de chaqueta acolchada",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-18.49.08.webp",
           "alt": "Una alumna sentada en un banco extiende la pierna hacia un hombre; otra estudiante observa de pie junto al espejo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 18.49.08",
+          "caption": "Una alumna sentada en un banco extiende la pierna hacia un hombre; otra estudiante observa de pie junto al espejo",
           "width": 1024,
           "height": 768
         }

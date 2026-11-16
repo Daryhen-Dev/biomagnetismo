@@ -1,17 +1,17 @@
 {
-  "title": "FotoArgentina",
+  "title": "Argentina",
   "cover": "/src/assets/media/2020/10/IMG_5321-1.webp",
-  "intro": "![Argentina](/src/assets/media/2020/11/Argentina.webp \"FotoArgentina\")\n\n### Argentina",
+  "intro": "![Argentina](/src/assets/media/2020/11/Argentina.webp)\n\n### Argentina",
   "galleries": [
     {
       "slug": "argentina-mendoza-2",
-      "title": "Argentina - Mendoza",
+      "title": "Argentina — Mendoza",
       "images": [
         {
           "src": "/src/assets/media/2020/10/IMG_5321-1.webp",
           "alt": "Una mujer recostada en una camilla blanca sonríe y levanta el pulgar; detrás, un televisor y un escritorio",
           "altPending": false,
-          "caption": "IMG_5321",
+          "caption": "Una mujer recostada en una camilla blanca sonríe y levanta el pulgar; detrás, un televisor y un escritorio",
           "width": 585,
           "height": 1040
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/IMG_5323-1.webp",
           "alt": "Un hombre de traje y una mujer de camisa estampada posan de pie frente a una pizarra con anotaciones manuscritas",
           "altPending": false,
-          "caption": "IMG_5323",
+          "caption": "Un hombre de traje y una mujer de camisa estampada posan de pie frente a una pizarra con anotaciones manuscritas",
           "width": 585,
           "height": 1040
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.32.16-1.webp",
           "alt": "Tres hombres alrededor de una persona recostada en una camilla; uno señala con el dedo y otro observa detrás",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.32.16",
+          "caption": "Tres hombres alrededor de una persona recostada en una camilla; uno señala con el dedo y otro observa detrás",
           "width": 576,
           "height": 1024
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.32.17-1.webp",
           "alt": "Una mujer con papeles en la mano y tres hombres alrededor de una persona recostada en una camilla; pizarra al fondo",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.32.17",
+          "caption": "Una mujer con papeles en la mano y tres hombres alrededor de una persona recostada en una camilla; pizarra al fondo",
           "width": 1024,
           "height": 576
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-1-1.webp",
           "alt": "Una mujer sentada sobre un escritorio con las manos en la cabeza, junto a dos hombres y una pizarra blanca",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (1)",
+          "caption": "Una mujer sentada sobre un escritorio con las manos en la cabeza, junto a dos hombres y una pizarra blanca",
           "width": 576,
           "height": 1024
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-2-1.webp",
           "alt": "Cuatro personas alrededor de alguien recostado en una camilla; una le sostiene el zapato y otra se apoya en la mesa",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (2)",
+          "caption": "Cuatro personas alrededor de alguien recostado en una camilla; una le sostiene el zapato y otra se apoya en la mesa",
           "width": 1024,
           "height": 576
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.14-3-1.webp",
           "alt": "Una mujer sentada sobre una mesa con las manos en la cara; un hombre con un frasco y otro que le sostiene el pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.32.14 (3)",
+          "caption": "Una mujer sentada sobre una mesa con las manos en la cara; un hombre con un frasco y otro que le sostiene el pie",
           "width": 576,
           "height": 1024
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.32.15-1.webp",
           "alt": "Una persona recostada en una camilla con una almohada; dos hombres a su lado y una mujer de pie con papeles",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.32.15",
+          "caption": "Una persona recostada en una camilla con una almohada; dos hombres a su lado y una mujer de pie con papeles",
           "width": 1024,
           "height": 576
         }

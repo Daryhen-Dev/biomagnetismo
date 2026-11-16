@@ -1,17 +1,17 @@
 {
-  "title": "FotoChile",
+  "title": "Chile",
   "cover": "/src/assets/media/2020/10/1-3.webp",
-  "intro": "![Bandera de Chile](/src/assets/media/2020/11/Chile.webp \"Chile\")\n\n### Chile\n\n**Curso realizado en la Nación Mapuche**\n\n**Curso primera y segunda promoción de no videntes.\nDr. Francisco Mena, creador del método de enseñanza para no videntes.**\n\n**Cursos en el Centro Dr. Goiz Durán, Santiago de Chile.**\n\n**Cursos UDLA**\n\n**Curso realizado en la Temuco**",
+  "intro": "![Bandera de Chile](/src/assets/media/2020/11/Chile.webp)\n\n### Chile\n\n**Curso realizado en la Nación Mapuche**\n\n**Curso primera y segunda promoción de no videntes.\nDr. Francisco Mena, creador del método de enseñanza para no videntes.**\n\n**Cursos en el Centro Dr. Goiz Durán, Santiago de Chile.**\n\n**Cursos UDLA**\n\n**Curso realizado en la Temuco**",
   "galleries": [
     {
       "slug": "chile-curso-mapuche",
-      "title": "Chile - Curso Mapuche",
+      "title": "Chile — Curso en la Nación Mapuche",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1-3.webp",
           "alt": "Un expositor de pie habla ante una decena de asistentes sentados junto a las paredes, con dos camillas en el centro",
           "altPending": false,
-          "caption": "1",
+          "caption": "Un expositor de pie habla ante una decena de asistentes sentados junto a las paredes, con dos camillas en el centro",
           "width": 1024,
           "height": 768
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/2-3.webp",
           "alt": "Una persona recostada en una camilla blanca y un hombre sentado a sus pies, ante asistentes sentados en fila",
           "altPending": false,
-          "caption": "2",
+          "caption": "Una persona recostada en una camilla blanca y un hombre sentado a sus pies, ante asistentes sentados en fila",
           "width": 1024,
           "height": 768
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/3-3.webp",
           "alt": "Una persona recostada en una camilla azul, con mujeres de atuendo tradicional sentadas alrededor y una pizarra al fondo",
           "altPending": false,
-          "caption": "3",
+          "caption": "Una persona recostada en una camilla azul, con mujeres de atuendo tradicional sentadas alrededor y una pizarra al fondo",
           "width": 1024,
           "height": 768
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/4-3.webp",
           "alt": "Dos personas recostadas en camillas azules y una mujer con vestimenta tradicional de pie con papeles, ante el grupo",
           "altPending": false,
-          "caption": "4",
+          "caption": "Dos personas recostadas en camillas azules y una mujer con vestimenta tradicional de pie con papeles, ante el grupo",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/5-2.webp",
           "alt": "Una mujer recostada en una camilla blanca y un hombre sentado que le sostiene los pies, rodeados de asistentes",
           "altPending": false,
-          "caption": "5",
+          "caption": "Una mujer recostada en una camilla blanca y un hombre sentado que le sostiene los pies, rodeados de asistentes",
           "width": 768,
           "height": 1024
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/6-2.webp",
           "alt": "Dos personas recostadas en camillas y varias mujeres de pie alrededor, mientras un hombre observa de espaldas",
           "altPending": false,
-          "caption": "6",
+          "caption": "Dos personas recostadas en camillas y varias mujeres de pie alrededor, mientras un hombre observa de espaldas",
           "width": 768,
           "height": 1024
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-1.webp",
           "alt": "En una ruca de madera con techo de tablas, una persona recostada en una camilla verde y un grupo de pie alrededor",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (1)",
+          "caption": "En una ruca de madera con techo de tablas, una persona recostada en una camilla verde y un grupo de pie alrededor",
           "width": 1024,
           "height": 768
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-2.webp",
           "alt": "Una persona recostada en una camilla verde, una mujer de atuendo tradicional a su lado y dos hombres de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (2)",
+          "caption": "Una persona recostada en una camilla verde, una mujer de atuendo tradicional a su lado y dos hombres de pie",
           "width": 1024,
           "height": 768
         },
@@ -75,7 +75,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-3.webp",
           "alt": "Un hombre de camisa blanca sostiene la pierna de una persona recostada en una camilla verde, ante varios asistentes",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (3)",
+          "caption": "Un hombre de camisa blanca sostiene la pierna de una persona recostada en una camilla verde, ante varios asistentes",
           "width": 1024,
           "height": 768
         },
@@ -83,7 +83,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-6.webp",
           "alt": "Una persona con vestimenta tradicional recostada en una camilla verde y un hombre de blanco que habla de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (6)",
+          "caption": "Una persona con vestimenta tradicional recostada en una camilla verde y un hombre de blanco que habla de pie",
           "width": 1024,
           "height": 576
         },
@@ -91,7 +91,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-7.webp",
           "alt": "Un hombre sentado sostiene los zapatos de alguien recostado, ante dos mujeres de atuendo tradicional y un hombre de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (7)",
+          "caption": "Un hombre sentado sostiene los zapatos de alguien recostado, ante dos mujeres de atuendo tradicional y un hombre de pie",
           "width": 1024,
           "height": 576
         },
@@ -99,7 +99,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06-8.webp",
           "alt": "Un hombre de camisa blanca sostiene las botas de una persona recostada en una camilla verde, junto a otros dos de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06 (8)",
+          "caption": "Un hombre de camisa blanca sostiene las botas de una persona recostada en una camilla verde, junto a otros dos de pie",
           "width": 1024,
           "height": 576
         },
@@ -107,7 +107,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.34.06.webp",
           "alt": "Una mujer de pie habla al grupo junto a una persona recostada en una camilla verde, en el interior de una ruca",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.34.06",
+          "caption": "Una mujer de pie habla al grupo junto a una persona recostada en una camilla verde, en el interior de una ruca",
           "width": 1024,
           "height": 768
         },
@@ -115,7 +115,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-1.webp",
           "alt": "Un grupo sentado en círculo alrededor del fuego dentro de una ruca, con teteras y una olla grande junto a la mesa",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (1)",
+          "caption": "Un grupo sentado en círculo alrededor del fuego dentro de una ruca, con teteras y una olla grande junto a la mesa",
           "width": 1024,
           "height": 576
         },
@@ -123,7 +123,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-3.webp",
           "alt": "Una persona con vestimenta tradicional recostada en una camilla verde y un hombre de camisa blanca de pie a su lado",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (3)",
+          "caption": "Una persona con vestimenta tradicional recostada en una camilla verde y un hombre de camisa blanca de pie a su lado",
           "width": 1024,
           "height": 576
         },
@@ -131,7 +131,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-5.webp",
           "alt": "Un hombre sentado sostiene un zapato junto a una persona recostada, ante dos mujeres de atuendo tradicional y un hombre",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (5)",
+          "caption": "Un hombre sentado sostiene un zapato junto a una persona recostada, ante dos mujeres de atuendo tradicional y un hombre",
           "width": 1024,
           "height": 576
         },
@@ -139,7 +139,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-14.06.02-6.webp",
           "alt": "Un hombre de camisa blanca sostiene las botas de una persona recostada en una camilla verde, ante dos jóvenes de pie",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 14.06.02 (6)",
+          "caption": "Un hombre de camisa blanca sostiene las botas de una persona recostada en una camilla verde, ante dos jóvenes de pie",
           "width": 1024,
           "height": 576
         },
@@ -147,7 +147,7 @@
           "src": "/src/assets/media/2020/10/y-1.webp",
           "alt": "Un grupo de quince personas comparte una comida en una mesa larga dentro de una ruca de madera",
           "altPending": false,
-          "caption": "y",
+          "caption": "Un grupo de quince personas comparte una comida en una mesa larga dentro de una ruca de madera",
           "width": 768,
           "height": 1024
         },
@@ -155,7 +155,7 @@
           "src": "/src/assets/media/2020/10/yy.webp",
           "alt": "Una mesa larga cubierta de blanco y azul reúne a dieciocho personas almorzando, con platos y vasos de jugo",
           "altPending": false,
-          "caption": "yy",
+          "caption": "Una mesa larga cubierta de blanco y azul reúne a dieciocho personas almorzando, con platos y vasos de jugo",
           "width": 1024,
           "height": 768
         },
@@ -163,7 +163,7 @@
           "src": "/src/assets/media/2020/10/z-3.webp",
           "alt": "Tres personas posan: dos mujeres con vestimenta tradicional y joyas de plata, y un hombre de chaleco negro en el centro",
           "altPending": false,
-          "caption": "z",
+          "caption": "Tres personas posan: dos mujeres con vestimenta tradicional y joyas de plata, y un hombre de chaleco negro en el centro",
           "width": 750,
           "height": 778
         },
@@ -171,7 +171,7 @@
           "src": "/src/assets/media/2020/10/zz-2.webp",
           "alt": "Ocho personas posan al aire libre ante una construcción de madera; varias mujeres visten traje tradicional y joyas de plata",
           "altPending": false,
-          "caption": "zz",
+          "caption": "Ocho personas posan al aire libre ante una construcción de madera; varias mujeres visten traje tradicional y joyas de plata",
           "width": 1024,
           "height": 768
         }
@@ -179,13 +179,13 @@
     },
     {
       "slug": "chile-curso-no-videntes-udla",
-      "title": "Chile - Curso no videntes UDLA",
+      "title": "Chile — Curso para personas no videntes, UDLA",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1.1.webp",
           "alt": "Pantalla con la foto de un grupo que conversa alrededor de mesas de vidrio en un patio, con una cámara sobre trípode",
           "altPending": false,
-          "caption": "1.1",
+          "caption": "Pantalla con la foto de un grupo que conversa alrededor de mesas de vidrio en un patio, con una cámara sobre trípode",
           "width": 1024,
           "height": 768
         },
@@ -193,7 +193,7 @@
           "src": "/src/assets/media/2020/10/1.2.webp",
           "alt": "Un expositor de espaldas habla a una decena de adultos sentados en mesas de un aula con proyector",
           "altPending": false,
-          "caption": "1.2",
+          "caption": "Un expositor de espaldas habla a una decena de adultos sentados en mesas de un aula con proyector",
           "width": 750,
           "height": 671
         },
@@ -201,7 +201,7 @@
           "src": "/src/assets/media/2020/10/2-4.webp",
           "alt": "Dos hombres junto a un escritorio con papeles y tazas, en una sala con lavamanos y una pantalla en la pared",
           "altPending": false,
-          "caption": "2",
+          "caption": "Dos hombres junto a un escritorio con papeles y tazas, en una sala con lavamanos y una pantalla en la pared",
           "width": 749,
           "height": 743
         },
@@ -209,7 +209,7 @@
           "src": "/src/assets/media/2020/10/3-4.webp",
           "alt": "Tres hombres posan en un pasillo; el del centro, con gafas oscuras, sostiene un certificado enmarcado",
           "altPending": false,
-          "caption": "3",
+          "caption": "Tres hombres posan en un pasillo; el del centro, con gafas oscuras, sostiene un certificado enmarcado",
           "width": 720,
           "height": 511
         },
@@ -217,7 +217,7 @@
           "src": "/src/assets/media/2020/10/4-4.webp",
           "alt": "Dos hombres sonríen abrazados junto a un escritorio con carpetas, tazas y una pantalla en la pared",
           "altPending": false,
-          "caption": "4",
+          "caption": "Dos hombres sonríen abrazados junto a un escritorio con carpetas, tazas y una pantalla en la pared",
           "width": 607,
           "height": 819
         },
@@ -225,7 +225,7 @@
           "src": "/src/assets/media/2020/10/5-3.webp",
           "alt": "Un grupo conversa de pie en un patio; varias personas sostienen bastones blancos y una lleva gafas oscuras",
           "altPending": false,
-          "caption": "5",
+          "caption": "Un grupo conversa de pie en un patio; varias personas sostienen bastones blancos y una lleva gafas oscuras",
           "width": 750,
           "height": 845
         },
@@ -233,7 +233,7 @@
           "src": "/src/assets/media/2020/10/6-3.webp",
           "alt": "Grupo de once personas posa en las escaleras de la Universidad de las Américas; varias sostienen bastones blancos",
           "altPending": false,
-          "caption": "6",
+          "caption": "Grupo de once personas posa en las escaleras de la Universidad de las Américas; varias sostienen bastones blancos",
           "width": 923,
           "height": 750
         }
@@ -241,13 +241,13 @@
     },
     {
       "slug": "chile-santiago-de-chile",
-      "title": "Chile - Santiago de Chile",
+      "title": "Chile — Santiago",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1.1-1.webp",
           "alt": "Sala en penumbra: un grupo sentado alrededor de una mesa larga toma notas, con un expositor de pie a la izquierda",
           "altPending": false,
-          "caption": "1.1",
+          "caption": "Sala en penumbra: un grupo sentado alrededor de una mesa larga toma notas, con un expositor de pie a la izquierda",
           "width": 576,
           "height": 1024
         },
@@ -255,7 +255,7 @@
           "src": "/src/assets/media/2020/10/1.2-2.webp",
           "alt": "Un hombre de suéter rojo habla ante asistentes con cuadernos; a un lado, una persona recostada en una camilla",
           "altPending": false,
-          "caption": "1.2",
+          "caption": "Un hombre de suéter rojo habla ante asistentes con cuadernos; a un lado, una persona recostada en una camilla",
           "width": 550,
           "height": 369
         },
@@ -263,7 +263,7 @@
           "src": "/src/assets/media/2020/10/2-8.webp",
           "alt": "Grupo de diez personas posa sonriendo en una sala con un cuadro enmarcado al fondo",
           "altPending": false,
-          "caption": "2",
+          "caption": "Grupo de diez personas posa sonriendo en una sala con un cuadro enmarcado al fondo",
           "width": 1024,
           "height": 576
         },
@@ -271,7 +271,7 @@
           "src": "/src/assets/media/2020/10/3-8.webp",
           "alt": "Tres personas posan; la mujer del centro sostiene un certificado ante una pizarra blanca",
           "altPending": false,
-          "caption": "3",
+          "caption": "Tres personas posan; la mujer del centro sostiene un certificado ante una pizarra blanca",
           "width": 576,
           "height": 1024
         },
@@ -279,7 +279,7 @@
           "src": "/src/assets/media/2020/10/4-7.webp",
           "alt": "Tres hombres sonríen mientras uno de ellos sostiene un certificado, frente a una pizarra blanca",
           "altPending": false,
-          "caption": "4",
+          "caption": "Tres hombres sonríen mientras uno de ellos sostiene un certificado, frente a una pizarra blanca",
           "width": 576,
           "height": 1024
         },
@@ -287,7 +287,7 @@
           "src": "/src/assets/media/2020/10/5-5.webp",
           "alt": "Una mujer sostiene un certificado junto a dos hombres, frente a una pizarra; una mano aparece en primer plano",
           "altPending": false,
-          "caption": "5",
+          "caption": "Una mujer sostiene un certificado junto a dos hombres, frente a una pizarra; una mano aparece en primer plano",
           "width": 576,
           "height": 1024
         },
@@ -295,7 +295,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-1-1.webp",
           "alt": "Un hombre se inclina sobre un niño en brazos de una mujer, ante otra mujer sentada en una sala con fotos enmarcadas",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (1)",
+          "caption": "Un hombre se inclina sobre un niño en brazos de una mujer, ante otra mujer sentada en una sala con fotos enmarcadas",
           "width": 768,
           "height": 1024
         },
@@ -303,7 +303,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-2-1.webp",
           "alt": "Una mujer de cardigan verde junto a una persona recostada en una camilla azul, con dos personas más sentadas alrededor",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (2)",
+          "caption": "Una mujer de cardigan verde junto a una persona recostada en una camilla azul, con dos personas más sentadas alrededor",
           "width": 768,
           "height": 1024
         },
@@ -311,7 +311,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-3-1.webp",
           "alt": "Varias personas rodean a alguien recostado en una camilla cubierta de azul, con una pizarra al fondo",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.52.45 (3)",
+          "caption": "Varias personas rodean a alguien recostado en una camilla cubierta de azul, con una pizarra al fondo",
           "width": 768,
           "height": 1024
         },
@@ -319,7 +319,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.52.45-4.webp",
           "alt": "Una mujer de verde se inclina sobre una persona recostada en una camilla azul, junto a un hombre sentado",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.52.45",
+          "caption": "Una mujer de verde se inclina sobre una persona recostada en una camilla azul, junto a un hombre sentado",
           "width": 768,
           "height": 1024
         },
@@ -327,7 +327,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.11.32-1.webp",
           "alt": "Dos personas recostadas en camillas y cinco mujeres sentadas observando, mientras un hombre de pie habla",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.11.32 (1)",
+          "caption": "Dos personas recostadas en camillas y cinco mujeres sentadas observando, mientras un hombre de pie habla",
           "width": 550,
           "height": 413
         },
@@ -335,7 +335,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-29-at-14.11.32-2.webp",
           "alt": "Un hombre de pie junto a dos camillas con personas recostadas y cinco mujeres sentadas tras ellas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-29 at 14.11.32 (2)",
+          "caption": "Un hombre de pie junto a dos camillas con personas recostadas y cinco mujeres sentadas tras ellas",
           "width": 750,
           "height": 392
         },
@@ -343,7 +343,7 @@
           "src": "/src/assets/media/2020/10/z-6.webp",
           "alt": "Una mujer sentada sonríe mientras un hombre atiende a un bebé en brazos de otra mujer, en una sala con fotos",
           "altPending": false,
-          "caption": "z",
+          "caption": "Una mujer sentada sonríe mientras un hombre atiende a un bebé en brazos de otra mujer, en una sala con fotos",
           "width": 768,
           "height": 1024
         },
@@ -351,7 +351,7 @@
           "src": "/src/assets/media/2020/10/z2-1.webp",
           "alt": "Un hombre sentado sostiene las piernas de un bebé con buzo rojo, en brazos de una mujer sentada",
           "altPending": false,
-          "caption": "z2",
+          "caption": "Un hombre sentado sostiene las piernas de un bebé con buzo rojo, en brazos de una mujer sentada",
           "width": 768,
           "height": 1024
         },
@@ -359,7 +359,7 @@
           "src": "/src/assets/media/2020/10/z3-1.webp",
           "alt": "Un hombre sostiene el pie de una niña sentada en el regazo de un adulto, con una mujer y un bebé al fondo",
           "altPending": false,
-          "caption": "z3",
+          "caption": "Un hombre sostiene el pie de una niña sentada en el regazo de un adulto, con una mujer y un bebé al fondo",
           "width": 765,
           "height": 1024
         },
@@ -367,7 +367,7 @@
           "src": "/src/assets/media/2020/10/z4-1.webp",
           "alt": "Tres personas de pie observan a alguien recostado en una camilla, mientras un hombre sentado le sostiene los tobillos",
           "altPending": false,
-          "caption": "z4",
+          "caption": "Tres personas de pie observan a alguien recostado en una camilla, mientras un hombre sentado le sostiene los tobillos",
           "width": 765,
           "height": 1024
         }
@@ -375,13 +375,13 @@
     },
     {
       "slug": "chile-udla",
-      "title": "Chile - UDLA",
+      "title": "Chile — UDLA",
       "images": [
         {
           "src": "/src/assets/media/2020/10/1-5.webp",
           "alt": "Un expositor de pie conversa con una estudiante que escribe en su cuaderno, en un aula con persianas y proyector",
           "altPending": false,
-          "caption": "1",
+          "caption": "Un expositor de pie conversa con una estudiante que escribe en su cuaderno, en un aula con persianas y proyector",
           "width": 720,
           "height": 960
         },
@@ -389,7 +389,7 @@
           "src": "/src/assets/media/2020/10/2.1.webp",
           "alt": "Un expositor de traje junto a una persona recostada en una camilla azul, ante estudiantes sentados y una cámara",
           "altPending": false,
-          "caption": "2.1",
+          "caption": "Un expositor de traje junto a una persona recostada en una camilla azul, ante estudiantes sentados y una cámara",
           "width": 1024,
           "height": 768
         },
@@ -397,7 +397,7 @@
           "src": "/src/assets/media/2020/10/2-6.webp",
           "alt": "Aula con una veintena de estudiantes sentados en sus mesas con cuadernos abiertos, bajo un proyector de techo",
           "altPending": false,
-          "caption": "2",
+          "caption": "Aula con una veintena de estudiantes sentados en sus mesas con cuadernos abiertos, bajo un proyector de techo",
           "width": 720,
           "height": 960
         },
@@ -405,7 +405,7 @@
           "src": "/src/assets/media/2020/10/3-6.webp",
           "alt": "Un hombre de traje y otro de camiseta negra junto a una camilla azul, ante estudiantes sentados en un aula",
           "altPending": false,
-          "caption": "3",
+          "caption": "Un hombre de traje y otro de camiseta negra junto a una camilla azul, ante estudiantes sentados en un aula",
           "width": 1024,
           "height": 768
         },
@@ -413,7 +413,7 @@
           "src": "/src/assets/media/2020/10/4-6.webp",
           "alt": "Un expositor de traje gesticula frente a una pizarra blanca, con estudiantes sentados de espaldas",
           "altPending": false,
-          "caption": "4",
+          "caption": "Un expositor de traje gesticula frente a una pizarra blanca, con estudiantes sentados de espaldas",
           "width": 768,
           "height": 1024
         },
@@ -421,7 +421,7 @@
           "src": "/src/assets/media/2020/10/5.1.webp",
           "alt": "Un expositor de traje habla con las manos abiertas ante cuatro estudiantes sentados en un aula",
           "altPending": false,
-          "caption": "5.1",
+          "caption": "Un expositor de traje habla con las manos abiertas ante cuatro estudiantes sentados en un aula",
           "width": 768,
           "height": 1024
         },
@@ -429,7 +429,7 @@
           "src": "/src/assets/media/2020/10/5.2.webp",
           "alt": "Un hombre sentado en una camilla azul mientras una mujer lo graba con una cámara pequeña, ante estudiantes sentados",
           "altPending": false,
-          "caption": "5.2",
+          "caption": "Un hombre sentado en una camilla azul mientras una mujer lo graba con una cámara pequeña, ante estudiantes sentados",
           "width": 1024,
           "height": 576
         },
@@ -437,7 +437,7 @@
           "src": "/src/assets/media/2020/10/5.3.webp",
           "alt": "Dos hombres junto a una persona recostada en una camilla azul, con estudiantes sentados y una cámara en trípode",
           "altPending": false,
-          "caption": "5.3",
+          "caption": "Dos hombres junto a una persona recostada en una camilla azul, con estudiantes sentados y una cámara en trípode",
           "width": 1024,
           "height": 768
         },
@@ -445,7 +445,7 @@
           "src": "/src/assets/media/2020/10/6.1.webp",
           "alt": "Un hombre de traje con un marcador frente a la pizarra, junto a una persona recostada en una camilla azul",
           "altPending": false,
-          "caption": "6.1",
+          "caption": "Un hombre de traje con un marcador frente a la pizarra, junto a una persona recostada en una camilla azul",
           "width": 768,
           "height": 1024
         },
@@ -453,7 +453,7 @@
           "src": "/src/assets/media/2020/10/6.2.webp",
           "alt": "Dos hombres junto a una mujer recostada en una camilla con almohada azul, uno de ellos le toca la cabeza",
           "altPending": false,
-          "caption": "6.2",
+          "caption": "Dos hombres junto a una mujer recostada en una camilla con almohada azul, uno de ellos le toca la cabeza",
           "width": 1024,
           "height": 768
         },
@@ -461,7 +461,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-21.26.11-1.webp",
           "alt": "Un hombre sentado sostiene la pierna de una persona recostada en una camilla azul, ante estudiantes con cuadernos",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 21.26.11 (1)",
+          "caption": "Un hombre sentado sostiene la pierna de una persona recostada en una camilla azul, ante estudiantes con cuadernos",
           "width": 576,
           "height": 1024
         },
@@ -469,7 +469,7 @@
           "src": "/src/assets/media/2020/10/z2.webp",
           "alt": "Cuatro personas posan ante una pizarra; la mujer del centro sostiene un certificado y un hombre la aplaude",
           "altPending": false,
-          "caption": "z2",
+          "caption": "Cuatro personas posan ante una pizarra; la mujer del centro sostiene un certificado y un hombre la aplaude",
           "width": 1024,
           "height": 768
         },
@@ -477,7 +477,7 @@
           "src": "/src/assets/media/2020/10/z3.webp",
           "alt": "Tres personas posan ante una pizarra; la mujer del centro sostiene un certificado y los dos hombres la acompañan",
           "altPending": false,
-          "caption": "z3",
+          "caption": "Tres personas posan ante una pizarra; la mujer del centro sostiene un certificado y los dos hombres la acompañan",
           "width": 768,
           "height": 1024
         },
@@ -485,7 +485,7 @@
           "src": "/src/assets/media/2020/10/z4.webp",
           "alt": "Una mujer con chaqueta verde sostiene un certificado junto a dos hombres, frente a una pizarra con anotaciones",
           "altPending": false,
-          "caption": "z4",
+          "caption": "Una mujer con chaqueta verde sostiene un certificado junto a dos hombres, frente a una pizarra con anotaciones",
           "width": 768,
           "height": 1024
         },
@@ -493,7 +493,7 @@
           "src": "/src/assets/media/2020/10/z5.webp",
           "alt": "Tres hombres posan ante una pizarra escrita; el del centro sostiene un certificado enmarcado sobre una mesa azul",
           "altPending": false,
-          "caption": "z5",
+          "caption": "Tres hombres posan ante una pizarra escrita; el del centro sostiene un certificado enmarcado sobre una mesa azul",
           "width": 1024,
           "height": 768
         },
@@ -501,7 +501,7 @@
           "src": "/src/assets/media/2020/10/z6.webp",
           "alt": "Cuatro personas posan en un aula; una mujer sostiene un certificado y un hombre mayor lleva papeles en la mano",
           "altPending": false,
-          "caption": "z6",
+          "caption": "Cuatro personas posan en un aula; una mujer sostiene un certificado y un hombre mayor lleva papeles en la mano",
           "width": 1024,
           "height": 768
         },
@@ -509,7 +509,7 @@
           "src": "/src/assets/media/2020/10/z7.webp",
           "alt": "Cuatro hombres posan ante una pizarra con anotaciones; uno de ellos sostiene un certificado enmarcado",
           "altPending": false,
-          "caption": "z7",
+          "caption": "Cuatro hombres posan ante una pizarra con anotaciones; uno de ellos sostiene un certificado enmarcado",
           "width": 1024,
           "height": 768
         },
@@ -517,7 +517,7 @@
           "src": "/src/assets/media/2020/10/z8.webp",
           "alt": "Cuatro personas posan ante una pizarra con anotaciones; una mujer sostiene un certificado enmarcado",
           "altPending": false,
-          "caption": "z8",
+          "caption": "Cuatro personas posan ante una pizarra con anotaciones; una mujer sostiene un certificado enmarcado",
           "width": 1024,
           "height": 768
         },
@@ -525,7 +525,7 @@
           "src": "/src/assets/media/2020/10/z9.webp",
           "alt": "Un hombre con camiseta gris sostiene un certificado junto a otros tres hombres, ante una pizarra blanca",
           "altPending": false,
-          "caption": "z9",
+          "caption": "Un hombre con camiseta gris sostiene un certificado junto a otros tres hombres, ante una pizarra blanca",
           "width": 1024,
           "height": 768
         },
@@ -533,7 +533,7 @@
           "src": "/src/assets/media/2020/10/z10.webp",
           "alt": "Un hombre y una mujer se saludan con un abrazo frente a una pizarra, ante otras dos personas",
           "altPending": false,
-          "caption": "z10",
+          "caption": "Un hombre y una mujer se saludan con un abrazo frente a una pizarra, ante otras dos personas",
           "width": 1024,
           "height": 768
         },
@@ -541,7 +541,7 @@
           "src": "/src/assets/media/2020/10/z11.webp",
           "alt": "Una mujer con gafas sostiene un certificado junto a un hombre de camisa blanca, frente a una pizarra",
           "altPending": false,
-          "caption": "z11",
+          "caption": "Una mujer con gafas sostiene un certificado junto a un hombre de camisa blanca, frente a una pizarra",
           "width": 768,
           "height": 1024
         },
@@ -549,7 +549,7 @@
           "src": "/src/assets/media/2020/10/z12.webp",
           "alt": "Tres personas posan frente al edificio de la Universidad de las Américas, con cinta amarilla en las escaleras",
           "altPending": false,
-          "caption": "z12",
+          "caption": "Tres personas posan frente al edificio de la Universidad de las Américas, con cinta amarilla en las escaleras",
           "width": 1024,
           "height": 768
         }
@@ -557,13 +557,13 @@
     },
     {
       "slug": "temuco",
-      "title": "Temuco",
+      "title": "Chile — Temuco",
       "images": [
         {
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.11.webp",
           "alt": "Siete personas posan en el jardín frente al edificio de la Universidad Católica de Temuco, con murales en la fachada",
           "altPending": false,
-          "caption": "",
+          "caption": "Siete personas posan en el jardín frente al edificio de la Universidad Católica de Temuco, con murales en la fachada",
           "width": 1280,
           "height": 960
         },
@@ -571,7 +571,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.26.webp",
           "alt": "Ocho personas posan sonriendo frente a una construcción de techo de paja, con árboles al fondo",
           "altPending": false,
-          "caption": "",
+          "caption": "Ocho personas posan sonriendo frente a una construcción de techo de paja, con árboles al fondo",
           "width": 1280,
           "height": 960
         },
@@ -579,7 +579,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.08.45.webp",
           "alt": "Tres personas posan ante una pizarra con anotaciones, dentro de una construcción de madera con techo de paja",
           "altPending": false,
-          "caption": "",
+          "caption": "Tres personas posan ante una pizarra con anotaciones, dentro de una construcción de madera con techo de paja",
           "width": 1280,
           "height": 960
         },
@@ -587,7 +587,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.09.29.webp",
           "alt": "Tres mujeres con vestimenta tradicional y un hombre posan ante una bandera mapuche, con banderines de colores",
           "altPending": false,
-          "caption": "",
+          "caption": "Tres mujeres con vestimenta tradicional y un hombre posan ante una bandera mapuche, con banderines de colores",
           "width": 1280,
           "height": 960
         },
@@ -595,7 +595,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.09.53.webp",
           "alt": "Una persona con buzo rojo recostada en una camilla, con tres personas alrededor y una pizarra al fondo",
           "altPending": false,
-          "caption": "",
+          "caption": "Una persona con buzo rojo recostada en una camilla, con tres personas alrededor y una pizarra al fondo",
           "width": 1280,
           "height": 960
         },
@@ -603,7 +603,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.16.webp",
           "alt": "Interior de una ruca con un grueso tronco de árbol que sostiene el techo de paja y un grupo de personas alrededor de una mesa",
           "altPending": false,
-          "caption": "",
+          "caption": "Interior de una ruca con un grueso tronco de árbol que sostiene el techo de paja y un grupo de personas alrededor de una mesa",
           "width": 960,
           "height": 1280
         },
@@ -611,7 +611,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.39.webp",
           "alt": "Una mujer con vestimenta tradicional se inclina sobre una persona recostada en una camilla, junto a otras cuatro personas",
           "altPending": false,
-          "caption": "",
+          "caption": "Una mujer con vestimenta tradicional se inclina sobre una persona recostada en una camilla, junto a otras cuatro personas",
           "width": 1280,
           "height": 960
         },
@@ -619,7 +619,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.10.49.webp",
           "alt": "Un hombre sentado junto a una persona recostada en una camilla habla y señala, ante cinco personas de pie",
           "altPending": false,
-          "caption": "",
+          "caption": "Un hombre sentado junto a una persona recostada en una camilla habla y señala, ante cinco personas de pie",
           "width": 1280,
           "height": 960
         },
@@ -627,7 +627,7 @@
           "src": "/src/assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.11.45.webp",
           "alt": "Nueve personas posan con certificados en la mano frente a una bandera mapuche y banderines de colores",
           "altPending": false,
-          "caption": "",
+          "caption": "Nueve personas posan con certificados en la mano frente a una bandera mapuche y banderines de colores",
           "width": 1280,
           "height": 960
         }

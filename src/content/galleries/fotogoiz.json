@@ -1,17 +1,17 @@
 {
-  "title": "FotoGoiz",
+  "title": "Dr. Isaac Goiz Durán",
   "cover": "/src/assets/media/2020/10/2003.webp",
-  "intro": "![IsaacGoiz](/src/assets/media/2020/11/IsaacGoiz.webp \"FotoGoiz\")\n\n### Galería Dr. Goiz\n\n**Inauguración del «Centro Doctor Isaac Goiz Durán», Santiago de Chile**",
+  "intro": "![IsaacGoiz](/src/assets/media/2020/11/IsaacGoiz.webp)\n\n### Galería del Dr. Isaac Goiz Durán\n\n**Inauguración del «Centro Doctor Isaac Goiz Durán», Santiago de Chile**",
   "galleries": [
     {
       "slug": "dr-goiz",
-      "title": "Dr Goiz",
+      "title": "Dr. Isaac Goiz Durán",
       "images": [
         {
           "src": "/src/assets/media/2020/10/2003.webp",
           "alt": "Recorte de periódico con el titular «Está en Chile el Señor de los imanes» y una fotografía de dos hombres conversando",
           "altPending": false,
-          "caption": "2003",
+          "caption": "Recorte de periódico con el titular «Está en Chile el Señor de los imanes» y una fotografía de dos hombres conversando",
           "width": 750,
           "height": 641
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/12/2006.webp",
           "alt": "Recorte de periódico con cuatro personas posando; al pie, una leyenda menciona al doctor Isaac Goiz y un taller en Quito",
           "altPending": false,
-          "caption": "2006",
+          "caption": "Recorte de prensa: taller en Quito, 2006",
           "width": 690,
           "height": 670
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/12/20091.webp",
           "alt": "Cinco personas de pie frente a una pizarra: dos hombres y tres mujeres con atuendo tradicional y tocados",
           "altPending": false,
-          "caption": "20091",
+          "caption": "Cinco personas de pie frente a una pizarra: dos hombres y tres mujeres con atuendo tradicional y tocados",
           "width": 570,
           "height": 250
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/20092.webp",
           "alt": "Tres hombres posan en una terraza; al fondo, una ciudad con una basílica neogótica y cerros",
           "altPending": false,
-          "caption": "20092",
+          "caption": "En una terraza, con la ciudad al fondo",
           "width": 768,
           "height": 1024
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/20093.webp",
           "alt": "Tres hombres de pie en una terraza con una basílica neogótica y la ciudad al fondo",
           "altPending": false,
-          "caption": "20093",
+          "caption": "Tres hombres en la terraza, con la basílica al fondo",
           "width": 1024,
           "height": 722
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/20094.webp",
           "alt": "Diapositiva de un curso en Chillán: dos hombres posan frente a una pizarra y una cortina azul, bajo el título del curso",
           "altPending": false,
-          "caption": "20094",
+          "caption": "Curso en Chillán: frente a la pizarra",
           "width": 1024,
           "height": 576
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/10/20095.webp",
           "alt": "Una persona recostada en una camilla azul mientras tres hombres la rodean; uno de ellos la graba con una cámara",
           "altPending": false,
-          "caption": "20095",
+          "caption": "Demostración en camilla durante un curso",
           "width": 1024,
           "height": 576
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/10/20151.webp",
           "alt": "Dos hombres que miran a cámara, en blanco y negro, con una ciudad y cerros al fondo",
           "altPending": false,
-          "caption": "20151",
+          "caption": "Retrato en blanco y negro, con la ciudad al fondo",
           "width": 1024,
           "height": 767
         },
@@ -75,7 +75,7 @@
           "src": "/src/assets/media/2020/10/20152.webp",
           "alt": "Tres hombres posan en una sala de conferencias con una pantalla de proyección al fondo y asistentes detrás",
           "altPending": false,
-          "caption": "20152",
+          "caption": "Tres hombres posan en una sala de conferencias con una pantalla de proyección al fondo y asistentes detrás",
           "width": 1024,
           "height": 761
         },
@@ -83,7 +83,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.53.11.webp",
           "alt": "Dos hombres posan en una terraza con una basílica neogótica al fondo; detrás, una mesa atendida por otras personas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-11-18 at 16.53.11",
+          "caption": "En la terraza, con la basílica al fondo",
           "width": 716,
           "height": 537
         },
@@ -91,7 +91,7 @@
           "src": "/src/assets/media/2020/12/WhatsApp-Image-2020-11-18-at-16.54.23.webp",
           "alt": "Cinco personas sentadas en sillas contra una pared con cuadros enmarcados, vistas desde el público",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-11-18 at 16.54.23",
+          "caption": "Asistentes en una sala con cuadros enmarcados",
           "width": 717,
           "height": 550
         },
@@ -99,7 +99,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2020-11-18-at-16.55.58.webp",
           "alt": "Dos hombres en un pasillo, en blanco y negro; el mayor lleva bastón y el otro una carpeta",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-11-18 at 16.55.58",
+          "caption": "En un pasillo, en blanco y negro",
           "width": 960,
           "height": 959
         }
@@ -107,13 +107,13 @@
     },
     {
       "slug": "inauguracioncentrodoctorgoiz",
-      "title": "InauguracionCentroDoctorGoiz",
+      "title": "Inauguración del Centro Doctor Goiz",
       "images": [
         {
           "src": "/src/assets/media/2020/10/20104.webp",
           "alt": "Corte de cinta de noche: una mujer con chal magenta y un hombre de traje azul sostienen la cinta roja y azul",
           "altPending": false,
-          "caption": "20104",
+          "caption": "Corte de cinta en la inauguración",
           "width": 1024,
           "height": 768
         },
@@ -121,7 +121,7 @@
           "src": "/src/assets/media/2020/10/20103-rotated.webp",
           "alt": "Tras el corte de cinta, una mujer de chal magenta y dos hombres de traje ríen y aplauden junto a un vehículo",
           "altPending": false,
-          "caption": "20103",
+          "caption": "Aplausos tras el corte de cinta",
           "width": 1024,
           "height": 768
         },
@@ -129,7 +129,7 @@
           "src": "/src/assets/media/2020/10/20102-rotated.webp",
           "alt": "Dos hombres de traje oscuro conversan de noche; uno de ellos sostiene unas tijeras tras el corte de cinta",
           "altPending": false,
-          "caption": "20102",
+          "caption": "Conversación tras la ceremonia",
           "width": 1024,
           "height": 768
         },
@@ -137,7 +137,7 @@
           "src": "/src/assets/media/2020/10/20101-rotated.webp",
           "alt": "Un hombre muestra una placa grabada del Centro de Biomagnetismo Médico del Ecuador en una mesa de gala",
           "altPending": false,
-          "caption": "20101",
+          "caption": "Un hombre muestra una placa grabada del Centro de Biomagnetismo Médico del Ecuador en una mesa de gala",
           "width": 1024,
           "height": 768
         }

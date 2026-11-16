@@ -1,17 +1,17 @@
 {
-  "title": "fotos de entrevista",
+  "title": "Entrevistas en medios",
   "cover": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-11.55.37-1.webp",
   "intro": "# **Biomagnetismo en los Medios: Entrevistas y Práctica Clínica**\n\n# Fundamentos y Demostración del Biomagnetismo Médico\n\nEl Dr. Francisco Mena explica que el **biomagnetismo** es una ciencia que utiliza imanes para estabilizar el equilibrio interno del cuerpo, permitiendo tratar diversas patologías sin necesidad de medicación. Durante la entrevista, realiza una demostración práctica donde detecta desequilibrios mediante el **acortamiento o elongación** de la pierna derecha del paciente. Al colocar imanes en puntos específicos del protocolo, busca neutralizar patógenos y restaurar la salud de forma natural, permitiendo ver resultados en pocos días.\n\n##### Entrevista en Tv Bolivia\n\n##### Entrevista en la Radio Universidad de Chile.\n\n##### Entrevista en la Universidad de Oruro, Bolivia.\n\n##### Entrevista Santa Cruz, Bolivia.\n\n##### Entrevista La Paz, Bolivia.\n\n##### Entrevista en televisión Chilena.\n\n##### Entrevista en radio brasileña.",
   "galleries": [
     {
       "slug": "bolivia-entrevista-la-tv",
-      "title": "Bolivia - Entrevista la Tv",
+      "title": "Bolivia — Entrevista en televisión",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-11.55.37-1.webp",
           "alt": "En blanco y negro, alguien recostado en una camilla sostiene un micrófono mientras un hombre le sostiene los pies",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 11.55.37 (1)",
+          "caption": "En blanco y negro, alguien recostado en una camilla sostiene un micrófono mientras un hombre le sostiene los pies",
           "width": 1024,
           "height": 576
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-10-03-at-11.55.37-2.webp",
           "alt": "En blanco y negro, un hombre de saco está de pie tras una camilla plegada, frente a un decorado de televisión",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-10-03 at 11.55.37 (2)",
+          "caption": "En blanco y negro, un hombre de saco está de pie tras una camilla plegada, frente a un decorado de televisión",
           "width": 1024,
           "height": 768
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-19.52.50-1.webp",
           "alt": "Un presentador de traje beige y un hombre de traje negro con micrófonos, junto a una persona recostada en una camilla",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.52.50 (1)",
+          "caption": "Un presentador de traje beige y un hombre de traje negro con micrófonos, junto a una persona recostada en una camilla",
           "width": 1024,
           "height": 768
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-19.52.50-3.webp",
           "alt": "Un camarógrafo graba la escena: un presentador con micrófono y un hombre junto a una persona recostada en una camilla",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.52.50 (3)",
+          "caption": "Un camarógrafo graba la escena: un presentador con micrófono y un hombre junto a una persona recostada en una camilla",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-19.52.50-4.webp",
           "alt": "Dos hombres con micrófonos conversan sentados en sillones de cuero, con una cámara de video frente a ellos",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.52.50 (4)",
+          "caption": "Dos hombres con micrófonos conversan sentados en sillones de cuero, con una cámara de video frente a ellos",
           "width": 1024,
           "height": 768
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-09-17-at-11.23.28-3.webp",
           "alt": "Dos hombres sentados en sillones se entrevistan con micrófonos; delante, una mesa de vidrio con flores rojas",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-09-17 at 11.23.28 (3)",
+          "caption": "Dos hombres sentados en sillones se entrevistan con micrófonos; delante, una mesa de vidrio con flores rojas",
           "width": 1024,
           "height": 768
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-09-17-at-11.23.28-2.webp",
           "alt": "Un camarógrafo de pie filma a dos hombres que conversan con micrófonos en mano, entre carteles publicitarios",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-09-17 at 11.23.28 (2)",
+          "caption": "Un camarógrafo de pie filma a dos hombres que conversan con micrófonos en mano, entre carteles publicitarios",
           "width": 1024,
           "height": 768
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-19.52.50-5.webp",
           "alt": "Plató de televisión: una persona recostada en una camilla azul, dos hombres que se dan la mano y una cámara",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.52.50 (5)",
+          "caption": "Plató de televisión: una persona recostada en una camilla azul, dos hombres que se dan la mano y una cámara",
           "width": 1024,
           "height": 768
         }
@@ -75,13 +75,13 @@
     },
     {
       "slug": "chile-entrevista-radio-universidad",
-      "title": "Chile - Entrevista Radio Universidad",
+      "title": "Chile — Entrevista en Radio Universidad",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.43.56-1.webp",
           "alt": "Perfil de un hombre con audífonos que habla frente a un micrófono de estudio, con una cortina mostaza de fondo",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.43.56 (1)",
+          "caption": "Perfil de un hombre con audífonos que habla frente a un micrófono de estudio, con una cortina mostaza de fondo",
           "width": 1024,
           "height": 576
         },
@@ -89,7 +89,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-21.43.56.webp",
           "alt": "Tres hombres posan en un estudio de radio ante el cartel «radio Universidad de Chile», junto a una mesa con micrófonos",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 21.43.56",
+          "caption": "Tres hombres posan en un estudio de radio ante el cartel «radio Universidad de Chile», junto a una mesa con micrófonos",
           "width": 1024,
           "height": 768
         }
@@ -97,13 +97,13 @@
     },
     {
       "slug": "bolivia-entrevista-universidad",
-      "title": "Bolivia - Entrevista Universidad",
+      "title": "Bolivia — Entrevista en la Universidad",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.54.17-1.webp",
           "alt": "Un hombre con micrófono junto a una persona recostada en una camilla, ante un cartel del Seguro Social Universitario de Oruro",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.54.17 (1)",
+          "caption": "Un hombre con micrófono junto a una persona recostada en una camilla, ante un cartel del Seguro Social Universitario de Oruro",
           "width": 768,
           "height": 1024
         },
@@ -111,7 +111,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.54.17-2.webp",
           "alt": "Una reportera con micrófono entrevista a un hombre de abrigo negro mientras un camarógrafo lo graba",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.54.17 (2)",
+          "caption": "Una reportera con micrófono entrevista a un hombre de abrigo negro mientras un camarógrafo lo graba",
           "width": 1024,
           "height": 733
         },
@@ -119,7 +119,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.54.17.webp",
           "alt": "Un hombre sostiene el zapato de una persona recostada sobre una mesa, rodeado de gente que observa y un camarógrafo",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.54.17",
+          "caption": "Un hombre sostiene el zapato de una persona recostada sobre una mesa, rodeado de gente que observa y un camarógrafo",
           "width": 768,
           "height": 1024
         },
@@ -127,7 +127,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.54.18.webp",
           "alt": "Una mujer con micrófono entrevista a un hombre de abrigo negro en una sala con bandera y una mesa verde",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.54.18",
+          "caption": "Una mujer con micrófono entrevista a un hombre de abrigo negro en una sala con bandera y una mesa verde",
           "width": 768,
           "height": 1024
         }
@@ -135,13 +135,13 @@
     },
     {
       "slug": "bolivia-entrevista-santa-cruz",
-      "title": "Bolivia - Entrevista Santa Cruz",
+      "title": "Bolivia — Entrevista en Santa Cruz",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-09-17-at-11.45.09-1.webp",
           "alt": "Estudio de televisión: un hombre sentado en un sofá verde y una presentadora de rojo con una tableta en las manos",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-09-17 at 11.45.09 (1)",
+          "caption": "Estudio de televisión: un hombre sentado en un sofá verde y una presentadora de rojo con una tableta en las manos",
           "width": 1024,
           "height": 768
         }
@@ -149,13 +149,13 @@
     },
     {
       "slug": "bolivia-entrevista-la-paz",
-      "title": "Bolivia - Entrevista La Paz",
+      "title": "Bolivia — Entrevista en La Paz",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.06.06-1.webp",
           "alt": "Un hombre de abrigo negro con micrófono conversa con una presentadora en un sillón verde de un set de televisión",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.06.06 (1)",
+          "caption": "Un hombre de abrigo negro con micrófono conversa con una presentadora en un sillón verde de un set de televisión",
           "width": 768,
           "height": 1024
         },
@@ -163,7 +163,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.06.06.webp",
           "alt": "Tres personas en sillones verdes: una presentadora, un entrevistado y otro hombre con micrófono en un set de TV",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.06.06",
+          "caption": "Tres personas en sillones verdes: una presentadora, un entrevistado y otro hombre con micrófono en un set de TV",
           "width": 1024,
           "height": 768
         },
@@ -171,7 +171,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.21.33-2.webp",
           "alt": "Captura de televisión: un hombre de traje habla en un programa de ATB, con el rótulo «Curso de biomagnetismo en Bolivia»",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.21.33 (2)",
+          "caption": "Captura de televisión: un hombre de traje habla en un programa de ATB, con el rótulo «Curso de biomagnetismo en Bolivia»",
           "width": 1024,
           "height": 576
         },
@@ -179,7 +179,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.21.33-4.webp",
           "alt": "Captura de TV: un hombre de traje conversa con dos presentadoras, una de vestido amarillo, en un programa de ATB",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.21.33 (4)",
+          "caption": "Captura de TV: un hombre de traje conversa con dos presentadoras, una de vestido amarillo, en un programa de ATB",
           "width": 1024,
           "height": 576
         },
@@ -187,7 +187,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2019-09-21-at-20.21.33.webp",
           "alt": "Captura de TV: tres personas sentadas en un set con sofás y mesa de vidrio, con el logotipo de ATB en pantalla",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 20.21.33",
+          "caption": "Captura de TV: tres personas sentadas en un set con sofás y mesa de vidrio, con el logotipo de ATB en pantalla",
           "width": 1024,
           "height": 576
         }
@@ -195,13 +195,13 @@
     },
     {
       "slug": "chile-entrevista",
-      "title": "Chile - Entrevista",
+      "title": "Chile — Entrevista",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-09-17-at-11.16.22.webp",
           "alt": "Cuatro personas conversan en un plató de televisión con el rótulo «CADENA NACIONAL» y una mesa de vidrio",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-09-17 at 11.16.22",
+          "caption": "Cuatro personas conversan en un plató de televisión con el rótulo «CADENA NACIONAL» y una mesa de vidrio",
           "width": 1024,
           "height": 363
         }
@@ -209,13 +209,13 @@
     },
     {
       "slug": "brasil-entrevista",
-      "title": "Brasil - Entrevista",
+      "title": "Brasil — Entrevista",
       "images": [
         {
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.18.17-1-1.webp",
           "alt": "Estudio de radio: un hombre con audífonos en una mesa redonda con consola y micrófonos, junto a otros dos locutores",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 22.18.17 (1)",
+          "caption": "Estudio de radio: un hombre con audífonos en una mesa redonda con consola y micrófonos, junto a otros dos locutores",
           "width": 1024,
           "height": 768
         },
@@ -223,7 +223,7 @@
           "src": "/src/assets/media/2020/10/WhatsApp-Image-2020-10-22-at-22.18.17-2.webp",
           "alt": "Dos hombres con audífonos frente a frente ante micrófonos de estudio, en una sala con paneles acústicos",
           "altPending": false,
-          "caption": "WhatsApp Image 2020-10-22 at 22.18.17",
+          "caption": "Dos hombres con audífonos frente a frente ante micrófonos de estudio, en una sala con paneles acústicos",
           "width": 1024,
           "height": 768
         }

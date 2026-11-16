@@ -1,7 +1,7 @@
 {
-  "title": "FotoAlemania",
+  "title": "Alemania",
   "cover": "/src/assets/media/2020/11/1.webp",
-  "intro": "![Bandera de Alemania](/src/assets/media/2020/11/Alemania.webp \"Alemania\")\n\n### Alemania\n\n**Curso: Ottenberg y Ulm**",
+  "intro": "![Bandera de Alemania](/src/assets/media/2020/11/Alemania.webp)\n\n### Alemania\n\n**Curso: Ottenberg y Ulm**",
   "galleries": [
     {
       "slug": "alemania-2",
@@ -11,7 +11,7 @@
           "src": "/src/assets/media/2020/11/1.webp",
           "alt": "Sala con ventanales y mesas largas en U: doce personas sentadas alrededor y una camilla azul en el centro",
           "altPending": false,
-          "caption": "1",
+          "caption": "Sala con ventanales y mesas largas en U: doce personas sentadas alrededor y una camilla azul en el centro",
           "width": 1024,
           "height": 576
         },
@@ -19,7 +19,7 @@
           "src": "/src/assets/media/2020/11/2.webp",
           "alt": "Personas sentadas a lo largo de las mesas de un aula y dos camillas azules plegadas junto a la pared",
           "altPending": false,
-          "caption": "2",
+          "caption": "Personas sentadas a lo largo de las mesas de un aula y dos camillas azules plegadas junto a la pared",
           "width": 1024,
           "height": 576
         },
@@ -27,7 +27,7 @@
           "src": "/src/assets/media/2020/11/3.webp",
           "alt": "Dos hombres conversan de pie en un aula con pizarra y ventanal, junto a una camilla azul y una mesa con vasos",
           "altPending": false,
-          "caption": "3",
+          "caption": "Dos hombres conversan de pie en un aula con pizarra y ventanal, junto a una camilla azul y una mesa con vasos",
           "width": 576,
           "height": 1024
         },
@@ -35,7 +35,7 @@
           "src": "/src/assets/media/2020/11/4.webp",
           "alt": "Cuatro personas sentadas en sillas de mimbre con carpetas, junto a una camilla cubierta y un mural de hojas rojas",
           "altPending": false,
-          "caption": "4",
+          "caption": "Cuatro personas sentadas en sillas de mimbre con carpetas, junto a una camilla cubierta y un mural de hojas rojas",
           "width": 1024,
           "height": 768
         },
@@ -43,7 +43,7 @@
           "src": "/src/assets/media/2020/11/5.webp",
           "alt": "Una mujer de pie habla al grupo en una sala con dibujos infantiles en la pared y una mesa cubierta de azul",
           "altPending": false,
-          "caption": "5",
+          "caption": "Una mujer de pie habla al grupo en una sala con dibujos infantiles en la pared y una mesa cubierta de azul",
           "width": 1024,
           "height": 768
         },
@@ -51,7 +51,7 @@
           "src": "/src/assets/media/2020/11/6.webp",
           "alt": "Varias mujeres sentadas toman notas en carpetas; junto a ellas hay una mesa cubierta de azul y dibujos en la pared",
           "altPending": false,
-          "caption": "6",
+          "caption": "Varias mujeres sentadas toman notas en carpetas; junto a ellas hay una mesa cubierta de azul y dibujos en la pared",
           "width": 1024,
           "height": 768
         },
@@ -59,7 +59,7 @@
           "src": "/src/assets/media/2020/11/7.webp",
           "alt": "Personas sentadas en círculo observan a alguien recostado en una mesa azul; una mujer sostiene una cámara",
           "altPending": false,
-          "caption": "7",
+          "caption": "Personas sentadas en círculo observan a alguien recostado en una mesa azul; una mujer sostiene una cámara",
           "width": 1024,
           "height": 736
         },
@@ -67,7 +67,7 @@
           "src": "/src/assets/media/2020/11/8.webp",
           "alt": "Sala con una estatua anatómica de bronce, una pizarra con anotaciones y tres personas sentadas junto a una mesa azul",
           "altPending": false,
-          "caption": "8",
+          "caption": "Sala con una estatua anatómica de bronce, una pizarra con anotaciones y tres personas sentadas junto a una mesa azul",
           "width": 1024,
           "height": 801
         },
@@ -75,7 +75,7 @@
           "src": "/src/assets/media/2020/11/9.webp",
           "alt": "Página de un libro con la leyenda «Der Meister bei der Arbeit»: alguien recostado en una mesa azul ante varios observadores",
           "altPending": false,
-          "caption": "9",
+          "caption": "Página de un libro con la leyenda «Der Meister bei der Arbeit»: alguien recostado en una mesa azul ante varios observadores",
           "width": 768,
           "height": 1024
         },
@@ -83,7 +83,7 @@
           "src": "/src/assets/media/2020/11/10.webp",
           "alt": "Una mujer recostada en una camilla con almohada amarilla; un hombre le sostiene los pies y otra mujer observa sentada",
           "altPending": false,
-          "caption": "10",
+          "caption": "Una mujer recostada en una camilla con almohada amarilla; un hombre le sostiene los pies y otra mujer observa sentada",
           "width": 1024,
           "height": 768
         },
@@ -91,7 +91,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06-1.webp",
           "alt": "Personas de pie con hojas en las manos, una pareja abrazada y un póster con la frase «Niemals Gewalt» en la pared",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.55.06 (1)",
+          "caption": "Personas de pie con hojas en las manos, una pareja abrazada y un póster con la frase «Niemals Gewalt» en la pared",
           "width": 1024,
           "height": 768
         },
@@ -99,7 +99,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06-2.webp",
           "alt": "Un hombre de camisa azul y una mujer de vestido estampado sostienen hojas de papel junto a una mesa cubierta de rojo",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.55.06 (2)",
+          "caption": "Un hombre de camisa azul y una mujer de vestido estampado sostienen hojas de papel junto a una mesa cubierta de rojo",
           "width": 768,
           "height": 1024
         },
@@ -107,7 +107,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.55.06.webp",
           "alt": "Un abrazo entre asistentes frente a un grupo que sostiene hojas; al fondo, un mural luminoso de flores",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.55.06",
+          "caption": "Un abrazo entre asistentes frente a un grupo que sostiene hojas; al fondo, un mural luminoso de flores",
           "width": 1024,
           "height": 768
         },
@@ -115,7 +115,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.59.31-2.webp",
           "alt": "Un hombre de camisa lila entrega un regalo a una mujer de gris, ante carteles en la pared y una estantería de revistas",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.59.31 (2)",
+          "caption": "Un hombre de camisa lila entrega un regalo a una mujer de gris, ante carteles en la pared y una estantería de revistas",
           "width": 1024,
           "height": 576
         },
@@ -123,7 +123,7 @@
           "src": "/src/assets/media/2020/11/WhatsApp-Image-2019-09-21-at-19.59.31.webp",
           "alt": "Una mujer de pie habla y gesticula ante un pequeño grupo sentado junto a carteles y una estantería de revistas",
           "altPending": false,
-          "caption": "WhatsApp Image 2019-09-21 at 19.59.31",
+          "caption": "Una mujer de pie habla y gesticula ante un pequeño grupo sentado junto a carteles y una estantería de revistas",
           "width": 1024,
           "height": 576
         },
@@ -131,7 +131,7 @@
           "src": "/src/assets/media/2020/11/y.1.webp",
           "alt": "Grupo de siete personas posando en una foto montada sobre madera, con la leyenda «Seminar Teil 1»",
           "altPending": false,
-          "caption": "y.1",
+          "caption": "Grupo de siete personas posando en una foto montada sobre madera, con la leyenda «Seminar Teil 1»",
           "width": 1024,
           "height": 861
         },
@@ -139,7 +139,7 @@
           "src": "/src/assets/media/2020/11/y.2.webp",
           "alt": "Dos hombres sonríen abrazados, con camisetas negras iguales bordadas con una figura azul en el pecho",
           "altPending": false,
-          "caption": "y.2",
+          "caption": "Dos hombres sonríen abrazados, con camisetas negras iguales bordadas con una figura azul en el pecho",
           "width": 708,
           "height": 1024
         },
@@ -147,7 +147,7 @@
           "src": "/src/assets/media/2020/11/z.1.webp",
           "alt": "Grupo de dieciséis personas posando en una sala, con una camilla azul y una cesta de regalo en primer plano",
           "altPending": false,
-          "caption": "z.1",
+          "caption": "Grupo de dieciséis personas posando en una sala, con una camilla azul y una cesta de regalo en primer plano",
           "width": 1024,
           "height": 768
         },
@@ -155,7 +155,7 @@
           "src": "/src/assets/media/2020/11/z.2.webp",
           "alt": "Siete personas posan de pie junto a una camilla azul con un cojín naranja, ante un póster enmarcado",
           "altPending": false,
-          "caption": "z.2",
+          "caption": "Siete personas posan de pie junto a una camilla azul con un cojín naranja, ante un póster enmarcado",
           "width": 1024,
           "height": 576
         }
