@@ -16,7 +16,7 @@ Dr. HC Francisco Mena Flores, Ecuador
 Director del Centro Dr. Isaac Goiz Durán, Quito Ecuador
 
 Dirección: Pineda N11 -121
-Celular: 00593-998649759
+Celular: +593998649759
 Whatsapp: +56982957690
 Correo: centrodrgoiz@gmail.com
 
