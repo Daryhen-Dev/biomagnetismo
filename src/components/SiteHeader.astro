@@ -28,37 +28,6 @@ const pathname = Astro.url.pathname;
 <header class="site-header" data-site-header>
   <div class="shell site-header__row">
     <a class="wordmark" href="/" aria-label={`${siteName} — inicio`}>
-      <svg
-        class="wordmark__mark"
-        viewBox="0 0 14 40"
-        aria-hidden="true"
-        focusable="false"
-        role="presentation"
-      >
-        <rect x="4.5" y="0" width="5" height="5" fill="currentColor" />
-        <rect x="4.5" y="35" width="5" height="5" fill="currentColor" />
-        <line x1="7" y1="5" x2="7" y2="35" stroke="currentColor" stroke-width="1" opacity="0.4" />
-        <ellipse
-          cx="7"
-          cy="20"
-          rx="3.1"
-          ry="15"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1"
-          opacity="0.55"
-        />
-        <ellipse
-          cx="7"
-          cy="20"
-          rx="1.3"
-          ry="14.2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1"
-          opacity="0.3"
-        />
-      </svg>
       <span class="wordmark__text">
         <span class="wordmark__top">Centro de</span>
         <span class="wordmark__name">{siteShortName}</span>

@@ -13,6 +13,8 @@
  */
 import { contact, whatsappUrl } from "../data/contact";
 import { footerNav, siteName, siteTagline } from "../data/site";
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo-biomagnetismo.png";
 
 const year = new Date().getFullYear();
 ---
@@ -21,10 +23,22 @@ const year = new Date().getFullYear();
   <div class="shell">
     <div class="site-footer__grid">
       <div>
-        <p class="site-footer__name">{siteName}</p>
-        <p class="site-footer__description">
-          {siteTagline}. Método descubierto por el Dr. Isaac Goiz Durán el 10 de octubre de 1988.
-        </p>
+        <div class="site-footer__brand">
+          <Image
+            class="site-footer__seal"
+            src={logo}
+            alt=""
+            aria-hidden="true"
+            widths={[56, 112]}
+            sizes="3.5rem"
+          />
+          <div>
+            <p class="site-footer__name">{siteName}</p>
+            <p class="site-footer__description">
+              {siteTagline}. Método descubierto por el Dr. Isaac Goiz Durán el 10 de octubre de 1988.
+            </p>
+          </div>
+        </div>
       </div>
 
       <nav aria-label="Mapa del sitio">

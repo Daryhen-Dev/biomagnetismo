@@ -2979,20 +2979,59 @@
 /* ---------------------------------------------------------------------------
  * Marca del sitio (`wordmark__mark`)
  *
- * Antes era un `span` de 8 px pintado con dos degradados: se leía como un
- * artefacto junto a un logotipo de dos líneas. Ahora es un SVG en línea con el
- * mismo motivo del hero: dos polos y el campo entre ellos, en vertical.
+ * Es el sello real del centro —doble hélice y flecha magnética, con el texto
+ * del método y su autor—, no un dibujo. Va en un disco porque el archivo trae
+ * fondo claro y sobre el índigo de la cabecera se lee como un cuño sobre papel.
  * ------------------------------------------------------------------------- */
 .wordmark__mark {
   flex: none;
-  width: 0.75rem;
-  height: 2.4rem;
-  color: var(--color-copper-500);
-  background-image: none;
-  background-size: auto;
-  overflow: visible;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  object-fit: contain;
+  transition: transform 260ms var(--ease-out);
 }
 
-.wordmark__mark ellipse {
-  vector-effect: non-scaling-stroke;
+/* ---------------------------------------------------------------------------
+ * El sello del centro
+ *
+ * El archivo trae el texto del borde a ~10 px sobre 417: por debajo de 80 px de
+ * pantalla es ilegible. Por eso no va en la cabecera (donde la marca es la
+ * tipografía) sino a escala legible: en la placa de credenciales y en el pie.
+ * ------------------------------------------------------------------------- */
+.credential__seal {
+  margin: 0;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in oklab, currentColor 14%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.credential__seal img {
+  flex: none;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.credential__seal-caption {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: color-mix(in oklab, currentColor 66%, transparent);
+  max-width: 26ch;
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.site-footer__seal {
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
 }
