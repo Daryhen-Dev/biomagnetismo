@@ -26,7 +26,6 @@ import { getEntry, render } from "astro:content";
 import { normalizeHeadingLevels, renderEntryHtml, toBlocks } from "../data/content-html";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PairField from "../components/PairField.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import CredentialPlate from "../components/CredentialPlate.astro";
 import PageCta from "../components/PageCta.astro";
@@ -88,39 +87,38 @@ const credentials = [
   <!-- (1) El campo: la tesis del sitio en la primera pantalla. -->
   <section class="hero band band--night-deep">
     <div class="shell hero__inner">
-      <h1 class="hero__title">El par biomagnético</h1>
-      <p class="hero__lede">
-        Dos cargas de polaridad opuesta que identifican una patología. Método descubierto por el
-        Dr. Isaac Goiz Durán el 10 de octubre de 1988; en Quito lo dirige el Dr. HC Francisco Mena
-        Flores.
-      </p>
-
-      <PairField
-        class="hero__field"
-        caption="Un par biomagnético: dos cargas de polaridad opuesta. El terapeuta identifica ambas y corrige la que está alterada."
-      />
-
-      <div class="hero__actions">
-        <WhatsAppAction
-          message="cita"
-          label="Pedir una cita"
-          showNumber
-          variant="copper"
-          block
-        />
-        <a class="link-quiet" href="#metodo">Cómo es una sesión</a>
+      <div class="hero__main">
+        <h1 class="hero__title">El par biomagnético</h1>
+        <p class="hero__lede">
+          Dos cargas de polaridad opuesta que identifican una patología. Método descubierto por el
+          Dr. Isaac Goiz Durán el 10 de octubre de 1988; en Quito lo dirige el Dr. HC Francisco Mena
+          Flores.
+        </p>
       </div>
 
-      <p class="hero__foot">
-        {contact.address.street} · {contact.address.city}<br />
-        {contact.hours.map((row) => (
-          <>
-            {row.days}: {row.times}
-            <br />
-          </>
-        ))}
-        {contact.visitNote}
-      </p>
+      <div class="hero__aside">
+        <div class="hero__actions">
+          <WhatsAppAction
+            message="cita"
+            label="Pedir una cita"
+            showNumber
+            variant="copper"
+            block
+          />
+          <a class="link-quiet" href="#metodo">Cómo es una sesión</a>
+        </div>
+
+        <p class="hero__foot">
+          {contact.address.street} · {contact.address.city}<br />
+          {contact.hours.map((row) => (
+            <>
+              {row.days}: {row.times}
+              <br />
+            </>
+          ))}
+          {contact.visitNote}
+        </p>
+      </div>
     </div>
   </section>
 

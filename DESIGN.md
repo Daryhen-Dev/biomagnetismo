@@ -121,6 +121,15 @@ nunca baja de 17 px: es el mínimo de este sistema, no el del navegador.
 
 ---
 
+### La portada no lleva figura
+
+El hero no incluye un dibujo del par. Hubo uno —dos polos y líneas de campo, y
+antes de eso un `+` y un `−`— y se retiró porque no comunicaba nada por sí solo:
+sin la leyenda no se entendía qué era. La columna derecha del hero la ocupa
+ahora el bloque práctico (pedir cita y horarios de atención), que sí resuelve
+algo. El motivo del par sobrevive como **filete** (`FieldRule`), donde funciona
+como separador y no como ilustración.
+
 ## 4. Espacio y composición
 
 | Token | Valor | Qué hace |
@@ -327,7 +336,6 @@ renderiza, quién lo usa y qué tocar para cambiarlo.
 
 | Componente | Qué es | Dónde se usa |
 | --- | --- | --- |
-| `PairField.astro` | La figura del par: dos polos de cobre y el campo entre ellos (SVG geométrico, sin ilustración figurativa) | Portada |
 | `FieldRule.astro` | El mismo motivo como regla divisoria: una línea de 1 px con un polo de cobre en cada extremo | Galerías, cierres |
 | `WhatsAppAction.astro` | Botón/enlace `wa.me` con mensaje precargado, número real visible y burbuja dibujada. Variantes: `copper`, `outline`, `paper`; modo `compact` (44×44) | Barra superior, portada, cierres, página de contacto |
 | `SectionHeading.astro` | Título de sección + entrada opcional. Sin etiqueta encima | Portada, galería, contacto |
