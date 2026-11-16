@@ -12,7 +12,7 @@ export const siteName = "Centro de Biomagnetismo Médico";
 export const siteShortName = "Biomagnetismo Médico";
 export const siteTagline = "Par biomagnético · Quito, Ecuador";
 export const siteDescription =
-  "Centro de Biomagnetismo Médico en Quito. Método del par biomagnético del Dr. Isaac Goiz Durán, dirigido por el Dr. HC Francisco Mena Flores. Atención con cita previa.";
+  "Centro de Biomagnetismo Médico en Quito. Método del par biomagnético del Dr. Isaac Goiz Durán, dirigido por el Dr. HC Francisco Mena Flores.";
 export const siteLocale = "es_EC";
 
 export type NavItem = { label: string; href: string };

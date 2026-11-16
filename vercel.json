@@ -35,6 +35,116 @@
       "source": "/foto1/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/fotoalemania/",
+      "destination": "/galeria/fotoalemania/",
+      "permanent": true
+    },
+    {
+      "source": "/fotoargentina/",
+      "destination": "/galeria/fotoargentina/",
+      "permanent": true
+    },
+    {
+      "source": "/fotobolivia/",
+      "destination": "/galeria/fotobolivia/",
+      "permanent": true
+    },
+    {
+      "source": "/fotobrasil/",
+      "destination": "/galeria/fotobrasil/",
+      "permanent": true
+    },
+    {
+      "source": "/fotochile/",
+      "destination": "/galeria/fotochile/",
+      "permanent": true
+    },
+    {
+      "source": "/fotoecuador/",
+      "destination": "/galeria/fotoecuador/",
+      "permanent": true
+    },
+    {
+      "source": "/fotoentrevista/",
+      "destination": "/galeria/fotoentrevista/",
+      "permanent": true
+    },
+    {
+      "source": "/fotogoiz/",
+      "destination": "/galeria/fotogoiz/",
+      "permanent": true
+    },
+    {
+      "source": "/fotopanama/",
+      "destination": "/galeria/fotopanama/",
+      "permanent": true
+    },
+    {
+      "source": "/fotoparaguay/",
+      "destination": "/galeria/fotoparaguay/",
+      "permanent": true
+    },
+    {
+      "source": "/fotoperu/",
+      "destination": "/galeria/fotoperu/",
+      "permanent": true
+    },
+    {
+      "source": "/category/uncategorized/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/category/presentacion/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/feed/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/comments/feed/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/2020/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/page/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

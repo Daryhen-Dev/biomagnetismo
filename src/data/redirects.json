@@ -1,9 +1,40 @@
 {
-  "/about-us/": "/francisco-mena/",
-  "/services/": "/servicios/",
-  "/contact-us/": "/contactos/",
-  "/testimonial/": "/testimonios/",
-  "/customer-cabinet/": "/",
-  "/saludo/": "/",
-  "/foto1/": "/"
+  "_lee": "Fuente única de redirecciones. `exact` es ruta por ruta; `wildcards` usa `*` y el generador lo traduce al formato de cada hosting. Lo consume scripts/emit-redirects.mjs.",
+  "exact": {
+    "/about-us/": "/francisco-mena/",
+    "/services/": "/servicios/",
+    "/contact-us/": "/contactos/",
+    "/testimonial/": "/testimonios/",
+    "/customer-cabinet/": "/",
+
+    "/saludo/": "/",
+    "/foto1/": "/",
+
+    "/fotoalemania/": "/galeria/fotoalemania/",
+    "/fotoargentina/": "/galeria/fotoargentina/",
+    "/fotobolivia/": "/galeria/fotobolivia/",
+    "/fotobrasil/": "/galeria/fotobrasil/",
+    "/fotochile/": "/galeria/fotochile/",
+    "/fotoecuador/": "/galeria/fotoecuador/",
+    "/fotoentrevista/": "/galeria/fotoentrevista/",
+    "/fotogoiz/": "/galeria/fotogoiz/",
+    "/fotopanama/": "/galeria/fotopanama/",
+    "/fotoparaguay/": "/galeria/fotoparaguay/",
+    "/fotoperu/": "/galeria/fotoperu/",
+
+    "/category/uncategorized/": "/",
+    "/category/presentacion/": "/",
+
+    "/home/": "/",
+    "/feed/": "/",
+    "/comments/feed/": "/",
+    "/sitemap_index.xml": "/sitemap-index.xml"
+  },
+  "wildcards": [
+    { "from": "/category/*", "to": "/" },
+    { "from": "/tag/*", "to": "/" },
+    { "from": "/author/*", "to": "/" },
+    { "from": "/2020/*", "to": "/" },
+    { "from": "/page/*", "to": "/" }
+  ]
 }
