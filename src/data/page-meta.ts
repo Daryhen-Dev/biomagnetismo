@@ -63,7 +63,7 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "documentos",
     portrait: true,
     cta: {
-      title: "¿Querés consultar por una cita?",
+      title: "¿Necesita consultar por una cita?",
       body: "La atención es con cita previa, en Quito.",
       message: "doctor",
     },
@@ -75,7 +75,7 @@ export const pageMeta: Record<string, PageTreatment> = {
       "Terapias del Centro de Biomagnetismo Médico: atención presencial, atención a distancia y constelaciones familiares.",
     variant: "ninguno",
     cta: {
-      title: "¿Querés coordinar una terapia?",
+      title: "¿Necesita coordinar una terapia?",
       body: "Escribinos por WhatsApp y coordinamos día y horario.",
       message: "servicio",
     },
@@ -103,7 +103,7 @@ export const pageMeta: Record<string, PageTreatment> = {
       "Testimonios de pacientes y de personas capacitadas en biomagnetismo, publicados por el Centro de Biomagnetismo Médico.",
     variant: "testimonios",
     cta: {
-      title: "¿Querés contar tu experiencia?",
+      title: "¿Desea compartir su experiencia?",
       body: "Escribinos por WhatsApp y coordinamos la publicación.",
       message: "testimonio",
     },
@@ -131,7 +131,7 @@ export const pageMeta: Record<string, PageTreatment> = {
       "Colaboradores y terapeutas del Centro de Biomagnetismo Médico en Ecuador, Chile, Estados Unidos y Alemania.",
     variant: "colaboradores",
     cta: {
-      title: "¿Querés contactar a un colaborador?",
+      title: "¿Desea contactar a un colaborador?",
       body: "Escribinos por WhatsApp y te orientamos hacia la persona o la sede que necesitás.",
       message: "colaboradores",
     },

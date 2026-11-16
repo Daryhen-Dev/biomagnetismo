@@ -4,7 +4,7 @@
  *
  * Qué renderiza, en orden: (1) el campo —qué es el par biomagnético, con el
  * botón de cita; (2) el método en una pantalla —definición y datos concretos—;
- * (3) quién atiende —credencial y foto documental—; (4) el contenido heredado
+ * (3) dirección del centro —credencial y foto documental—; (4) el contenido heredado
  * de `home.md`; (5) el cierre con WhatsApp.
  *
  * De dónde sale el texto: el bloque (4) se renderiza tal cual desde
@@ -97,7 +97,7 @@ const credentials = [
 
       <PairField
         class="hero__field"
-        caption="El par: dos cargas de polaridad opuesta. Lo que se lee entre ellas es lo que se corrige."
+        caption="Un par biomagnético: dos cargas de polaridad opuesta. El terapeuta identifica ambas y corrige la que está alterada."
       />
 
       <div class="hero__actions">
@@ -164,11 +164,11 @@ const credentials = [
     </div>
   </section>
 
-  <!-- (3) Quién atiende: la credencial y el archivo, antes que cualquier adjetivo. -->
+  <!-- (3) Dirección del centro: la credencial y el archivo, antes que cualquier adjetivo. -->
   <section class="band band--night">
     <div class="shell credential-band" data-reveal-group>
       <SectionHeading
-        title="Quién atiende"
+        title="Dirección del centro"
         lede="Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán. La credencial y el archivo fotográfico son verificables."
       />
 
@@ -209,8 +209,8 @@ const credentials = [
 
   <!-- (5) Cierre: una sola acción. -->
   <PageCta
-    title="¿Querés pedir una cita?"
-    body="Escribinos por WhatsApp y te respondemos en horario de atención. También podés llamar o escribir a los correos del centro."
+    title="Solicite una cita"
+    body="Escríbanos por WhatsApp y le respondemos en horario de atención. También puede llamar o escribir a los correos del centro."
     message="cita"
     secondary={{ label: "Ver todos los contactos", href: "/contactos/" }}
   />

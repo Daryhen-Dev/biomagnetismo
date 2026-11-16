@@ -63,6 +63,20 @@ recomendada con el motivo. Los consentimientos del proveedor de review conservan
 Consecuencias: el diseño se compone desde el viewport angosto, los breakpoints son adiciones y no
 correcciones, y la verificación visual en T18 incluye capturas a 390 px antes que a 1440 px.
 
+**S10 — El sitio escribe en español neutral, no rioplatense.**
+> "Hay cosas con asento argentino y debe ser español neutral por ejemplo ¿Querés pedir una cita? eso es argentino"
+
+Todo el copy del sitio usa «usted» o formas impersonales. Prohibido el voseo (`querés`, `tenés`,
+`usás`, `escribí`), «acá» y cualquier giro rioplatense. El vocabulario sigue el uso del centro:
+`cita`, no `turno`. Esto aplica al copy del sitio, no al registro del asistente en la conversación.
+
+**S11 — Nada de gráficos decorativos sin sentido explícito.**
+> "También pusiste una imagen o css en el inicio poniendo un + y un - totalmente random"
+
+Un elemento gráfico que aparece en el sitio tiene que explicarse por sí mismo o llevar una leyenda
+que lo explique en palabras. Los signos + y − se eliminaron del motivo del par: dos polos con líneas
+de campo se leen como un campo magnético, un + y un − se leen como una batería o una cuenta.
+
 ## Tasks
 
 | ID | Tarea | Specs | Ruta | Commit |
@@ -233,3 +247,19 @@ renderiza.
 
 Se conservan las 8 banderas del contenido histórico. Decisión editorial del responsable, registrada para no
 reabrirla: no se reencuadran ni se eliminan.
+
+**L10** (idioma y gráficos):
+> Bien, ahora sigamos arreglando cosas. Hay cosas con asento argentino y debe ser español neutral por ejemplo ¿Querés pedir una cita? eso es argentino. Tambien pusiste una imagen o css en el inicio poniendo un + y un - totalmente random. Otra parte pusiste "Quién atiende" esto es muy poco profesional y bulgar arreglemos esos temas
+
+**Evidencia E13** — neutralización del copy. Nueve formas voseantes que había escrito el paso de diseño,
+más un tuteo suelto: `¿Querés consultar/coordinar/contar/contactar/pedir…?` (5), `usás`, `escribís`, `pedís`,
+`Escribí…pedí`, `tenés que enviarlo`, `podés llamar`, y el encabezado «Qué hacemos con tus datos».
+Todas pasaron a «usted» o a forma impersonal. Los mensajes prellenados de WhatsApp ya estaban en neutral
+(«Quisiera pedir una cita»). Verificado con barrido de patrones: 0 formas voseantes en `src/`.
+
+«Quién atiende» pasó a «Dirección del centro»: el bloque es la credencial del director y el título anterior
+sonaba informal para un sitio médico.
+
+En el motivo del par se eliminaron los signos `+` y `−` de `PairField.astro` (2 nodos `<text>`). Quedan los
+dos polos y las líneas de campo, con leyenda explícita: «Un par biomagnético: dos cargas de polaridad
+opuesta. El terapeuta identifica ambas y corrige la que está alterada.»
