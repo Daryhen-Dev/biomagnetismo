@@ -55,7 +55,16 @@ const archivePhoto = mediaImage(
 // Títulos del director, literales de `src/content/pages/francisco-mena.md`.
 // No se resumen ni se combinan: cada doctorado tiene su institución y su año, y
 // mezclarlos convierte una credencial real en una afirmación falsa.
+//
+// Los dos doctorados de 2025 son distintos y viven en listas distintas del
+// WordPress: UNACHI está en `TÍTULO OBTENIDO` y el de la Academia Mundial en
+// `RECONOCIMIENTOS OBTENIDOS`. El segundo es el del diploma que ilustra el hero.
 const credentials = [
+  {
+    label: "Doctorado Honoris Causa",
+    detail:
+      "Miembro de la Academia Mundial de las Ciencias de la Salud en los Health Sciences Awards, SIISDET, Panamá, 2025",
+  },
   {
     label: "Doctorado Honoris Causa",
     detail: "Universidad Autónoma de Chiriquí (UNACHI), Panamá, 2025",
@@ -66,7 +75,7 @@ const credentials = [
   },
   {
     label: "Master en Biomagnetismo",
-    detail: "Health Sciences Awards, SISDET y Universidad de Puebla, México, 2024",
+    detail: "Health Sciences Awards, SIISDET y Universidad de Puebla, México, 2024",
   },
   {
     label: "Tecnólogo Médico Radiólogo",

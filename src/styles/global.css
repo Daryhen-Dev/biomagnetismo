@@ -3035,3 +3035,9 @@
   height: 3.5rem;
   border-radius: 50%;
 }
+
+/* Con un número impar de títulos, el último ocupa la fila completa: una celda
+   vacía al lado de una credencial se lee como un dato que falta. */
+.credential__list > .credential__item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
