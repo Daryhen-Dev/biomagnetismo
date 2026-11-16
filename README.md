@@ -226,18 +226,29 @@ docker compose down       # apagar
 
 ---
 
-## Despliegue y redirects
+## Despliegue en Cloudflare Pages
 
-El hosting todavía no está decidido (Vercel, Netlify o Cloudflare Pages). La
-configuración de redirects no depende de esa decisión:
+Decidido: **Cloudflare Pages**. La guía completa —valores exactos del panel, DNS
+para `centrodoctorgoiz.cl` y checklist de verificación— está en
+[`docs/DEPLOY-CLOUDFLARE.md`](docs/DEPLOY-CLOUDFLARE.md).
 
-- `public/_redirects` lo leen **Netlify y Cloudflare Pages** con el mismo
-  formato. El archivo lo genera `scripts/emit-redirects.mjs` desde
-  `src/data/redirects.json`, así que cambiar de hosting no toca los redirects.
-- `vercel.json` cubre Vercel; lo genera el mismo script desde el mismo JSON.
+Lo que hay que configurar en el panel:
 
-Ninguno de los dos se edita a mano: se agrega la URL vieja en
-`src/data/redirects.json` y se reconstruye.
+| Campo | Valor |
+| --- | --- |
+| Build command | `pnpm run build` |
+| Build output directory | `dist` |
+| Node | `24` (en `.nvmrc`; Astro 7 exige ≥ 22.23.4) |
+
+Archivos que el build emite para el hosting, ninguno se edita a mano:
+
+- `public/_redirects` — 29 reglas (24 exactas + 5 comodines), generadas por
+  `scripts/emit-redirects.mjs` desde `src/data/redirects.json`.
+- `public/_headers` — caché inmutable para `/_astro/` y cabeceras de seguridad.
+- `public/robots.txt` y el sitemap que genera `@astrojs/sitemap`.
+
+`vercel.json` se sigue generando desde el mismo JSON por si alguna vez se cambia
+de hosting: el formato de `_redirects` lo comparten Netlify y Cloudflare Pages.
 
 ---
 
