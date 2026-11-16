@@ -188,6 +188,40 @@ mide 63–69 caracteres por línea.
 En 390 px todo es una sola columna. Las columnas, la barra lateral y las grillas anchas
 son adiciones, nunca reparaciones.
 
+### Ninguna pista sin oficio
+
+La regla que ordena todo lo anterior: **ninguna banda deja más de ~200 px de ancho
+esructuralmente vacío a 1440 px**. Cuando una grilla abre dos o tres pistas y solo la
+primera tiene contenido, la pista que sobra no es aire: es un hueco que se lee como un
+error de maquetación ("como si existieran dos columnas y solo se hubiera ocupado una").
+Cada pista recibe una de dos cosas: contenido que ya existe —una foto de la página, el
+título de la sección, una cuenta real, la miga de pan— o desaparece porque la pieza se
+compone de otro modo.
+
+Cómo se verifica: cualquier contenedor de 700 px o más debe tener sus hijos de bloque
+(en flujo, no `inline`) con su borde derecho a menos de 220 px del borde derecho del
+contenedor. La medición se hace sobre el sitio construido y servido, con el estado
+asentado (revelados disparados e imágenes cargadas). Resultado de la última pasada:
+**0 infractores en las 21 rutas a 1440 px y a 1024 px**.
+
+Las composiciones que resuelven los casos medidos:
+
+| Dónde | Antes | Ahora |
+| --- | --- | --- |
+| Portada, ficha heredada de `home.md` | una columna de 608 px con 640 px de aire y dos afiches a tamaños distintos | dos columnas de flujo (`columns: 2`): texto a la izquierda, afiches y retrato a la derecha |
+| Entrada de página con título y línea (testimonios, preguntas, colaboradores) | título en la primera pista, la segunda vacía | `.prose__lead--split`: título y línea, una pieza por columna |
+| `/par-biomagnetico/` | retrato de 280 px como sello arriba del texto; la cita sola en 736 px | `.prose__lead--portrait`: el retrato con su pie en la pista angosta, título y cita en la ancha |
+| `/francisco-mena/` | 286 px muertos entre la lectura y el borde del cuerpo | el título de cada sección se muda al margen como rótulo de referencia |
+| `/contactos/` | el aviso de privacidad solo, con 672 px de aire al lado | el aviso del formulario pendiente ocupa la otra columna de `.contact-followup` |
+| `/galeria/` | la entrada de la galería sin grilla: el lede solo a la izquierda | la misma portada de dos pistas que el resto de las páginas (`page-intro__grid`) |
+| Álbum de una o dos fotos | hoja de contactos con dos o tres pistas vacías | `.album--few`: las fotos conservan su tamaño y el rótulo del álbum ocupa las pistas que sobran |
+| Cierre del archivo de una galería | una lista de 736 px con 512 px de aire | `.album-index--split`: los dos destinos en dos columnas, cada uno con su cuenta |
+| Miga de pan en todas las páginas | el `nav` estirado al envoltorio, ~1000 px de aire | `width: fit-content`: la miga mide lo que mide su texto y el título carga la banda |
+| Pie de la placa documental | lugar a la izquierda, enlace al archivo pegado al texto | `justify-content: space-between`: la línea cruza la placa, de extremo a extremo |
+
+Ninguna de estas piezas se resuelve achicando el contenido: el ancho de lectura sigue en
+608 px y el párrafo entre 62 y 72 caracteres. Lo que cambia es quién ocupa el resto.
+
 ### Regla de imagen: la placa
 
 Una sola vez, en todo el sitio. Toda foto —retrato, diploma, archivo, celda de
@@ -333,16 +367,17 @@ declara su variante en `src/data/page-meta.ts` y las reglas viven en `.prose--*`
 
 | Página | Variante | Qué cambia |
 | --- | --- | --- |
-| `/par-biomagnetico/` | `prose--metodo` | Los párrafos que abren con comillas se vuelven citas en Spectral; cada concepto (`Magnetismo`, `pH`, `Entropía`…) es un grupo con su regla y la lista se compone en dos columnas |
-| `/preguntas/` | `prose--preguntas` | Cada párrafo que empieza con "¿" abre un grupo con su respuesta; en pantalla ancha van en dos columnas |
-| `/francisco-mena/` | `prose--documentos` | Barra lateral con el índice de secciones; los reconocimientos salen del texto y cierran como muro de documentos en banda propia (2–4 columnas), sin recorte |
-| `/testimonios/` | `prose--testimonios` | La introducción va en texto corrido; cada relato es un grupo con la regla del par, en Spectral, a dos columnas |
+| `/par-biomagnetico/` | `prose--metodo` | La entrada compone el retrato del Dr. Goiz Durán con su pie en la pista angosta y el título con la cita de definición en la ancha (`.prose__lead--portrait`); los párrafos que abren con comillas se vuelven citas en Spectral; cada concepto (`Magnetismo`, `pH`, `Entropía`…) es un grupo con su regla y la lista se compone en dos columnas |
+| `/preguntas/` | `prose--preguntas` | La entrada compone título y línea en dos columnas; cada párrafo que empieza con "¿" abre un grupo con su respuesta; en pantalla ancha van en dos columnas |
+| `/francisco-mena/` | `prose--documentos` | Barra lateral con el índice de secciones; desde 1280 px el título de cada sección se va al margen derecho como rótulo de referencia, así el cuerpo no deja una pista vacía; los reconocimientos salen del texto y cierran como muro de documentos en banda propia (2–4 columnas), sin recorte |
+| `/testimonios/` | `prose--testimonios` | La entrada compone el título y la presentación en dos columnas; cada relato es un grupo con la regla del par, en Spectral, a dos columnas |
 | `/entrevistas/` | `prose--entrevistas` | Cada entrevista es una ficha con regla superior |
 | `/colaboradores/` | `prose--colaboradores` | Retrato flotado a 8 rem + nombre en Spectral + datos en 15 px; a dos columnas en pantalla ancha |
 | `/servicios/` | sin variante | Texto corrido + aviso de que el original está en *lorem ipsum* |
-| Portada | `prose--home` | El contenido heredado de `home.md` se lee como ficha del centro |
-| `/galeria/` | — | Índice de filas con portada, álbumes y fotos |
-| `/galeria/<archivo>/` | — | Portada del álbum (4:3, con pie) + notas de archivo + índice de álbumes + álbumes con hoja de contactos |
+| Portada | `prose--home` | El contenido heredado de `home.md` se lee como ficha del centro, en dos columnas de flujo (el retrato y los afiches caen en la segunda) |
+| `/contactos/` | — | Canales reales en dos columnas; la banda de cierre compone el aviso del formulario pendiente y el de privacidad, uno por columna |
+| `/galeria/` | — | Portada de dos pistas (título y cuenta del archivo) e índice de filas con portada, álbumes y fotos |
+| `/galeria/<archivo>/` | — | Portada del álbum (4:3, con pie) + notas de archivo + índice de álbumes + álbumes con hoja de contactos; un álbum de una o dos fotos compone su rótulo al lado de las fotos (`.album--few`); el cierre lleva los dos destinos en dos columnas con su cuenta |
 | `/contactos/` | — | Canales reales, horario, aviso del formulario pendiente |
 
 Pendientes conocidos, visibles en las páginas cuando corresponde:
@@ -359,7 +394,7 @@ Pendientes conocidos, visibles en las páginas cuando corresponde:
 - Composición base a **390 px**; los breakpoints agregan columnas, nunca reparan.
 - Sin scroll horizontal en las 21 rutas a 390, 768, 1024 y 1440 px (verificado midiendo
   `documentElement.scrollWidth` contra el ancho del viewport en cada combinación: 84 de
-  84 iguales al viewport).
+  84 iguales al viewport, última pasada incluida).
 - El índice lateral del artículo está oculto en móvil (`display: none` por debajo de
   1024 px): la propia lista ya orienta y no se duplica.
 - El foco de teclado llega a las imágenes de galería porque cada foto es un enlace al
@@ -411,10 +446,12 @@ desborde horizontal:
 
 | Página | Viewport | Envoltorio | Párrafo | Línea | Desborde |
 | --- | --- | --- | --- | --- | --- |
-| Portada | 1440 | 1248 | 608 px | 64 car. | no |
+| Portada | 1440 | 1248 | 2 columnas de 596 | 64 car. | no |
 | Portada | 390 | 350 | 350 px | 43 car. | no |
 | `/preguntas/` | 1440 | 1248 | 596 px | 69 car. | no |
 | `/preguntas/` | 390 | 350 | 350 px | 43 car. | no |
+| `/testimonios/` | 1440 | 1248 | entrada en 2 pistas de 596 | 69 car. | no |
+| `/francisco-mena/` | 1440 | 894 (con barra) | 608 px + rótulo de 245 | 69 car. | no |
 | `/servicios/` | 1440 | 1248 | 596 px | 63 car. | no |
 | `/servicios/` | 390 | 350 | 350 px | 44 car. | no |
 | `/galeria/fotochile/` | 1440 | 1248 | 4 celdas de 297 px | — (nota de archivo: 36 car.) | no |
@@ -423,6 +460,33 @@ desborde horizontal:
 Antes de esta pasada, `/preguntas/` a 1440 px rendía un párrafo de 544 px (38 % del
 viewport) con 62 caracteres por línea y 900 px de margen muerto a la derecha.
 
+### Detector de pistas vacías (sitio construido, servidor local)
+
+La regla de §4 medida sobre el resultado, no sobre la intención: todo contenedor de
+700 px o más debe tener sus hijos de bloque con el borde derecho a menos de 220 px del
+borde derecho del contenedor. Se corre en las 21 rutas con el estado asentado
+(revelados disparados, imágenes cargadas) y se cuentan los infractores:
+
+| Viewport | Rutas | Infractores |
+| --- | --- | --- |
+| 1440 | 21 | 0 |
+| 1024 | 21 | 0 |
+| 768 | 21 | 0 |
+| 390 | 21 | 0 (ningún contenedor llega a 700 px) |
+
+Antes de la pasada: **82 infractores** entre 1440 y 1024 px (pistas de 512–1002 px
+vacías en la portada, el método, testimonios, contactos, la galería y la trayectoria
+del doctor, más las hojas de contacto de un solo álbum y el cierre del archivo).
+
 También medido en el navegador: CLS 0 en las cinco rutas de referencia, 0 imágenes sin
 `width`/`height`, 0 errores de consola, y el alto de la barra superior constante (65 px)
 mientras se desplaza.
+
+### Movimiento (§5), medido en el sitio construido
+
+- Sin preferencia de movimiento: **421 bloques `[data-reveal]`** en las 21 rutas; en 20
+de ellas hay bloques armados bajo el pliegue, todos se revelan al recorrer la página y
+**0 quedan ocultos** (`opacity` 1, sin `transform`).
+- Con `prefers-reduced-motion: reduce`: **0 bloques armados** y **0 elementos ocultos**
+en las 21 rutas, antes y después de recorrer la página; los polos del par quedan
+dibujados y ninguna animación o transición corre.

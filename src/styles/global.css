@@ -897,11 +897,17 @@
     align-items: start;
   }
 
+  /* La miga de pan es una línea de metadatos, no una columna: ocupa su texto y
+     nada más. El ancho de la banda lo lleva el título, que es el ancla de la
+     portada; si la miga se estirara al envoltorio dejaría una pista vacía al
+     lado (medido: ~1000 px de aire a 1440 px). */
   .page-intro__trail {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
+    width: fit-content;
+    max-width: 100%;
     font-size: var(--fs-small);
     color: var(--color-night-300);
   }
@@ -1323,6 +1329,9 @@
     }
   }
 
+  /* El pie de la placa es una línea de metadatos: el lugar a la izquierda y el
+     enlace al archivo al otro extremo, como las filas de canales. Así la línea
+     cruza la placa en vez de dejar la mitad derecha vacía. */
   .archive-plate figcaption {
     margin-top: 0.75rem;
     padding-top: 0.75rem;
@@ -1331,6 +1340,7 @@
     color: var(--color-night-300);
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 0.35rem 0.75rem;
   }
 
@@ -1551,28 +1561,105 @@
     .prose__lead > blockquote {
       max-width: 46rem;
     }
-  }
 
-  @media (min-width: 80rem) {
-    .article__grid--railed {
-      grid-template-columns: var(--rail) minmax(0, 1fr);
-    }
-
-    /* Entrada de dos piezas (título y línea): el título ocupa la columna
-       izquierda y la línea la derecha, a la misma altura, para que el arranque
-       de la página se lea en el mismo eje que las dos columnas de abajo. */
+    /* --- La entrada compuesta ---------------------------------------------
+       Una entrada de dos piezas (título y línea) ocupa las dos pistas en vez
+       de dejar la segunda vacía: el título a la izquierda, la línea a la
+       derecha, alineados por la base. Se usa donde la entrada es una línea de
+       orientación (preguntas, colaboradores, testimonios). */
     .prose__lead--split {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: clamp(2rem, 4vw, 3.5rem);
-      /* Alineadas por la primera línea de texto, no por la caja: el título y la
-         entrada arrancan a la misma altura. */
       align-items: baseline;
     }
 
     .prose__lead--split > * {
       margin-top: 0;
     }
+
+    /* Entrada con retrato: la foto de la página ocupa la pista angosta, con su
+       pie debajo, y el título y la cita se leen en la ancha. La foto deja de
+       ser un sello de 280 px sobre el texto y pasa a ser la primera columna
+       que el retrato pide (hoy: /par-biomagnetico/). */
+    .prose__lead--portrait {
+      display: grid;
+      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+      column-gap: clamp(1.75rem, 3vw, 2.75rem);
+      align-items: start;
+    }
+
+    .prose__lead--portrait > * {
+      grid-column: 2;
+    }
+
+    .prose__lead--portrait > img {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .prose__lead--portrait > img + p {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    /* El título de la entrada se alinea con la base del retrato, no con su
+       borde superior: así queda inmediatamente arriba de la cita que encabeza. */
+    .prose__lead--portrait > h2 {
+      align-self: end;
+      margin-bottom: 0.35rem;
+    }
+
+    /* La cita de la entrada pertenece a la pista de texto, no a la de la foto:
+       se declara después de la regla general de citas del cuerpo para ganarle
+       por orden (misma especificidad). */
+    .prose__lead--portrait > blockquote {
+      grid-column: 2;
+    }
+
+    /* La ficha heredada de la portada (`home.md`) se lee en dos columnas: es el
+       mismo tratamiento que las páginas de lista. Una sola columna de 608 px
+       sobre 1248 dejaba media banda en aire y los dos afiches del archivo
+       aparecían a tamaños distintos, sin retícula que los explicara. */
+    .prose--home .prose__lead {
+      columns: 2;
+      column-gap: clamp(1.75rem, 3vw, 2.75rem);
+    }
+
+    .prose--home .prose__lead > * {
+      break-inside: avoid;
+    }
+
+    .prose--home .prose__lead > h2,
+    .prose--home .prose__lead > h3 {
+      break-after: avoid;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .article__grid--railed {
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+    }
+  }
+
+  /* El párrafo que sigue a una imagen suelta es su pie: va en tamaño de
+     metadatos, con la línea del sistema encima. Vale en móvil y en escritorio;
+     por eso se declara después de la grilla de `.prose` (misma especificidad,
+     gana el orden). */
+  .prose__lead > img + p {
+    margin-top: 0.7rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--rule-paper);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+    color: var(--color-ink-600);
+  }
+
+  /* La foto de la entrada ocupa su pista en todo ancho: el pie de arriba —más
+     abajo— mide igual que la imagen, no un pico menos. */
+  .prose__lead > img {
+    width: 100%;
+    height: auto;
   }
 
   /* ---------------------------------------------------------------------------
@@ -1655,6 +1742,36 @@
 
   .prose--documentos .prose__label {
     margin-top: 1.4em;
+  }
+
+  /* El índice del doctor va en la barra lateral y el texto en la pista de
+     lectura: entre los dos quedaban 286 px sin usar a 1440 px. Desde 1280 px el
+     título de cada sección se muda a esa pista y la ocupa como margen de
+     referencia —el recurso del margen de un impreso—, así el ancho se reparte
+     entre la barra, el texto y el rótulo de la sección, y no queda una cuarta
+     zona vacía. */
+  @media (min-width: 80rem) {
+    .prose--documentos .prose__groups--documentos .prose__group {
+      max-width: none;
+      display: grid;
+      grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+      column-gap: clamp(1.75rem, 3vw, 2.5rem);
+      align-items: start;
+    }
+
+    .prose--documentos .prose__groups--documentos .prose__group > * {
+      grid-column: 1;
+    }
+
+    .prose--documentos .prose__groups--documentos .prose__group > h2 {
+      grid-column: 2;
+      grid-row: 1;
+      /* En el margen el título es un rótulo de referencia, no un titular: a
+         24 px una palabra larga ("REPRESENTACIONES") se salía de la pista. */
+      font-size: 1.0625rem;
+      letter-spacing: 0.01em;
+      color: var(--color-ink-600);
+    }
   }
 
   /* Testimonios: la presentación va en la entrada; cada relato es un grupo con
@@ -2033,9 +2150,11 @@
       align-items: start;
     }
 
-    /* Sin formulario, el aviso usa el ancho completo de la columna de lectura. */
-    .contact-followup--solo {
-      grid-template-columns: minmax(0, 1fr);
+    /* El aviso del formulario pendiente es la primera pieza de esta banda: así
+       el cierre usa sus dos columnas con dos piezas que existen y la columna
+       de privacidad no queda sola con 672 px de aire al lado. */
+    .contact-followup .notice {
+      margin-top: 0;
     }
   }
 
@@ -2350,6 +2469,20 @@
     max-width: 46rem;
   }
 
+  /* El cierre del archivo compone sus dos destinos en dos columnas, cada uno
+     con su cuenta real al extremo: el ancho de la banda lo usan las dos
+     salidas, en vez de una lista de 736 px con 512 px de aire al lado. */
+  @media (min-width: 48rem) {
+    .album-index--split {
+      max-width: none;
+    }
+
+    .album-index--split .album-index__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(2rem, 4vw, 3.5rem);
+    }
+  }
+
   .album-index__list {
     display: grid;
     gap: 0;
@@ -2497,6 +2630,34 @@
     .gallery-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1.25rem;
+    }
+  }
+
+  /* Álbum de pocas fotos: una hoja de contactos con una o dos fotos deja dos o
+     tres pistas sin ocupar a 1440 px (medido: hasta 951 px de aire en
+     /galeria/fotoentrevista/). Cuando el álbum no llena una fila, sus fotos se
+     quedan del mismo tamaño que en el resto de la página y el rótulo del álbum
+     —título y cuenta, datos que ya estaban— ocupa las pistas que sobran. */
+  @media (min-width: 64rem) {
+    .album--few {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: 1.25rem;
+      align-items: start;
+    }
+
+    .album--few > .album__head {
+      grid-row: 1;
+      grid-column: calc(var(--album-count, 4) + 1) / -1;
+      align-self: start;
+    }
+
+    .album--few > .gallery-grid {
+      display: contents;
+    }
+
+    .album--few .gallery-cell {
+      grid-row: 1;
     }
   }
 
@@ -2813,4 +2974,25 @@
   .btn:active {
     transform: none;
   }
+}
+
+/* ---------------------------------------------------------------------------
+ * Marca del sitio (`wordmark__mark`)
+ *
+ * Antes era un `span` de 8 px pintado con dos degradados: se leía como un
+ * artefacto junto a un logotipo de dos líneas. Ahora es un SVG en línea con el
+ * mismo motivo del hero: dos polos y el campo entre ellos, en vertical.
+ * ------------------------------------------------------------------------- */
+.wordmark__mark {
+  flex: none;
+  width: 0.75rem;
+  height: 2.4rem;
+  color: var(--color-copper-500);
+  background-image: none;
+  background-size: auto;
+  overflow: visible;
+}
+
+.wordmark__mark ellipse {
+  vector-effect: non-scaling-stroke;
 }

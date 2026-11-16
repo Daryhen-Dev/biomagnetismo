@@ -340,8 +340,8 @@ export type BodyTreatment = {
   level?: number;
   /**
    * La entrada de la página (título + una línea) se compone en dos columnas
-   * alineadas con los grupos de abajo. Solo donde la entrada es una línea de
-   * orientación; en los relatos la entrada es texto y va debajo del título.
+   * alineadas con los grupos de abajo. En los relatos la entrada es el título y
+   * su presentación: dos piezas, una por columna, sin dejar la segunda vacía.
    */
   splitLead?: boolean;
   /**
@@ -363,7 +363,7 @@ export const BODY_TREATMENTS: Record<BodyVariant, BodyTreatment> = {
   documentos: { mode: "plain", group: "encabezados" },
   entrevistas: { mode: "plain", group: "encabezados", columns: true },
   colaboradores: { mode: "plain", group: "personas", columns: true, splitLead: true },
-  testimonios: { mode: "plain", group: "relatos", columns: true },
+  testimonios: { mode: "plain", group: "relatos", columns: true, splitLead: true },
   ninguno: { mode: "plain", group: "encabezados", columns: true },
 };
 

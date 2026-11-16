@@ -18,6 +18,12 @@
  * - el orden de las galerías y el enlace "siguiente" → `src/data/gallery-order.ts`
  * - la grilla → `.gallery-grid` en `src/styles/global.css`
  *
+ * Composición: un álbum que no llena una fila de la hoja de contactos (una o dos
+ * fotos) recibe `album--few` y la cuenta en `--album-count`; sus fotos conservan
+ * el tamaño de siempre y el rótulo del álbum ocupa las pistas que sobran. El
+ * cierre de la página compone los dos destinos en dos columnas, cada uno con su
+ * cuenta real.
+ *
  * Pendiente conocido: 245 de las 254 fotos llevan texto alternativo generado
  * (`altPending: true`). Antes de publicar hay que revisarlo; se cambia en el
  * JSON de la galería.
@@ -47,6 +53,20 @@ const size = gallerySize(gallery);
 const sorted = sortGalleries(await getCollection("galleries"));
 const position = sorted.findIndex((entry) => entry.id === gallery.id);
 const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] : undefined;
+
+// Cuentas reales del archivo completo y de la galería siguiente: son el dato
+// que acompaña a cada enlace del cierre. Se calculan una vez.
+const totals = sorted.reduce(
+  (accumulator, entry) => {
+    const entrySize = gallerySize(entry);
+    return {
+      albums: accumulator.albums + entrySize.albums,
+      photos: accumulator.photos + entrySize.photos,
+    };
+  },
+  { albums: 0, photos: 0 },
+);
+const nextSize = nextGallery ? gallerySize(nextGallery) : undefined;
 ---
 
 <BaseLayout
@@ -155,17 +175,28 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
       }
 
       {
-        gallery.data.galleries.map((album) => (
-          <section class="album" id={album.slug} data-reveal>
-            <div class="album__head">
-              <h2 class="album__title">{album.title}</h2>
-              <p class="album__count">
-                {album.images.length} {album.images.length === 1 ? "foto" : "fotos"}
-              </p>
-            </div>
-            <GalleryGrid images={album.images} album={album.title} eagerCount={album === gallery.data.galleries[0] ? 4 : 0} />
-          </section>
-        ))
+        gallery.data.galleries.map((album) => {
+          // Un álbum que no llena una fila de la hoja de contactos se compone
+          // con su rótulo al lado de las fotos (`--album-count` es la cuenta
+          // real, leída por `.album--few` en `global.css`).
+          const few = album.images.length < 4;
+          return (
+            <section
+              class:list={["album", few && "album--few"]}
+              id={album.slug}
+              style={few ? `--album-count:${album.images.length}` : undefined}
+              data-reveal
+            >
+              <div class="album__head">
+                <h2 class="album__title">{album.title}</h2>
+                <p class="album__count">
+                  {album.images.length} {album.images.length === 1 ? "foto" : "fotos"}
+                </p>
+              </div>
+              <GalleryGrid images={album.images} album={album.title} eagerCount={album === gallery.data.galleries[0] ? 4 : 0} />
+            </section>
+          );
+        })
       }
     </div>
   </section>
@@ -173,16 +204,20 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
   <section class="band band--night band--compact">
     <div class="shell">
       <FieldRule />
-      <nav class="album-index" aria-label="Seguir en el archivo">
+      <nav class="album-index album-index--split" aria-label="Seguir en el archivo">
         <p class="contact-block__title">Seguir en el archivo</p>
         <div class="album-index__list">
           <a class="album-index__link" href="/galeria/">
             <span>Volver al índice de galerías</span>
+            <span class="album-index__count">{totals.photos} fotos</span>
           </a>
           {
-            nextGallery && (
+            nextGallery && nextSize && (
               <a class="album-index__link" href={`/galeria/${nextGallery.id}/`}>
                 <span>Siguiente: {nextGallery.data.title}</span>
+                <span class="album-index__count">
+                  {nextSize.photos} {nextSize.photos === 1 ? "foto" : "fotos"}
+                </span>
               </a>
             )
           }

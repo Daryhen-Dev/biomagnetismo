@@ -19,6 +19,10 @@
  * Lo usan: `src/pages/[...slug].astro` (con variante) y `src/pages/index.astro`
  * (sin agrupar).
  *
+ * La entrada se compone según lo que traiga: si son dos piezas (título y línea)
+ * va en dos columnas; si abre con una imagen suelta, la foto es la primera
+ * columna y lleva su pie debajo (`.prose__lead--portrait`).
+ *
  * Agregar una página nueva = agregar su tratamiento a `BODY_TREATMENTS` en
  * `src/data/content-html.ts`.
  */
@@ -34,6 +38,12 @@ interface Props {
 const { blocks, variant = "ninguno" } = Astro.props;
 const treatment = BODY_TREATMENTS[variant];
 const { lead, groups } = groupBlocks(blocks, treatment.group, treatment.level);
+
+// Una entrada que abre con una imagen suelta es una entrada con retrato: la
+// foto y su pie ocupan la pista angosta y el texto sigue en la ancha.
+const firstLead = lead[0];
+const portraitLead =
+  firstLead?.kind === "raw" && /^\s*<img\b/.test(firstLead.html);
 ---
 
 {
@@ -44,6 +54,8 @@ const { lead, groups } = groupBlocks(blocks, treatment.group, treatment.level);
         // Entrada de dos piezas (título + línea): en pantalla ancha se compone en
         // dos columnas, alineada con los grupos de abajo.
         treatment.splitLead && lead.length === 2 && "prose__lead--split",
+        // Entrada con retrato: la foto del contenido abre la página.
+        portraitLead && "prose__lead--portrait",
       ]}
       data-reveal
     >

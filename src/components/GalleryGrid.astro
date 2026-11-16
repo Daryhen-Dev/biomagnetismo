@@ -17,6 +17,12 @@
  * renglón, así la fila de abajo no se mueve cuando cambia la cantidad de fotos
  * o el texto del pie.
  *
+ * Álbum de pocas fotos: cuando el álbum no llena una fila de la hoja, la página
+ * le suma `album--few` y `--album-count` a su `<section>`; la grilla se disuelve
+ * (`display: contents`) para que las fotos y el rótulo del álbum compartan las
+ * cuatro pistas, sin dejar columnas vacías (ver `.album--few` en
+ * `src/styles/global.css` y DESIGN.md §4).
+ *
  * Lo usan: `src/pages/galeria/[slug].astro`.
  * Las rutas vienen del JSON de la galería y se resuelven en
  * `src/data/gallery-media.ts`. El texto alternativo viene del contenido: 245 de

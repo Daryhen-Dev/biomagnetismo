@@ -13,7 +13,9 @@
  * mensajes en silencio es peor que no tener formulario (ver T16 en el plan).
  *
  * El aviso de privacidad se muestra en los dos estados porque también cubre
- * WhatsApp y correo.
+ * WhatsApp y correo. Mientras el formulario no existe, el aviso que explica por
+ * qué ocupa su lugar en la banda de cierre: así el bloque tiene dos columnas con
+ * dos piezas reales y la privacidad no queda sola en media pantalla.
  *
  * De dónde sale: `src/data/contact.ts`, una sola fuente para todo el sitio.
  *
@@ -28,7 +30,8 @@
  * - activar o desactivar el formulario → `formEndpoint` en `src/data/contact.ts`
  * - los campos y el envío → `src/components/ContactForm.astro`
  * - el aviso de privacidad → `src/components/PrivacyNotice.astro`
- * - el aviso de "formulario pendiente" → el bloque `<aside class="notice">`
+ * - el aviso de "formulario pendiente" → el bloque `<aside class="notice">` al
+ *   comienzo de `.contact-followup`
  * - la disposición en dos columnas → `.contact-columns` y `.contact-followup`
  *   en `src/styles/global.css`
  */
@@ -149,27 +152,23 @@ const hasContactForm = contactFormEnabled;
             </div>
             <p class="contact-address">{contact.visitNote}.</p>
           </div>
-
-          {
-            !hasContactForm && (
-              <aside class="notice">
-                <p class="notice__title">El formulario todavía no está publicado</p>
-                <p class="notice__body">
-                  El sitio anterior tenía un formulario de contacto. No se publica acá porque todavía
-                  no tiene un destino que reciba los mensajes: enviar datos de salud a un formulario
-                  que los descarta es peor que no tener formulario. Mientras tanto, escribinos por
-                  WhatsApp o por correo. El formulario vuelve cuando exista el canal que lo recibe.
-                </p>
-              </aside>
-            )
-          }
         </div>
       </div>
 
-      <div
-        class:list={["contact-followup", !hasContactForm && "contact-followup--solo"]}
-        data-reveal-group
-      >
+      <div class="contact-followup" data-reveal-group>
+        {
+          !hasContactForm && (
+            <aside class="notice">
+              <p class="notice__title">El formulario todavía no está publicado</p>
+              <p class="notice__body">
+                El sitio anterior tenía un formulario de contacto. No se publica acá porque todavía
+                no tiene un destino que reciba los mensajes: enviar datos de salud a un formulario
+                que los descarta es peor que no tener formulario. Mientras tanto, escribinos por
+                WhatsApp o por correo. El formulario vuelve cuando exista el canal que lo recibe.
+              </p>
+            </aside>
+          )
+        }
         <ContactForm />
         <PrivacyNotice />
       </div>
