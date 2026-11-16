@@ -50,6 +50,16 @@ const galleries = defineCollection({
     cover: z.string(),
     /** The page's own text, with the galleries removed. */
     intro: z.string().default(""),
+    /** Videos del sitio original que acompañan a las fotos (ver VideoEmbed). */
+    videos: z
+      .array(
+        z.object({
+          id: z.string().length(11),
+          title: z.string(),
+          description: z.string().optional(),
+        }),
+      )
+      .default([]),
     galleries: z.array(
       z.object({
         slug: z.string(),

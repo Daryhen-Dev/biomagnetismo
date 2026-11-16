@@ -33,6 +33,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import GalleryGrid from "../../components/GalleryGrid.astro";
 import GalleryViewer from "../../components/GalleryViewer.astro";
+import VideoEmbed from "../../components/VideoEmbed.astro";
 import FieldRule from "../../components/FieldRule.astro";
 import { mediaImage, mediaImageOrUndefined } from "../../data/gallery-media";
 import { parseGalleryIntro } from "../../data/gallery-intro";
@@ -158,6 +159,20 @@ const nextSize = nextGallery ? gallerySize(nextGallery) : undefined;
   </section>
 
   <GalleryViewer />
+
+  {
+    gallery.data.videos.length > 0 && (
+      <section class="band band--night">
+        <div class="shell">
+          <div class="videos">
+            {gallery.data.videos.map((video) => (
+              <VideoEmbed id={video.id} title={video.title} description={video.description} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <section class="band band--paper">
     <div class="shell">

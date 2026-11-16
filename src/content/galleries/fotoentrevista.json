@@ -229,5 +229,12 @@
         }
       ]
     }
+  ],
+  "videos": [
+    {
+      "id": "Uj7-l2I_Sw8",
+      "title": "Entrevista en Dinamita Tropical",
+      "description": "La entrevista es una demostración práctica donde se explica que el cuerpo humano puede perder su equilibrio interno, permitiendo la proliferación de patógenos."
+    }
   ]
 }
