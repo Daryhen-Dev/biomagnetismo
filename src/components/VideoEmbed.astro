@@ -1,0 +1,86 @@
+---
+/**
+ * Tarjeta de video con fachada.
+ *
+ * Qué renderiza: la miniatura del video, un botón de reproducción y su título y
+ * descripción. El reproductor de YouTube **no** se carga hasta que la persona
+ * hace clic: hasta ese momento no hay cookies ni peticiones a YouTube, solo la
+ * imagen de la miniatura.
+ *
+ * Por qué la fachada en lugar de un `<iframe>` directo: es contenido de salud y
+ * el visitante no tiene por qué ser rastreado por visitar la página. Además la
+ * página pesa mucho menos.
+ *
+ * Sin JavaScript: la fachada es un enlace normal a YouTube y el video se abre
+ * en una pestaña nueva. Nada queda inaccesible.
+ *
+ * Lo usan: `src/pages/[...slug].astro`, con los datos `videos` del frontmatter
+ * de `src/content/pages/entrevistas.md` y `testimonios.md`.
+ *
+ * Para agregar un video: sumá una entrada a `videos` en el frontmatter de la
+ * página. El `id` son los 11 caracteres de la URL de YouTube.
+ */
+interface Props {
+  id: string;
+  title: string;
+  description?: string;
+}
+
+const { id, title, description } = Astro.props;
+const watchUrl = `https://www.youtube.com/watch?v=${id}`;
+const thumbnail = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+---
+
+<figure class="video" data-video={id}>
+  <a
+    class="video__facade"
+    href={watchUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-video-play
+  >
+    <img
+      class="video__thumb"
+      src={thumbnail}
+      alt=""
+      width="480"
+      height="360"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="video__play" aria-hidden="true"></span>
+    <span class="video__action">Ver el video</span>
+  </a>
+
+  <figcaption class="video__caption">
+    <span class="video__title">{title}</span>
+    {description && <span class="video__description">{description}</span>}
+  </figcaption>
+</figure>
+
+<script>
+  // Reemplaza la fachada por el reproductor en el mismo lugar, para no perder
+  // el contexto de lectura. youtube-nocookie evita cookies de seguimiento.
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    const link = target?.closest?.("[data-video-play]") as HTMLAnchorElement | null;
+    if (!link) return;
+
+    const figure = link.closest("[data-video]");
+    const id = figure?.getAttribute("data-video");
+    if (!figure || !id) return;
+
+    event.preventDefault();
+
+    const frame = document.createElement("iframe");
+    frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    frame.title =
+      figure.querySelector(".video__title")?.textContent?.trim() || "Video del centro";
+    frame.className = "video__frame";
+    frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    frame.allowFullscreen = true;
+    frame.setAttribute("loading", "lazy");
+
+    link.replaceWith(frame);
+  });
+</script>

@@ -18,6 +18,17 @@ const pages = defineCollection({
     order: z.number().default(0),
     wpId: z.number().int().optional(),
     legacyUrls: z.array(z.string()).default([]),
+    // Videos de YouTube del sitio original. Ver `VideoEmbed.astro`: se muestran
+    // como tarjeta con fachada y el reproductor carga recién al hacer clic.
+    videos: z
+      .array(
+        z.object({
+          id: z.string().length(11),
+          title: z.string(),
+          description: z.string().optional(),
+        }),
+      )
+      .default([]),
   }),
 });
 

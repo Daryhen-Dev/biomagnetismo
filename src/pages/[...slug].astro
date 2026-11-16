@@ -37,6 +37,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageCta from "../components/PageCta.astro";
 import EntryBody from "../components/EntryBody.astro";
+import VideoEmbed from "../components/VideoEmbed.astro";
 import FieldRule from "../components/FieldRule.astro";
 import { pageMeta } from "../data/page-meta";
 import { BODY_TREATMENTS } from "../data/content-html";
@@ -156,6 +157,16 @@ const showRail = outline.length >= 2 && !BODY_TREATMENTS[meta.variant].columns;
         <div class={proseClass}>
           <EntryBody blocks={body} variant={meta.variant} />
         </div>
+
+        {
+          page.data.videos.length > 0 && (
+            <section class="videos" aria-label="Videos">
+              {page.data.videos.map((video) => (
+                <VideoEmbed id={video.id} title={video.title} description={video.description} />
+              ))}
+            </section>
+          )
+        }
 
         {
           meta.notice && (

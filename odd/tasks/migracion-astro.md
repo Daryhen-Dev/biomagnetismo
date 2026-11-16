@@ -251,6 +251,23 @@ reabrirla: no se reencuadran ni se eliminan.
 **L10** (idioma y gráficos):
 > Bien, ahora sigamos arreglando cosas. Hay cosas con asento argentino y debe ser español neutral por ejemplo ¿Querés pedir una cita? eso es argentino. Tambien pusiste una imagen o css en el inicio poniendo un + y un - totalmente random. Otra parte pusiste "Quién atiende" esto es muy poco profesional y bulgar arreglemos esos temas
 
+**L12** (videos faltantes):
+> perfecto me gusta como quedó, ahora tengo cosas por modificar como. las entrevistas el sitio web tenia los videos de youtube que son originales pero lo omitistes
+
+**Evidencia E16** — los 8 videos de YouTube del sitio original se habían perdido en el port: turndown no
+convierte `<iframe>` y el paso de contenido los descartó. Recuperados desde `wp_posts.post_content`
+(entrevistas 2354, testimonios 219) con sus títulos y descripciones, que sí se habían conservado en Markdown.
+
+- `VideoEmbed.astro` usa **fachada**: miniatura + botón; el reproductor `youtube-nocookie` se inyecta recién
+  al hacer clic, así la página no contacta a YouTube ni deja cookies por una simple visita.
+- Sin JavaScript la fachada es un enlace normal y el video abre en otra pestaña.
+- Los datos viven en el frontmatter `videos` de la colección `pages`, no en el Markdown: el contenido queda
+  tipado y la plantilla decide cómo se ve.
+- Verificado en navegador: 4 tarjetas por página, **0 `iframe` en el HTML inicial**, 4 miniaturas cargadas,
+  y tras el clic exactamente 1 `iframe` con `https://www.youtube-nocookie.com/embed/Uj7-l2I_Sw8?autoplay=1&rel=0`.
+
+De paso: la errata del encabezado original «Congreso Iberoamericado» pasó a «Iberoamericano».
+
 **L11** (registro y lenguaje que pone en duda la información):
 > Esta bien que por aca lo hagas con acento argentino no hay problema. ahora otro problemaque veo es "Dirección del centro / Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán. La credencial y el archivo fotográfico son verificables." Direccion del centro no me dice nada esta raro y la parte de archivo fotografico son verificables tambien esta raro es como que pongas en cuestionamiento mi información y necesite aprobacion esta mal eso.
 
