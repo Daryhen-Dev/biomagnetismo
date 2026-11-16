@@ -24,7 +24,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteMotion from "../components/SiteMotion.astro";
 import { contact, directorPortrait } from "../data/contact";
-import { siteDescription, siteLocale, siteName } from "../data/site";
+import { cloudflareBeaconToken, siteDescription, siteLocale, siteName } from "../data/site";
 
 import archivoFont from "../styles/fonts/archivo.woff2?url";
 import spectralFont from "../styles/fonts/spectral-600.woff2?url";
@@ -110,6 +110,17 @@ const structuredData = {
     <!-- Favicon y icono de app: el sello real del centro, no un dibujo. -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    {
+      import.meta.env.PROD && cloudflareBeaconToken && (
+        <script
+          is:inline
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cloudflareBeaconToken })}
+        />
+      )
+    }
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />

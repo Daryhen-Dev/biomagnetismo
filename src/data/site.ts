@@ -15,6 +15,21 @@ export const siteDescription =
   "Centro de Biomagnetismo Médico en Quito. Método del par biomagnético del Dr. Isaac Goiz Durán, dirigido por el Dr. HC Francisco Mena Flores.";
 export const siteLocale = "es_EC";
 
+/**
+ * Cloudflare Web Analytics.
+ *
+ * Mide visitas sin cookies, sin huellas del navegador y sin guardar datos
+ * personales: por eso no necesita banner de consentimiento y es lo adecuado
+ * para un sitio con contenido de salud.
+ *
+ * El token lo asigna Cloudflare (Web Analytics → Manage site). Si se deja vacío,
+ * el script no se emite y el sitio queda sin métricas, sin romperse.
+ *
+ * Ojo: si algún día se activa la inyección automática de Cloudflare para esta
+ * zona, hay que vaciar este token o las visitas se contarían dos veces.
+ */
+export const cloudflareBeaconToken = "33fe2ebd12ee427593b5f6bb21e7b4a4";
+
 export type NavItem = { label: string; href: string };
 
 /** Navegación visible en escritorio, al lado de la marca. */
