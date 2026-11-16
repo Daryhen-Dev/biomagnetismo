@@ -251,6 +251,24 @@ reabrirla: no se reencuadran ni se eliminan.
 **L10** (idioma y gráficos):
 > Bien, ahora sigamos arreglando cosas. Hay cosas con asento argentino y debe ser español neutral por ejemplo ¿Querés pedir una cita? eso es argentino. Tambien pusiste una imagen o css en el inicio poniendo un + y un - totalmente random. Otra parte pusiste "Quién atiende" esto es muy poco profesional y bulgar arreglemos esos temas
 
+**L11** (registro y lenguaje que pone en duda la información):
+> Esta bien que por aca lo hagas con acento argentino no hay problema. ahora otro problemaque veo es "Dirección del centro / Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán. La credencial y el archivo fotográfico son verificables." Direccion del centro no me dice nada esta raro y la parte de archivo fotografico son verificables tambien esta raro es como que pongas en cuestionamiento mi información y necesite aprobacion esta mal eso.
+
+**Evidencia E14** — tres correcciones. El título pasó a «El director» y la leyenda a un enunciado de
+hecho, sin defensa: «Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán, en Quito. Instructor
+del método en América y Europa entre 2009 y 2025.» Se eliminó «son verificables», que ponía la credencial
+en duda en vez de afirmarla.
+
+Barrido de voseo sensible a mayúsculas: el primero (E13) usaba patrones en minúscula y por eso no vio
+`Escribinos` ni `Tenés`. Aparecieron **11 casos más** en `page-meta.ts` (7), `ContactForm`, `SiteFooter`,
+`contactos` y `galeria/index`. Todos pasaron a «Escríbanos» / «Tiene» / «aquí» / «le respondemos».
+
+**Hallazgo grave E15** — `/servicios/` publicaba «Lorem ipsum dolor sit amet…» en producción. La página
+del WordPress nunca se llenó: bloques duplicados, dos «01», «Terapia a distancia» dos veces y enlaces
+«Case study» a `#`. También publicaba un aviso propio explicando que el texto era de relleno. Se reescribió
+con el texto **real** de esos tres servicios, que ya existía en `home.md` (líneas 34-48), y se eliminó el
+aviso. Barrido final: 0 archivos con «lorem» en `dist/`.
+
 **Evidencia E13** — neutralización del copy. Nueve formas voseantes que había escrito el paso de diseño,
 más un tuteo suelto: `¿Querés consultar/coordinar/contar/contactar/pedir…?` (5), `usás`, `escribís`, `pedís`,
 `Escribí…pedí`, `tenés que enviarlo`, `podés llamar`, y el encabezado «Qué hacemos con tus datos».

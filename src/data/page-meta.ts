@@ -51,7 +51,7 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "metodo",
     cta: {
       title: "¿Te quedó una duda sobre el método?",
-      body: "Escribinos por WhatsApp y te respondemos en horario de atención.",
+      body: "Escríbanos por WhatsApp y le respondemos en horario de atención.",
       message: "metodo",
     },
   },
@@ -76,12 +76,8 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "ninguno",
     cta: {
       title: "¿Necesita coordinar una terapia?",
-      body: "Escribinos por WhatsApp y coordinamos día y horario.",
+      body: "Escríbanos por WhatsApp y coordinamos día y horario.",
       message: "servicio",
-    },
-    notice: {
-      title: "El texto de esta página quedó pendiente en el sitio original",
-      body: "La descripción de cada terapia está escrita con texto de relleno (lorem ipsum) desde el sitio anterior. Se conserva sin reescribir hasta que el centro defina el texto definitivo de cada servicio.",
     },
   },
   preguntas: {
@@ -91,8 +87,8 @@ export const pageMeta: Record<string, PageTreatment> = {
       "Preguntas frecuentes sobre biomagnetismo médico: qué es, qué es el pH, en qué consiste el tratamiento y si tiene riesgos.",
     variant: "preguntas",
     cta: {
-      title: "¿Tenés otra pregunta?",
-      body: "Las que no están acá las respondemos por WhatsApp, en horario de atención.",
+      title: "¿Tiene otra pregunta?",
+      body: "Las que no están aquí las respondemos por WhatsApp, en horario de atención.",
       message: "metodo",
     },
   },
@@ -104,7 +100,7 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "testimonios",
     cta: {
       title: "¿Desea compartir su experiencia?",
-      body: "Escribinos por WhatsApp y coordinamos la publicación.",
+      body: "Escríbanos por WhatsApp y coordinamos la publicación.",
       message: "testimonio",
     },
     notice: {
@@ -120,7 +116,7 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "entrevistas",
     cta: {
       title: "¿Necesitás una entrevista o una actividad?",
-      body: "Escribinos por WhatsApp con el medio o la institución y el tema.",
+      body: "Escríbanos por WhatsApp con el medio o la institución y el tema.",
       message: "entrevista",
     },
   },
@@ -132,7 +128,7 @@ export const pageMeta: Record<string, PageTreatment> = {
     variant: "colaboradores",
     cta: {
       title: "¿Desea contactar a un colaborador?",
-      body: "Escribinos por WhatsApp y te orientamos hacia la persona o la sede que necesitás.",
+      body: "Escríbanos por WhatsApp y le orientamos hacia la persona o la sede que necesitás.",
       message: "colaboradores",
     },
   },
