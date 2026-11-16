@@ -200,3 +200,36 @@ Deuda conocida y registrada:
 4399-4403 y una instancia en 4321 respondía con un sitio ajeno ("Where nature wrote its own rules"). Se mataron
 por PID y la verificación se repitió contra `astro preview` en 127.0.0.1:4600, que devolvió el título correcto.
 Sin esa limpieza, las capturas habrían validado el sitio equivocado.
+
+**L8** (rechazo del primer resultado visual):
+> haber tenemos aun problemas, la pagina parece muerta, no tiene animaciones las imagenes las imagenes no tienen bordes o algo parece que se hizo todo de mala gana. hay parrafos que ocupan la mitad de su pantalla y no el espacio disponible hay que mejorar, esta impecable desactualizado o que porque deja mucho que desear
+
+**Evidencia E11** — pasada de oficio (T12 revisado). Causa raíz medida, no supuesta: `--measure: 34rem` se
+usaba como ancho del **contenedor**, no como tope de lectura, así que `/preguntas/` a 1440 px renderizaba una
+columna de 544 px (38 % de la pantalla) con ~900 px de margen muerto. Y el presupuesto de movimiento de 21
+páginas era de 5 transiciones y 3 keyframes: nada respondía al scroll.
+
+Antes → después, medido en navegador:
+
+| Métrica | Antes | Después |
+| --- | --- | --- |
+| Ancho de composición a 1440 px | 544 px | 1248 px |
+| Caracteres por línea | 57 | 67 |
+| Transiciones CSS | 5 | 24 |
+| Comportamientos de scroll | 0 | 3 |
+| Desborde horizontal | no medido | 0 en 84 comprobaciones (21 rutas × 4 anchos) |
+
+Motion verificado en navegador: 9 objetivos de reveal en `/preguntas/`, 5 armados bajo el pliegue, 9/9
+opacos tras scrollear, cabecera con `is-scrolled`. Con `prefers-reduced-motion` se neutraliza todo y queda el
+estado final. Detector de Impeccable: 0 hallazgos.
+
+**Evidencia E12** — el pase de alt de las galerías había dejado dos huecos: 24 imágenes dentro de las páginas
+con alt de nombre de archivo (`"coco2"`, `"20201"`, `"img 0460"`) y 8 banderas de país con alt `"Chile 300x200"`.
+Corregidos y verificados en el HTML generado. Queda un stub del plugin Elementor en `galeria.md` que no se
+renderiza.
+
+**L9** (banderas de país):
+> Dejarlas como están
+
+Se conservan las 8 banderas del contenido histórico. Decisión editorial del responsable, registrada para no
+reabrirla: no se reencuadran ni se eliminan.
