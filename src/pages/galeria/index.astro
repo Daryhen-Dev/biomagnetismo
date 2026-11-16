@@ -54,38 +54,35 @@ const totals = galleries.reduce(
         <span>Galería</span>
       </nav>
 
-      <div class="page-intro__body">
-        <h1 class="page-intro__title">Galería</h1>
-        <div class="page-intro__aside">
-          <p class="page-intro__lede">
-            {totals.albums} álbumes y {totals.photos} fotos de cursos, atención de pacientes,
-            entrevistas y reconocimientos, entre 2019 y 2026. Están agrupadas por país y por evento,
-            con el título que tenían en el sitio original.
-          </p>
-        </div>
+      <h1 class="page-intro__title">Galería</h1>
+
+      <div class="page-intro__aside">
+        <p class="page-intro__lede">
+          {totals.albums} álbumes y {totals.photos} fotos de cursos, atención de pacientes,
+          entrevistas y reconocimientos, entre 2019 y 2026. Están agrupadas por país y por evento,
+          con el título que tenían en el sitio original.
+        </p>
       </div>
     </div>
   </section>
 
   <section class="band band--paper">
     <div class="shell">
-      <div class="gallery-list">
+      <div class="gallery-list" data-reveal-group>
         {
           galleries.map((gallery) => (
-            <a class="gallery-row" href={`/galeria/${gallery.id}/`}>
+            <a class="gallery-row" href={`/galeria/${gallery.id}/`} data-reveal>
               <Image
                 class="gallery-row__cover"
                 src={mediaImage(gallery.data.cover)}
                 alt=""
-                widths={[160, 320]}
-                sizes="(min-width: 768px) 9rem, 5.5rem"
+                widths={[192, 384, 576]}
+                sizes="(min-width: 1024px) 14rem, (min-width: 768px) 11rem, 6.5rem"
                 loading="lazy"
                 decoding="async"
               />
-              <span>
-                <span class="gallery-row__title">{gallery.data.title}</span>
-                <span class="gallery-row__meta">{gallerySizeLabel(gallery)}</span>
-              </span>
+              <span class="gallery-row__title">{gallery.data.title}</span>
+              <span class="gallery-row__meta">{gallerySizeLabel(gallery)}</span>
             </a>
           ))
         }

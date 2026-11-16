@@ -15,7 +15,8 @@
  * Lo usan: `src/layouts/BaseLayout.astro`.
  * Para cambiar los enlaces: `navGroups` y `primaryNav` en `src/data/site.ts`.
  * Para cambiar los colores o el alto de la barra: `.site-header` en
- * `src/styles/global.css`.
+ * `src/styles/global.css`. Al desplazar la página suma la clase `is-scrolled`
+ * (ver `src/components/SiteMotion.astro`).
  */
 import { navGroups, primaryNav, currentLink, siteShortName, siteName } from "../data/site";
 import { contact } from "../data/contact";
@@ -24,7 +25,7 @@ import WhatsAppAction from "./WhatsAppAction.astro";
 const pathname = Astro.url.pathname;
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="shell site-header__row">
     <a class="wordmark" href="/" aria-label={`${siteName} — inicio`}>
       <span class="wordmark__mark" aria-hidden="true"></span>

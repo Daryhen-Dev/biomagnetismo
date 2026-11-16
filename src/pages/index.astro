@@ -23,6 +23,7 @@
  * columnas.
  */
 import { getEntry, render } from "astro:content";
+import { normalizeHeadingLevels, renderEntryHtml, toBlocks } from "../data/content-html";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PairField from "../components/PairField.astro";
@@ -40,6 +41,10 @@ if (!home) {
   throw new Error("Falta src/content/pages/home.md: la portada no tiene contenido que mostrar.");
 }
 const { Content } = await render(home);
+
+// El contenido heredado de `home.md` se lee tal cual, sin agrupar: la portada ya
+// tiene su propia composición por bandas (ver `BODY_TREATMENTS.home`).
+const homeBlocks = normalizeHeadingLevels(toBlocks(await renderEntryHtml(Content)));
 
 // Archivo documental del programa piloto en Oruro, tomado de la galería de
 // Bolivia. Si esta foto cambia de ruta, el build avisa.
@@ -105,13 +110,13 @@ const credentials = [
 
   <!-- (2) El método, en una pantalla. -->
   <section id="metodo" class="band band--paper">
-    <div class="shell">
+    <div class="shell method" data-reveal-group>
       <SectionHeading
         title="Qué es el par biomagnético"
         lede="El método estudia, detecta y corrige las alteraciones del pH de los órganos vivos. Trabaja con pares: dos cargas de polaridad opuesta que se identifican entre sí."
       />
 
-      <blockquote class="method-quote">
+      <blockquote class="method-quote" data-reveal>
         <p>
           “El par Biomagnético es un conjunto de cargas que identifican una patología y que está
           constituido por dos cargas principales de polaridad opuesta, que se forman a expensas de
@@ -122,7 +127,7 @@ const credentials = [
         </cite>
       </blockquote>
 
-      <dl class="method-facts">
+      <dl class="method-facts" data-reveal>
         <div>
           <dt>Qué se busca</dt>
           <dd>Las alteraciones del pH de los órganos internos, a través de los pies.</dd>
@@ -145,7 +150,7 @@ const credentials = [
 
   <!-- (3) Quién atiende: la credencial y el archivo, antes que cualquier adjetivo. -->
   <section class="band band--night">
-    <div class="shell">
+    <div class="shell credential-band" data-reveal-group>
       <SectionHeading
         title="Quién atiende"
         lede="Director del Centro de Biomagnetismo Médico Dr. Isaac Goiz Durán. La credencial y el archivo fotográfico son verificables."
@@ -160,12 +165,12 @@ const credentials = [
         link={{ href: "/francisco-mena/", label: "Ver la trayectoria completa" }}
       />
 
-      <figure class="archive-plate">
+      <figure class="archive-plate frame" data-reveal>
         <Image
           src={archivePhoto}
           alt="El Dr. Francisco Mena, sentado junto a un paciente internado en el Hospital San Juan de Dios de Oruro, Bolivia."
           widths={[480, 960, 1440]}
-          sizes="(min-width: 68rem) 64rem, 92vw"
+          sizes="(min-width: 78rem) 78rem, 92vw"
           loading="lazy"
           decoding="async"
         />
@@ -180,8 +185,8 @@ const credentials = [
   <!-- (4) El contenido heredado del sitio original, tal como se portó. -->
   <section class="band band--paper">
     <div class="shell">
-      <div class="prose prose--home">
-        <EntryBody Content={Content} />
+      <div class="prose prose--home" data-reveal>
+        <EntryBody blocks={homeBlocks} variant="home" />
       </div>
     </div>
   </section>

@@ -10,8 +10,13 @@
  * Lo usan: la portada (`src/pages/index.astro`). Al ser la marca visual del
  * sitio, también aparece como `FieldRule` en los bordes de sección.
  *
- * Para cambiar el trazo, los colores o el tamaño, tocá `PairField` en
+ * Para cambiar el trazo, los colores o el tamaño, tocá `.pair-field` en
  * `src/styles/global.css`. Las proporciones se cambian acá, en el `viewBox`.
+ *
+ * El trazo se dibuja solo al entrar en pantalla: `data-pair-field` lo engancha
+ * al script de `src/components/SiteMotion.astro` y las líneas usan
+ * `pathLength="1"` para que el `stroke-dashoffset` sea la unidad de la animación.
+ * Sin JavaScript la figura ya está dibujada.
  */
 interface Props {
   class?: string;
@@ -28,7 +33,7 @@ const {
 } = Astro.props;
 ---
 
-<figure class:list={["pair-field", className]}>
+<figure class:list={["pair-field", className]} data-pair-field>
   <svg viewBox="0 0 440 200" role="img" aria-label={label} fill="none">
     <path
       class="pair-field__line"

@@ -107,7 +107,7 @@
   --fs-lede: clamp(1.1875rem, 1.1rem + 0.45vw, 1.4375rem); /* 19 → 23 px */
   --fs-h3: clamp(1.25rem, 1.16rem + 0.4vw, 1.5rem); /* 20 → 24 px */
   --fs-h2: clamp(1.625rem, 1.4rem + 1.05vw, 2.375rem); /* 26 → 38 px */
-  --fs-h1: clamp(2rem, 1.65rem + 1.6vw, 3rem); /* 32 → 48 px */
+  --fs-h1: clamp(2rem, 1.55rem + 1.9vw, 3.5rem); /* 32 → 56 px */
   --fs-display: clamp(2.375rem, 1.8rem + 2.6vw, 4rem); /* 38 → 64 px */
 
   --leading-display: 1.05;
@@ -115,11 +115,23 @@
   --leading-body: 1.62;
 
   /* Ritmo vertical: un solo compás para todo el sitio. */
-  --space-section: clamp(3.5rem, 8vw, 6.5rem);
+  --space-section: clamp(3.25rem, 7vw, 5.5rem);
   --space-block: clamp(1.75rem, 4vw, 2.75rem);
   --gutter: clamp(1.25rem, 5vw, 2.5rem);
-  --shell: 68rem; /* ancho máximo del contenido */
-  --measure: 34rem; /* ~68 caracteres de texto corrido */
+
+  /* Composición en escritorio: el envoltorio es ancho (la página lo ocupa) y
+     la lectura tiene su propia medida. Son dos decisiones distintas y por eso
+     son dos tokens distintos. */
+  --shell: 78rem; /* 1248 px — el ancho que ocupa la composición */
+  --measure: 38rem; /* 608 px — ~70 caracteres de texto corrido */
+  --rail: 19rem; /* barra lateral del artículo de 1440 px para arriba */
+  --rail-narrow: 15rem; /* la misma barra entre 1024 y 1280 px */
+  --header-h: 4rem; /* alto de la barra superior, para el pegajoso */
+
+  /* Marco de imagen: una sola regla para todo el sitio (DESIGN.md §10). */
+  --radius-frame: 3px;
+  --frame-shadow: 0 1px 2px rgb(18 24 42 / 0.1), 0 16px 34px -24px rgb(18 24 42 / 0.55);
+  --frame-shadow-night: 0 16px 34px -22px rgb(0 0 0 / 0.85);
 
   --rule-night: rgb(232 230 224 / 0.16);
   --rule-paper: rgb(18 24 42 / 0.16);
@@ -127,6 +139,8 @@
   /* Una sola curva, un solo tiempo: el movimiento es material, no adorno. */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration: 520ms;
+  --reveal-rise: 14px;
+  --reveal-duration: 640ms;
 }
 
 /* ---------------------------------------------------------------------------
@@ -217,6 +231,25 @@
     border-radius: 1px;
   }
 
+  /* Texto solo para lectores de pantalla (el pie de la grilla, el aviso de que
+     un enlace abre en otra pestaña). */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Los destinos del índice aterrizan debajo de la barra pegajosa, no detrás. */
+  :where([id]) {
+    scroll-margin-top: calc(var(--header-h) + 1.5rem);
+  }
+
   .band--night :focus-visible,
   .site-header :focus-visible,
   .site-footer :focus-visible {
@@ -250,14 +283,6 @@
     width: 100%;
     max-width: var(--shell);
     margin-inline: auto;
-  }
-
-  .site-header__row {
-    padding-inline: var(--gutter);
-  }
-
-  .shell--narrow {
-    max-width: calc(var(--measure) + var(--gutter) * 2);
   }
 
   /* Bandas: cada sección declara su superficie. Índigo = el campo; papel =
@@ -297,6 +322,76 @@
 
   .band + .band {
     border-top: 1px solid transparent;
+  }
+
+  /* -------------------------------------------------------------------------
+     REGLA DE IMAGEN — una sola en todo el sitio.
+     Toda foto va sobre una placa: línea de 1 px, radio de 3 px y sombra con
+     desplazamiento. Sobre papel la línea es tinta al 16 %; sobre índigo, hueso
+     al 16 %, y la sombra pasa a negro. `.frame` es el contenedor (recorta la
+     foto al radio y permite el zoom del hover); las imágenes sueltas —las que
+     vienen del Markdown, sin contenedor propio— reciben la misma placa por
+     selector. `DESIGN.md §10` explica el porqué.
+     ---------------------------------------------------------------------- */
+  .frame {
+    display: block;
+    overflow: hidden;
+  }
+
+  .frame,
+  .prose img,
+  .gallery-row__cover,
+  .archive-intro__image {
+    border: 1px solid var(--rule-paper);
+    border-radius: var(--radius-frame);
+    background-color: var(--color-paper-200);
+    box-shadow: var(--frame-shadow);
+  }
+
+  .frame img,
+  .frame > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .band--night .frame,
+  .band--night-deep .frame,
+  .band--night-raised .frame,
+  .site-header .frame,
+  .site-footer .frame,
+  .band--night .archive-intro__image {
+    border-color: var(--rule-night);
+    background-color: var(--color-night-800);
+    box-shadow: var(--frame-shadow-night);
+  }
+
+  /* La foto de una placa documental se mueve apenas cuando alguien la enfoca o
+     la pasa por encima: 4 %, sin mover nada del layout (el marco recorta). */
+  .frame img,
+  .gallery-row__cover,
+  .archive-intro__image {
+    transition:
+      transform 420ms var(--ease-out),
+      border-color 260ms var(--ease-out);
+  }
+
+  a.frame:hover img,
+  a.frame:focus-visible img,
+  .gallery-row:hover .gallery-row__cover {
+    transform: scale(1.04);
+  }
+
+  a.frame:hover,
+  a.frame:focus-visible {
+    border-color: var(--color-copper-500);
+  }
+
+  .band--night a.frame:hover,
+  .band--night-deep a.frame:hover,
+  .band--night a.frame:focus-visible,
+  .band--night-deep a.frame:focus-visible {
+    border-color: var(--color-copper-300);
   }
 
   /* Enlace de salto: invisible hasta que alguien navega con teclado. */
@@ -343,7 +438,14 @@
     transition:
       background-color 180ms var(--ease-out),
       border-color 180ms var(--ease-out),
-      color 180ms var(--ease-out);
+      color 180ms var(--ease-out),
+      transform 120ms var(--ease-out);
+  }
+
+  /* Presión: el botón cede un píxel. Es la confirmación táctil más chica que
+     existe y no mueve nada más. */
+  .btn:active {
+    transform: translateY(1px);
   }
 
   .btn__label {
@@ -416,14 +518,19 @@
     min-height: 2.75rem;
     font-size: var(--fs-small);
     font-weight: 500;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: var(--color-copper-500);
-    text-underline-offset: 0.35em;
+    text-decoration: none;
+    background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+    background-repeat: no-repeat;
+    background-position: 0 calc(100% - 0.35em);
+    background-size: 100% 1px;
+    transition:
+      background-size 320ms var(--ease-out),
+      color 200ms var(--ease-out);
   }
 
-  .link-quiet:hover {
-    text-decoration-thickness: 2px;
+  .link-quiet:hover,
+  .link-quiet:focus-visible {
+    background-size: 100% 2px;
   }
 
   /* -------------------------------------------------------------------------
@@ -509,16 +616,36 @@
     position: sticky;
     top: 0;
     z-index: 30;
+    /* El margen lateral va en la barra, no en la fila: así la fila es el
+       `.shell` y su contenido queda alineado con el de las bandas. */
+    padding-inline: var(--gutter);
     background-color: var(--color-night-950);
     border-bottom: 1px solid var(--rule-night);
+    /* No cambia de alto al desplazar: un alto animado en una barra pegajosa
+       mueve todo el contenido de abajo (CLS). Reacciona con fondo, borde y
+       sombra, que no ocupan lugar. */
+    transition:
+      background-color 260ms var(--ease-out),
+      border-color 260ms var(--ease-out),
+      box-shadow 260ms var(--ease-out);
+  }
+
+  .site-header.is-scrolled {
+    background-color: var(--color-night-900);
+    border-bottom-color: rgb(189 116 64 / 0.38);
+    box-shadow: 0 12px 28px -20px rgb(0 0 0 / 0.95);
+  }
+
+  .site-header.is-scrolled .wordmark__mark {
+    transform: scaleY(0.86);
   }
 
   .site-header__row {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    min-height: 4rem;
-    padding: 0.5rem 0;
+    min-height: var(--header-h);
+    padding-block: 0.5rem;
     position: relative;
   }
 
@@ -535,6 +662,7 @@
     flex: none;
     width: 0.5rem;
     height: 2.25rem;
+    transition: transform 260ms var(--ease-out);
     background-image:
       linear-gradient(var(--color-copper-500), var(--color-copper-500)),
       linear-gradient(var(--color-copper-500), var(--color-copper-500));
@@ -646,25 +774,15 @@
   .site-menu__panel {
     position: fixed;
     inset-inline: 0;
-    top: 4.0625rem;
-    max-height: calc(100dvh - 4.0625rem);
+    top: calc(var(--header-h) + 1px);
+    max-height: calc(100dvh - var(--header-h) - 1px);
     overflow-y: auto;
     padding: 1.25rem var(--gutter) 2rem;
     background-color: var(--color-night-900);
     border-bottom: 1px solid var(--rule-night);
     box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9);
-    animation: panel-in 280ms var(--ease-out) both;
-  }
-
-  @keyframes panel-in {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* La animación de entrada vive en la sección MOVIMIENTO, con su condición de
+       movimiento reducido. */
   }
 
   .site-menu__group + .site-menu__group {
@@ -739,21 +857,44 @@
       text-decoration: none;
       color: var(--color-night-300);
       padding: 0.5rem 0;
-      border-bottom: 1px solid transparent;
+      /* El subrayado es un fondo que crece de 0 a 100 %: no ocupa lugar, así
+         que el enlace no se mueve ni cambia el ancho de la fila. */
+      background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 1px;
+      transition:
+        color 200ms var(--ease-out),
+        background-size 320ms var(--ease-out);
     }
 
     .site-nav__link:hover,
+    .site-nav__link:focus-visible {
+      color: var(--color-night-100);
+      background-size: 100% 1px;
+    }
+
     .site-nav__link[aria-current="page"] {
       color: var(--color-night-100);
-      border-bottom-color: var(--color-copper-500);
+      background-size: 100% 1px;
     }
   }
 
   /* ---------------------------------------------------------------------------
      Portadas de página (todas menos la home, que tiene la suya).
+
+     La portada de una página usa el ancho: el título grande ocupa la columna
+     ancha y la entrada la columna angosta, alineadas por la base. En móvil es
+     una sola columna; las columnas aparecen como adición desde 768 px.
      ------------------------------------------------------------------------ */
   .page-intro {
-    padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) clamp(2rem, 5vw, 3.5rem);
+    padding: clamp(2rem, 5vw, 3.75rem) var(--gutter) clamp(2rem, 4.5vw, 3.25rem);
+  }
+
+  .page-intro__grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
   }
 
   .page-intro__trail {
@@ -761,33 +902,32 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
     font-size: var(--fs-small);
     color: var(--color-night-300);
   }
 
   .page-intro__trail a {
-    text-decoration-color: var(--color-copper-500);
+    background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    text-decoration: none;
+    transition: background-size 280ms var(--ease-out);
   }
 
-  .page-intro__body {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  /* En móvil el retrato va después de la entrada; en escritorio se ubica bajo el
-     título para que la columna izquierda no quede vacía. */
-  .page-intro__portrait {
-    order: 3;
+  .page-intro__trail a:hover,
+  .page-intro__trail a:focus-visible {
+    background-size: 100% 1px;
   }
 
   .page-intro__title {
     font-size: var(--fs-h1);
-    max-width: 24ch;
+    max-width: 22ch;
+    letter-spacing: -0.03em;
   }
 
   .page-intro__lede {
-    max-width: 46ch;
+    max-width: 42ch;
     font-size: var(--fs-lede);
     line-height: 1.45;
     color: var(--color-night-300);
@@ -797,7 +937,7 @@
 
   .page-intro__aside {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .page-intro__actions {
@@ -809,30 +949,107 @@
     max-width: 15rem;
   }
 
-  .page-intro__portrait img {
-    width: 100%;
-    height: auto;
-  }
-
   @media (min-width: 48rem) {
-    .page-intro__body {
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: 3rem;
-      align-items: start;
+    .page-intro__grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      column-gap: clamp(2rem, 4vw, 4rem);
+      row-gap: 1.75rem;
     }
 
-    .page-intro__portrait {
-      order: 0;
+    .page-intro__trail {
+      grid-column: 1 / -1;
+    }
+
+    .page-intro__title {
       grid-column: 1;
-      grid-row: 2;
-      justify-self: start;
-      margin-top: 2rem;
-      max-width: 17rem;
     }
 
     .page-intro__aside {
       grid-column: 2;
-      grid-row: 1 / span 2;
+      align-self: end;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .page-intro__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+    }
+
+    /* El título de página es el ancla visual de la pantalla ancha: a 48 px se
+       perdía en un lienzo de 1440. */
+    .page-intro__title {
+      font-size: var(--fs-display);
+      line-height: var(--leading-display);
+      letter-spacing: -0.035em;
+    }
+  }
+
+  /* ---------------------------------------------------------------------------
+     Portada de una galería: título, notas de archivo y la portada del álbum.
+     La carátula es la foto que el sitio original usaba como imagen del álbum;
+     va más grande y con otro marco que las fotos de la grilla, para que la
+     página se lea como portada + fotografías.
+     ------------------------------------------------------------------------ */
+  .gallery-cover {
+    margin: 0;
+  }
+
+  .gallery-cover__frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-cover__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* El pie de la portada lleva solo el nombre del álbum: la cuenta de fotos ya
+     está en la entrada de la página, a un lado, y repetirla acá la volvía ruido. */
+  .gallery-cover__caption {
+    min-height: 2rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-copper-500);
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 64rem) {
+    .gallery-intro {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+      grid-template-areas:
+        "trail trail"
+        "title cover"
+        "aside cover"
+        "notes cover";
+      align-items: start;
+    }
+
+    .gallery-intro > .page-intro__trail {
+      grid-area: trail;
+    }
+
+    .gallery-intro > .page-intro__title {
+      grid-area: title;
+      align-self: end;
+    }
+
+    .gallery-intro > .page-intro__aside {
+      grid-area: aside;
+      align-self: start;
+      max-width: 40ch;
+    }
+
+    .gallery-intro > .archive-intro {
+      grid-area: notes;
+      max-width: 46rem;
+    }
+
+    .gallery-intro > .gallery-cover {
+      grid-area: cover;
+      align-self: start;
     }
   }
 
@@ -840,7 +1057,7 @@
      Portada de la home: el campo.
      ------------------------------------------------------------------------ */
   .hero {
-    padding: clamp(2.5rem, 7vw, 5rem) var(--gutter) clamp(2.5rem, 6vw, 4.5rem);
+    padding: clamp(2.25rem, 5vw, 3.75rem) var(--gutter) clamp(2.25rem, 4.5vw, 3.5rem);
     overflow: clip;
   }
 
@@ -860,7 +1077,7 @@
   }
 
   .hero__field {
-    margin-top: clamp(1.75rem, 5vw, 3rem);
+    margin-top: clamp(1.75rem, 4vw, 2.5rem);
   }
 
   .hero__actions {
@@ -889,7 +1106,7 @@
   @media (min-width: 64rem) {
     .hero__inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
       column-gap: clamp(2rem, 5vw, 4.5rem);
       align-items: center;
     }
@@ -911,7 +1128,30 @@
 
   /* ---------------------------------------------------------------------------
      El método: cita de definición y datos verificables.
+     En escritorio la cita ocupa la columna de lectura y los datos la otra
+     columna: la sección entera usa el ancho sin estirar ni una línea de texto.
      ------------------------------------------------------------------------ */
+  @media (min-width: 64rem) {
+    .method {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      column-gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .method > .section-heading,
+    .method > .method-quote {
+      grid-column: 1;
+    }
+
+    .method > .method-facts {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin-top: 0;
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
   .method-quote {
     margin-top: var(--space-block);
     padding-left: 1.25rem;
@@ -1048,6 +1288,23 @@
     }
   }
 
+  @media (min-width: 64rem) {
+    .credential {
+      grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .credential__photo {
+      max-width: none;
+    }
+
+    .credential__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(1.5rem, 3vw, 3rem);
+    }
+  }
+
   /* ---------------------------------------------------------------------------
      Placa documental: una foto grande con su pie. Es la evidencia visual.
      ------------------------------------------------------------------------ */
@@ -1058,7 +1315,12 @@
   .archive-plate img {
     width: 100%;
     height: auto;
-    border-radius: 2px;
+  }
+
+  @media (min-width: 64rem) {
+    .archive-plate {
+      margin-top: var(--space-section);
+    }
   }
 
   .archive-plate figcaption {
@@ -1078,8 +1340,18 @@
   }
 
   /* ---------------------------------------------------------------------------
-     Texto de artículo. La medida se corta en 68 caracteres y el ritmo es
-     generoso: acá se lee información médica, no un folleto.
+     TEXTO DE ARTÍCULO — la pieza central del sitio.
+
+     Dos anchos distintos y a propósito:
+     - `--measure` (608 px) es el ancho de una línea de texto. Se corta ahí
+       porque ~70 caracteres es lo que se lee sin perder el renglón.
+     - El resto del ancho es de la composición: la barra lateral del índice, las
+       placas grandes y los muros de fotos. El texto no se estira para llenar la
+       pantalla; la página se llena con estructura.
+
+     En escritorio `.prose` es una grilla de dos pistas: la de lectura y el
+     margen. Todo cae en la pista de lectura salvo lo que pide el ancho completo
+     (`1 / -1`): imágenes sueltas, citas y grupos en columnas.
      ------------------------------------------------------------------------ */
   .prose {
     max-width: var(--measure);
@@ -1087,31 +1359,36 @@
     line-height: var(--leading-body);
   }
 
-  .prose > * + * {
+  /* El ritmo vertical del cuerpo vale igual si los bloques cuelgan del `.prose`
+     (páginas sin agrupar) o de un grupo. */
+  .prose > * + *,
+  .prose__lead > * + *,
+  .prose__groups > * + *,
+  .prose__group > * + * {
     margin-top: 1.1em;
   }
 
   .prose h2 {
     font-size: var(--fs-h2);
-    margin-top: 2.2em;
+    margin-top: 2em;
   }
 
   .prose h3 {
     font-size: var(--fs-h3);
-    margin-top: 1.9em;
+    margin-top: 1.7em;
   }
 
   .prose h4 {
     font-family: var(--font-sans);
     font-size: var(--fs-body);
     font-weight: 600;
-    margin-top: 1.8em;
+    margin-top: 1.7em;
   }
 
   .prose h2 + *,
   .prose h3 + *,
   .prose h4 + * {
-    margin-top: 0.6em;
+    margin-top: 0.55em;
   }
 
   .prose strong {
@@ -1121,9 +1398,13 @@
   .prose a {
     color: var(--color-copper-700);
     text-decoration-color: rgb(138 71 32 / 0.45);
+    transition:
+      text-decoration-color 220ms var(--ease-out),
+      color 220ms var(--ease-out);
   }
 
-  .prose a:hover {
+  .prose a:hover,
+  .prose a:focus-visible {
     text-decoration-color: currentColor;
   }
 
@@ -1145,7 +1426,6 @@
     width: auto;
     max-width: 100%;
     height: auto;
-    border-radius: 2px;
   }
 
   .prose hr {
@@ -1165,79 +1445,229 @@
     line-height: 1.5;
   }
 
-  /* --- Variantes por página ------------------------------------------------ */
+  /* ---------------------------------------------------------------------------
+     Composición en escritorio: barra lateral + lectura + margen.
+     ------------------------------------------------------------------------ */
 
-  /* Trayectoria del doctor: los reconocimientos cierran la página como muro
-     de documentos, en dos columnas angostas. */
-  .prose--documentos {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    align-items: start;
-    max-width: 52rem;
+  .article__body {
+    min-width: 0;
   }
 
-  .prose--documentos > :not(img) {
-    grid-column: 1 / -1;
-    max-width: var(--measure);
-    margin-top: 1.1em;
+  /* En móvil no hay índice: la lista de preguntas o de secciones que viene
+     abajo ya funciona como índice y no se duplica. */
+  .article__rail {
+    display: none;
   }
 
-  /* Los documentos se muestran enteros y sin recorte: un diploma cortado no
-     sirve como prueba. Se apoyan sobre un fondo apenas más claro. */
-  .prose--documentos > img {
-    width: 100%;
-    height: auto;
-    border-radius: 2px;
-    background-color: var(--color-paper-50);
-  }
+  @media (min-width: 64rem) {
+    .article__grid--railed {
+      display: grid;
+      grid-template-columns: var(--rail-narrow) minmax(0, 1fr);
+      column-gap: clamp(2rem, 3.5vw, 3.25rem);
+      align-items: start;
+    }
 
-  @media (min-width: 48rem) {
-    .prose--documentos {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
+    .article__rail {
+      display: block;
+      position: sticky;
+      top: calc(var(--header-h) + 1.5rem);
+      align-self: start;
+    }
+
+    .article__index-title {
+      font-size: var(--fs-small);
+      font-weight: 600;
+      color: var(--color-ink-600);
+    }
+
+    .article__index-list {
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--rule-paper);
+    }
+
+    .article__index-list li {
+      margin: 0;
+    }
+
+    .article__index-link {
+      display: block;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--rule-paper);
+      font-size: var(--fs-small);
+      line-height: 1.35;
+      color: var(--color-ink-600);
+      text-decoration: none;
+      background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 1px;
+      transition:
+        color 200ms var(--ease-out),
+        background-size 320ms var(--ease-out);
+    }
+
+    .article__index-link:hover,
+    .article__index-link:focus-visible {
+      color: var(--color-ink-900);
+      background-size: 100% 1px;
+    }
+
+    .prose {
+      max-width: none;
+      display: grid;
+      grid-template-columns: minmax(0, var(--measure)) minmax(0, 1fr);
+      column-gap: clamp(1.75rem, 3vw, 2.75rem);
+      align-content: start;
+    }
+
+    /* Todo el texto cae en la pista de lectura. Lo que necesita el ancho
+       completo lo pide explícitamente. */
+    .prose > * {
+      grid-column: 1;
+    }
+
+    .prose > .prose__lead,
+    .prose > .prose__groups,
+    .prose__lead > img,
+    .prose__lead > blockquote,
+    .prose--home > img {
+      grid-column: 1 / -1;
+    }
+
+    /* La entrada de la página deja de ser una cinta de 608 px: las imágenes y
+       las citas usan el ancho del cuerpo; el texto sigue a medida de lectura. */
+    .prose__lead > :not(img):not(blockquote) {
+      max-width: var(--measure);
+    }
+
+    /* Los grupos que no van a columnas conservan la medida de lectura aunque su
+       contenedor ocupe el ancho del cuerpo. */
+    .prose__groups:not(.prose__groups--columns) .prose__group {
+      max-width: var(--measure);
+    }
+
+    .prose__lead > blockquote {
+      max-width: 46rem;
     }
   }
 
-  /* Preguntas frecuentes: cada pregunta es un subtítulo para poder barrer la
-     página de un vistazo. */
+  @media (min-width: 80rem) {
+    .article__grid--railed {
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+    }
+
+    /* Entrada de dos piezas (título y línea): el título ocupa la columna
+       izquierda y la línea la derecha, a la misma altura, para que el arranque
+       de la página se lea en el mismo eje que las dos columnas de abajo. */
+    .prose__lead--split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(2rem, 4vw, 3.5rem);
+      /* Alineadas por la primera línea de texto, no por la caja: el título y la
+         entrada arrancan a la misma altura. */
+      align-items: baseline;
+    }
+
+    .prose__lead--split > * {
+      margin-top: 0;
+    }
+  }
+
+  /* ---------------------------------------------------------------------------
+     Grupos del cuerpo: una pregunta con su respuesta, un concepto con su
+     explicación, una entrevista, un relato, una persona. En pantalla ancha van
+     en dos columnas —flujo de columnas, no grilla, porque las alturas son
+     desparejas— y cada grupo se mantiene entero (`break-inside: avoid`).
+     ------------------------------------------------------------------------ */
+  .prose__groups--preguntas .prose__group,
+  .prose__groups--metodo .prose__group,
+  .prose__groups--entrevistas .prose__group,
+  .prose__groups--ninguno .prose__group,
+  .prose__groups--testimonios .prose__group,
+  .prose__groups--colaboradores .prose__group {
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--rule-paper);
+  }
+
+  .prose__groups--preguntas .prose__group:first-child,
+  .prose__groups--entrevistas .prose__group:first-child,
+  .prose__groups--ninguno .prose__group:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  @media (min-width: 80rem) {
+    .prose__groups--columns {
+      columns: 2;
+      column-gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .prose__groups--columns .prose__group {
+      break-inside: avoid;
+    }
+  }
+
+  /* --- Variantes por página ------------------------------------------------ */
+
+  /* Preguntas frecuentes: la pregunta es un subtítulo para poder barrer la
+     página de un vistazo; la respuesta va debajo, en texto corrido. */
   .prose--preguntas .prose__question {
     font-family: var(--font-display);
     font-size: var(--fs-h3);
     font-weight: 600;
     line-height: 1.25;
-    margin-top: 2.2em;
-    padding-top: 1em;
-    border-top: 1px solid var(--rule-paper);
     letter-spacing: -0.01em;
+    margin-top: 0;
   }
 
-  .prose--preguntas .prose__question + * {
-    margin-top: 0.6em;
+  .prose--preguntas .prose__group > * + * {
+    margin-top: 0.55em;
   }
 
-  /* Método: los conceptos (magnetismo, pH, entropía…) se leen como entradas
-     de un glosario reglado, no como subtítulos sueltos. */
-  .prose--metodo h3 {
-    margin-top: 2.4em;
-    padding-top: 1.1em;
-    border-top: 1px solid var(--rule-paper);
+  /* Método: los conceptos (magnetismo, pH, entropía…) se leen como entradas de
+     un glosario reglado, no como subtítulos sueltos. */
+  .prose--metodo .prose__group h3 {
+    margin-top: 0;
     font-size: var(--fs-h3);
   }
 
-  /* Testimonios: los dos primeros párrafos son la presentación; el resto son
-     los relatos, separados y marcados con un polo de cobre. */
-  .prose--testimonios > p:nth-of-type(n + 2) {
+  .prose--metodo .prose__group > * + * {
+    margin-top: 0.55em;
+  }
+
+  /* Trayectoria del doctor: las secciones son listas largas (cursos,
+     representaciones) y se leen en una sola columna; el muro de documentos va
+     aparte, en su banda. */
+  .prose--documentos .prose__group {
+    margin-top: 2.2rem;
+  }
+
+  .prose--documentos .prose__group:first-child {
+    margin-top: 0;
+  }
+
+  .prose--documentos .prose__group h2 {
+    font-size: var(--fs-h3);
+    margin-top: 0;
+  }
+
+  .prose--documentos .prose__label {
+    margin-top: 1.4em;
+  }
+
+  /* Testimonios: la presentación va en la entrada; cada relato es un grupo con
+     su regla y el polo de cobre que marca el par. La clase del contenedor lleva
+     el nombre de la variante (`prose__groups--testimonios`), no el del modo. */
+  .prose__groups--testimonios .prose__group {
     position: relative;
-    margin-top: 2.6rem;
-    padding-top: 1.6rem;
-    border-top: 1px solid var(--rule-paper);
     font-family: var(--font-display);
     font-size: var(--fs-h3);
     line-height: 1.42;
   }
 
-  .prose--testimonios > p:nth-of-type(n + 2)::before {
+  .prose__groups--testimonios .prose__group::before {
     content: "";
     position: absolute;
     left: 0;
@@ -1247,46 +1677,65 @@
     background-color: var(--color-copper-700);
   }
 
-  /* Entrevistas: cada bloque arranca con una regla, como una ficha de archivo. */
-  .prose--entrevistas h2 {
-    margin-top: 2.2em;
-    padding-top: 1.2em;
-    border-top: 1px solid var(--rule-paper);
+  /* Entrevistas: cada entrevista es una ficha con regla superior. */
+  .prose--entrevistas .prose__group h2 {
     font-size: var(--fs-h3);
-  }
-
-  /* Colaboradores: retrato pequeño y datos debajo, con separación reglada
-     entre una persona y la siguiente. */
-  .prose--colaboradores img {
-    width: 100%;
-    max-width: 11rem;
-    margin-top: 2.5rem;
-    border-radius: 2px;
-  }
-
-  .prose--colaboradores img:first-child {
     margin-top: 0;
   }
 
-  .prose--colaboradores img + p {
-    margin-top: 0.9rem;
+  .prose--entrevistas .prose__group > * + * {
+    margin-top: 0.55em;
+  }
+
+  /* Colaboradores: retrato a la izquierda y datos a la derecha. El retrato va
+     flotado: así el bloque de datos no depende de cuántos renglones tenga cada
+     persona (que es lo que hacía que una foto alta se montara sobre la ficha
+     siguiente). */
+  .prose--colaboradores .prose__group {
+    display: flow-root;
+  }
+
+  .prose--colaboradores .prose__group > * + * {
+    margin-top: 0;
+  }
+
+  .prose--colaboradores .prose__group > img {
+    float: left;
+    width: 5.5rem;
+    height: auto;
+    margin: 0.1rem 1.15rem 0.5rem 0;
+  }
+
+  .prose--colaboradores .prose__group > p:nth-of-type(1) {
     font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 600;
+    line-height: 1.3;
   }
 
-  .prose--colaboradores img + p + p {
-    margin-top: 0.15rem;
+  .prose--colaboradores .prose__group > p:nth-of-type(2) {
     font-size: var(--fs-small);
     color: var(--color-ink-600);
+    margin-top: 0.2rem;
   }
 
-  .prose--colaboradores p + p:not(img + p + p) {
-    margin-top: 0.3rem;
+  .prose--colaboradores .prose__group > p:nth-of-type(n + 3) {
+    font-size: var(--fs-small);
+    color: var(--color-ink-600);
+    margin-top: 0.45rem;
+    line-height: 1.45;
+  }
+
+  @media (min-width: 48rem) {
+    .prose--colaboradores .prose__group > img {
+      width: 8rem;
+      margin-right: 1.5rem;
+    }
   }
 
   /* Home: el contenido heredado de home.md se lee como la ficha del centro. */
-  .prose--home > h2:first-child {
+  .prose--home > h2:first-child,
+  .prose--home .prose__high:first-child {
     margin-top: 0;
   }
 
@@ -1294,42 +1743,65 @@
      ("TITULO OBTENIDO", "RECONOCIMIENTOS OBTENIDOS"). Se muestra como rótulo
      chico sobre el bloque que introduce; el texto no cambia. */
   .prose__label {
-    margin-top: 2.4em;
+    margin-top: 2.2em;
     font-size: var(--fs-small);
     font-weight: 600;
     letter-spacing: 0.01em;
     color: var(--color-copper-700);
   }
 
-  .prose--documentos > .prose__label {
-    margin-top: 1.6em;
-  }
-
-  /* En la trayectoria, los encabezados del Markdown son etiquetas de sección
-     ("TITULO OBTENIDO"): se promueven a h2 por accesibilidad y conservan el
-     tamaño de subtítulo. */
-  .prose--documentos h2 {
-    font-size: var(--fs-h3);
-    margin-top: 2.4em;
-    padding-top: 1.1em;
-    border-top: 1px solid var(--rule-paper);
-  }
-
-  .prose--documentos > h2:first-child {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 0;
-  }
-
   /* Título de primer nivel dentro del contenido heredado, convertido en h2 por
      `ContentHeading.astro` para no duplicar el h1 de la página. */
   .prose__high {
     font-size: var(--fs-h2);
-    margin-top: 2.2em;
+    margin-top: 2em;
   }
 
   .prose > .prose__high:first-child {
     margin-top: 0;
+  }
+
+  /* ---------------------------------------------------------------------------
+     Muro de documentos — la banda que cierra la página del doctor.
+     Los diplomas se muestran enteros, sin recorte: un documento cortado no
+     sirve como prueba. La grilla los pone al mismo tamaño para que se comparen
+     entre sí, y la banda les da el ancho que el texto corrido no les puede dar.
+     ------------------------------------------------------------------------ */
+  .doc-band {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  /* Flujo de columnas y no grilla: los diplomas tienen proporciones muy
+     distintas (un A4 vertical junto a un certificado apaisado) y en una grilla
+     la fila se estira al más alto, dejando huecos. En columnas cada documento
+     cae debajo del anterior sin aire muerto. */
+  .doc-wall {
+    columns: 2;
+    column-gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    margin-top: var(--space-block);
+  }
+
+  .doc-wall__cell {
+    background-color: var(--color-paper-50);
+    break-inside: avoid;
+    margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  }
+
+  .doc-wall__cell img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 48rem) {
+    .doc-wall {
+      columns: 3;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .doc-wall {
+      columns: 4;
+    }
   }
 
   /* Cierre de página: una pregunta y una acción. La columna del texto y la de
@@ -1364,6 +1836,12 @@
 
     .cta__actions {
       justify-items: end;
+    }
+
+    /* El botón deja de ocupar el ancho de su columna: a 1440 esa caja era más
+       ancha que el titular, y la acción se lee mejor contenida. */
+    .cta__actions .btn {
+      max-width: 22rem;
     }
   }
 
@@ -1417,9 +1895,9 @@
   .channel-list {
     display: grid;
     gap: 0;
-    margin-top: var(--space-block);
+    margin-top: 0.75rem;
     border-top: 1px solid var(--rule-paper);
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
   }
 
   .channel {
@@ -1756,10 +2234,16 @@
     padding-top: 0.5rem;
   }
 
+  /* Fila de álbum: portada a la izquierda, título y cuenta en los extremos.
+     La cuenta va al margen derecho de la fila para que la lista se lea como un
+     índice: el ancho se usa y las cifras quedan en columna. */
   .gallery-row {
     display: grid;
-    grid-template-columns: 5.5rem minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    grid-template-areas:
+      "cover title"
+      "cover meta";
+    gap: 0.25rem 1rem;
     align-items: center;
     padding: 1rem 0;
     border-bottom: 1px solid var(--rule-paper);
@@ -1767,11 +2251,27 @@
   }
 
   .gallery-row__cover {
+    grid-area: cover;
+  }
+
+  .gallery-row__title {
+    grid-area: title;
+    align-self: end;
+  }
+
+  .gallery-row__meta {
+    grid-area: meta;
+    align-self: start;
+  }
+
+  /* La portada del álbum en el índice: un poco más grande que antes y recortada
+     dentro de su marco, para que la fila no cambie de alto entre una foto
+     vertical y una horizontal. */
+  .gallery-row__cover {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: 2px;
-    background-color: var(--color-paper-200);
+    overflow: hidden;
   }
 
   .gallery-row__title {
@@ -1792,20 +2292,56 @@
 
   .gallery-row:hover .gallery-row__title {
     color: var(--color-copper-700);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+  }
+
+  .gallery-row__title {
+    background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition:
+      color 200ms var(--ease-out),
+      background-size 320ms var(--ease-out);
+  }
+
+  .gallery-row:hover .gallery-row__title,
+  .gallery-row:focus-visible .gallery-row__title {
+    color: var(--color-copper-700);
+    background-size: 100% 1px;
   }
 
   @media (min-width: 48rem) {
     .gallery-row {
-      grid-template-columns: 9rem minmax(0, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: 11rem minmax(0, 1fr) auto;
+      grid-template-areas: "cover title meta";
+      column-gap: 1.75rem;
       padding: 1.25rem 0;
+    }
+
+    .gallery-row__title,
+    .gallery-row__meta {
+      align-self: center;
+    }
+
+    .gallery-row__meta {
+      justify-self: end;
+      margin-top: 0;
     }
 
     .gallery-row__title {
       font-size: 1.375rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .gallery-row {
+      grid-template-columns: 14rem minmax(0, 1fr) auto;
+      column-gap: 2.25rem;
+      padding: 1.35rem 0;
+    }
+
+    .gallery-row__title {
+      font-size: var(--fs-h3);
     }
   }
 
@@ -1841,11 +2377,28 @@
     border-bottom-color: var(--rule-night);
   }
 
-  .album-index__link:hover {
-    color: var(--color-copper-700);
+  .album-index__link {
+    background-image: linear-gradient(var(--color-copper-500), var(--color-copper-500));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition:
+      color 200ms var(--ease-out),
+      background-size 320ms var(--ease-out);
   }
 
-  .band--night .album-index__link:hover {
+  .album-index__link:hover,
+  .album-index__link:focus-visible {
+    color: var(--color-copper-700);
+    background-size: 100% 1px;
+  }
+
+  .band--night .album-index__link:hover,
+  .band--night .album-index__link:focus-visible,
+  .band--night-deep .album-index__link:hover,
+  .band--night-deep .album-index__link:focus-visible,
+  .band--night-raised .album-index__link:hover,
+  .band--night-raised .album-index__link:focus-visible {
     color: var(--color-copper-300);
   }
 
@@ -1884,42 +2437,73 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Hoja de contactos: celdas iguales, 2 / 3 / 4 columnas según el ancho. La
+     proporción fija (cuadrada) evita que la grilla salte cuando las fotos tienen
+     proporciones distintas; el recorte lo hace `object-fit: cover` dentro del
+     marco y el original queda a un toque. */
   .gallery-grid {
-    margin-top: 1rem;
-    columns: 2;
-    column-gap: 0.5rem;
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 
-  .gallery-grid img {
+  .gallery-cell {
+    margin: 0;
+  }
+
+  .gallery-cell__frame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .gallery-cell__frame img {
     width: 100%;
-    height: auto;
-    margin-bottom: 0.5rem;
-    border-radius: 2px;
-    background-color: var(--color-paper-200);
-    break-inside: avoid;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 420ms var(--ease-out);
+  }
+
+  .gallery-cell__frame:hover img,
+  .gallery-cell__frame:focus-visible img {
+    transform: scale(1.05);
+  }
+
+  /* El pie reserva su renglón: el número de archivo ocupa siempre el mismo alto,
+     así la fila de abajo no se mueve. */
+  .gallery-cell__caption {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    min-height: 1.75rem;
+    padding-top: 0.5rem;
+    font-size: var(--fs-meta);
+    font-variant-numeric: tabular-nums;
+    color: var(--color-ink-600);
+  }
+
+  .gallery-cell__number {
+    font-weight: 600;
+    color: var(--color-ink-900);
   }
 
   @media (min-width: 48rem) {
     .gallery-grid {
-      columns: 3;
-      column-gap: 0.75rem;
-    }
-
-    .gallery-grid img {
-      margin-bottom: 0.75rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
   }
 
   @media (min-width: 64rem) {
     .gallery-grid {
-      columns: 4;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
     }
   }
 
   /* Encabezado de galería: imagen del país y sus notas de archivo. */
   .archive-intro {
     display: grid;
-    gap: 1.25rem;
+    gap: 1rem;
     margin-top: var(--space-block);
     max-width: 46rem;
   }
@@ -1927,7 +2511,6 @@
   .archive-intro__image {
     width: 12rem;
     height: auto;
-    border-radius: 2px;
   }
 
   .archive-intro__heading {
@@ -2086,63 +2669,148 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Movimiento de la portada: el campo se dibuja una vez al cargar. Es el único
-   momento coreografiado del sitio; el resto del movimiento es respuesta a una
-   acción (hover, foco, abrir el menú).
-   ------------------------------------------------------------------------- */
+/* ===========================================================================
+   MOVIMIENTO
+
+   Tres ideas, y nada más:
+
+   1. La página responde al scroll: los bloques aparecen cuando entran en
+      pantalla (fundido + 14 px de subida), los hermanos en cascada corta, y las
+      reglas del par se dibujan de izquierda a derecha.
+   2. La barra superior se compacta visualmente al desplazar (fondo, borde y
+      sombra; nunca el alto, que movería la página).
+   3. El par se dibuja cuando entra en pantalla, con `stroke-dashoffset`.
+
+   Reglas: nada se mueve si no es transform o opacity (ni un salto de layout),
+   nada se repite en bucle, nada hay por encima de la primera pantalla que
+   retrase la lectura —el script solo arma lo que está por debajo—, y todo cae
+   en su estado final y quieto con `prefers-reduced-motion: reduce`.
+
+   El inventario completo, con su efecto y su alternativa sin movimiento, está
+   en `DESIGN.md §5`.
+   =========================================================================== */
+
+/* Estado armado: lo pone el script (`SiteMotion.astro`) solo a los elementos
+   que quedan por debajo de la primera pantalla. Sin script, esta clase no
+   existe y todo se ve. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(var(--reveal-rise));
+}
+
+.reveal-pending.is-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--reveal-duration) var(--ease-out) var(--reveal-delay, 0ms),
+    transform var(--reveal-duration) var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+/* La regla del par se traza desde su extremo izquierdo. */
+.reveal-pending[data-reveal="rule"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.reveal-pending[data-reveal="rule"].is-in {
+  transform: scaleX(1);
+}
+
+/* El par: las líneas están dibujadas por defecto. Solo cuando el script arma la
+   figura (`pair-field--armed`) se guardan y se trazan al entrar en pantalla. */
+.pair-field__line,
+.pair-field__pole {
+  transition:
+    stroke-dashoffset 900ms var(--ease-out),
+    opacity 520ms var(--ease-out);
+}
+
+.pair-field--armed .pair-field__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.pair-field--armed .pair-field__line:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.pair-field--armed .pair-field__line:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.pair-field--armed .pair-field__line:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+.pair-field--armed .pair-field__line:nth-child(5) {
+  transition-delay: 280ms;
+}
+
+.pair-field--armed .pair-field__pole {
+  opacity: 0;
+}
+
+.pair-field--armed.is-drawn .pair-field__line {
+  stroke-dashoffset: 0;
+}
+
+.pair-field--armed.is-drawn .pair-field__pole {
+  opacity: 1;
+  transition-delay: 420ms;
+}
+
+/* Cola del menú móvil: el panel entra desde arriba y se funde. */
 @media (prefers-reduced-motion: no-preference) {
-  /* Las líneas están dibujadas por defecto (`stroke-dasharray: 1` con
-     `pathLength="1"`); la animación solo las traza una vez y vuelve al estado
-     base, así que si el movimiento no corre la figura se ve igual. */
-  .pair-field__line {
-    animation: field-draw 1000ms var(--ease-out) backwards;
+  .site-menu__panel {
+    animation: panel-in 280ms var(--ease-out) both;
   }
+}
 
-  .pair-field__line:nth-child(2) {
-    animation-delay: 90ms;
-  }
-
-  .pair-field__line:nth-child(3) {
-    animation-delay: 180ms;
-  }
-
-  .pair-field__line:nth-child(4) {
-    animation-delay: 270ms;
-  }
-
-  .pair-field__line:nth-child(5) {
-    animation-delay: 360ms;
-  }
-
-  .pair-field__pole {
+@keyframes panel-in {
+  from {
     opacity: 0;
-    animation: pole-in 420ms var(--ease-out) 520ms forwards;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Sin movimiento: todo queda en su estado final, visible y quieto. El script ya
+   no arma nada, pero si alguna clase quedara puesta (por ejemplo al cambiar la
+   preferencia con la página abierta) esto la neutraliza igual.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending,
+  .reveal-pending[data-reveal="rule"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
-  .pair-field__pole--right {
-    animation-delay: 640ms;
+  .pair-field--armed .pair-field__line {
+    stroke-dashoffset: 0;
   }
 
-  @keyframes field-draw {
-    from {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-    }
-    to {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 0;
-    }
+  .pair-field--armed .pair-field__pole {
+    opacity: 1;
   }
 
-  @keyframes pole-in {
-    from {
-      opacity: 0.4;
-      transform: translateY(3px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .pair-field__line,
+  .pair-field__pole,
+  .frame img,
+  .gallery-cell__frame img,
+  .gallery-row__cover,
+  .archive-intro__image,
+  .site-header,
+  .wordmark__mark,
+  .btn {
+    transition: none;
+  }
+
+  .btn:active {
+    transform: none;
   }
 }

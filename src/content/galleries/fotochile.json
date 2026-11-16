@@ -1,7 +1,7 @@
 {
   "title": "FotoChile",
   "cover": "/src/assets/media/2020/10/1-3.webp",
-  "intro": "![Chile 300x200](/src/assets/media/2020/11/Chile.webp \"Chile\")\n\n### Chile\n\n**Curso realizado en la Nación Mapuche**\n\n**Curso primera y segunda promoción de no videntes.\nDr. Francisco Mena, creador del método de enseñanza para no videntes.**\n\n**Cursos en el Centro Dr. Goiz Durán, Santiago de Chile.**\n\n**Cursos UDLA**\n\n**Curso realizado en la Temuco**",
+  "intro": "![Bandera de Chile](/src/assets/media/2020/11/Chile.webp \"Chile\")\n\n### Chile\n\n**Curso realizado en la Nación Mapuche**\n\n**Curso primera y segunda promoción de no videntes.\nDr. Francisco Mena, creador del método de enseñanza para no videntes.**\n\n**Cursos en el Centro Dr. Goiz Durán, Santiago de Chile.**\n\n**Cursos UDLA**\n\n**Curso realizado en la Temuco**",
   "galleries": [
     {
       "slug": "chile-curso-mapuche",

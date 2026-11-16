@@ -114,30 +114,30 @@ Doctorado Honoris Causa, Miembro de la Academia Mundial de las Ciencias de la Sa
 
 Ecuador, Chile, Perú, Bolivia, Brasil, Uruguay, Paraguay, Colombia, Panamá, Argentina, Guatemala, Estados Unidos, Alemania, Luxemburgo, Suiza y España con un 90% de resultados positivos.
 
-  ![Imagen De WhatsApp 2025 08 08 A Las 12.15.18 6d9a521f 734x1024](../../assets/media/2025/08/Imagen-de-WhatsApp-2025-08-08-a-las-12.15.18_6d9a521f.webp "Francisco Mena")
+  ![Diploma de Doctor Honoris Causa en Ciencias de la Salud que SIISDET otorga a Gustavo Francisco Mena Flores, con medalla dorada, bandas de banderas y firmas al pie](../../assets/media/2025/08/Imagen-de-WhatsApp-2025-08-08-a-las-12.15.18_6d9a521f.webp "Francisco Mena")
 
-  ![Imagen De WhatsApp 2025 08 08 A Las 12.19.56 Af174bbc 1024x747](../../assets/media/2025/08/Imagen-de-WhatsApp-2025-08-08-a-las-12.19.56_af174bbc.webp "Francisco Mena")
+  ![Certificado del premio Health Sciences Awards de SIISDET a Gustavo Francisco Mena Flores, sobre un mapamundi y con seis firmas al pie](../../assets/media/2025/08/Imagen-de-WhatsApp-2025-08-08-a-las-12.19.56_af174bbc.webp "Francisco Mena")
 
-  ![Reconocimiento2](../../assets/media/2022/02/reconocimiento2.webp "Francisco Mena")
+  ![Certificado de reconocimiento del 3er Congreso Iberoamericano de Magnetobiología 2021 a Francisco Mena, con borde azul y tres firmas](../../assets/media/2022/02/reconocimiento2.webp "Francisco Mena")
 
-  ![Reconocimiento1](../../assets/media/2022/02/reconocimiento1.webp "Francisco Mena")
+  ![Certificado de la Red Iberoamericana de Bioelectromagnetismo que reconoce a Francisco Mena como socio activo, con borde azul y tres firmas](../../assets/media/2022/02/reconocimiento1.webp "Francisco Mena")
 
-  ![Reconocimiento3](../../assets/media/2020/11/Reconocimiento3.webp "Francisco Mena")
+  ![Diploma de Hellinger sciencia a Francisco Mena Flores por cuatro entrenamientos intensivos en constelaciones familiares, con firma manuscrita al pie](../../assets/media/2020/11/Reconocimiento3.webp "Francisco Mena")
 
-  ![Reconocimiento2](../../assets/media/2020/11/Reconocimiento2.webp "Francisco Mena")
+  ![Diploma de Hellinger sciencia a Francisco Mena Flores por tres entrenamientos intensivos en constelaciones familiares, con firma manuscrita al pie](../../assets/media/2020/11/Reconocimiento2.webp "Francisco Mena")
 
-  ![20181](../../assets/media/2020/10/20181.webp "Francisco Mena")
+  ![Certificado de la Universidad Técnica de Oruro a Francisco Mena Flores por compartir estudios sobre biomagnetismo médico, con dos firmas y sellos](../../assets/media/2020/10/20181.webp "Francisco Mena")
 
-  ![Reconocimiento1](../../assets/media/2020/11/Reconocimiento1.webp "Francisco Mena")
+  ![Certificación de la Confederación Sindical Única de Trabajadores Campesinos de Bolivia a Francisco Mena Flores por un programa de terapia de biomagnetismo médico, con varios sellos y firmas](../../assets/media/2020/11/Reconocimiento1.webp "Francisco Mena")
 
-  ![20164](../../assets/media/2020/10/20164.webp "Francisco Mena")
+  ![Reconocimiento de la Asamblea Legislativa Departamental de Oruro a Francisco Mena Flores por su desempeño profesional, con tres firmas y un sello](../../assets/media/2020/10/20164.webp "Francisco Mena")
 
-  ![20163](../../assets/media/2020/10/20163.webp "Francisco Mena")
+  ![Certificado de agradecimiento del Servicio Departamental de Salud de Oruro y el Gobierno Autónomo Municipal de Toledo a Francisco Mena Flores por dictar un curso de biomagnetismo, con sellos y firmas](../../assets/media/2020/10/20163.webp "Francisco Mena")
 
-  ![20141](../../assets/media/2020/10/20141.webp "Francisco Mena")
+  ![Declaración jurada notarial firmada por Isaac Goiz Durán a favor de Gustavo Francisco Mena Flores, con huella digital y sello de notaría al margen](../../assets/media/2020/10/20141.webp "Francisco Mena")
 
-  ![20111](../../assets/media/2020/11/20111.webp "Francisco Mena")
+  ![Certificado de Doctor Honoris Causa de la Universidad José Carlos Mariátegui a Gustavo Francisco Mena Flores, con emblemas de la universidad y del colegio médico](../../assets/media/2020/11/20111.webp "Francisco Mena")
 
-  ![20051](../../assets/media/2020/10/20051.webp "Francisco Mena")
+  ![Diploma enmarcado de la Universidad Autónoma Chapingo a Francisco Mena Flores por un diplomado en biomagnetismo médico y bioenergética, con fotografía carné, tres firmas y un edificio al fondo](../../assets/media/2020/10/20051.webp "Francisco Mena")
 
-  ![20201](../../assets/media/2020/10/20201.webp "Francisco Mena")
+  ![Mención honorífica del Ministerio de Salud Pública del Ecuador a Gustavo Francisco Mena Flores por su atención al personal del centro de rehabilitación CERI, con una firma y un sello](../../assets/media/2020/10/20201.webp "Francisco Mena")

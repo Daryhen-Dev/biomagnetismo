@@ -1,0 +1,75 @@
+---
+/**
+ * Bloques del contenido heredado, uno por uno.
+ *
+ * Qué renderiza: la lista de bloques que devuelve `toBlocks()` en
+ * `src/data/content-html.ts`, con los tratamientos que no son Markdown:
+ * - un párrafo que empieza con "¿" se vuelve subtítulo (`QuestionParagraph`);
+ * - un párrafo que abre con comillas se vuelve cita (`QuoteParagraph`);
+ * - un párrafo que viene íntegramente en negrita se vuelve rótulo;
+ * - los títulos entran por `ContentHeading`, con el nivel ya normalizado.
+ *
+ * Por qué existe separado de `EntryBody`: la plantilla agrupa el cuerpo (una
+ * pregunta con su respuesta, un concepto con su explicación) y cada grupo se
+ * renderiza con este componente. Así el tratamiento de un bloque se escribe una
+ * sola vez, tanto si el bloque va suelto como si va dentro de un grupo.
+ *
+ * Lo usan: `src/components/EntryBody.astro`.
+ * Si agregás un tratamiento nuevo, va acá y su clase `.prose--*` en
+ * `src/styles/global.css`.
+ */
+import type { ContentBlock } from "../data/content-html";
+import QuestionParagraph from "./QuestionParagraph.astro";
+import QuoteParagraph from "./QuoteParagraph.astro";
+import ContentHeading from "./ContentHeading.astro";
+
+interface Props {
+  blocks: ContentBlock[];
+  mode?: "plain" | "preguntas" | "metodo";
+}
+
+const { blocks, mode = "plain" } = Astro.props;
+
+// Párrafo que es solo negrita en el Markdown: en estas páginas funciona como
+// rótulo de sección ("TITULO OBTENIDO", "RECONOCIMIENTOS OBTENIDOS").
+const FULLY_STRONG = /^<strong>[\s\S]*<\/strong>$/;
+---
+
+{
+  blocks.map((block) => {
+    if (block.kind === "heading") {
+      return (
+        <ContentHeading
+          level={block.level as 2 | 3 | 4 | 5 | 6}
+          id={block.id}
+          highlight={block.originalLevel === 1}
+        >
+          <Fragment set:html={block.inner} />
+        </ContentHeading>
+      );
+    }
+
+    if (block.kind === "paragraph") {
+      if (FULLY_STRONG.test(block.inner)) {
+        return <p class="prose__label" set:html={block.inner} />;
+      }
+      if (mode === "preguntas") {
+        return (
+          <QuestionParagraph>
+            <Fragment set:html={block.inner} />
+          </QuestionParagraph>
+        );
+      }
+      if (mode === "metodo") {
+        return (
+          <QuoteParagraph>
+            <Fragment set:html={block.inner} />
+          </QuoteParagraph>
+        );
+      }
+      return <p set:html={block.inner} />;
+    }
+
+    return <Fragment set:html={block.html} />;
+  })
+}

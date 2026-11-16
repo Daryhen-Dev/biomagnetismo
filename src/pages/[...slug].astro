@@ -4,8 +4,20 @@
  *
  * Qué renderiza: una sola plantilla sirve las siete páginas de contenido
  * (el método, el doctor, servicios, preguntas, testimonios, entrevistas y
- * colaboradores). Tiene tres partes: portada de página (miga de pan, título,
- * entrada), texto corrido y cierre con WhatsApp.
+ * colaboradores). Tres partes:
+ *
+ * 1. Portada de página: miga de pan, título grande y entrada. En escritorio el
+ *    título ocupa la columna ancha y la entrada la angosta: la página usa el
+ *    ancho disponible sin estirar el texto de lectura.
+ * 2. Cuerpo: barra lateral pegajosa con el índice de la página (izquierda) y
+ *    la columna de lectura con el texto agrupado (`.prose`). El ancho de lectura
+ *    lo fija `--measure`; lo que sobra a la derecha es el margen de las
+ *    imágenes grandes (`grid-column: 1 / -1` en `.prose > .pullout`).
+ * 3. Cierre con WhatsApp.
+ *
+ * En la página del doctor, los documentos que cierran el texto salen del
+ * cuerpo y forman un muro a todo el ancho (`.doc-wall`): catorce diplomas
+ * apilados en una columna de lectura no se leen.
  *
  * De dónde sale el contenido: `src/content/pages/<slug>.md`. El nombre del
  * archivo es la URL, salvo que la página tenga su propia ruta (la portada, la
@@ -15,20 +27,27 @@
  * - el texto de una página → su `.md` en `src/content/pages/`
  * - la entrada, la descripción para buscadores y el tratamiento → `pageMeta`
  *   en `src/data/page-meta.ts`
+ * - cómo se agrupa el cuerpo y qué entra al índice → `BODY_TREATMENTS` y
+ *   `groupBlocks()` en `src/data/content-html.ts`
  * - cómo se ve el texto corrido → bloque `.prose` en `src/styles/global.css`
  * - el botón final → `src/components/PageCta.astro`
- *
- * Las imágenes del cuerpo las procesa `astro:assets` solo: el Markdown resuelve
- * las rutas relativas y Astro emite WebP optimizado con ancho, alto y carga
- * diferida (no hace falta un componente `<Image>` acá).
  */
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageCta from "../components/PageCta.astro";
 import EntryBody from "../components/EntryBody.astro";
+import FieldRule from "../components/FieldRule.astro";
 import { pageMeta } from "../data/page-meta";
+import { BODY_TREATMENTS } from "../data/content-html";
 import { directorPortrait } from "../data/contact";
+import {
+  normalizeHeadingLevels,
+  outlineFor,
+  renderEntryHtml,
+  splitTrailingImages,
+  toBlocks,
+} from "../data/content-html";
 
 export async function getStaticPaths() {
   // Páginas con ruta propia: la portada (`index.astro`), el índice de galerías
@@ -56,11 +75,22 @@ if (!meta) {
 
 const { Content } = await render(page);
 
-// Cada página puede cambiar cómo se lee el cuerpo: las preguntas se convierten
-// en subtítulos y las citas del método en blockquotes (ver `EntryBody.astro`).
-const bodyMode = meta.variant === "preguntas" || meta.variant === "metodo" ? meta.variant : "plain";
+// El cuerpo se renderiza una vez y se trabaja por bloques: agrupar para
+// componer en columnas, cortar el muro de documentos e indexar los grupos.
+const html = await renderEntryHtml(Content);
+const blocks = normalizeHeadingLevels(toBlocks(html));
+
+// Los documentos finales se componen aparte, a todo el ancho.
+const { body, wall } =
+  meta.variant === "documentos" ? splitTrailingImages(blocks) : { body: blocks, wall: [] };
+
+const outline = outlineFor(body, meta.variant);
 
 const proseClass = meta.variant === "ninguno" ? "prose" : `prose prose--${meta.variant}`;
+// Barra lateral: solo cuando el cuerpo es una sola columna de lectura y hay más
+// de un destino al que saltar. En las páginas de lista (preguntas, método,
+// entrevistas…) el cuerpo va a dos columnas y la lista es su propio índice.
+const showRail = outline.length >= 2 && !BODY_TREATMENTS[meta.variant].columns;
 ---
 
 <BaseLayout
@@ -69,7 +99,7 @@ const proseClass = meta.variant === "ninguno" ? "prose" : `prose prose--${meta.v
   ogImage={meta.portrait ? directorPortrait : undefined}
 >
   <section class="page-intro band band--night">
-    <div class="shell">
+    <div class="shell page-intro__grid">
       <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
         <a href="/">Inicio</a>
         <span aria-hidden="true">/</span>
@@ -78,45 +108,83 @@ const proseClass = meta.variant === "ninguno" ? "prose" : `prose prose--${meta.v
         <span>{page.data.title}</span>
       </nav>
 
-      <div class="page-intro__body">
-        <h1 class="page-intro__title">{page.data.title}</h1>
+      <h1 class="page-intro__title">{page.data.title}</h1>
+
+      <div class="page-intro__aside">
+        <p class="page-intro__lede">{meta.lede}</p>
 
         {
           meta.portrait && (
-            <figure class="page-intro__portrait">
+            <figure class="page-intro__portrait frame">
               <Image
                 src={directorPortrait}
                 alt="Retrato del Dr. Francisco Mena Flores."
                 widths={[240, 480]}
-                sizes="(min-width: 768px) 17rem, 70vw"
+                sizes="(min-width: 1024px) 16rem, 60vw"
               />
             </figure>
           )
         }
-
-        <div class="page-intro__aside">
-          <p class="page-intro__lede">{meta.lede}</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="band band--paper">
-    <div class="shell">
-      <div class={proseClass}>
-        <EntryBody Content={Content} mode={bodyMode} />
-      </div>
-
+  <section class="band band--paper band--article">
+    <div class:list={["shell", "article__grid", showRail && "article__grid--railed"]}>
       {
-        meta.notice && (
-          <aside class="notice">
-            <p class="notice__title">{meta.notice.title}</p>
-            <p class="notice__body">{meta.notice.body}</p>
+        showRail && (
+          <aside class="article__rail">
+            <nav class="article__index" aria-labelledby="indice-pagina">
+              <p class="article__index-title" id="indice-pagina">
+                En esta página
+              </p>
+              <ol class="article__index-list">
+                {outline.map((item) => (
+                  <li>
+                    <a class="article__index-link" href={`#${item.id}`}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
           </aside>
         )
       }
+
+      <div class="article__body">
+        <div class={proseClass}>
+          <EntryBody blocks={body} variant={meta.variant} />
+        </div>
+
+        {
+          meta.notice && (
+            <aside class="notice" data-reveal>
+              <p class="notice__title">{meta.notice.title}</p>
+              <p class="notice__body">{meta.notice.body}</p>
+            </aside>
+          )
+        }
+      </div>
     </div>
   </section>
+
+  {
+    wall.length > 0 && (
+      <section class="band band--paper-raised doc-band">
+        <div class="shell">
+          <FieldRule />
+          <div class="doc-wall" data-reveal-group>
+            {wall.map((image) => (
+              <div class="doc-wall__cell frame" data-reveal>
+                <Fragment set:html={image} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <PageCta
     title={meta.cta.title}

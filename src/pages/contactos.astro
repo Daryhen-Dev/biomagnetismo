@@ -50,7 +50,7 @@ const hasContactForm = contactFormEnabled;
   description="WhatsApp, correo, dirección y horario del Centro de Biomagnetismo Médico en Quito: Pineda N11-121 y Guatemala, con cita previa."
 >
   <section class="page-intro band band--night">
-    <div class="shell">
+    <div class="shell page-intro__grid">
       <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
         <a href="/">Inicio</a>
         <span aria-hidden="true">/</span>
@@ -59,31 +59,30 @@ const hasContactForm = contactFormEnabled;
         <span>{title}</span>
       </nav>
 
-      <div class="page-intro__body">
-        <h1 class="page-intro__title">{title}</h1>
-        <div class="page-intro__aside">
-          <p class="page-intro__lede">
-            El WhatsApp es la vía más rápida: contesta una persona del centro en horario de atención.
-            El mensaje llega ya escrito, solo tenés que enviarlo.
-          </p>
-          <p class="page-intro__actions">
-            <WhatsAppAction
-              message="cita"
-              label="Pedir una cita por WhatsApp"
-              showNumber
-              variant="copper"
-              block
-            />
-          </p>
-        </div>
+      <h1 class="page-intro__title">{title}</h1>
+
+      <div class="page-intro__aside">
+        <p class="page-intro__lede">
+          El WhatsApp es la vía más rápida: contesta una persona del centro en horario de atención.
+          El mensaje llega ya escrito, solo tenés que enviarlo.
+        </p>
+        <p class="page-intro__actions">
+          <WhatsAppAction
+            message="cita"
+            label="Pedir una cita por WhatsApp"
+            showNumber
+            variant="copper"
+            block
+          />
+        </p>
       </div>
     </div>
   </section>
 
   <section class="band band--paper">
     <div class="shell">
-      <div class="contact-columns">
-        <div>
+      <div class="contact-columns" data-reveal-group>
+        <div data-reveal>
           <div class="contact-block">
             <p class="contact-block__title">WhatsApp</p>
             <div class="channel-list">
@@ -117,7 +116,7 @@ const hasContactForm = contactFormEnabled;
           </div>
         </div>
 
-        <div>
+        <div data-reveal>
           <div class="contact-block">
             <p class="contact-block__title">Dónde</p>
             <address class="contact-address">
@@ -167,7 +166,10 @@ const hasContactForm = contactFormEnabled;
         </div>
       </div>
 
-      <div class:list={["contact-followup", !hasContactForm && "contact-followup--solo"]}>
+      <div
+        class:list={["contact-followup", !hasContactForm && "contact-followup--solo"]}
+        data-reveal-group
+      >
         <ContactForm />
         <PrivacyNotice />
       </div>

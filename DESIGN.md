@@ -112,7 +112,7 @@ en el teléfono, no por asociación ("médico → serif").
 | `--fs-lede` | 19 px | 23 px | Entradas de página y de sección |
 | `--fs-h3` | 20 px | 24 px | Subtítulos, preguntas, testimonios |
 | `--fs-h2` | 26 px | 38 px | Títulos de sección |
-| `--fs-h1` | 32 px | 48 px | Título de página |
+| `--fs-h1` | 32 px | 56 px | Título de página (que a 1024 px sube a `--fs-display`) |
 | `--fs-display` | 38 px | 64 px | Portada: "El par biomagnético" |
 
 Interlineado: 1,05 en display, 1,16 en títulos, 1,62 en texto corrido. Tracking negativo
@@ -125,10 +125,12 @@ nunca baja de 17 px: es el mínimo de este sistema, no el del navegador.
 
 | Token | Valor | Qué hace |
 | --- | --- | --- |
-| `--gutter` | 20 px → 40 px | Margen lateral único del sitio (`.shell`) |
-| `--shell` | 68 rem | Ancho máximo del contenido |
-| `--measure` | 34 rem | Ancho de lectura (~68 caracteres) |
-| `--space-section` | 56 px → 104 px | Aire entre secciones |
+| `--gutter` | 20 px → 40 px | Margen lateral único del sitio (bandas y barra) |
+| `--shell` | 78 rem (1248 px) | Ancho que ocupa la composición |
+| `--measure` | 38 rem (608 px) | Ancho de una línea de lectura (~70 caracteres) |
+| `--rail` / `--rail-narrow` | 19 rem / 15 rem | Barra lateral del artículo (≥1280 px / ≥1024 px) |
+| `--header-h` | 4 rem | Alto de la barra superior, para el `top` del pegajoso |
+| `--space-section` | 52 px → 88 px | Aire entre secciones |
 | `--space-block` | 28 px → 44 px | Aire entre bloques dentro de una sección |
 
 Reglas:
@@ -137,29 +139,136 @@ Reglas:
   `.band--paper`, …). No hay superficies mezcladas a mitad de bloque.
 - Más aire arriba de un título que abajo: el título se pega a lo que introduce.
 - Breakpoints **solo como adición**: `48rem` (768 px), `60rem` (960 px, entra la
-  navegación horizontal) y `64rem` (1024 px, grillas más densas). Ningún breakpoint
-  "arregla" algo que ya se rompió en 390 px.
+  navegación horizontal), `64rem` (1024 px, aparece la barra lateral) y `80rem`
+  (1280 px, el cuerpo se compone en dos columnas). Ningún breakpoint "arregla" algo
+  que ya se rompió en 390 px.
 - Objetivos táctiles: 44 px mínimo, 48 px en botones. Verificado con medición de
   `getBoundingClientRect()` sobre los enlaces y botones visibles a 390 px (0 casos por
   debajo de 44 px).
+
+### Dos anchos distintos, a propósito
+
+El error que este sistema corrige: usar el ancho de lectura como ancho de página. Dejaba
+una columna de 544 px sobre una pantalla de 1440 (38 % del ancho) con 900 px de margen
+muerto, y párrafos de 55–62 caracteres que igual se leían bien pero parecían una cinta
+tirada en el piso.
+
+Ahora son dos decisiones separadas:
+
+| Ancho | Valor | Para qué |
+| --- | --- | --- |
+| Envoltorio (`.shell`) | 1248 px | Lo que ocupa la composición: barra, portada, bandas, grillas |
+| Lectura (`--measure`) | 608 px | Una línea de texto corrido: 62–72 caracteres |
+| Margen del cuerpo | lo que sobra | Placas grandes, citas y grupos anchos (`grid-column: 1 / -1`) |
+
+En escritorio el texto **no se estira**: la página se llena con estructura (barra
+lateral, placas, muros, columnas), no con renglones largos. Medido en el sitio
+construido a 1440 px: el cuerpo ocupa 1248 px, la prosa 608 px y el párrafo de muestra
+mide 63–69 caracteres por línea.
+
+### Composición del artículo (≥1024 px)
+
+- **Portada de página**: el título ocupa la columna ancha a 64 px y la entrada la
+  columna angosta, alineadas por la base. En móvil es una sola columna.
+- **Cuerpo**: `.prose` es una grilla de dos pistas —lectura y margen—. Todo cae en la
+  pista de lectura salvo lo que pide el ancho completo: imágenes sueltas, la cita de
+  definición y los grupos en columnas.
+- **Barra lateral** (`.article__rail`, solo en las páginas de lectura larga, hoy la
+  trayectoria del doctor): índice de la página, pegajoso bajo la barra. Se oculta en
+  móvil: la propia lista ya es índice.
+- **Páginas de lista** (preguntas, método, entrevistas, servicios, colaboradores,
+  testimonios): el cuerpo va en dos columnas (`columns: 2`, `break-inside: avoid` por
+  grupo) sobre el ancho completo, sin barra lateral. A 1440 px cada columna mide 596 px
+  y rinde 63–69 caracteres. Barra + dos columnas legibles no caben en 1440: por eso las
+  páginas que usan columnas no llevan barra.
+- **Muro de documentos**: los diplomas que cierran la trayectoria salen del texto
+  corrido y forman una banda propia de 2 / 3 / 4 columnas con su altura real, sin
+  recorte (`.doc-wall`).
+
+En 390 px todo es una sola columna. Las columnas, la barra lateral y las grillas anchas
+son adiciones, nunca reparaciones.
+
+### Regla de imagen: la placa
+
+Una sola vez, en todo el sitio. Toda foto —retrato, diploma, archivo, celda de
+galería— va sobre una **placa**:
+
+| Parte | Valor | Token |
+| --- | --- | --- |
+| Línea de 1 px | tinta al 16 % sobre papel; hueso al 16 % sobre índigo | `--rule-paper` / `--rule-night` |
+| Radio | 3 px | `--radius-frame` |
+| Sombra | desplazada y difusa: `0 1px 2px` + `0 16px 34px -24px` | `--frame-shadow` / `--frame-shadow-night` |
+| Fondo | papel 200 mientras carga; índigo 800 sobre oscuro | — |
+
+Se aplica con `.frame` cuando la imagen tiene contenedor propio (placa documental,
+portada, celda de galería, retrato de credencial, muro de documentos) y por selector
+cuando la imagen viene del Markdown sin contenedor (`.prose img`,
+`.gallery-row__cover`, `.archive-intro__image`). Las dos formas están declaradas juntas
+en un solo bloque de `global.css`.
+
+Reglas asociadas:
+
+- **La proporción la fija el marco, no la foto.** Las celdas de galería son cuadradas
+  (`aspect-ratio: 1`) y la portada del álbum es 4:3. Así la grilla no salta al cargar y
+  dos fotos de proporciones distintas no dejan huecos. La foto se recorta con
+  `object-fit: cover`; el original —sin recorte— se abre en una pestaña nueva desde el
+  mismo enlace.
+- **El pie no mueve la grilla.** El número de archivo (`01 / 21`) tiene renglón
+  reservado (`min-height`) y cifras tabulares.
+- **Portada distinta del resto.** La carátula del álbum va en la portada de la página,
+  más grande, con pie en Spectral y una regla de cobre encima; las fotos de la grilla
+  van con el marco común y su número. Así una página de galería se lee como portada +
+  fotografías, no como un muro uniforme.
+- **Hover y foco, sin salto.** La imagen escala 4–5 % dentro de un marco que recorta
+  (`overflow: hidden`) y el borde cambia a cobre. El foco de teclado usa el anillo del
+  sistema.
 
 ---
 
 ## 5. Movimiento
 
-Una sola curva (`--ease-out: cubic-bezier(.16,1,.3,1)`), un solo tiempo largo
-(~1 s) y nada más:
+El movimiento no decora: avisa que la página llegó, que la sección cambió de
+superficie, que lo que se ve es el archivo y no una lámina. Es sobrio a propósito —
+esto es un centro médico, no un juego.
 
-1. **El campo se dibuja** al cargar la portada: las cinco líneas del par se trazan en
-   cascada (90 ms entre cada una) y los dos polos aparecen al final. Es la única animación
-   coreografiada del sitio.
-2. Todo lo demás es respuesta a una acción: hover de botón y enlace, apertura del menú
-   móvil (desliza 8 px y funde), cambio de color de enlace.
+Cuatro reglas duras:
 
-El estado base de cada elemento es **visible**: la animación del campo parte de una
-figura ya dibujada y vuelve a ella (`animation-fill-mode: backwards`), así que si el
-movimiento no corre, la figura se ve igual. Con `prefers-reduced-motion: reduce` no se
-anima nada.
+1. **Solo `transform`, `opacity`, `stroke-dashoffset` y color.** Nada que mueva el
+   layout: sin animar alto, ancho, `top` ni márgenes. CLS medido en el sitio
+   construido: 0.
+2. **Nada se repite en bucle.** Ningún `animation-iteration-count` infinito.
+3. **Nada retrasa la lectura.** El script arma el revelado solo para lo que está por
+   debajo de la primera pantalla; lo que ya se ve nunca se oculta.
+4. **Todo termina en su estado final con `prefers-reduced-motion: reduce`.** Con la
+   preferencia activa el script no arma nada, y el CSS deja por escrito el mismo
+   estado por si la preferencia cambia con la página abierta.
+
+### Inventario
+
+| # | Conducta | Disparador | Qué se mueve | Sin movimiento |
+| --- | --- | --- | --- | --- |
+| 1 | **Revelado de bloque** (`.reveal-pending` → `.is-in`) | `IntersectionObserver`, al entrar en el viewport | `opacity` 0 → 1 y `translateY(14px)` → 0, 640 ms, curva `--ease-out`; lo que entra junto se escalona 70 ms (techo de 5 pasos) | Todo visible desde el primer pintado: el script no arma nada |
+| 2 | **Regla del par que se traza** (`data-reveal="rule"`) | igual que 1 | `scaleX(0)` → 1 desde el extremo izquierdo, 640 ms | Regla completa |
+| 3 | **El par se dibuja** (`.pair-field--armed.is-drawn`) | al cargar si está a la vista; si no, al entrar | `stroke-dashoffset` 1 → 0, 900 ms, con 70 ms de separación entre las cinco líneas y los polos al final (420 ms) | Figura ya dibujada |
+| 4 | **Barra superior compacta** (`.site-header.is-scrolled`) | `scrollY > 12` | fondo índigo 950 → 900, borde a cobre 38 %, sombra desplazada, marca un 14 % más baja; 260 ms. El alto no cambia: animar el alto de una barra pegajosa mueve toda la página | La barra queda en su estado normal; el estado compacto es el adicional |
+| 5 | **Subrayado que crece** | `hover` / `focus-visible` | `background-size` 0 → 100 % (o 1 px → 2 px), 320 ms | Subrayado ya presente (los enlaces de prosa mantienen el suyo) |
+| 6 | **Presión del botón** (`.btn:active`) | `:active` | `translateY(1px)`, 120 ms | Nada |
+| 7 | **Panel del menú móvil** (`panel-in`) | abrir el `<details>` | `opacity` 0 → 1 y `translateY(-8px)` → 0, 280 ms | Aparece abierto |
+| 8 | **Placa de imagen** (`.frame img`) | `hover` / `focus-visible` sobre la imagen enlazada | `transform: scale(1.04)` (1.05 en la celda de galería), 420 ms, recortado por el marco; el borde pasa a cobre | Imagen quieta |
+
+Cifras medidas en el CSS construido: **1 `@keyframes`** (`panel-in`), **1 declaración
+`animation`**, **24 declaraciones `transition`** sobre 8 propiedades (`transform`,
+`opacity`, `background-color`, `background-size`, `color`, `border-color`,
+`text-decoration-color`, `stroke-dashoffset`).
+
+Conductas disparadas por el scroll: **3** (revelado, regla del par, barra superior) más
+el dibujo del par, que corre al entrar o al cargar.
+
+Verificado en el navegador: en `/preguntas/` a 1440 px se arman 5 de 9 bloques (los 4
+restantes están sobre el pliegue y no se ocultan), los 5 se revelan al recorrer la
+página y ninguno queda invisible (`opacity: 1`, `transform: none`). Con la preferencia
+de movimiento reducido: 0 bloques armados, 0 transiciones activas y 0 animaciones
+activas.
 
 ---
 
@@ -189,11 +298,13 @@ renderiza, quién lo usa y qué tocar para cambiarlo.
 | `WhatsAppAction.astro` | Botón/enlace `wa.me` con mensaje precargado, número real visible y burbuja dibujada. Variantes: `copper`, `outline`, `paper`; modo `compact` (44×44) | Barra superior, portada, cierres, página de contacto |
 | `SectionHeading.astro` | Título de sección + entrada opcional. Sin etiqueta encima | Portada, galería, contacto |
 | `CredentialPlate.astro` | Retrato + títulos verificables del director | Portada |
-| `GalleryGrid.astro` | Grilla de fotos de un álbum, con `<Image>` (WebP, `srcset`, carga diferida) y proporción real de cada foto | Páginas de galería |
+| `GalleryGrid.astro` | Hoja de contactos de un álbum: 2 / 3 / 4 columnas, celda cuadrada con marco, número de archivo reservado y enlace al original | Páginas de galería |
 | `PageCta.astro` | Cierre de página: una pregunta, un botón de WhatsApp, un enlace secundario | Portada y páginas institucionales |
 | `SiteHeader.astro` | Marca, navegación horizontal (escritorio) y menú `<details>` (móvil, sin hover) | `BaseLayout` |
 | `SiteFooter.astro` | Mapa del sitio, dirección, horario, correos y WhatsApp | `BaseLayout` |
-| `EntryBody.astro` | Cuerpo de un `.md` renderizado por bloques, con el tratamiento de su página | Portada y páginas institucionales |
+| `EntryBody.astro` | Cuerpo de un `.md` agrupado: entrada + grupos (preguntas, conceptos, secciones, personas) con `id` para el índice | Portada y páginas institucionales |
+| `ContentBlocks.astro` | Los bloques de contenido uno por uno, con el tratamiento de su página (pregunta, cita, rótulo) | Vía `EntryBody` |
+| `SiteMotion.astro` | El script del movimiento: revelado al entrar, barra compacta y dibujo del par | `BaseLayout` |
 | `QuestionParagraph.astro` | Párrafo que, si empieza con "¿", se vuelve subtítulo | Página de preguntas |
 | `QuoteParagraph.astro` | Párrafo entre comillas que se vuelve cita | Página del método |
 | `ContentHeading.astro` | El `<h1>` heredado convertido en `<h2>` | Vía `EntryBody` |
@@ -204,11 +315,13 @@ Reglas de componentes:
   índigo; secundario contorno; "quieto" es un enlace subrayado. Nunca dos acciones
   primarias en la misma pantalla.
 - **Nada de tarjetas**: los listados son filas regladas (galerías, canales, álbumes). No
-  hay contenedores con borde + sombra + radio; la jerarquía la hacen la regla y el aire.
+  hay contenedores de texto con borde + sombra + radio; la jerarquía la hacen la regla y
+  el aire. La única excepción es la **foto**, que va sobre una placa (§4): la sombra
+  pertenece a la imagen, nunca a una caja de texto.
 - **Iconos**: uno solo, la burbuja de mensaje, dibujada en SVG dentro de
   `WhatsAppAction`. No hay emojis ni glifos Unicode haciendo de icono.
-- **Elevación**: solo el panel del menú móvil tiene sombra (desplazada, con blur). Nada
-  más flota.
+- **Elevación**: solo dos cosas tienen sombra desplazada con blur: el panel del menú
+  móvil y la placa de imagen. Nada más flota.
 
 ---
 
@@ -220,16 +333,16 @@ declara su variante en `src/data/page-meta.ts` y las reglas viven en `.prose--*`
 
 | Página | Variante | Qué cambia |
 | --- | --- | --- |
-| `/par-biomagnetico/` | `prose--metodo` | Los párrafos que abren con comillas se vuelven citas en Spectral; cada concepto (`Magnetismo`, `pH`, `Entropía`…) se separa con regla |
-| `/preguntas/` | `prose--preguntas` | Los párrafos que empiezan con "¿" se vuelven subtítulos: la página se barre de un vistazo |
-| `/francisco-mena/` | `prose--documentos` | Los reconocimientos cierran como muro de documentos en 2–3 columnas, sin recorte |
-| `/testimonios/` | `prose--testimonios` | La introducción va en texto corrido; cada relato se separa con la regla del par y se compone en Spectral |
+| `/par-biomagnetico/` | `prose--metodo` | Los párrafos que abren con comillas se vuelven citas en Spectral; cada concepto (`Magnetismo`, `pH`, `Entropía`…) es un grupo con su regla y la lista se compone en dos columnas |
+| `/preguntas/` | `prose--preguntas` | Cada párrafo que empieza con "¿" abre un grupo con su respuesta; en pantalla ancha van en dos columnas |
+| `/francisco-mena/` | `prose--documentos` | Barra lateral con el índice de secciones; los reconocimientos salen del texto y cierran como muro de documentos en banda propia (2–4 columnas), sin recorte |
+| `/testimonios/` | `prose--testimonios` | La introducción va en texto corrido; cada relato es un grupo con la regla del par, en Spectral, a dos columnas |
 | `/entrevistas/` | `prose--entrevistas` | Cada entrevista es una ficha con regla superior |
-| `/colaboradores/` | `prose--colaboradores` | Retrato de 11 rem + nombre en Spectral + datos en 15 px |
+| `/colaboradores/` | `prose--colaboradores` | Retrato flotado a 8 rem + nombre en Spectral + datos en 15 px; a dos columnas en pantalla ancha |
 | `/servicios/` | sin variante | Texto corrido + aviso de que el original está en *lorem ipsum* |
 | Portada | `prose--home` | El contenido heredado de `home.md` se lee como ficha del centro |
 | `/galeria/` | — | Índice de filas con portada, álbumes y fotos |
-| `/galeria/<archivo>/` | — | Texto de archivo + índice de álbumes + álbumes con grilla tipo columna |
+| `/galeria/<archivo>/` | — | Portada del álbum (4:3, con pie) + notas de archivo + índice de álbumes + álbumes con hoja de contactos |
 | `/contactos/` | — | Canales reales, horario, aviso del formulario pendiente |
 
 Pendientes conocidos, visibles en las páginas cuando corresponde:
@@ -244,8 +357,14 @@ Pendientes conocidos, visibles en las páginas cuando corresponde:
 ## 9. Accesibilidad y móvil
 
 - Composición base a **390 px**; los breakpoints agregan columnas, nunca reparan.
-- Sin scroll horizontal a 390 px en las 21 rutas (verificado midiendo `scrollWidth`
-  contra el ancho del viewport en cada ruta).
+- Sin scroll horizontal en las 21 rutas a 390, 768, 1024 y 1440 px (verificado midiendo
+  `documentElement.scrollWidth` contra el ancho del viewport en cada combinación: 84 de
+  84 iguales al viewport).
+- El índice lateral del artículo está oculto en móvil (`display: none` por debajo de
+  1024 px): la propia lista ya orienta y no se duplica.
+- El foco de teclado llega a las imágenes de galería porque cada foto es un enlace al
+  original, con el texto alternativo como nombre accesible.
+- El movimiento respeta `prefers-reduced-motion: reduce` sin excepciones (§5).
 - Enlace "Saltar al contenido" como primera parada del teclado.
 - Navegación sin hover: el menú móvil es un `<details>` nativo, se cierra con Escape y
   al elegir una página; la navegación de escritorio es una fila de enlaces.
@@ -272,15 +391,38 @@ El detector de Impeccable se corre sobre las plantillas cambiadas:
 C:/Users/Daryhen/.agents/skills/impeccable/scripts/impeccable.cmd detect --json src/pages src/layouts src/components src/styles
 ```
 
-Resultado de la última corrida: **1 hallazgo** en 21 rutas — `straggler` en
-`/par-biomagnetico/`: el último renglón de la cita de entropía queda en una sola palabra
-("videntes."). Es texto heredado literal; corregirlo es una decisión editorial sobre el
-contenido, no de diseño, y no se toca en esta etapa.
+Resultado de la última corrida: **0 hallazgos** sobre `src/`. Una corrida anterior había
+marcado un `straggler` en `/par-biomagnetico/` (el último renglón de la cita de entropía
+quedaba en una sola palabra, "videntes."); al componer el cuerpo en dos columnas el
+renglón ya no queda solo. El texto heredado no se tocó.
 
-Dos notas sobre cómo se mide:
+Cómo se mide:
 
 - Escanear los `.astro` y `.css` en `src/` da **0 hallazgos**, pero el propio detector
   avisa que ahí corre solo con expresiones regulares: es un piso, no un certificado.
-- Escanear `dist/` como archivos sueltos infla el resultado (64) porque no resuelve el
-  layout con la hoja de estilos enlazada. La medición confiable es sobre el sitio
-  construido y servido: las 21 rutas, con navegador real.
+- Escanear `dist/` como archivos sueltos infla el resultado porque no resuelve el layout
+  con la hoja de estilos enlazada. La medición confiable es sobre el sitio construido y
+  servido: las 21 rutas, con navegador real.
+
+### Medición de composición (sitio construido, servidor local)
+
+Ancho del viewport, ancho que ocupa el contenido, caracteres del párrafo de muestra y
+desborde horizontal:
+
+| Página | Viewport | Envoltorio | Párrafo | Línea | Desborde |
+| --- | --- | --- | --- | --- | --- |
+| Portada | 1440 | 1248 | 608 px | 64 car. | no |
+| Portada | 390 | 350 | 350 px | 43 car. | no |
+| `/preguntas/` | 1440 | 1248 | 596 px | 69 car. | no |
+| `/preguntas/` | 390 | 350 | 350 px | 43 car. | no |
+| `/servicios/` | 1440 | 1248 | 596 px | 63 car. | no |
+| `/servicios/` | 390 | 350 | 350 px | 44 car. | no |
+| `/galeria/fotochile/` | 1440 | 1248 | 4 celdas de 297 px | — (nota de archivo: 36 car.) | no |
+| `/galeria/fotochile/` | 390 | 350 | 2 celdas de 169 px | — (nota de archivo: 36 car.) | no |
+
+Antes de esta pasada, `/preguntas/` a 1440 px rendía un párrafo de 544 px (38 % del
+viewport) con 62 caracteres por línea y 900 px de margen muerto a la derecha.
+
+También medido en el navegador: CLS 0 en las cinco rutas de referencia, 0 imágenes sin
+`width`/`height`, 0 errores de consola, y el alto de la barra superior constante (65 px)
+mientras se desplaza.

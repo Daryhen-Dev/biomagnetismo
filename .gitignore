@@ -27,3 +27,8 @@ Thumbs.db
 
 # Impeccable local state
 .impeccable/config.local.json
+
+# Hooks de herramientas de terceros que instala Impeccable
+.codex/
+.cursor/
+.gemini/

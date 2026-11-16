@@ -19,7 +19,7 @@ Francisco Mena
 
 Evento científico de alto nivel organizado por la Sociedad Internacional en Investigación, Salud, Desarrollo Empresarial y Tecnologías (SIISDET). Se llevó a cabo en 2023, marcando un hito en la serie de congresos anuales que esta organización realiza para difundir avances médicos.
 
-![Francisco Mena](../../assets/media/2026/02/IMG_0527.webp "Francisco Mena")
+![Retrato de Francisco Mena Flores, hombre de cabello entrecano y barba con traje gris y camisa blanca, de medio cuerpo sobre fondo gris](../../assets/media/2026/02/IMG_0527.webp "Francisco Mena")
 
 ## Francisco Mena Flores
 
@@ -58,6 +58,6 @@ Técnica desarrollada por el doctor Bert Hellinger.
 -   3 de marzo de Asunción – Paraguay.
 -   16 – 21 de marzo Quito – Ecuador.
 
-  ![img 0460](../../assets/media/2026/02/IMG_0460.webp "Home")
+  ![Afiche del curso de biomagnetismo y bioenergética en Quito: un terapeuta sostiene el tobillo de una persona con zapatillas y pantalón claro, sobre un fondo turquesa con círculos luminosos, e incluye el texto del curso y las fechas del 16 al 21 de marzo](../../assets/media/2026/02/IMG_0460.webp "Home")
 
-  ![Curso Paraguay](../../assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.20.47.webp "Home")
+  ![Afiche del curso de biomagnetismo y bioenergética en Asunción, Paraguay: un hombre de delantal blanco sentado en una silla sostiene los pies de una persona, con el texto del curso, las fechas del 3 al 8 de marzo, el valor en dólares y un teléfono de contacto](../../assets/media/2026/02/WhatsApp-Image-2026-02-02-at-09.20.47.webp "Home")

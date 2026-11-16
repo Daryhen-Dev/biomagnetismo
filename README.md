@@ -119,9 +119,11 @@ src/
 | `PairField.astro` | Dos polos y el campo entre ellos (SVG) | Portada |
 | `FieldRule.astro` | El par reducido a regla divisoria | Galerías |
 | `CredentialPlate.astro` | Retrato y títulos verificables del director | Portada |
-| `GalleryGrid.astro` | Grilla de fotos de un álbum con `<Image>` | Las 11 galerías |
-| `EntryBody.astro` | Cuerpo del `.md` por bloques, con el tratamiento de su página | Portada y páginas institucionales |
-| `ContentHeading.astro` | Encabezado heredado con el nivel corregido | Vía `EntryBody` |
+| `GalleryGrid.astro` | Hoja de contactos de un álbum: 2/3/4 columnas, celda cuadrada con marco y número de archivo | Las 11 galerías |
+| `EntryBody.astro` | Cuerpo del `.md` agrupado (entrada + grupos) con el tratamiento de su página | Portada y páginas institucionales |
+| `ContentBlocks.astro` | Los bloques de contenido uno por uno (pregunta, cita, rótulo) | Vía `EntryBody` |
+| `SiteMotion.astro` | El script del movimiento: revelado al entrar, barra compacta, dibujo del par | Todas |
+| `ContentHeading.astro` | Encabezado heredado con el nivel corregido | Vía `ContentBlocks` |
 | `QuestionParagraph.astro` | Párrafo que empieza con «¿» se vuelve subtítulo | Preguntas |
 | `QuoteParagraph.astro` | Párrafo entre comillas se vuelve cita | Par biomagnético |
 
@@ -132,8 +134,11 @@ contenido lee y qué tocar para cambiarlo. Lo mismo vale para las cuatro plantil
 ### Convenciones
 
 - **Mobile first.** Todo se compone primero para 390 px y después escala. Los
-  breakpoints son adiciones (`48rem`, `60rem`, `64rem`), nunca correcciones de un
-  layout que ya se rompió en móvil.
+  breakpoints son adiciones (`48rem`, `60rem`, `64rem`, `80rem`), nunca correcciones
+  de un layout que ya se rompió en móvil.
+- **Dos anchos.** `--shell` (1248 px) es lo que ocupa la composición y `--measure`
+  (608 px) el ancho de una línea de texto. El texto no se estira para llenar la
+  pantalla: la página se llena con barra lateral, placas y columnas (ver `DESIGN.md §4`).
 - **Una clase, una pieza.** El diseño no se arma con utilidades sueltas en el HTML:
   cada pieza tiene su regla con nombre en `src/styles/global.css` (`.band`,
   `.btn`, `.prose`, `.gallery-grid`…), así el sistema se cambia en un lugar.

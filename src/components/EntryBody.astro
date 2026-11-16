@@ -1,73 +1,74 @@
 ---
 /**
- * Cuerpo de una página de contenido, renderizado por bloques.
+ * Cuerpo de una página de contenido, agrupado y listo para componer.
  *
- * Qué renderiza: el HTML del `.md` de la página, con estos ajustes:
- * - los encabezados no saltan niveles y el `<h1>` heredado pasa a `h2`
- *   (`normalizeHeadingLevels` en `src/data/content-html.ts`);
- * - `preguntas`: los párrafos que empiezan con "¿" se vuelven subtítulos;
- * - `metodo`: los párrafos que empiezan entre comillas se vuelven citas;
- * - los párrafos que vienen íntegramente en negrita se vuelven rótulos.
+ * Qué renderiza: los bloques del `.md` de la página —ya normalizados por la
+ * plantilla con `src/data/content-html.ts`— separados en dos partes:
  *
- * Lo usan: `src/pages/[...slug].astro` y `src/pages/index.astro`.
- * Si querés otro tratamiento por página, agregá un modo acá y su clase
- * `.prose--*` en `src/styles/global.css`.
+ * 1. `lead`: lo que va antes del primer grupo (la entrada de la página, la foto
+ *    del autor del método, la cita de definición).
+ * 2. `groups`: una unidad por pregunta, concepto, sección o persona. En
+ *    escritorio los grupos se componen en dos columnas (`.prose__groups`), así
+ *    el texto deja de ser una cinta angosta sobre una pantalla ancha.
+ *
+ * Cada grupo lleva `id` para que el índice de la página (la barra lateral de
+ * `src/pages/[...slug].astro`) lo enlace con `#`. La plantilla arma ese índice
+ * con `outlineFor()`, que lee la misma tabla de tratamientos (`BODY_TREATMENTS`)
+ * que este componente, así los dos no pueden desincronizarse.
+ *
+ * Lo usan: `src/pages/[...slug].astro` (con variante) y `src/pages/index.astro`
+ * (sin agrupar).
+ *
+ * Agregar una página nueva = agregar su tratamiento a `BODY_TREATMENTS` en
+ * `src/data/content-html.ts`.
  */
-import { normalizeHeadingLevels, renderEntryHtml, toBlocks } from "../data/content-html";
-import QuestionParagraph from "./QuestionParagraph.astro";
-import QuoteParagraph from "./QuoteParagraph.astro";
-import ContentHeading from "./ContentHeading.astro";
+import type { ContentBlock, BodyVariant } from "../data/content-html";
+import { BODY_TREATMENTS, groupBlocks } from "../data/content-html";
+import ContentBlocks from "./ContentBlocks.astro";
 
 interface Props {
-  Content: unknown;
-  mode?: "plain" | "preguntas" | "metodo";
+  blocks: ContentBlock[];
+  variant?: BodyVariant;
 }
 
-const { Content, mode = "plain" } = Astro.props;
-
-// Párrafo que es solo negrita en el Markdown: en estas páginas funciona como
-// rótulo de sección ("TITULO OBTENIDO", "RECONOCIMIENTOS OBTENIDOS").
-const FULLY_STRONG = /^<strong>[\s\S]*<\/strong>$/;
-
-const html = await renderEntryHtml(Content as never);
-const blocks = normalizeHeadingLevels(toBlocks(html));
+const { blocks, variant = "ninguno" } = Astro.props;
+const treatment = BODY_TREATMENTS[variant];
+const { lead, groups } = groupBlocks(blocks, treatment.group, treatment.level);
 ---
 
 {
-  blocks.map((block) => {
-    if (block.kind === "heading") {
-      return (
-        <ContentHeading
-          level={block.level as 2 | 3 | 4 | 5 | 6}
-          id={block.id}
-          highlight={block.originalLevel === 1}
-        >
-          <Fragment set:html={block.inner} />
-        </ContentHeading>
-      );
-    }
+  lead.length > 0 && (
+    <div
+      class:list={[
+        "prose__lead",
+        // Entrada de dos piezas (título + línea): en pantalla ancha se compone en
+        // dos columnas, alineada con los grupos de abajo.
+        treatment.splitLead && lead.length === 2 && "prose__lead--split",
+      ]}
+      data-reveal
+    >
+      <ContentBlocks blocks={lead} mode={treatment.mode} />
+    </div>
+  )
+}
 
-    if (block.kind === "paragraph") {
-      if (FULLY_STRONG.test(block.inner)) {
-        return <p class="prose__label" set:html={block.inner} />;
-      }
-      if (mode === "preguntas") {
-        return (
-          <QuestionParagraph>
-            <Fragment set:html={block.inner} />
-          </QuestionParagraph>
-        );
-      }
-      if (mode === "metodo") {
-        return (
-          <QuoteParagraph>
-            <Fragment set:html={block.inner} />
-          </QuoteParagraph>
-        );
-      }
-      return <p set:html={block.inner} />;
-    }
-
-    return <Fragment set:html={block.html} />;
-  })
+{
+  groups.length > 0 && (
+    <div
+      class:list={[
+        "prose__groups",
+        // La clase lleva la variante de la página, no el modo de agrupado: cada
+        // página tiene su tratamiento escrito en `global.css`.
+        `prose__groups--${variant}`,
+        treatment.columns && "prose__groups--columns",
+      ]}
+      data-reveal-group
+    >
+      {groups.map((group) => (
+        <section class="prose__group" id={group.id} data-reveal>
+          <ContentBlocks blocks={group.blocks} mode={treatment.mode} />
+        </section>
+      ))}
+    </div>
+  )
 }

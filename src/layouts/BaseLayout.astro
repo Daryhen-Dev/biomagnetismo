@@ -15,11 +15,14 @@
  *   `.md` en `src/content/pages/`, o el `<BaseLayout>` de su ruta
  * - cambiar el menú → `src/data/site.ts`
  * - cambiar el pie → `src/components/SiteFooter.astro`
+ * - cambiar el movimiento (revelado, barra, dibujo del par) →
+ *   `src/components/SiteMotion.astro`
  * - cambiar la imagen que se comparte al pegar el enlace → `ogImage`
  */
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import SiteMotion from "../components/SiteMotion.astro";
 import { contact, directorPortrait } from "../data/contact";
 import { siteDescription, siteLocale, siteName } from "../data/site";
 
@@ -135,5 +138,6 @@ const structuredData = {
       <slot />
     </main>
     <SiteFooter />
+    <SiteMotion />
   </body>
 </html>

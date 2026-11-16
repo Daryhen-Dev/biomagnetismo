@@ -1,7 +1,7 @@
 {
   "title": "FotoBrasil",
   "cover": "/src/assets/media/2020/11/WhatsApp-Image-2019-10-03-at-11.25.30-2.webp",
-  "intro": "![Brasil 300x210](/src/assets/media/2020/11/Brasil.webp \"Brasil\")\n\n### Brasil\n\n**Curso realizado en Brasil**",
+  "intro": "![Bandera de Brasil](/src/assets/media/2020/11/Brasil.webp \"Brasil\")\n\n### Brasil\n\n**Curso realizado en Brasil**",
   "galleries": [
     {
       "slug": "brasil-curso",

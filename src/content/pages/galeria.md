@@ -5,7 +5,7 @@ order: 532
 wpId: 532
 legacyUrls: []
 ---
-![Placeholder](http://localhost:10004/wp-content/plugins/elementor/assets/images/placeholder.png "Galeria")
+![Marcador de posición del plugin Elementor, imagen de relleno genérica en lugar de una fotografía real](http://localhost:10004/wp-content/plugins/elementor/assets/images/placeholder.png "Galeria")
 
 ### Este es el encabezado
 

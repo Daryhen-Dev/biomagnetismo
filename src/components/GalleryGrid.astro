@@ -2,15 +2,27 @@
 /**
  * Grilla de fotos de un álbum.
  *
- * Qué renderiza: las imágenes de un álbum en columnas (2 en móvil, 3–4 en
- * escritorio), con `<Image>` de `astro:assets`: WebP redimensionado, `srcset`
- * por ancho y carga diferida. Las fotos conservan su proporción real: son
- * fotografía documental, recortarlas a un cuadrado fijo cortaría gente.
+ * Qué renderiza: las fotos de un álbum en una grilla de celdas iguales —2
+ * columnas a 390 px, 3 desde `md`, 4 desde `lg`—, cada una con su marco
+ * (`.frame`: línea de 1 px + radio + sombra de placa, la regla de imagen del
+ * sitio) y su número de archivo debajo.
+ *
+ * Por qué el marco tiene proporción fija: la grilla se lee como una hoja de
+ * contactos. Con la proporción real de cada foto, una vertical al lado de una
+ * horizontal deja huecos y la grilla salta al cargar. La foto se recorta con
+ * `object-fit: cover` dentro del marco; el original se abre en una pestaña
+ * nueva desde el mismo enlace, sin recorte.
+ *
+ * Por qué el pie reserva su altura: el número de archivo ocupa siempre el mismo
+ * renglón, así la fila de abajo no se mueve cuando cambia la cantidad de fotos
+ * o el texto del pie.
  *
  * Lo usan: `src/pages/galeria/[slug].astro`.
  * Las rutas vienen del JSON de la galería y se resuelven en
  * `src/data/gallery-media.ts`. El texto alternativo viene del contenido: 245 de
  * las 254 fotos llevan `altPending: true` y deben revisarse antes de publicar.
+ * Los `caption` heredados del sitio original son nombres de archivo ("z4",
+ * "zzzz") y no se muestran: el pie usa la posición de la foto en el álbum.
  */
 import { Image } from "astro:assets";
 import { mediaImage } from "../data/gallery-media";
@@ -19,22 +31,45 @@ interface Props {
   images: { src: string; alt: string }[];
   /** Cuántas imágenes cargar de inmediato (las primeras del álbum). */
   eagerCount?: number;
+  /** Nombre del álbum, para la etiqueta accesible del enlace. */
+  album?: string;
 }
 
-const { images, eagerCount = 0 } = Astro.props;
+const { images, eagerCount = 0, album } = Astro.props;
+const total = images.length;
+const width = String(total).length < 2 ? 2 : String(total).length;
+const ordinal = (value: number) => String(value).padStart(width, "0");
 ---
 
-<div class="gallery-grid">
+<div class="gallery-grid" data-reveal-group>
   {
-    images.map((photo, index) => (
-      <Image
-        src={mediaImage(photo.src)}
-        alt={photo.alt}
-        widths={[360, 720]}
-        sizes="(min-width: 64rem) 23vw, (min-width: 48rem) 31vw, 46vw"
-        loading={index < eagerCount ? "eager" : "lazy"}
-        decoding="async"
-      />
-    ))
+    images.map((photo, index) => {
+      const asset = mediaImage(photo.src);
+      return (
+        <figure class="gallery-cell" data-reveal>
+          <a
+            class="gallery-cell__frame frame"
+            href={asset.src}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={asset}
+              alt={photo.alt}
+              widths={[320, 640]}
+              sizes="(min-width: 64rem) 23vw, (min-width: 48rem) 31vw, 46vw"
+              loading={index < eagerCount ? "eager" : "lazy"}
+              decoding="async"
+            />
+            <span class="sr-only"> (se abre en una pestaña nueva)</span>
+          </a>
+          <figcaption class="gallery-cell__caption">
+            <span class="gallery-cell__number">{ordinal(index + 1)}</span>
+            <span class="gallery-cell__total">/ {ordinal(total)}</span>
+            {album && <span class="sr-only">, {album}</span>}
+          </figcaption>
+        </figure>
+      );
+    })
   }
 </div>

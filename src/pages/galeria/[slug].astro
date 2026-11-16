@@ -58,7 +58,7 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
   ogType="article"
 >
   <section class="page-intro band band--night">
-    <div class="shell">
+    <div class="shell page-intro__grid gallery-intro">
       <nav class="page-intro__trail" aria-label="Ubicación en el sitio">
         <a href="/">Inicio</a>
         <span aria-hidden="true">/</span>
@@ -67,21 +67,37 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
         <span>{gallery.data.title}</span>
       </nav>
 
-      <div class="page-intro__body">
-        <h1 class="page-intro__title">{gallery.data.title}</h1>
-        <div class="page-intro__aside">
-          <p class="page-intro__lede">
-            {size.albums}
-            {size.albums === 1 ? "álbum" : "álbumes"} · {size.photos} fotos
-          </p>
-        </div>
+      <h1 class="page-intro__title">{gallery.data.title}</h1>
+
+      <div class="page-intro__aside">
+        <p class="page-intro__lede">
+          {size.albums}
+          {size.albums === 1 ? "álbum" : "álbumes"} · {size.photos} fotos
+        </p>
       </div>
+
+      <!-- Portada del álbum: la foto que el sitio original usaba como
+           carátula. Va más grande y con otro marco que las fotos de la grilla,
+           para que la página se lea como portada + fotografías. -->
+      <figure class="gallery-cover" data-reveal>
+        <div class="gallery-cover__frame frame">
+          <Image
+            src={mediaImage(gallery.data.cover)}
+            alt={`Portada del archivo ${gallery.data.title}`}
+            widths={[480, 960, 1440]}
+            sizes="(min-width: 64rem) 30rem, 92vw"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <figcaption class="gallery-cover__caption">{gallery.data.title}</figcaption>
+      </figure>
 
       <!-- Texto de archivo: lo que el sitio original publicaba sobre esta
            galería (dónde fue el curso, a quién se atendió). -->
       {
         intro.length > 0 && (
-          <div class="archive-intro">
+          <div class="archive-intro" data-reveal>
             {intro.map((block) => {
               if (block.kind === "image") {
                 const image = mediaImageOrUndefined(block.src);
@@ -124,9 +140,9 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
     <div class="shell">
       {
         gallery.data.galleries.length > 1 && (
-          <nav class="album-index" aria-label="Álbumes de esta galería">
+          <nav class="album-index" aria-label="Álbumes de esta galería" data-reveal>
             <p class="contact-block__title">Álbumes</p>
-            <div class="album-index__list">
+            <div class="album-index__list" data-reveal-group>
               {gallery.data.galleries.map((album) => (
                 <a class="album-index__link" href={`#${album.slug}`}>
                   <span>{album.title}</span>
@@ -140,14 +156,14 @@ const nextGallery = sorted.length > 1 ? sorted[(position + 1) % sorted.length] :
 
       {
         gallery.data.galleries.map((album) => (
-          <section class="album" id={album.slug}>
+          <section class="album" id={album.slug} data-reveal>
             <div class="album__head">
               <h2 class="album__title">{album.title}</h2>
               <p class="album__count">
                 {album.images.length} {album.images.length === 1 ? "foto" : "fotos"}
               </p>
             </div>
-            <GalleryGrid images={album.images} />
+            <GalleryGrid images={album.images} album={album.title} eagerCount={album === gallery.data.galleries[0] ? 4 : 0} />
           </section>
         ))
       }

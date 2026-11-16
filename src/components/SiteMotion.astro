@@ -1,0 +1,122 @@
+---
+/**
+ * Capa de movimiento del sitio.
+ *
+ * Qué renderiza: nada. Solo carga el script que pone en marcha las tres
+ * conductas que necesitan JavaScript, y documenta cuáles son. El movimiento
+ * declarativo (hover, press, subrayados) vive en `src/styles/global.css`.
+ *
+ * Lo usa: `src/layouts/BaseLayout.astro`, una vez por página.
+ *
+ * Las tres conductas, y su estado sin JavaScript:
+ * 1. **Revelado al entrar en pantalla.** El script marca con `reveal-pending`
+ *    solo los elementos que están por debajo de la primera pantalla; el resto
+ *    nunca se oculta. Al entrar en el viewport suma `is-in` y el elemento
+ *    aparece con un desplazamiento de 14 px y, si entró con otros, en cascada.
+ *    Sin script no se oculta nada: la página se lee igual.
+ * 2. **Barra superior compacta al desplazar.** Suma `is-scrolled` al encabezado
+ *    para cambiar fondo, borde y sombra. Sin script la barra queda en su estado
+ *    normal (el estado "compacto" es el adicional).
+ * 3. **El par se dibuja.** Marca la figura con `pair-field--armed` y la traza
+ *    con `stroke-dashoffset` cuando entra (o al cargar, si es la portada). Sin
+ *    script la figura ya está dibujada: el estado base es la figura completa.
+ *
+ * Con `prefers-reduced-motion: reduce` no se arma ninguna de las tres: todo
+ * queda en su estado final, visible y quieto. El script lo consulta antes de
+ * tocar nada y el CSS tiene la misma condición como red de seguridad.
+ */
+---
+
+<script>
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* 1. Barra superior: estado compacto al desplazar. ---------------------- */
+  const header = document.querySelector("[data-site-header]");
+
+  if (header) {
+    let queued = false;
+
+    const sync = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+      queued = false;
+    };
+
+    sync();
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(sync);
+      },
+      { passive: true },
+    );
+  }
+
+  /* 2. Revelado al entrar en pantalla. ----------------------------------- */
+  const revealTargets = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-reveal]"),
+  );
+
+  if (revealTargets.length > 0 && "IntersectionObserver" in window && !reduceMotion.matches) {
+    const fold = window.innerHeight;
+    // Solo se arma lo que todavía no se está leyendo: la primera pantalla queda
+    // quieta, así el revelado nunca retrasa la lectura de lo que ya se ve.
+    const pending = revealTargets.filter(
+      (element) => element.getBoundingClientRect().top > fold * 0.94,
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entering = entries.filter((entry) => entry.isIntersecting);
+
+        entering.forEach((entry, index) => {
+          const element = entry.target as HTMLElement;
+          // Cascada corta: lo que entra junto se escalona, con techo a 5 pasos.
+          element.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 70}ms`);
+          element.classList.add("is-in");
+          observer.unobserve(element);
+        });
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.06 },
+    );
+
+    for (const element of pending) {
+      element.classList.add("reveal-pending");
+      observer.observe(element);
+    }
+  }
+
+  /* 3. El par se dibuja. ------------------------------------------------- */
+  const pairFields = Array.from(document.querySelectorAll<HTMLElement>("[data-pair-field]"));
+
+  if (pairFields.length > 0 && "IntersectionObserver" in window && !reduceMotion.matches) {
+    const fold = window.innerHeight;
+
+    const draw = (element: HTMLElement) => {
+      element.classList.add("is-drawn");
+      observer.unobserve(element);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) draw(entry.target as HTMLElement);
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    for (const field of pairFields) {
+      field.classList.add("pair-field--armed");
+
+      // La portada se dibuja al cargar: es el gesto de bienvenida, no espera al
+      // scroll porque ya está a la vista.
+      if (field.getBoundingClientRect().top < fold * 0.9) {
+        requestAnimationFrame(() => requestAnimationFrame(() => draw(field)));
+      } else {
+        observer.observe(field);
+      }
+    }
+  }
+</script>
